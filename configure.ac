@@ -62,6 +62,4 @@ AC_CHECK_FUNCS(strerror)
 
 AC_OUTPUT([src/app/Makefile src/utils/Makefile Makefile src/hf/Makefile src/Makefile
 	src/fourier/Makefile src/colmap/Makefile scenes/Makefile po/Makefile.in])
-	
-dnl	scenes/Makefile doc/Makefile po/Makefile.in])
 
