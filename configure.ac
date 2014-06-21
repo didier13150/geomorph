@@ -4,7 +4,8 @@ dnl 2005-11-06 for replacing Gtkglarea by Gtkglext
 
 AC_INIT(geomorph, 0.60.1)
 AC_CONFIG_SRCDIR(src/app/main.c)
-AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
+AM_INIT_AUTOMAKE
+LT_INIT
 
 dnl Checks for programs.
 AC_PROG_AWK
@@ -58,7 +59,7 @@ AC_C_CONST
 dnl Checks for library functions.
 AC_CHECK_FUNCS(strerror)
 
-AC_OUTPUT([src/app/Makefile src/utils/Makefile Makefile src/hf/Makefile src/Makefile m4/Makefile
+AC_OUTPUT([src/app/Makefile src/utils/Makefile Makefile src/hf/Makefile src/Makefile
 	src/fourier/Makefile scenes/Makefile po/Makefile.in])
 	
 dnl	scenes/Makefile doc/Makefile po/Makefile.in])

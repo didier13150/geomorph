@@ -1,5 +1,5 @@
 
-SUBDIRS = m4  src po scenes
+SUBDIRS = src po scenes
 
 localedir = $(datadir)/locale
 
