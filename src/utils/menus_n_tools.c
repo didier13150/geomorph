@@ -27,7 +27,7 @@
 // #define _(x) pr(x)
 
 gchar *pr(gchar *x) {
-	printf(x);
+	printf("%s", x);
 	return (gchar *) gettext(x);
 }
 

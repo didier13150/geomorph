@@ -30,7 +30,7 @@ in Linux Magazine France, n. 33-34.
  /* 2005-11: change library from gtkglarea to gtkglext
  */
 
-
+#include <locale.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <gtk/gtk.h>

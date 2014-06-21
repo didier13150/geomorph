@@ -660,8 +660,8 @@ types_wrapper* instantiate_types(GtkWidget *main_window) {
 
 	doc_type_list[0].def_dir = (gchar *) x_malloc(strlen(HF_DIR)+1, "gchar (def_dir - HF_DIR)");
 	strcpy(doc_type_list[0].def_dir,HF_DIR);
-	doc_type_list[1].def_dir = (gchar *) x_malloc(strlen(POV_DIR)+1, "gchar (def_dir - POV_DIR)");
-	strcpy(doc_type_list[1].def_dir,POV_DIR);
+	/*doc_type_list[1].def_dir = (gchar *) x_malloc(strlen(POV_DIR)+1, "gchar (def_dir - POV_DIR)");
+	strcpy(doc_type_list[1].def_dir,POV_DIR);*/
 	return types_wrapper_new(main_window, doc_type_list, doc_type_item, NBDOCTYPES);
 
 }
