@@ -1,0 +1,90 @@
+#! /bin/sh
+
+# Installing a Geomorph user, part 2:  defaults for the options file
+
+VERSION=0.60
+
+GEORC=$HOME/geomorph/geomorphrc
+
+if [ -f $GEORC ]
+then exit
+fi
+
+echo "[files]" > $GEORC;
+echo "def_dir = $HOME/geomorph" >> $GEORC;
+echo "hf_dir = $HOME/geomorph" >> $GEORC;
+echo "pov_dir = $HOME/geomorph" >> $GEORC;
+echo "tmp_dir = $HOME/geomorph/tmp" >> $GEORC;
+echo "doc_dir = /usr/local/share/geomorph/doc/index.html " >> $GEORC;
+
+# Look for a HTML reader 
+
+if [ `which firefox` ]; then
+	echo "doc_reader = firefox" >> $GEORC;
+elif [ `which epiphany` ]; then
+	echo "doc_reader = epiphany" >> $GEORC;
+elif [ `which mozilla` ]; then
+	echo "doc_reader = mozilla" >> $GEORC;
+elif [ `which konqueror` ]; then
+	echo "doc_reader = konqueror" >> $GEORC;
+elif [ `which seamonkey` ];  then
+	echo "doc_reader = seamonkey" >> $GEORC;
+elif [ `which galeon` ];  then
+	echo "doc_reader = galeon" >> $GEORC;
+else
+	echo "doc_reader = " >> $GEORC;
+fi
+echo " " >> $GEORC;
+echo "[interface]" >> $GEORC;
+echo "interface_style      = Integrated" >> $GEORC;
+echo "menu_in_doc_window   = TRUE" >> $GEORC;
+echo "icons_in_doc_window  = TRUE" >> $GEORC;
+echo "pad = 6" >> $GEORC;
+echo "hf_size_in_screen_percent = 40 " >> $GEORC;
+echo "hf_size_in_pixels    = 512" >> $GEORC;
+echo "doc_display_size     = 512" >> $GEORC;
+echo "max_pen_preview      = 64 " >> $GEORC;
+echo "filter_preview_size  = 32 " >> $GEORC;
+echo "noise_preview_size   = 64 " >> $GEORC;
+echo "main_bar_x           = 3  " >> $GEORC;
+echo "main_bar_y           = 3   " >> $GEORC;
+echo "creation_window_x    = 3  " >> $GEORC;
+echo "creation_window_y    = 15 " >> $GEORC;
+echo "tools_window_x       = 3  " >> $GEORC;
+echo "tools_window_y       = 15 " >> $GEORC;
+echo "display_doc_offset   = 4 " >> $GEORC;
+
+echo "[application]" >> $GEORC;
+echo "max_history          = 5 " >> $GEORC;
+echo "default_terrain      = Subdiv2  " >> $GEORC;
+echo "default_seed         = 0x6b8b4567" >> $GEORC;
+
+echo " " >> $GEORC;
+
+echo "[rendering]" >> $GEORC;
+# Look for povray
+if [ `which povray` ]; then
+	echo "renderer = povray" >> $GEORC;
+elif [ `which povray36` ]; then
+		echo "renderer = povray36" >> $GEORC;
+elif [ `which povray35` ]; then
+		echo "renderer = povray35" >> $GEORC;
+elif [ `which x-povray` ]; then
+		echo "renderer = x-povray" >> $GEORC;
+else
+		echo "renderer = not-found" >> $GEORC;
+fi
+echo "render_width         = 640  " >> $GEORC;
+echo "render_height        =  480" >> $GEORC;
+echo "scene                = $HOME/geomorph/simple_terrain.pov " >> $GEORC;
+echo "hf_output_for_rendering = test.png  " >> $GEORC;
+echo "output_prefix        = _          " >> $GEORC;
+echo "other_render_options = +P +D -F +L$HOME/geomorph" >> $GEORC;
+
+echo " " >> $GEORC;
+
+if type /usr/local/share/geomorph/$VERSION/v0_30_new_sections > /dev/null 2>&1 ; then 
+	/usr/local/share/geomorph/$VERSION/v0_30_new_sections >> $GEORC
+elif type ./v0_30_new_sections > /dev/null ; then
+	./v0_30_new_sections >> $GEORC
+fi

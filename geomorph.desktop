@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Type=Application
+Version=0.60
+Name=Geomorph
+Comment=Éditeur de terrains pour Linux
+Exec=geomorph %f
+Icon=/usr/local/share/geomorph/GeoMorph.xpm
+Terminal=false
+MimeType=image/png
+Categories=Graphics

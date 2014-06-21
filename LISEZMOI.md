@@ -1,22 +1,25 @@
 geomorph
 ========
 
-Height field  generator and editor for the Linux operating system.
+Geomorph est un générateur et un éditeur d'images de relief ("height fields") fonctionnant sous Linux.
 
-It's a working copy from Patrice St-Gelais's application <patrstg@users.sourceforge.net>
+C'est une copie de travail de l'application de Patrice St-Gelais <patrstg@users.sourceforge.net>
 
 Introduction
 ------------
 
-A height field is a kind of topographic map.  It is a 2D projection of a 3D landscape.
+Une image de relief est une sorte de carte topographique artificielle.
 
-Geomorph generates square images and shows a 3D preview of the resulting landscape.
+C'est une projection 2D d'un paysage 3D.
 
-These 2D images can be processed with a tool like Povray for rendering the landscape.
+Geomorph génère des images carrées et montre un aperçu 3D du paysage qui en résulte.
 
-For more details, see:
-1. ./index.html in the directory where the documentation archive is unpacked.
-2. /usr/local/share/geomorph/doc/index.html if the documentation is installed.
+Ces images peuvent être traitées à l'aide d'un logiciel d'illumination comme Povray
+("renderer") pour donner un paysage réaliste.
+
+Pour davantage d'informations, voir:
+1. ./index.html  dans le répertoire où l'archive de la documentation a été décomprimée,
+2. /usr/local/share/geomorph/doc/index.htmlsi la documentation a été installée.
 3. http://geomorph.sourceforge.net
 
 Installing Geomorph from the source package

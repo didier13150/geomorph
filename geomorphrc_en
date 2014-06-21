@@ -1,0 +1,94 @@
+
+[files]                           ; Directories and files
+def_dir              = geomorph   ; Default directory
+hf_dir               = /home/patrice/geomorph ; Default directory (Height fields)
+pov_dir              = /home/patrice/geomorph ; Default directory (Povray scenes)
+tmp_dir              = /home/patrice/geomorph/tmp/ ; Default directory (temporary files)
+doc_dir              = /usr/local/share/geomorph/doc/index.html ; Default directory (documentation)
+doc_reader           = firefox    ; Default HTML reader
+
+[interface]                       ; Interface
+interface_style      = Integrated ; Interface style
+menu_in_doc_window   = TRUE       ; Display the main menu in each document window
+icons_in_doc_window  = TRUE       ; Display the main menu icons in each document window
+pad                  = 6          ; Dialog padding (pixels)
+hf_size_in_screen_percent = 40         ; Height field default size (% of display)
+hf_size_in_pixels    = 512        ; Height field default size (pixels)
+doc_display_size     = 512        ; Default image display size (pixels)
+max_pen_preview      = 64         ; Maximum pen preview size (pixels)
+filter_preview_size  = 32         ; Filter preview size (pixels)
+noise_preview_size   = 128        ; Noise preview size (pixels)
+main_bar_x           = 3          ; Horizontal position of the main menu (% of display)
+main_bar_y           = 3          ; Vertical position of the main menu (% of display)
+creation_window_x    = 3          ; Horizontal position of the creation window (%)
+creation_window_y    = 15         ; Vertical position of the creation window (%)
+tools_window_x       = 3          ; Horizontal position of the tools window (%)
+tools_window_y       = 15         ; Vertical position of the tools window (%)
+display_doc_offset   = 4          ; Horizontal offset of new documents (%)
+
+[application]                     ; Application
+max_history          = 10         ; Default history size (undo / redo)
+default_terrain      = Subdiv2    ; Default terrain
+default_seed         = 0x6b8b4567 ; Default seed for random generator
+
+[rendering]                       ; 3D rendering
+renderer             = povray     ; 3D rendering tool (Povray...)
+render_width         = 640        ; Default 3D rendering width
+render_height        = 480        ; Default 3D rendering height
+scene                = /home/patrice/geomorph/simple_terrain.pov ; Default rendering scene (.pov...)
+hf_output_for_rendering = test.png   ; PNG output file name for default POV scene
+output_prefix        = _          ; Povray output prefix
+other_render_options = +D +P +L/home/patrice/geomorph ; Other command line rendering options
+
+[3d_preview]                      ; 3D preview
+mesh_size            = 128        ; 3D mesh size (in nodes on one edge of the HF)
+drawing_mesh_size    = 64         ; Default 3D mesh size when drawing (in nodes)
+preview_size         = 300        ; Default preview size (in pixels)
+direct_update        = TRUE       ; Automatic update (FALSE => the user must click to refresh)
+show_subdialog       = TRUE       ; Show the camera controls on startup
+direct_rendering     = FALSE      ; Hardware acceleration for OpenGL (DRI)
+
+[Camera_1]                        ; Camera 1
+camera_y_rotation    = 0          ; Default camera right-left rotation (Y)
+camera_x_rotation    = 50         ; Default camera back-front rotation (X)
+camera_distance      = 2,50       ; Default relative distance of the camera
+camera_height        = 0,00000    ; Default camera height
+right_left_displacement = 0,00000    ; Default camera right-left displacement
+vision_angle         = 55         ; Default field of view, in degrees
+aspect_ratio         = 1,3333334  ; Default aspect ratio (width / length)
+
+[Camera_2]                        ; Camera 2
+camera_y_rotation    = 0          ; Default camera right-left rotation (Y)
+camera_x_rotation    = 35         ; Default camera back-front rotation (X)
+camera_distance      = 1.70       ; Default relative distance of the camera
+camera_height        = 0.10       ; Default camera height
+right_left_displacement = 0,00000    ; Default camera right-left displacement
+vision_angle         = 55         ; Default field of view, in degrees
+aspect_ratio         = 1,3333334  ; Default aspect ratio (width / length)
+
+[Camera_3]                        ; Camera 3
+camera_y_rotation    = 0          ; Default camera right-left rotation (Y)
+camera_x_rotation    = 10         ; Default camera back-front rotation (X)
+camera_distance      = 1,00       ; Default relative distance of the camera
+camera_height        = 0,05       ; Default camera height
+right_left_displacement = 0,00000    ; Default camera right-left displacement
+vision_angle         = 60         ; Default field of view, in degrees
+aspect_ratio         = 1,333      ; Default aspect ratio (width / length)
+
+[Camera_4]                        ; Camera 4
+camera_y_rotation    = 0          ; Default camera right-left rotation (Y)
+camera_x_rotation    = 90         ; Default camera back-front rotation (X)
+camera_distance      = 2,10       ; Default relative distance of the camera
+camera_height        = 0,15       ; Default camera height
+right_left_displacement = 0,00000    ; Default camera right-left displacement
+vision_angle         = 55         ; Default field of view, in degrees
+aspect_ratio         = 1,3333334  ; Default aspect ratio (width / length)
+
+[Camera_5]                        ; Camera 5
+camera_y_rotation    = 0          ; Default camera right-left rotation (Y)
+camera_x_rotation    = 4          ; Default camera back-front rotation (X)
+camera_distance      = 2.60       ; Default relative distance of the camera
+camera_height        = -0.20      ; Default camera height
+right_left_displacement = 0,00000    ; Default camera right-left displacement
+vision_angle         = 25         ; Default field of view, in degrees
+aspect_ratio         = 1,3333334  ; Default aspect ratio (width / length)

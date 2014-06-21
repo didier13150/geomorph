@@ -1,0 +1,9 @@
+#! /bin/sh
+
+# Trying to install the KDE and GNOME desktop shortcut
+
+VERSION=0.60
+DSKT=/usr/local/share/geomorph/geomorph.desktop
+
+xdg-desktop-icon install --novendor $DSKT
+

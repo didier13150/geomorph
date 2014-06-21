@@ -1,0 +1,94 @@
+
+[files]                           ; Verzeichnis und Dateien
+def_dir              = geomorph   ; Standard-Verzeichnis
+hf_dir               = /home/patrice/geomorph ; Standard-Verzeichnis (Height Fields)
+pov_dir              = /home/patrice/geomorph ; Standard-Verzeichnis (Povray Szenen)
+tmp_dir              = /home/patrice/geomorph/tmp/ ; Standardverzeichnis (temporäre Dateien)
+doc_dir              = /usr/local/share/geomorph/doc/index.html ; Standard-Verzeichnis (Dokumentation)
+doc_reader           = firefox    ; Standard HTML Browser
+
+[interface]                       ; Schnittstelle
+interface_style      = Integrated ; Erscheinung der Benutzeroberfläche
+menu_in_doc_window   = TRUE       ; Hauptmenü in jedem Fenster anzeigen
+icons_in_doc_window  = TRUE       ; Hauptmenü-Icons in jedem Fenster anzeigen
+pad                  = 6          ; Dialog Padding (Pixel)
+hf_size_in_screen_percent = 40         ; Height Field Standardgröße (% des Bildschirms)
+hf_size_in_pixels    = 512        ; Height Field Standardgröße (Pixel)
+doc_display_size     = 512        ; Standard Bild-Anzeigegröße (Pixel)
+max_pen_preview      = 64         ; Maximale Stift-Vorschaugröße (Pixel)
+filter_preview_size  = 32         ; Filter Vorschaugröße (Pixel)
+noise_preview_size   = 128        ; Rauschen Vorschaugröße (Pixel)
+main_bar_x           = 3          ; Horizontale Position des Hauptmenüs (% des Bildschirms)
+main_bar_y           = 3          ; Vertikale Position des Hauptmenüs (% des Bildschirms)
+creation_window_x    = 3          ; Horizontale Position des Arbeitsfensters (%)
+creation_window_y    = 15         ; Vertikale Position des Arbeitsfensters (%)
+tools_window_x       = 3          ; Horizontale Position des Werkzeug-Fensters (%)
+tools_window_y       = 15         ; Vertikale Position des Werkzeug-Fensters (%)
+display_doc_offset   = 4          ; Horizontaler Ausgleich des neues Dokumentes (%)
+
+[application]                     ; Anwendung
+max_history          = 10         ; Anzahl Schritte für rückgängig/ wiederherstellen
+default_terrain      = Subdiv2    ; Standardgelände
+default_seed         = 0x6b8b4567 ; Standard-Grundstruktur für den Zufallsgenerator
+
+[rendering]                       ; 3D Rendering
+renderer             = povray     ; 3D Rendering Werkzeug (Povray...)
+render_width         = 640        ; Standard 3D Render-Breite
+render_height        = 480        ; Standard 3D Render-Höhe
+scene                = /home/patrice/geomorph/simple_terrain.pov ; Standard-Szene für Rendering (.pov...)
+hf_output_for_rendering = test.png   ; PNG Dateiname für die Ausgabe der Standard POV Szene
+output_prefix        = _          ; Povray output prefix
+other_render_options = +D +P +L/home/patrice/geomorph ; Andere Renderparameter für die Kommandozeile
+
+[3d_preview]                      ; 3D Vorschau
+mesh_size            = 128        ; 3D Netzgröße (in Knoten an einer Ecke des HF)
+drawing_mesh_size    = 64         ; Standard 3D Netzgröße beim zeichnen (in Knoten)
+preview_size         = 300        ; Standard-Vorschaugröße (in Pixeln)
+direct_update        = TRUE       ; Automatisches Aktualisieren (unwahr => der Benutzer muss zum aktualisieren klicken)
+show_subdialog       = TRUE       ; Kamera-Kontrollinstrumente beim Programmstart anzeigen
+direct_rendering     = FALSE      ; Hardwarebeschleunigung für OpenGL (DRI)
+
+[Camera_1]                        ; Kamera 1
+camera_y_rotation    = 0          ; Standard Kamera Rechts- u. Linksdrehung (Y)
+camera_x_rotation    = 50         ; Standard Kamera Vor- u. Rückwärtsdrehung (X)
+camera_distance      = 2,50       ; Standard Relativ-Entfernung der Kamera
+camera_height        = 0,00000    ; Default camera height
+right_left_displacement = 0,00000    ; Default camera right-left displacement
+vision_angle         = 55         ; Standard-Sichtfeld, in Grad
+aspect_ratio         = 1,3333334  ; Verhältnis Standardaussehen (Breite/ Länge)
+
+[Camera_2]                        ; Kamera 2
+camera_y_rotation    = 0          ; Standard Kamera Rechts- u. Linksdrehung (Y)
+camera_x_rotation    = 35         ; Standard Kamera Vor- u. Rückwärtsdrehung (X)
+camera_distance      = 1.70       ; Standard Relativ-Entfernung der Kamera
+camera_height        = 0.10       ; Default camera height
+right_left_displacement = 0,00000    ; Default camera right-left displacement
+vision_angle         = 55         ; Standard-Sichtfeld, in Grad
+aspect_ratio         = 1,3333334  ; Verhältnis Standardaussehen (Breite/ Länge)
+
+[Camera_3]                        ; Kamera 3
+camera_y_rotation    = 0          ; Standard Kamera Rechts- u. Linksdrehung (Y)
+camera_x_rotation    = 10         ; Standard Kamera Vor- u. Rückwärtsdrehung (X)
+camera_distance      = 1,00       ; Standard Relativ-Entfernung der Kamera
+camera_height        = 0,05       ; Default camera height
+right_left_displacement = 0,00000    ; Default camera right-left displacement
+vision_angle         = 60         ; Standard-Sichtfeld, in Grad
+aspect_ratio         = 1,333      ; Verhältnis Standardaussehen (Breite/ Länge)
+
+[Camera_4]                        ; Kamera 4
+camera_y_rotation    = 0          ; Standard Kamera Rechts- u. Linksdrehung (Y)
+camera_x_rotation    = 90         ; Standard Kamera Vor- u. Rückwärtsdrehung (X)
+camera_distance      = 2,10       ; Standard Relativ-Entfernung der Kamera
+camera_height        = 0,15       ; Default camera height
+right_left_displacement = 0,00000    ; Default camera right-left displacement
+vision_angle         = 55         ; Standard-Sichtfeld, in Grad
+aspect_ratio         = 1,3333334  ; Verhältnis Standardaussehen (Breite/ Länge)
+
+[Camera_5]                        ; Kamera 5
+camera_y_rotation    = 0          ; Standard Kamera Rechts- u. Linksdrehung (Y)
+camera_x_rotation    = 4          ; Standard Kamera Vor- u. Rückwärtsdrehung (X)
+camera_distance      = 2.60       ; Standard Relativ-Entfernung der Kamera
+camera_height        = -0.20      ; Default camera height
+right_left_displacement = 0,00000    ; Default camera right-left displacement
+vision_angle         = 25         ; Standard-Sichtfeld, in Grad
+aspect_ratio         = 1,3333334  ; Verhältnis Standardaussehen (Breite/ Länge)

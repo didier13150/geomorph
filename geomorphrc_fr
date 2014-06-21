@@ -1,0 +1,94 @@
+
+[files]                           ; Répertoires et fichiers
+def_dir              = geomorph   ; Répertoire par défaut
+hf_dir               = /home/patrice/geomorph ; Répertoire par défaut (images de relief)
+pov_dir              = /home/patrice/geomorph ; Répertoire par défaut (scènes Povray)
+tmp_dir              = /home/patrice/geomorph/tmp/ ; Répertoire par défaut (fichiers temporaires)
+doc_dir              = /usr/local/share/geomorph/doc/index.html ; Répertoire par défaut (documentation)
+doc_reader           = firefox    ; Lecteur HTML par défaut
+
+[interface]                       ; Interface
+interface_style      = Integrated ; Style d'interface
+menu_in_doc_window   = TRUE       ; Menu principal répété dans chaque fenêtre de document
+icons_in_doc_window  = TRUE       ; Icônes du menu principal répétés dans chaque fenêtre de document
+pad                  = 6          ; Espacement des dialogues (pixels)
+hf_size_in_screen_percent = 40         ; Grandeur par défaut de l'image de relief (% de l'affichage)
+hf_size_in_pixels    = 512        ; Grandeur par défaut de l'image de relief (pixels)
+doc_display_size     = 512        ; Affichage par défaut des images (pixels)
+max_pen_preview      = 64         ; Grandeur maximale de l'aperçu du pinceau (pixels)
+filter_preview_size  = 32         ; Grandeur de l'aperçu des filtres (pixels)
+noise_preview_size   = 128        ; Grandeur de l'aperçu du bruit (pixels)
+main_bar_x           = 3          ; Position horizontale du menu principal (% de l'affichage)
+main_bar_y           = 3          ; Position verticale du menu principal (% de l'affichage)
+creation_window_x    = 3          ; Position horizontale de la fenêtre de création (%)
+creation_window_y    = 15         ; Position verticale de la fenêtre de création (%)
+tools_window_x       = 3          ; Position horizontale de la fenêtre d'outils (%)
+tools_window_y       = 15         ; Position verticale de la fenêtre d'outils (%)
+display_doc_offset   = 4          ; Déplacement horizontal des nouveaux documents (%)
+
+[application]                     ; Application
+max_history          = 10         ; Grandeur par défaut de l'historique (défaire / refaire)
+default_terrain      = Subdiv2    ; Terrain par défaut
+default_seed         = 0x6b8b4567 ; Racine par défaut pour le générateur aléatoire
+
+[rendering]                       ; Rendu d'illumination 3D
+renderer             = povray     ; Outil de rendu 3D (Povray...)
+render_width         = 640        ; Largeur par défaut du rendu 3D
+render_height        = 480        ; Hauteur par défaut du rendu 3D
+scene                = /home/patrice/geomorph/simple_terrain.pov ; Scène de rendu par défaut (.pov...)
+hf_output_for_rendering = test.png   ; Fichier PNG de sortie pour la scène POV par défaut
+output_prefix        = _          ; Préfixe du fichier de sortie Povray
+other_render_options = +D +P +L/home/patrice/geomorph ; Autres options de rendu sur la ligne de commande
+
+[3d_preview]                      ; Aperçu 3D
+mesh_size            = 128        ; Grandeur du treillis (en noeuds comptés sur un côté du terrain)
+drawing_mesh_size    = 64         ; Grandeur du treillis lors du dessin (en noeuds)
+preview_size         = 300        ; Largeur de l'aperçu (en pixels)
+direct_update        = TRUE       ; Rafraîchissement automatique
+show_subdialog       = TRUE       ; Montrer les contrôles de caméra au démarrage
+direct_rendering     = FALSE      ; Accélération matérielle pour OpenGL (DRI)
+
+[Camera_1]                        ; Caméra 1
+camera_y_rotation    = 0          ; Angle de rotation gauche-droite par défaut (Y)
+camera_x_rotation    = 50         ; Angle de rotation avant-arrière par défaut (X)
+camera_distance      = 2,50       ; Distance relative caméra - terrain, par défaut
+camera_height        = 0,00000    ; Hauteur de la caméra, par défaut
+right_left_displacement = 0,00000    ; Déplacement gauche-droite de la caméra, par défaut
+vision_angle         = 55         ; Angle de champ par défaut, en degrés
+aspect_ratio         = 1,3333334  ; Ratio largeur / hauteur par défaut
+
+[Camera_2]                        ; Caméra 2
+camera_y_rotation    = 0          ; Angle de rotation gauche-droite par défaut (Y)
+camera_x_rotation    = 35         ; Angle de rotation avant-arrière par défaut (X)
+camera_distance      = 1.70       ; Distance relative caméra - terrain, par défaut
+camera_height        = 0.10       ; Hauteur de la caméra, par défaut
+right_left_displacement = 0,00000    ; Déplacement gauche-droite de la caméra, par défaut
+vision_angle         = 55         ; Angle de champ par défaut, en degrés
+aspect_ratio         = 1,3333334  ; Ratio largeur / hauteur par défaut
+
+[Camera_3]                        ; Caméra 3
+camera_y_rotation    = 0          ; Angle de rotation gauche-droite par défaut (Y)
+camera_x_rotation    = 10         ; Angle de rotation avant-arrière par défaut (X)
+camera_distance      = 1,00       ; Distance relative caméra - terrain, par défaut
+camera_height        = 0,05       ; Hauteur de la caméra, par défaut
+right_left_displacement = 0,00000    ; Déplacement gauche-droite de la caméra, par défaut
+vision_angle         = 60         ; Angle de champ par défaut, en degrés
+aspect_ratio         = 1,333      ; Ratio largeur / hauteur par défaut
+
+[Camera_4]                        ; Caméra 4
+camera_y_rotation    = 0          ; Angle de rotation gauche-droite par défaut (Y)
+camera_x_rotation    = 90         ; Angle de rotation avant-arrière par défaut (X)
+camera_distance      = 2,10       ; Distance relative caméra - terrain, par défaut
+camera_height        = 0,15       ; Hauteur de la caméra, par défaut
+right_left_displacement = 0,00000    ; Déplacement gauche-droite de la caméra, par défaut
+vision_angle         = 55         ; Angle de champ par défaut, en degrés
+aspect_ratio         = 1,3333334  ; Ratio largeur / hauteur par défaut
+
+[Camera_5]                        ; Caméra 5
+camera_y_rotation    = 0          ; Angle de rotation gauche-droite par défaut (Y)
+camera_x_rotation    = 4          ; Angle de rotation avant-arrière par défaut (X)
+camera_distance      = 2.60       ; Distance relative caméra - terrain, par défaut
+camera_height        = -0.20      ; Hauteur de la caméra, par défaut
+right_left_displacement = 0,00000    ; Déplacement gauche-droite de la caméra, par défaut
+vision_angle         = 25         ; Angle de champ par défaut, en degrés
+aspect_ratio         = 1,3333334  ; Ratio largeur / hauteur par défaut

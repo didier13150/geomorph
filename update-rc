@@ -1,0 +1,72 @@
+#! /bin/bash
+
+VERSION=0.60
+
+# Update the geomorphrc file from v. 0.2x to v. 0.3x
+
+if [ ! -f $HOME/geomorph/geomorphrc ] ; then
+	echo "File $HOME/geomorph/geomorphrc not found - exiting!"
+	exit
+fi
+
+# 1. We test if it's a v.0.2x by trying to find a keyword used only in v. 0.3x
+
+COUNT=`grep -i camera_1  $HOME/geomorph/geomorphrc | wc -l`
+
+# echo "Lines with 'camera_1':"$COUNT
+
+if [ $COUNT -eq 0 ] ; then
+	echo "Updating $HOME/geomorph/geomorphrc to 0.3x!"
+else
+	echo "$HOME/geomorph/geomorphrc seems to be already updated to 0.3x, exiting!"
+	exit
+fi
+
+# 2. We backup the file
+
+DT=`date +%Y%m%d%H%M%S`
+cp $HOME/geomorph/geomorphrc $HOME/geomorph/geomorphrc_$DT
+echo "Backup of $HOME/geomorph/geomorphrc made on $HOME/geomorph/geomorphrc_$DT"
+
+# 3. We replace the default browser if it does not exist (in case the user left it to galeon...)
+
+browser=`cat $HOME/geomorph/geomorphrc | grep doc_reader | sed s/\ //g | sed s/doc_reader// | sed s/=// | sed s/\;.*$//`
+
+if ! type $browser 1> /dev/null ; then
+	echo "Browser $browser not found, we reinitialize the doc_reader variable with a best-guess default!"
+	# Version without the GNU -i extension of sed - 2005-11-19
+	if type epiphany 1> /dev/null; then
+		sed /doc_reader/s/$browser/epiphany/ $HOME/geomorph/geomorphrc > tmp_$DT
+	elif type firefox 1> /dev/null; then
+		sed /doc_reader/s/$browser/firefox/ $HOME/geomorph/geomorphrc > tmp_$DT
+	elif type mozilla 1> /dev/null; then
+		sed /doc_reader/s/$browser/mozilla/ $HOME/geomorph/geomorphrc > tmp_$DT
+	elif type konqueror 1> /dev/null; then
+		sed /doc_reader/s/$browser/konqueror/ $HOME/geomorph/geomorphrc > tmp_$DT
+	# else
+		# Do nothing!
+	fi
+	if type tmp_$DT 1> /dev/null; then
+		cp -f tmp_$DT $HOME/geomorph/geomorphrc
+		rm -f tmp_$DT
+	fi
+	
+fi
+
+# 4. We add the output_prefix variable in the rendering section
+
+# sed -i s/other_render_options/output_prefix\ =\ \_\ \;\\nother_render_options/ $HOME/geomorph/geomorphrc
+
+# Version without the GNU -i extension, which does not work on some older systems:
+
+sed s/other_render_options/output_prefix\ =\ \_\ \;\\nother_render_options/ $HOME/geomorph/geomorphrc > tmp_$DT
+cp -f tmp_$DT $HOME/geomorph/geomorphrc
+rm -f tmp_$DT
+
+# 5. We add the 3d_preview and the camera_1 to camera_5 sections
+
+if type /usr/local/share/geomorph/$VERSION/v0_30_new_sections >& /dev/null ; then 
+	/usr/local/share/geomorph/$VERSION/v0_30_new_sections >> $HOME/geomorph/geomorphrc
+elif type ./v0_30_new_sections > /dev/null ; then
+	./v0_30_new_sections >> $HOME/geomorph/geomorphrc
+fi
