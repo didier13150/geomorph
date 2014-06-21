@@ -1,7 +1,7 @@
 geomorph
 ========
 
-Geomorph est un générateur et un éditeur d'images de relief ("height fields") fonctionnant sous Linux.
+Geomorph est un gÃ©nÃ©rateur et un Ã©diteur d'images de relief ("height fields") fonctionnant sous Linux.
 
 C'est une copie de travail de l'application de Patrice St-Gelais <patrstg@users.sourceforge.net>
 
@@ -12,14 +12,14 @@ Une image de relief est une sorte de carte topographique artificielle.
 
 C'est une projection 2D d'un paysage 3D.
 
-Geomorph génère des images carrées et montre un aperçu 3D du paysage qui en résulte.
+Geomorph gÃ©nÃ¨re des images carrÃ©es et montre un aperÃ§u 3D du paysage qui en rÃ©sulte.
 
-Ces images peuvent être traitées à l'aide d'un logiciel d'illumination comme Povray
-("renderer") pour donner un paysage réaliste.
+Ces images peuvent Ãªtre traitÃ©es Ã  l'aide d'un logiciel d'illumination comme Povray
+("renderer") pour donner un paysage rÃ©aliste.
 
 Pour davantage d'informations, voir:
-1. ./index.html  dans le répertoire où l'archive de la documentation a été décomprimée,
-2. /usr/local/share/geomorph/doc/index.htmlsi la documentation a été installée.
+1. ./index.html  dans le rÃ©pertoire oÃ¹ l'archive de la documentation a Ã©tÃ© dÃ©comprimÃ©e,
+2. /usr/local/share/geomorph/doc/index.htmlsi la documentation a Ã©tÃ© installÃ©e.
 3. http://geomorph.sourceforge.net
 
 Installing Geomorph from the source package
