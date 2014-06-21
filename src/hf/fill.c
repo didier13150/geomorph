@@ -81,9 +81,7 @@ void reset_seeds (fill_struct *f) {
 }
 
 unsigned long int encode_span (gint from, gint to, gint direction){
-	unsigned long int code = to; // We assume it's at least 32 bits long (there could be a portability problem here!)
-	//TODO Check init here (DF)
-	code = code | (unsigned long int) direction;
+	unsigned long int code = direction; // We assume it's at least 32 bits long (there could be a portability problem here!)
 	code = code | (((unsigned long int) from) << 2);
 	code = code | (((unsigned long int) from) << 14);
 	return code;
