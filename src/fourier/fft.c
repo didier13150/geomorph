@@ -342,15 +342,15 @@ u_int* complex_to_u_int_clamp_translate (double complex *in, u_int *out, int w_i
 // It also translates the output - typically: use x == w_out>>1 and y == h_out>>1 to center
 int i,j;
 static double maxd = (double) 0xFFFF;
-double rmin, rmax, imin, imax, rratio=1.0, iratio=1.0;
+double rmin, rmax, rratio=1.0; // iratio=1.0, imax, imin;
 // printf("FFT - Converting complex to unsigned integer array... \n");
 if (!out)
 	out = (u_int *) x_calloc(w_out*h_out, sizeof(u_int), "u_int (out in complex_to_u_int_clamp_translate in fft.c)");
 // Calculate max and min, for normalizing the data
 rmin=cnorm(*in);
 rmax=rmin;
-imin=cimag(*in);
-imax=imin;
+//imin=cimag(*in);
+//imax=imin;
 for (i=1;i<(w_in*h_in);i++) {
 	if (cnorm(*(in+i))>rmax)
 		rmax = cnorm(*(in+i));

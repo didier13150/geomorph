@@ -213,12 +213,17 @@ void process_options(option_file_type *options) {
 			DISPLAY_DOC_OFFSET = atol(buf);
 	}
 	
+	gchar *uri = "http://geomorph.sourceforge.net";
+	put_option(options,"files","doc_dir",uri);
+	DOC_DIR = uri;
+	/*
 	if ((buf = get_option(options,"files","doc_dir")) && strlen(buf))
 		DOC_DIR = buf;
 	else {
-		DOC_DIR = DOCUMENT_DIR;
+		DOC_DIR = uri;
 		put_option(options,"files","doc_dir",DOC_DIR);
 	}
+	*/
 		
 	if ((buf = get_option(options,"files","doc_reader")) && strlen(buf))
 		DOC_READER = buf;
@@ -1008,7 +1013,7 @@ void about_callb(GtkWidget *wdg, gpointer app) {
 	GError *ger;
 	static gchar *f1=NULL;
 	static gchar *f2 = "splash.jpg";
-	static gchar *msg = "\nGEOMORPH 0.6\nhttp://geomorph.sourceforge.net\n\n(c) Patrice St-Gelais 2003-2009 (GPL)\npatrstg@users.sourceforge.net\n\nGerman translation by\nSimon Donike (2005-2008) and Tim Schuermann (2004)";
+	static gchar *msg = "\nGEOMORPH 0.6.1\nhttp://geomorph.sourceforge.net\n\n(c) Patrice St-Gelais 2003-2009 (GPL)\npatrstg@users.sourceforge.net\n\nGerman translation by\nSimon Donike (2005-2008) and Tim Schuermann (2004)";
 	if (!f1) {
 		f1 = x_malloc(2+strlen("/usr/local/share/geomorph/")+strlen(VERSION)+strlen(f2), "Splash image");
 		strcpy(f1,"/usr/local/share/geomorph/");

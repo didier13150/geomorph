@@ -407,7 +407,7 @@ void my_msg_subcall(gchar * message, int flag_exit, GtkWidget *dialog, GtkWidget
 	gtk_signal_connect_object(GTK_OBJECT(ok), "clicked",
 		GTK_SIGNAL_FUNC(gtk_widget_destroy), GTK_OBJECT(dialog));
 	gtk_signal_connect(GTK_OBJECT(dialog), "destroy",
-		GTK_SIGNAL_FUNC(msg_callb1), (void *)flag_exit);
+		GTK_SIGNAL_FUNC(msg_callb1), (void *)(intptr_t)flag_exit);
 	gtk_signal_connect_object(GTK_OBJECT(dialog), "destroy",
 		GTK_SIGNAL_FUNC(g_main_loop_quit), (void *) loop);
 	gtk_container_add(GTK_CONTAINER(GTK_DIALOG(dialog)->action_area),ok);

@@ -31,10 +31,10 @@
 #include "../utils/x_alloc.h"
 
 #ifndef VERSION
-	#define VERSION "0.60"
+	#define VERSION "0.60.1"
 #endif
 #ifndef VERSION_NAME
-	#define VERSION_NAME "geomorph-0.60"
+	#define VERSION_NAME "geomorph-0.60.1"
 #endif
 
 // Subdir with scenes and option file, normally in $HOME

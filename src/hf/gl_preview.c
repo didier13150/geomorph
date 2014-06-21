@@ -30,15 +30,18 @@ in Linux Magazine France, n. 33-34.
  /* 2005-11: change library from gtkglarea to gtkglext
  */
 
+#include <string.h>
 #include <locale.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <gtk/gtk.h>
 #include <gtk/gtkgl.h>
 
+#include "dialog_utilities.h"
 #include "gl_preview.h"
 // hf_calc.h for data types and some macros
 #include "hf_calc.h"
+#include "hf_wrapper.h"
 
 #include "../icons/rotate_y.xpm"
 #include "../icons/rotate_x.xpm"

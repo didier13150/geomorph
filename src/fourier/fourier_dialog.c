@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "fourier_dialog.h"
 #include "../hf/hf.h"
 #include "../hf/hf_calc.h"
@@ -175,7 +176,7 @@ static void compute_fourier_grid (fourier_dialog_struct* fds,
 // fourier_type: MODULE, REAL, IMAGINARY
 
 	static pix8_rgb mask_value = {0xFF, 0x0F, 0x0F};
-	gint i;
+	//gint i;
 	if (!fds->fs->tmp_buf)
 		return;
 	convert_complex (fds->fs, (gpointer) fds->fs->tmp_buf, HF_TYPE_ID, fourier_type, F_INPUT_BUFFER) ;
@@ -219,7 +220,7 @@ static void change_scale_callb (GtkWidget *wdg, gpointer fds_ptr) {
 	gint display_x, display_y;
 	gdouble hpos, vpos, ratio_x, ratio_y;
 	GtkAdjustment *vadj, *hadj;
-	GtkRequisition rq, rqv, rqh;
+	GtkRequisition rqv, rqh; //rq;
 	fourier_dialog_struct *fds;
 	fds = (fourier_dialog_struct *) fds_ptr;
 	if (!fds)
@@ -571,7 +572,7 @@ static gint result_preview (GtkWidget *wdg, gpointer fds_ptr) {
  	fourier_dialog_struct *fds = (fourier_dialog_struct *) fds_ptr;	
 	if (wdg)
 		if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wdg)))
-			return;
+			return TRUE;
 	fds->preview_choice = PREVIEW_RESULT;
 	gl_set_input_grid (fds->gl_preview, fds->fs->tmp_buf_inv, fds->max_x, fds->max_y, HF_TYPE_ID);
 	gl_area_update (fds->gl_preview);
@@ -584,7 +585,7 @@ static gint transform_preview (GtkWidget *wdg, gpointer fds_ptr) {
  	fourier_dialog_struct *fds = (fourier_dialog_struct *) fds_ptr;	
 	if (wdg)
 		if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wdg)))
-			return;
+			return TRUE;
 	fds->preview_choice = PREVIEW_TRANSFORM;
 	gl_set_input_grid (fds->gl_preview, fds->fs->tmp_buf, fds->max_x, fds->max_y, HF_TYPE_ID);
 	gl_area_update (fds->gl_preview);
@@ -616,11 +617,12 @@ static gint reuse_result_callb (GtkWidget *button, gpointer fds_ptr) {
 	fourier_compute_inverse (fds->fs);
 	set_toolbar_button_from_label (fds->ffds->toolbar, _("No filter"), TRUE);
 	draw_fourier(fds);
+	return TRUE;
 }
 
 GtkWidget *build_fourier_widget (fourier_dialog_struct *fds) {
 
-	GtkWidget *main_box, *view_box, *fourier_parts_box, *notebook, *scr_win, *hbox, *vbox, *vbox2, *scale, *frame, *button;
+	GtkWidget *main_box, *view_box, *fourier_parts_box, *notebook, *scr_win, *hbox, *vbox, *vbox2, *frame, *button; // *scale
 	
 	GSList *group=NULL;
 

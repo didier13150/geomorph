@@ -35,16 +35,19 @@ char *alltrim(char *some_string) {
 	// Remove comments at the end (begining by ";" or "//")
 	// Future improvement:  don't remove comments inside simple / double quotes...
 	char *return_string;
-	int i,max, start=0;
+	int i, max, start=0, stop=0;
 	int start_not_found = TRUE;
 	max = strlen(some_string);
 	
 	for (i=max; i>=0; i--) {
 		if ((' '!=some_string[i]) && ('\0'!=some_string[i])
-			&& ('\n'!=some_string[i])) break;
+			&& ('\n'!=some_string[i])) {
+				stop = i;
+				break;
+		}
 	}
-	max = i+1;
-	for (i=0; i<max; i++) {
+	max = stop+1;
+	for (i=0; i<=stop; i++) {
 		if (start_not_found)
 			if (' '!=some_string[i]) {
 				start = i;
@@ -150,6 +153,7 @@ int create_block(char *lbracket, char *rbracket,
 			break;
 	current_options->nb_blocks++;
 	if (i>=allowed_options->nb_blocks) {
+		
 		printf(_("Options block <<%s>> unknown; <<%s>> used\n"),lbracket+1,
 			allowed_options->option_block[0].block_name);
 		return 0;
@@ -215,9 +219,11 @@ void create_option(char *buf_ptr, option_block_type *cur_bl,
 */		
 		cur_bl->nb_options++;
 	}
+	/*
 	else {
 		printf(_("Options file: <<%s>> unknown\n"),buf_ptr);
 	}  // equal sign else
+	*/
 }
 
 void print_options (	FILE *fp, 

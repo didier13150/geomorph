@@ -19,6 +19,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "fourier.h"
 #include "fft.h"
 #include <complex.h>
@@ -139,7 +140,7 @@ void convert_complex (fourier_struct *fs, gpointer output_grid, gint data_type, 
 	// Converts a complex buffer to a displayable format
 	// We must scale the data, and translate it to center the 0 frequency
 	gint i, j ,half_x, half_y, index, indexw;
-	gdouble ratio,min,max,value,min_val=0.0,max_val=0.0, scaled_gap;
+	gdouble ratio,min,max,value, scaled_gap; //max_val=0.0,min_val=0.0;
 	double complex *buffer;
 	if (buffer_type==F_INPUT_BUFFER)
 		buffer = fs->in;

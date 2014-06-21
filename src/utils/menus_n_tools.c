@@ -41,7 +41,7 @@ submenu_struct *submenu_new (gint ndx, gchar *label, GtkWidget *bar) {
 	if (NULL == (subm_buf = (submenu_struct *) x_malloc(sizeof(submenu_struct), "submenu_struct"))) 
 		my_msg("Allocation: submenu_struct ???\n",ABORT);
 	subm_buf->itemndx = (GList *)NULL;
-	subm_buf->itemndx = g_list_append(subm_buf->itemndx, (gpointer) ndx);
+	subm_buf->itemndx = g_list_append(subm_buf->itemndx, (gpointer)(intptr_t) ndx);
 	subm_buf->sm_item = gtk_menu_item_new_with_label(label);
 	gtk_menu_bar_append (GTK_MENU_BAR (bar), subm_buf->sm_item);
 	gtk_widget_show(subm_buf->sm_item);
@@ -107,7 +107,7 @@ menu_struct *menu_new(gint nbitems, command_item_struct *items,
 			item_buf);
 		// Keep the indexes for future use (?)
 		((submenu_struct *) g_list_last(menu->submenus)->data)->itemndx = 
-			g_list_append( ((submenu_struct *) g_list_last(menu->submenus)->data)->itemndx  , (gpointer) i);
+			g_list_append( ((submenu_struct *) g_list_last(menu->submenus)->data)->itemndx  , (gpointer)(intptr_t) i);
 		(items+i)->menu_item = item_buf;  // For future use (ex. freeing the widget)
 		if ((items+i)->accel)
 			gtk_widget_add_accelerator (item_buf, "activate", accel_grp, 
