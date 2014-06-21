@@ -21,7 +21,7 @@
 #include "hf_wrapper.h"
 #include "../utils/menus_n_tools.h"
 
-static generic_callb (gpointer data, gint merge_op) {
+static void generic_callb (gpointer data, gint merge_op) {
 	merge_struct *mrg = (merge_struct *) data;
 	mrg->merge_op = merge_op;
 	merge_calc (mrg);

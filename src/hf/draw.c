@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "draw.h"
 #include "waves.h"
 #define MULT_SIZE 2
@@ -350,7 +351,7 @@ void draw_dot (hf_struct_type *hf, pen_struct *pen, gint x, gint y, gdouble **ga
 //	The remainder of the stroke is drawn with draw_continuous_line_by_dot
 	gboolean wrap;
 	draw_buf *d;
-	gint map_size, i, j, ii;
+	gint map_size; // i, j, ii;
 	map_struct *map;
 	map = pen->map;
 	d = map->dr_buf;
@@ -442,7 +443,7 @@ gboolean draw_continuous_line_by_dot (hf_struct_type *hf, pen_struct *pen,
 	// We smooth progressively what is drawn
 	// Return TRUE if something has been drawn, FALSE otherwise
 
-	gint h, steps, map_size, i, j, ii;
+	gint h, steps, map_size; // i, j, ii;
 	gdouble spacing, dist, dx, dy, end_x, end_y;
 	gboolean wrap;
 	map_struct *map;

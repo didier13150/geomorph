@@ -44,9 +44,9 @@ void set_creation_container (hf_options_struct *hfo, GtkWidget *creation_contain
 		if (GTK_IS_CONTAINER(creation_container))
 			hfo->creation_container = creation_container;
 		else
-			printf("SET_CREATION_CONTAINER: %d is not a container\n", creation_container);
+			printf("SET_CREATION_CONTAINER: %ld is not a container\n", (long int) creation_container);
 	else
-		printf("SET_CREATION_CONTAINER: %d is not a widget\n", creation_container);
+		printf("SET_CREATION_CONTAINER: %ld is not a widget\n", (long int) creation_container);
 	if (!already_set)
 		gtk_box_pack_start(GTK_BOX(creation_container), hfo->fd_struct->filter_dialog, FALSE, FALSE, 0);
 //		gtk_container_add(GTK_CONTAINER(creation_container), hfo->fd_struct->filter_dialog);

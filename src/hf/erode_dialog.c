@@ -20,6 +20,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+// get_current_dir_name() is only prototyped if _GNU_SOURCE is defined
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <string.h>
 #include <unistd.h>
 
 #include "img_process_dialog.h"
@@ -138,14 +143,14 @@ void craters_erosion_dialog_struct_free (craters_erosion_dialog_struct *ceds) {
 
 void apply_whimsical (hf_wrapper_struct *hfw) {
 
-	gint t1;
+	//gint t1;
 	if (!hfw->hf_struct->tmp_buf)
 		hf_backup(hfw->hf_struct);
 	//	We reapply the process on the original buffer (tmp_buf)
 	//	But the process take hf_buf as the source	
 	memcpy (hfw->hf_struct->hf_buf,hfw->hf_struct->tmp_buf,
 		sizeof(hf_type)*hfw->hf_struct->max_x*hfw->hf_struct->max_y);
-	t1 = clock();
+	//t1 = clock();
 	// Computing MIN/MAX is required for applying the auto-contrast flag in "merge_erode"
 	hf_min_max(hfw->hf_struct);
 	if (hfw->hf_options->img->whimsical_erosion->radius)
@@ -391,7 +396,7 @@ void draw_n_write_hf (hf_wrapper_struct *hfw) {
 }
 
 void apply_rain_erosion (hf_wrapper_struct *hfw) {
-	gint t1;
+	//gint t1;
 	gchar *dir;
 	gpointer fn;
 	if (!hfw->hf_struct->tmp_buf)
@@ -627,7 +632,7 @@ void rain_erosion_callb(GtkWidget *wdg, gpointer data) {
 
 
 void apply_craters (hf_wrapper_struct *hfw) {
-	gint t1, qty_drawn, data_size;
+	gint qty_drawn, data_size; // t1,  
 	static gchar *buf=NULL;
 	craters_erosion_struct *ces;
 	ces = hfw->hf_options->img->craters_erosion;
@@ -644,7 +649,7 @@ void apply_craters (hf_wrapper_struct *hfw) {
 	if (!hfw->hf_struct->result_buf)
 		hfw->hf_struct->result_buf = (hf_type *) x_malloc(data_size, "hf_type (result_buf in apply_craters)");
 	memcpy(hfw->hf_struct->result_buf,hfw->hf_struct->hf_buf, data_size);
-	t1 = clock();
+	//t1 = clock();
 	qty_drawn = 
 	        draw_many_craters (ces->crater_str,
 		hfw->hf_struct,
@@ -913,10 +918,10 @@ GtkWidget *crests_gravity_dialog_new (gpointer data, gchar *title,
 }
 
 void apply_crests (hf_wrapper_struct *hfw) {
-	gint t1;
+	//gint t1;
 	if (!hfw->hf_struct->tmp_buf)
 		hf_backup(hfw->hf_struct);
-	t1 = clock();
+	//t1 = clock();
 	set_watch_cursor(hfw);
 	hf_crests_erosion_hex(hfw->hf_struct,
 		hfw->hf_options->img->crests->steps,
@@ -990,10 +995,10 @@ void crests_callb(GtkWidget *wdg, gpointer data) {
 /************************* GRAVITY *************************/
 
 void apply_gravity (hf_wrapper_struct *hfw) {
-	gint t1;
+	//gint t1;
 	if (!hfw->hf_struct->tmp_buf)
 		hf_backup(hfw->hf_struct);
-	t1 = clock();
+	//t1 = clock();
 	set_watch_cursor(hfw);
 	hf_relax_hex(hfw->hf_struct,
 		hfw->hf_options->img->gravity->steps,
@@ -1078,10 +1083,10 @@ void gravity_callb(GtkWidget *wdg, gpointer data) {
 /************************* ORIENTED GRAVITY *************************/
 
 void apply_oriented_gravity (hf_wrapper_struct *hfw) {
-	gint t1;
+	//gint t1;
 	if (!hfw->hf_struct->tmp_buf)
 		hf_backup(hfw->hf_struct);
-	t1 = clock();
+	//t1 = clock();
 	set_watch_cursor(hfw);
 	hf_oriented_relax(hfw->hf_struct,
 		hfw->hf_options->img->oriented_gravity->steps,

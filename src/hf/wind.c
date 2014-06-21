@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "hf.h"
 #include "hf_calc.h"
 #include "wind.h"
@@ -53,8 +54,8 @@ void hf_ripples1 (hf_struct_type *hf, wind_struct *ws) {
 
 //	Wind erosion - ripples
 	
-	static gint i,x,y, speed, slope_threshold, slope,
-		salt_threshold, salt_length, itarget; 
+	static gint i,x,y, speed, slope,
+		salt_threshold, salt_length, itarget; // slope_threshold;
 	
 	static hf_type chunk, removal, target;
 	
@@ -66,7 +67,7 @@ void hf_ripples1 (hf_struct_type *hf, wind_struct *ws) {
 	// Initialize relative parameters in HF world
 	
 	speed = (ws->wind_speed*(gint) WIND_RANGE) / 10;
-	slope_threshold =  (gint) (sin(PI * ((gdouble) ws->slope_threshold) / 180.0) * ((gdouble) MAX_HF_VALUE) / (gdouble) hf->max_x);
+	//slope_threshold =  (gint) (sin(PI * ((gdouble) ws->slope_threshold) / 180.0) * ((gdouble) MAX_HF_VALUE) / (gdouble) hf->max_x);
 	salt_threshold = (ws->b*(gint) WIND_RANGE) / 10;
 	salt_length = 1+(((ws->a)*hf->max_x)/100);
 	
@@ -101,7 +102,7 @@ void hf_ripples3 (hf_struct_type *hf, wind_struct *ws) {
 //	If not, there is erosion
 //	slope_threshold = relaxation due to gravity
 	
-	static gint i,x,y, sat_sand_flux, slope_threshold, slope1, slope2, slope_derivative, diff, WIND; 
+	static gint i,x,y, sat_sand_flux, slope1, slope2, slope_derivative, diff, WIND; // slope_threshold, 
 	
 	static hf_type value;
 	
@@ -125,7 +126,7 @@ void hf_ripples3 (hf_struct_type *hf, wind_struct *ws) {
 	for (i=0; i<hf->max_y; i++)
 		*(vsand_flux+i) = WIND;
 		
-	slope_threshold = iget_absolute_slope (ws->slope_threshold, hf->max_x);
+	//slope_threshold = iget_absolute_slope (ws->slope_threshold, hf->max_x);
 	
 	for (i=0; i<ws->steps; i++) {
 		for (y=0; y<hf->max_y; y++) {	
@@ -185,7 +186,7 @@ void hf_ripples2 (hf_struct_type *hf, wind_struct *ws) {
 //	If not, there is erosion
 //	slope_threshold = relaxation due to gravity
 	
-	static gint i,x,y, sand_flux, sat_sand_flux, slope_threshold, slope1, slope2, slope_derivative, diff; 
+	static gint i,x,y, sand_flux, sat_sand_flux, slope1, slope2, slope_derivative, diff; // slope_threshold, 
 	
 	static hf_type value;
 	
@@ -199,7 +200,7 @@ void hf_ripples2 (hf_struct_type *hf, wind_struct *ws) {
 	A = ws->a;
 	B = ws->b;
 
-	slope_threshold = iget_absolute_slope (ws->slope_threshold, hf->max_x);
+	//slope_threshold = iget_absolute_slope (ws->slope_threshold, hf->max_x);
 	
 	sand_flux = (ws->wind_speed*(gint) WIND_RANGE) / 10;
 
@@ -305,7 +306,7 @@ void hf_ripples4 (hf_struct_type *hf, wind_struct *ws) {
 //	If not, there is erosion
 //	slope_threshold = relaxation due to gravity
 	
-	static gint i,x,y, sat_sand_flux, slope_threshold, diff, wind, vsize; 
+	static gint i,x,y, sat_sand_flux, diff, wind, vsize; // slope_threshold, 
 	
 	static gdouble slope_derivative;
 	
@@ -335,7 +336,7 @@ void hf_ripples4 (hf_struct_type *hf, wind_struct *ws) {
 	for (i=0; i<hf->max_y; i++)
 		*(vsand_flux+i) = wind;
 		
-	slope_threshold = iget_absolute_slope (ws->slope_threshold, hf->max_x);
+	//slope_threshold = iget_absolute_slope (ws->slope_threshold, hf->max_x);
 	
 	for (i=0; i<ws->steps; i++) {
 		for (y=0; y<hf->max_y; y++) {	
@@ -398,9 +399,9 @@ void hf_ripples5 (hf_struct_type *hf, wind_struct *ws) {
 //	Version with no sat_sand_flux
 //	The core formula gives a ratio which is removed from H
 	
-	static gint i,x,y, slope_threshold, diff, wind, vsize; 
+	static gint i,x,y, diff, wind, vsize; // slope_threshold, 
 	
-	static gdouble slope_derivative, prec_slope;
+	static gdouble slope_derivative; // prec_slope,
 	
 	static hf_type value, *vbuf;
 	
@@ -428,13 +429,13 @@ void hf_ripples5 (hf_struct_type *hf, wind_struct *ws) {
 	for (i=0; i<hf->max_y; i++)
 		*(vsand_flux+i) = wind;
 		
-	slope_threshold = iget_absolute_slope (ws->slope_threshold, hf->max_x);
+	//slope_threshold = iget_absolute_slope (ws->slope_threshold, hf->max_x);
 	
 	for (i=0; i<ws->steps; i++) {
 		for (y=0; y<hf->max_y; y++) {	
 			
 			vbuf = memcpy(vbuf,hf->hf_buf+y*hf->max_x,vsize);		
-			prec_slope = avrg_slope (vbuf, -1, 0, hf->max_x, 4);
+			//prec_slope = avrg_slope (vbuf, -1, 0, hf->max_x, 4);
 			
 			for (x=0; x<hf->max_x; x++) {
 				
@@ -463,7 +464,7 @@ void hf_ripples5 (hf_struct_type *hf, wind_struct *ws) {
 				// In both cases, sand_flux takes the value of sat_sand_flux,
 				// except where there is not enough sand to remove
 				
-				prec_slope = slope;
+				//prec_slope = slope;
 				
 				if (!diff) {
 					continue;

@@ -19,6 +19,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "img_process_dialog.h"
 #include "hf_wrapper.h"
 #include "wind_dialog.h"
@@ -53,12 +54,12 @@ void wind_dialog_struct_free (wind_dialog_struct *wds) {
 /************************* SAND RIPPLES and DUNES *************************/
 
 void apply_wind (wind_dialog_struct *wds) {
-	gint t1;
+	//gint t1;
 	hf_wrapper_struct *hfw;
 	hfw = (hf_wrapper_struct *) * (hf_wrapper_struct **) wds->parent_data;
 	if (!hfw->hf_struct->tmp_buf)
 		hf_backup(hfw->hf_struct);
-	t1 = clock();
+	//t1 = clock();
 	set_watch_cursor(hfw);
 	switch (wds->process) {
 		case RIPPLES:

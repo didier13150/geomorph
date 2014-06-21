@@ -77,7 +77,7 @@ void init_radial_noise() {
 
 gint get_depth (draw_crater_struct *dcs, gint diameter, gint hf_size) {
 	// Calculate the absolute crater depth
-	gint depth;
+	gint depth = 10;
 	if (dcs->default_depth)
 		switch (dcs->type) {
 		case STANDARD_CRATER:
@@ -115,6 +115,8 @@ gint *get_sqrmap (draw_crater_struct *dcs, gint diam, gint depth) {
 		map = peak_crater;
 		break;
 	case IRREGULAR_CRATER:
+		map = irregular_crater;
+	default:
 		map = irregular_crater;
 	}
 	noise = ((gfloat) dcs->radial_noise) / 100.0;
@@ -255,7 +257,7 @@ gint * smooth_under_crater (hf_type *buf, gint max, gint x, gint y,
 	gint i,j, x0,y0,x1,y1, idx;
 	hf_type center;
 	gint *rest;
-	gdouble dist, dbx, dby, dradius, dmax, dval, dval2, prop;
+	gdouble dist, dbx, dby, dradius, dval, dval2, prop; // dmax, 
 	if (subtract)
 		rest = (gint *) x_calloc(diameter*diameter, sizeof(gint), "gint (rest in smooth_under_crater)");
 	else
@@ -287,7 +289,7 @@ gint * smooth_under_crater (hf_type *buf, gint max, gint x, gint y,
 	dbx = (gdouble) x;
 	dby = (gdouble) y;
 	dradius = (gdouble) diameter / 2.0;
-	dmax = (gdouble) diameter / 4.0;
+	//dmax = (gdouble) diameter / 4.0;
 	for (i=x0; i<x1; i++) {
 		for (j=y0; j<y1; j++) {
 			idx = VECTORIZE(WRAP2(i,max),WRAP2(j,max),max) ;

@@ -76,7 +76,7 @@ void simple_merge (merge_struct *mrg ) {
 	//	Usually called by mrg->calc_hf
 	gint i, j, dx, dy, indx, max_x, max_y;
 	gdouble s1, s2, r, p1, p2, percent, so1, so2, pivot=0.0, abs_pivot=0.0;
-	hf_type hf_source, hf_result, lmin = 0, lmax = 0, tmp;
+	hf_type hf_source, hf_result, lmin = 0, lmax = 0; // tmp;
 	hf_type *source1, *source2, *result;
 	static gdouble max_f = (gdouble) MAX_HF_VALUE;
 	//	Merging:  1st version worked with a "percent" value, 

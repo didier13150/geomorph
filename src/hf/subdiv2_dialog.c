@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "hf_wrapper.h"
 #include "dialog_utilities.h"
 
@@ -37,11 +38,11 @@ static gint calculate_event_callb(GtkWidget *wdg,GdkEventButton *event, gpointer
 	return FALSE;
 }
 
-static void calculate_callb(GtkWidget *wdg, gpointer data) {
+/*static void calculate_callb(GtkWidget *wdg, gpointer data) {
 	hf_wrapper_struct *hfw;
 	hfw = (hf_wrapper_struct *) * (hf_wrapper_struct **) data;
 	gener_hf(hfw);
-}
+}*/
 
 static void roughness_scale(GtkWidget *wdg, gpointer data) {
 	hf_wrapper_struct *hfw;
@@ -162,7 +163,7 @@ static void set_freq_global(GtkWidget *button, gpointer data) {
 
 static GtkWidget * frq_dialog_new (gpointer hfo_ptr) {
 //	Fine frequency control dialog
-	GtkWidget *dialog, *table, *vbox, *hbox, *button, *button2, *scale;
+	GtkWidget *dialog, *table, *vbox, *hbox, *button, *scale; // *button2, 
 	GtkObject *adj;
 	hf_options_struct *hf_options = (hf_options_struct *) hfo_ptr;
 	if (!hfo_ptr)

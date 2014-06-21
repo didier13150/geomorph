@@ -19,6 +19,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "hf.h"
 #include "hf_calc.h"
 #include "camera.h"
@@ -43,8 +44,8 @@ static gchar cam1[CAM_RECORD_LENGTH],
 		cam2[CAM_RECORD_LENGTH],
 		cam3[CAM_RECORD_LENGTH],
 		cam4[CAM_RECORD_LENGTH],
-		cam5[CAM_RECORD_LENGTH],
-		global_water_level[WATER_LEVEL_LENGTH];
+		cam5[CAM_RECORD_LENGTH]; 
+		//global_water_level[WATER_LEVEL_LENGTH];
 
 //	Ad hoc global structure for holding comments
 
@@ -242,10 +243,10 @@ which can be expressed with integers as
     Y = (6969 * R + 23434 * G + 2365 * B)/32768
 */
 	unsigned long int r,g,b,y;
-	pix8_rgb *pix8;
-	pix16_rgb *pix16;
-	pix8_rgba *pix8a;
-	pix16_rgba *pix16a;
+	pix8_rgb *pix8 = 0;
+	pix16_rgb *pix16 = 0;
+	pix8_rgba *pix8a = 0;
+	pix16_rgba *pix16a = 0;
 	gint i;
 	unsigned char *new_img, *new_img8;
 	unsigned short int *new_img16;
@@ -521,7 +522,7 @@ void hf_init_tmp2_buf_from_hf (hf_struct_type *hf) {
 }
 
 void hf_update_hf_with_layer (hf_struct_type *hf, gint merge_op) {
-	gint i;
+	//gint i;
 	if (!hf->layer_buf)
 		return;
 	if (!hf->tmp2_buf)

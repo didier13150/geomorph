@@ -321,7 +321,7 @@ void generalized_merge (gpointer map, gint map_data_type, gint size_x, gint size
 //	The size of a square map of radius R is (2*R+1) * (2*R+1)
 
 	gint i,j,ix,iy, k, l, radius_x, radius_y,lx;
-	glong val;
+	glong val = 0;
 	gdouble ratio, dval=0.0;
 	gboolean if_val = TRUE;
 	static gdouble dmax = (gdouble) MAX_HF_VALUE;
@@ -547,7 +547,7 @@ void interpolated_merge (gpointer map,
 
 	gint i,j, k, l, radius_x, radius_y,lx, return_gint = 0;
 	unsigned char return_uns_char = 0;
-	glong val;
+	glong val = 0;
 	gboolean if_val=TRUE;
 	hf_type return_hf_type = 0;
 	gdouble ratio, dx, dy, ix, iy, return_gdouble = 0.0, dval = 0.0;
@@ -933,7 +933,7 @@ void translate_real_forward_mapping (gpointer source_grid,
 
 	gdouble dx, dy, d1,d2,d3,d4, tot, value;
 	gint ix, iy,x1,y1, x2, y2, i, j1, j2, j3, j4;
-	gboolean t1=FALSE,t2=FALSE,t3=FALSE,t4=FALSE;
+	//gboolean t1=FALSE,t2=FALSE,t3=FALSE,t4=FALSE;
 
 	ix = (gint) floor(ox);
 	iy = (gint) floor(oy);
@@ -977,19 +977,19 @@ void translate_real_forward_mapping (gpointer source_grid,
 // printf("VALUE (%d, %d): %5.2f; (ix,iy): (%d, %d); j1: %d; j2: %d; j3: %d; j4: %d\n",x,y,value, ix, iy, j1, j2, j3, j4);
 			if ( (x1>=0) && (y1>=0) && (x1<x_size) && (y1<y_size)) {
 				*( ((hf_type *) output_grid) + j1) += (hf_type) (d1 * value / tot);
-				t1 = TRUE;
+				//t1 = TRUE;
 			}
 			if ( (x1>=0) && (y2>=0) && (x1<x_size) && (y2<y_size)) {
 				*( ((hf_type *) output_grid) + j2) += (hf_type) (d2 * value / tot);
-				t2 = TRUE;
+				//t2 = TRUE;
 			}
 			if ( (x2>=0) && (y1>=0) && (x2<x_size) && (y1<y_size)) {
 				*( ((hf_type *) output_grid) + j3) += (hf_type) (d3 * value / tot);
-				t3 = TRUE;
+				//t3 = TRUE;
 			}
 			if ( (x2>=0) && (y2>=0) && (x2<x_size) && (y2<y_size)) {
 				*( ((hf_type *) output_grid) + j4) += (hf_type) (d4 * value / tot);
-				t4 = TRUE;
+				//t4 = TRUE;
 			}
 //		if ( (x1<1) || (x1>=(x_size-1)) || (y1<1) || (y1>=(y_size-1)))
 // printf ("VALUE (%d, %d): %5.2f; (x1,y1): (%d, %d); (x2,y2): (%d, %d); t1,t2,t3,t4: %d,%d,%d,%d;  j1: %d; j2: %d; j3: %d; j4: %d; maxi: %d\n",x,y,value,x1,y1,x2,y2,t1,t2,t3,t4,j1,j2,j3,j4,VECTORIZE(x_size-1,y_size-1,x_size));
@@ -1570,7 +1570,7 @@ void map_convolve (hf_type *map, gint map_max_x, gint map_max_y,
 
 	gint x,y,i, idxbuf, idxmap, idxin, idxout, max2x, max2y, 
 		sx,sy, radius, radius_x, radius_y, mx, my, lx, ix, iy;
-	guint buf_HEAP_index=0xFFFF, background_HEAP_index=0xFFFF;
+	// guint buf_HEAP_index=0xFFFF, background_HEAP_index=0xFFFF;
 	gdouble *buf,value,*vector;
 	gfloat ratio; // Ratio used to transform map values to radii
 	ratio = (gfloat) ( ((gfloat) level) * ((gfloat) GAUSS_LIST_LENGTH) / ((gfloat) MAX_HF_VALUE) / 100.0);
@@ -2006,6 +2006,9 @@ void hf_subtract(hf_type *hf1, hf_type *hf2, hf_type *result, gint length, gint 
 		else
 			ratio = ((gdouble) MAX_HF_VALUE) / (gdouble) (max-min); 
 //		printf("MIN: %ld; MAX: %ld; Ratio: %7.4f\n",min,max,ratio);
+	}
+	else {
+		return;
 	}
 	for (i=0; i<length; i++) {
 		switch (behaviour) {

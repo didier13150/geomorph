@@ -19,6 +19,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "hf.h"
 #include "img_process.h"
 #include "voronoi.h"
@@ -689,6 +690,8 @@ void hf_voronoi (hf_struct_type *hf, voronoi_struct *vs) {
 		break;
 	default:
 		scaled_cell_size = vs->cell_size;
+		scaled_min_width = vs->min_width;
+		scaled_max_width = vs->max_width;
 	}
 	
 	srand(vs->seed);

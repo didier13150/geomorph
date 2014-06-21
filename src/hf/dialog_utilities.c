@@ -19,12 +19,13 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "dialog_utilities.h"
 #include "hf.h"
 #include "hf_calc.h"
 #include "globals.h"
 #include "gl_preview.h"
-
+#include "hf_wrapper.h"
 //	Icons for merge mode
 #include "../icons/raise.xpm"
 #include "../icons/dig.xpm"

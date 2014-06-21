@@ -23,6 +23,7 @@
 #include "view_area.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include "../utils/x_alloc.h"
 
 void resize_area (view_struct *vs, gint new_width, gint new_height) {
 	if (vs->if_rgb)

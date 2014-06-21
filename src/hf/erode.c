@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "hf.h"
 #include "hf_calc.h"
 #include "erode.h"
@@ -724,7 +725,7 @@ void hf_rain_erosion_hex (hf_struct_type *hf, rain_erosion_struct *res, gpointer
 //	Neighbours are numbered from 1 to 6, clockwise, 1 being (1,0)
 //	Not extensively tested when the HF doesn't wrap
 	
-	static gint x,y, ii, s, threshold, nextx, nexty, steps;
+	static gint x,y, s, threshold, nextx, nexty, steps; // ii;
 	gboolean tiling;
 	
 //	threshold is the future chunk... it must be at least 16, because the center
@@ -758,7 +759,7 @@ void hf_rain_erosion_hex (hf_struct_type *hf, rain_erosion_struct *res, gpointer
 					(y==(hf->max_y-1)) )
 						break;
 			flow(x,y,nextx,nexty,hf->hf_buf,hf->max_x, res->hardness, res->strength, tiling);
-			ii = VECTORIZE(nextx,nexty,hf->max_x);
+			//ii = VECTORIZE(nextx,nexty,hf->max_x);
 			y = nexty;
 			x = nextx;
 			steps++;
@@ -938,7 +939,7 @@ void hf_rain_erosion_hex_old (hf_struct_type *hf, rain_erosion_struct *res, gpoi
 //	Neighbours are numbered from 1 to 6, clockwise, 1 being (1,0)
 //	Not extensively tested when the HF doesn't wrap
 	
-	static gint x,y, ii, s, threshold, nextx, nexty;
+	static gint x,y, s, nextx, nexty; // threshold, ii;
 	unsigned long int steps;
 	hf_type *tmp;
 	gboolean even=TRUE, tiling;
@@ -946,7 +947,7 @@ void hf_rain_erosion_hex_old (hf_struct_type *hf, rain_erosion_struct *res, gpoi
 //	threshold is the future chunk... it must be at least 16, because the center
 //	of the 3x3 averaging matrix == 4 and we divide the chunk by 16 before applying it
 //	threshold = 15 + (gint) pow(2.0,(double) thresh);
-	threshold = MAX(16,iget_absolute_slope(res->threshold,hf->max_x));
+	//threshold = MAX(16,iget_absolute_slope(res->threshold,hf->max_x));
 // printf("RAIN: Threshold (slope): %d = %d\n",slope_threshold,threshold);
 //	In the 1st version, drops were given as an exponent
 //	We could fallback to this in the future...
@@ -977,7 +978,7 @@ void hf_rain_erosion_hex_old (hf_struct_type *hf, rain_erosion_struct *res, gpoi
 					(y==(hf->max_y-1)) )
 						break;
 			flow_old(x,y,nextx,nexty,hf->hf_buf,hf->max_x, tiling);
-			ii = VECTORIZE(nextx,nexty,hf->max_x);
+			//ii = VECTORIZE(nextx,nexty,hf->max_x);
 			y = nexty;
 			x = nextx;
 			steps++;
@@ -1009,7 +1010,7 @@ void hf_crests_erosion_hex (hf_struct_type *hf, gint steps, gint slope_threshold
 	static gint z1, z2, z3, z4, z5, z6, x, y, xx, yy;
 	static gint  i, s, val, ii, minii, lower, threshold, shift, axis;
 	hf_type value;
-	gboolean test, even, tiling;
+	gboolean test, even = FALSE, tiling;
 	gfloat ratio; // Factor for dividing the weight of the minimum pixel, when it is on the diagonals
 	
 	// Slope_threshold is in degrees
@@ -1345,7 +1346,7 @@ void dflow_map(gint x, gint y, gint tox, gint toy, gdouble *hf, gdouble *water, 
 	// Flow a quarter of the water (part considered as soil in suspension)
 	// between (x,y) and (tox,toy) from (x,y) to (tox,toy)
 
-	gint fromi, toi, isoil, radius, map_size;
+	gint fromi, isoil; // map_size, toi, radius;
 	
 	gdouble soil;
 	// gdouble *map;
@@ -1354,7 +1355,7 @@ void dflow_map(gint x, gint y, gint tox, gint toy, gdouble *hf, gdouble *water, 
 	// 2. Build it if not, add to the cache
 	
 	fromi = VECTORIZE(x,y,max);
-	toi = VECTORIZE(tox,toy,max);
+	//toi = VECTORIZE(tox,toy,max);
 	
 	soil = *(water + fromi);
 	
@@ -1364,8 +1365,8 @@ void dflow_map(gint x, gint y, gint tox, gint toy, gdouble *hf, gdouble *water, 
 	if (!isoil)
 		return;
 	
-	radius = (gint) log((gdouble) isoil);
-	map_size = 2*radius +1;
+	//radius = (gint) log((gdouble) isoil);
+	//map_size = 2*radius +1;
 /*	
 	map = *(cache+isoil);
 	

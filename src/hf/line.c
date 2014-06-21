@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "line.h"
 #include "hf.h"
 #include "hf_calc.h"
@@ -397,10 +398,10 @@ void draw_n_transform_all_segments (line_struct *l, gdouble dx, gdouble dy,
 
 	ddist =  sqrt( pow(dx ,2.0) + pow(dy, 2.0) ) ;
 
-	if (ddist>0) {
+	//if (ddist>0) {
 		cos =  dx / ddist;
 		sin = dy / ddist;
-	}
+	//}
 
 	for (l->cur_seg=0; l->cur_seg<l->max_seg; l->cur_seg++) {
 		memcpy(&s, l->segments+l->cur_seg, sizeof(segment_struct));

@@ -100,7 +100,7 @@ line_dialog_struct *line_dialog_new (GtkWidget *window, GtkTooltips *tooltips,
 	gint (*on_press) (GtkWidget *widget, GdkEventButton *event, gpointer data),
 	gint (*on_release) (GtkWidget *widget, GdkEventButton *event, gpointer data)) {
 
-	GtkWidget *hbox, *vbox, *wdg, *button, *label, *scale;
+	GtkWidget *hbox, *vbox, *wdg, *button, *scale; // *label, 
 	GtkObject *adj;
 	line_dialog_struct *lds;
 
@@ -208,7 +208,8 @@ line_dialog_struct *line_dialog_new (GtkWidget *window, GtkTooltips *tooltips,
 	gtk_widget_show(hbox);
 	gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, FALSE, 0);
 
-	label = define_label_in_box("Length", hbox, FALSE, FALSE, 0);
+	//label = 
+	define_label_in_box("Length", hbox, FALSE, FALSE, 0);
 	adj = gtk_adjustment_new (fl->cracks_depth, 0, 100, 1, 1, 0.01);
 	wdg = define_scale_in_box(adj,hbox,0, DEF_PAD*0.5);
 	if (on_press)
@@ -222,7 +223,8 @@ line_dialog_struct *line_dialog_new (GtkWidget *window, GtkTooltips *tooltips,
 	gtk_signal_connect (GTK_OBJECT (adj), "value_changed",
 		GTK_SIGNAL_FUNC (update_line), (gpointer) lds);
 
-	label = define_label_in_box("Width", hbox, FALSE, FALSE, 0);
+	//label = 
+	define_label_in_box("Width", hbox, FALSE, FALSE, 0);
 	adj = gtk_adjustment_new (fl->cracks_width, 1, 4, 1, 1, 0.01);
 	wdg = define_scale_in_box(adj,hbox,0, DEF_PAD*0.5);
 	if (on_press)

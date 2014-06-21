@@ -1035,7 +1035,7 @@ void gl_save_water_inc (gl_preview_struct *gl_preview) {
 		if (gl_preview->use_water && *gl_preview->use_water)
 			fprintf(fin,"#declare preview_water_level = %5.2f;\n",*gl_preview->water_level);
 		else
-			fprintf(fin," ",0);
+			fprintf(fin," ");
 		setlocale(LC_NUMERIC,loc);
 		free(loc);
 		fclose(fin);

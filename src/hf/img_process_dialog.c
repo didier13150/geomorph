@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "img_process_dialog.h"
 #include "wind.h"
 #include "wind_dialog.h"
@@ -850,14 +851,14 @@ void set_smooth_defaults(img_dialog_struct *img) {
 }
 
 void calc_smooth (hf_wrapper_struct *hfw) {
-	gint t1;
+	//gint t1;
 	gboolean wrap;
 // printf("Calc_smooth\n");
 	if (hfw->if_calculated)
 		return;
 	if (hfw->hf_struct->max_x>hfw->hf_options->dist_matrix->hf_size)
 		dist_matrix_init(hfw->hf_options->dist_matrix, hfw->hf_struct->max_x);
-	t1 = clock();
+	//t1 = clock();
 	set_watch_cursor(hfw);
 	switch (hfw->hf_options->img->smooth_wrap) {
 		case TILING_AUTO:
@@ -867,6 +868,8 @@ void calc_smooth (hf_wrapper_struct *hfw) {
 			wrap = TRUE;
 			break;
 		case TILING_NO:
+			wrap = FALSE;
+		default:
 			wrap = FALSE;
 	}
 
@@ -1000,14 +1003,14 @@ void set_sharpen_defaults(img_dialog_struct *img) {
 }
 
 void calc_sharpen (hf_wrapper_struct *hfw) {
-	gint t1;
+	//gint t1;
 	gboolean wrap;
 	gdouble *v;
 	if (hfw->if_calculated)
 		return;
 	if (!hfw->hf_options->img->sharpen_radius)
 		return;
-	t1 = clock();
+	//t1 = clock();
 	set_watch_cursor(hfw);
 	switch (hfw->hf_options->img->sharpen_wrap) {
 		case TILING_AUTO:
@@ -1017,6 +1020,8 @@ void calc_sharpen (hf_wrapper_struct *hfw) {
 			wrap = TRUE;
 			break;
 		case TILING_NO:
+			wrap = FALSE;
+		default:
 			wrap = FALSE;
 	}
 
@@ -1318,6 +1323,8 @@ void calc_terrace (hf_wrapper_struct *hfw) {
 			break;
 		case TILING_NO:
 			wrap = FALSE;
+		default:
+			wrap = FALSE;
 	}
 	if (hfw->hf_options->img->terrace_apply_postprocess )
 		set_watch_cursor(hfw);
@@ -1568,8 +1575,8 @@ void terrace_callb(GtkWidget *wdg, gpointer data) {
 
 GtkWidget *revert_dialog_new(gpointer data) {
 	GtkWidget *lbl, *frame;
-	hf_wrapper_struct *hfw;
-	hfw = (hf_wrapper_struct *) * (hf_wrapper_struct **) data;
+	//hf_wrapper_struct *hfw;
+	//hfw = (hf_wrapper_struct *) * (hf_wrapper_struct **) data;
 	frame = options_frame_new("Revert");
 	lbl = gtk_label_new(_("No parameters\nfor this operation"));
 	gtk_widget_show(lbl);
@@ -1879,9 +1886,9 @@ static void apply_noise (gpointer data) {
 	calc_noise(hfw);
 }
 
-static void apply_noise_callb (GtkWidget *wdg, gpointer data) {
+/*static void apply_noise_callb (GtkWidget *wdg, gpointer data) {
 	apply_noise (data);
-}
+}*/
 static gint apply_noise_event (GtkWidget *wdg,GdkEventButton *event, gpointer data) {
 	apply_noise (data);
 	return FALSE;
@@ -1889,7 +1896,7 @@ static gint apply_noise_event (GtkWidget *wdg,GdkEventButton *event, gpointer da
 
 GtkWidget *noise_dialog_new (gpointer data) {
 
-	GtkWidget *vbox, *hbox, *frame, *button, *vbox2, *merge_toolbar, *wdg, *scale;
+	GtkWidget *vbox, *hbox, *frame, *vbox2, *merge_toolbar, *wdg, *scale; // *button,
 	static gboolean dummy_flag;
 	hf_options_struct *hfo;
 	gint frq[12] = {50,50,50,0,0,0,0,0,0,0,0,0};
@@ -2223,7 +2230,7 @@ static gint apply_math_fn_callb2 (GtkWidget *wdg, gpointer data) {
 	hf_wrapper_struct *hfw;
 	hfw = (hf_wrapper_struct *) * (hf_wrapper_struct **) data;
 	if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wdg)))
-		return;
+		return FALSE;
 //	if (hfw->if_calculated)
 //		return;
 	apply_math_fn(hfw);
@@ -2620,14 +2627,14 @@ void set_lift_edges_defaults(img_dialog_struct *img) {
 }
 
 void calc_lift_edges (hf_wrapper_struct *hfw) {
-	gint t1;
+	//gint t1;
 	gboolean wrap;
 //	printf("CALC_LIFT_EDGES\n");
 	if (hfw->if_calculated)
 		return;
 	if (hfw->hf_struct->max_x>hfw->hf_options->dist_matrix->hf_size)
 		dist_matrix_init(hfw->hf_options->dist_matrix, hfw->hf_struct->max_x);
-	t1 = clock();
+	//t1 = clock();
 	set_watch_cursor(hfw);
 	switch (hfw->hf_options->img->smooth_wrap) {
 		case TILING_AUTO:
@@ -2637,6 +2644,8 @@ void calc_lift_edges (hf_wrapper_struct *hfw) {
 			wrap = TRUE;
 			break;
 		case TILING_NO:
+			wrap = FALSE;
+		default:
 			wrap = FALSE;
 	}
 

@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "hf_wrapper.h"
 #include "dialog_utilities.h"
 // #include "hf_filters_dialog.h"
@@ -287,7 +288,7 @@ static GtkWidget * surfadd_frq_dialog_new (gpointer hfo_ptr) {
 GtkWidget * surfadd_dialog_new(gpointer hfo_ptr) {
 
 	GtkObject *adj;
-	GtkWidget *button, *table, *hbox, *vbox, *scale, *scrolled_window;
+	GtkWidget *table, *hbox, *vbox, *scale, *scrolled_window; // *button, 
 	GtkWidget *frame;
 	static gboolean dummy_flag;
 

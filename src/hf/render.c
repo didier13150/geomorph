@@ -19,6 +19,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+// get_current_dir_name() is only prototyped if _GNU_SOURCE is defined
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
+#include <string.h>
 #include "render.h"
 #include "../utils/utils.h"
 #include "../utils/menus_n_tools.h"
@@ -26,6 +31,7 @@
 #include "camera.h"
 #include <signal.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 // Toolbar for rendering commands
 
@@ -118,7 +124,7 @@ void save_render_options_inc (render_struct *rs) {
 		fprintf(fin,"#declare current_directory = %c%s%c;\n",'\"',*rs->dirname,'\"');
 		ext = strstr(*rs->filename,".png");
 		if (ext) {
-			sprintf(str_format, "#declare fname_radix = %%c%%%d.%ds%%c;\n", ext-*rs->filename,ext-*rs->filename);
+			sprintf(str_format, "#declare fname_radix = %%c%%%ld.%lds%%c;\n", ext-*rs->filename,ext-*rs->filename);
 //			printf("STR_FORMAT: %s\n",str_format);
 			fprintf(fin,str_format,'\"',*rs->filename,'\"');
 		}
@@ -197,7 +203,7 @@ void run_callb(GtkWidget *wdg, gpointer render_struct_ptr) {
 //	printf("if_creation: %d; if_modified: %d; (x,y): (%d,%d)\n",*rs->if_creation, *rs->if_modified, rs->max_x, rs->max_y);
 	if (*rs->if_creation || *rs->if_modified)  {
 //		printf("\n*************\n\nSAVING in %s/%s\n\n*************\n",TMP_DIR, HF_OUTPUT_FOR_RENDERING);
-		write_png (HF_OUTPUT_FOR_RENDERING, 16, (gchar *) rs->grid, rs->max_x, rs->max_y);
+		write_png (HF_OUTPUT_FOR_RENDERING, 16, (guchar *) rs->grid, rs->max_x, rs->max_y);
 	}
 		
 	// Patch 2005-05 - Deduce aspect ratio from image size,

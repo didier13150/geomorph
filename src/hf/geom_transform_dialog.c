@@ -30,8 +30,8 @@ static void apply_rotate (hf_wrapper_struct *hfw);
 
 GtkWidget *mirror_horizontal_dialog_new(gpointer data) {
 	GtkWidget *lbl, *frame;
-	hf_wrapper_struct *hfw;
-	hfw = (hf_wrapper_struct *) * (hf_wrapper_struct **) data;
+	//hf_wrapper_struct *hfw;
+	//hfw = (hf_wrapper_struct *) * (hf_wrapper_struct **) data;
 	frame = options_frame_new("Horizontal mirror");
 	lbl = gtk_label_new(_("No parameters\nfor this operation"));
 	gtk_widget_show(lbl);
@@ -69,8 +69,8 @@ void mirror_horizontal_callb(GtkWidget *wdg, gpointer data) {
 
 GtkWidget *mirror_vertical_dialog_new(gpointer data) {
 	GtkWidget *lbl, *frame;
-	hf_wrapper_struct *hfw;
-	hfw = (hf_wrapper_struct *) * (hf_wrapper_struct **) data;
+	//hf_wrapper_struct *hfw;
+	//hfw = (hf_wrapper_struct *) * (hf_wrapper_struct **) data;
 	frame = options_frame_new("Vertical mirror");
 	lbl = gtk_label_new(_("No parameters\nfor this operation"));
 	gtk_widget_show(lbl);
@@ -137,7 +137,7 @@ void accept_rotate_fn (hf_wrapper_struct *hfw) {
 
 void apply_rotate (hf_wrapper_struct *hfw) {
 //	Apply anti-aliased rotation, without redrawing the HF
-	gint t1;
+	//gint t1;
 	gboolean tiling;
 	if (hfw->tiling_ptr) {
 		tiling = *hfw->tiling_ptr;
@@ -149,7 +149,7 @@ void apply_rotate (hf_wrapper_struct *hfw) {
 		hf_backup(hfw->hf_struct);
 	if (hfw->if_calculated)
 		return;
-	t1 = clock();
+	//t1 = clock();
 	hf_rotate(hfw->hf_struct->tmp_buf, hfw->hf_struct->hf_buf,
 		hfw->hf_struct->max_x,
 		hfw->hf_options->img->angle, 

@@ -129,7 +129,7 @@ GtkWidget *fill_dialog_new(GtkWidget *window, GtkTooltips *tooltips,
 	gpointer dts_ptr, gpointer data) {
 
 	//	Note: data is a hf_wrapper_struct **
-	GtkWidget *frame, *vbox, *hbox, *button, *scale;
+	GtkWidget *frame, *vbox, *hbox, *button; // *scale
 	GtkObject *adj;
 	GSList *group = NULL;
 	fill_struct *pen;
@@ -167,7 +167,8 @@ GtkWidget *fill_dialog_new(GtkWidget *window, GtkTooltips *tooltips,
 	// Normally height should be >= 1 and <= MAX_HF_VALUE-1, but we use 0 and MAX_HF_VALUE
 	// as start and end points for being consistent with the percent buttons row
  	adj = gtk_adjustment_new (pen->height, 0, MAX_HF_VALUE, 1.0, 1.0, 0.0);
-	scale = define_scale_in_box(adj,hbox,0,DEF_PAD);
+	//scale = 
+	define_scale_in_box(adj,hbox,0,DEF_PAD);
 //	optimize_on_mouse_click (scale, data);
 	gtk_signal_connect (GTK_OBJECT (adj), "value_changed",
 		GTK_SIGNAL_FUNC (gint_adj_callb), &pen->height);
@@ -188,7 +189,8 @@ GtkWidget *fill_dialog_new(GtkWidget *window, GtkTooltips *tooltips,
 
 	define_label_in_box("%", hbox, FALSE,TRUE, DEF_PAD);
  	adj = gtk_adjustment_new (pen->percent, 0.0, 100, 1.0, 1.0, 0.0);
-	scale = define_scale_in_box(adj,hbox,0,DEF_PAD);
+	//scale = 
+	define_scale_in_box(adj,hbox,0,DEF_PAD);
 //	optimize_on_mouse_click (scale, data);
 	gtk_signal_connect (GTK_OBJECT (adj), "value_changed",
 		GTK_SIGNAL_FUNC (gint_adj_callb), &pen->percent);
@@ -204,7 +206,8 @@ GtkWidget *fill_dialog_new(GtkWidget *window, GtkTooltips *tooltips,
 
 	define_label_in_box("Noise exponent", hbox, FALSE,TRUE, DEF_PAD);
  	adj = gtk_adjustment_new (pen->noise_exponent, 1.0, 10.0, 0.1, 0.1, 0.01);
-	scale = define_scale_in_box(adj,hbox,1,DEF_PAD);
+	//scale = 
+	define_scale_in_box(adj,hbox,1,DEF_PAD);
 //	optimize_on_mouse_click (scale, data);
 	gtk_signal_connect (GTK_OBJECT (adj), "value_changed",
 		GTK_SIGNAL_FUNC (gdouble_adj_callb), &pen->noise_exponent);

@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include <math.h>
 #include "img_process.h"
 #include "hf.h"
@@ -373,7 +374,7 @@ gdouble *create_pixel_kernel (gint radius, gdouble relative_value_offset, gdoubl
 }
 
 gdouble *create_tent_kernel (gint radius, gdouble value_offset, gdouble scale, gboolean not_inverted) {
-	gdouble *kernel, somme, dradius, di;
+	gdouble *kernel, somme, dradius, di = 0.0;
 	gint i, j, x, y, size;
 	size = 1 + 2*radius;
 	if (scale<=0.0)
@@ -580,19 +581,19 @@ void hf_convolveb (hf_struct_type *hf, gint radius, gdouble *matrix, gboolean if
 	gboolean test;
 	gdouble weight=0.0;
 	hf_type *hf_buf, value;
-	gboolean if_weight = TRUE;
+	//gboolean if_weight = TRUE;
 	width = 2*radius + 1;
 	hf_buf = (hf_type *) x_malloc(sizeof(hf_type)*hf->max_x*hf->max_y, "hf_type (hf_buf in hf_convolveb)");
 	for (i=0;i<width*width;i++) {
 		weight += *(matrix+i);
 	}
-	if ((weight==0.0) || (weight==1.0))
-		if_weight = FALSE;
+	/*if ((weight==0.0) || (weight==1.0))
+		if_weight = FALSE;*/
 // printf("W: %s... %f\n",if_weight?"TRUE":"FALSE",weight);
 	for (i=0; i<hf->max_y; i++) {
 		ii = i*hf->max_x;
-		value = *(hf->hf_buf + ii+j) ;
 		for (j=0; j<hf->max_x; j++) {
+			value = *(hf->hf_buf + ii+j) ;
 			test = TRUE;
 			y0 = i - radius;
 			x0 = j - radius;
@@ -695,10 +696,10 @@ void min_max_erode (hf_type *hf_in, hf_type *hf_out, gint max_x, gint max_y, gin
 //	static gdouble matrix[] = {1,1,1,1,1,1,1,1,1};
 //	gint i,j,k,l, ii, s, x0,y0;
 //	gdouble value,last,current, weight;
-	gint s, width, radius = 1;
-	width = 2*radius + 1;
-	hf_type *in,*out;
-	in = hf_in;
+	gint s; // width, radius = 1
+	//width = 2*radius + 1;
+	hf_type *out; //*in,
+	//in = hf_in;
 	out = hf_out;
 	for (s=1; s<steps; s++) {
   		printf("STEP %d\n",s);
@@ -717,8 +718,8 @@ void min_max_spread (hf_type *hf_in, hf_type *hf_out, gint max_x, gint max_y, gi
 //	Use for expanding dark areas (lines) 1 pixel at a time, towards east and south
 	gint i,j, ii, s, x0,y0;
 	gdouble value,last,current;
-	hf_type *in,*out;
-	in = hf_in;
+	hf_type *out; // *in,
+	//in = hf_in;
 	out = hf_out;
 	for (s=1; s<steps; s++) {
 	   if (s>1)
@@ -798,6 +799,7 @@ gpointer init_blocks (gpointer buf, gint max_x, gint max_y, gint radius, gint nb
 			printf(_("Unexpected option in %s; contact the programmer!"),
 			"init_blocks");
 			printf("\n");
+			return 0;
 	}
 	blocks = (gpointer) x_malloc(nblocks * nblocks * size, "gpointer (blocks in init_blocks)");
 	for (i=0; i<nblocks; i++) {
@@ -830,6 +832,7 @@ gpointer init_blocks (gpointer buf, gint max_x, gint max_y, gint radius, gint nb
 					printf(_("Unexpected option in %s; contact the programmer!"),
 					"init_blocks");
 					printf("\n");
+					return 0;
 			}
 		}	// End k and l loops
 		value = value / (gdouble) (radius * radius);
@@ -850,6 +853,7 @@ gpointer init_blocks (gpointer buf, gint max_x, gint max_y, gint radius, gint nb
 				printf(_("Unexpected option in %s; contact the programmer!"),
 				"init_blocks");
 				printf("\n");
+				return 0;
 		}
 	  }	// End j loop
 	}	// End i loop
@@ -940,6 +944,7 @@ void smooth_buf (gpointer buf, gint max_x, gint max_y, gint radius, dist_matrix_
 						printf(_("Unexpected option in %s; contact the programmer!"),
 						"smooth_buf");
 						printf("\n");
+						return;
 				}
 				*(hf_values + index) = *(hf_values + index) + 		value * *(filter->values + indexf) ;
 				*(hf_weight+index) = *(hf_weight+index) +  *(filter->values+ indexf);
@@ -1585,10 +1590,10 @@ void improve_edges (hf_type *hf_in, hf_type *hf_out, gint max_x, gint max_y, gbo
 	//
 	// Edges type == {DARK_EDGES, BRIGHT_EDGES}
 	//
-	gint i,j, ii, startx, starty, endx, endy, index;
+	gint i,j, ii, index; // endy, endx,startx, starty,  
 	hf_type v0, v1, v2, v3, v4, v5, v6, v7, v8;
 
-	if (wrap) {
+	/*if (wrap) {
 		startx = starty = 0;
 		endx = max_x;
 		endy = max_y;
@@ -1597,7 +1602,7 @@ void improve_edges (hf_type *hf_in, hf_type *hf_out, gint max_x, gint max_y, gbo
 		startx = starty = 1;
 		endx = max_x - 1;
 		endy = max_y - 1;
-	}
+	}*/
 	
 	// We test each axis (N-S, E-W, diagonal) to replace v0 so that it is coherent with its neighbours
 	
@@ -1700,13 +1705,13 @@ void hf_integrate (hf_struct_type *hf, gint angle) {
 	// 7. Crop back the HF
 	// 8. Convert back the HF to hf_type
 	
-	gdouble *buffer_in, *buffer_out, a, avrg, dmin, dmax, ratio;
+	gdouble *buffer_in, *buffer_out, a, dmin, dmax, ratio; // avrg, 
 	gint i, j, max, offset, index;
 	
 	if (!hf->tmp_buf)
 		hf_backup(hf);
 	hf_min_max (hf);
-	avrg = (gdouble) hf->avrg;
+	//avrg = (gdouble) hf->avrg;
 	
 	max = (((gint) (1.7*hf->max_x))>>1)<<1; // Must be even
 	offset = max>>2;

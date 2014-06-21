@@ -22,6 +22,7 @@
  // Modified 2005-01-09 for removing double buffering, not required with GTK2
  // Modified 2006-01-01 for cleaning the file / code structure
  
+#include <string.h>
 #include "globals.h"
 #include "hf_wrapper.h"
 #include "hf_dialog_options.h"
@@ -307,8 +308,8 @@ void draw_hf_partial (hf_wrapper_struct *hfw, gint fromx, gint tox, gint fromy, 
 		gboolean update_gl_area) {
 	//	Version of draw_hf drawing in a subset of the area
 	//	from_x, to_x, from_y, to_y defined in the display world, not in the hf world
-	hf_struct_type *hf;
-	hf = hfw->hf_struct;
+	//hf_struct_type *hf;
+	//hf = hfw->hf_struct;
 
 //	printf("DRAW_HF partial: (%d, %d) - (%d, %d) \n", fromx, fromy, tox, toy);
 	
@@ -546,7 +547,7 @@ gpointer hf_wrapper_copy(gpointer data_from, gpointer data_to, gint operation) {
 gint hf_set_display_scale(GtkWidget *wdg, gpointer data) {
 //	Applied after getting the scale setting from the clicked button
 //	(non generic part of the process)
-	gchar *txt;
+	//gchar *txt;
 	GtkAdjustment *vadj,*hadj;
 	GtkRequisition rq;
 	hf_wrapper_struct *hfw;
@@ -586,8 +587,8 @@ gint hf_set_display_scale(GtkWidget *wdg, gpointer data) {
  
 void create_standard_hf_display (hf_wrapper_struct *hf_wrapper) {
 
-	GtkWidget *vbox, *hbox, *frame, *label, *scrolled_window;
-	GSList *group = NULL;
+	GtkWidget *vbox, *hbox, *frame, *scrolled_window; // *label, 
+	//GSList *group = NULL;
 	GtkAdjustment *vadj,*hadj;
 	gchar *txt;
 
