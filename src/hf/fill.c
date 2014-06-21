@@ -16,7 +16,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * Foundation Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 #include <stdlib.h>
  #include "hf.h"
@@ -300,7 +300,7 @@ void fill_area_with_mode (hf_type *buffer_in, hf_type *buffer_out, gint xmax, gi
 	hf_type filling_value, hf_type range, gint x, gint y, gint fill_mode, gint select_mode) {
 
 //	Fill area in buffer_out around filling seed (x,y) in buffer_in with filling_value
-//	if surrounding pixels value are in a ± range
+//	if surrounding pixels value are in a ï¿½ range
 //	1.	Determine first span
 //	2.	Fill first span
 //	3.	Fill top and bottom spans from shadow

@@ -16,7 +16,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * Foundation Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
 #include <string.h>
@@ -74,7 +74,7 @@ void apply_wind (wind_dialog_struct *wds) {
 			gtk_widget_set_sensitive(GTK_WIDGET(wds->accept) ,TRUE);
 	}
 
-// printf("TEMPS D'ÉROSION PAR LE VENT: %d\n",clock() - t1);
+// printf("TEMPS D'ï¿½ROSION PAR LE VENT: %d\n",clock() - t1);
 	(*hfw->if_modified) = TRUE;
 	hfw->if_calculated = TRUE;
 	unset_watch_cursor(hfw);

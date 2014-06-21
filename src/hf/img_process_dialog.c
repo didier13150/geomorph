@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * Foundation Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
 #include <string.h>
@@ -2686,7 +2686,7 @@ void calc_lift_edges (hf_wrapper_struct *hfw) {
 
 	gtk_widget_show(GTK_WIDGET(hfw->hf_options->img->lift_edges_level_dialog));
 	
-// printf("TEMPS DE RELÈVEMENT DES BORDS: %d\n",clock() - t1);
+// printf("TEMPS DE RELï¿½VEMENT DES BORDS: %d\n",clock() - t1);
 	begin_pending_record(hfw,"Lift edges", accept_fn, reset_fn);
 
 	unset_watch_cursor(hfw);

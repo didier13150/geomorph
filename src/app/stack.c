@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * Foundation Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
 #include <string.h>
@@ -176,7 +176,7 @@ void doc_undo(gpointer dsw_ptr) {
 	else {
 // printf("NODE FOUND!\n");
 		if (!node->prev) {
-// printf("DÉBUT DE L'HISTORIQUE\n");
+// printf("Dï¿½BUT DE L'HISTORIQUE\n");
 			return;				// no data to undo!
 		}
 		dw->data_to_show = node->prev->data;
@@ -281,7 +281,7 @@ gboolean doc_register_in_history (gpointer dw_ptr) {
 			(*dw->type->free) (node->data, FALSE);
 		dw->history = g_list_remove(dw->history,node->data);
 	}
-// printf("Longueur de dw->history à la sortie de doc_register_in_history: %d\n",g_list_length(dw->history));
+// printf("Longueur de dw->history ï¿½ la sortie de doc_register_in_history: %d\n",g_list_length(dw->history));
 // print_list(dw->history);
 //	The "data to show" is always the last instance recorded
 	dw->data_to_show = g_list_last(dw->history)->data;

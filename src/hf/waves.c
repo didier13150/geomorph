@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * Foundation Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
 #include <string.h>
@@ -375,7 +375,7 @@ void waves_apply(hf_struct_type *hf,
 	i = 0;
 	for (node = ordered_list; node; node=node->next) {
 		ws = (wave_struct *) node->data;
-// printf("Ordre: %d; axe: %d; amplitude: %d; période: %d\n",ws->order, ws->axis, ws->amplitude,ws->period); 
+// printf("Ordre: %d; axe: %d; amplitude: %d; pï¿½riode: %d\n",ws->order, ws->axis, ws->amplitude,ws->period); 
 
 		sh = *(wave_shapes+ws->shape);
 		if (!i)	// 1st step, we start with the backuped buffer

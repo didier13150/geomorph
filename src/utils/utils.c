@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * Foundation Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
 #include "utils.h"
@@ -1260,7 +1260,7 @@ int find_omenu_num (omenu_list_type *list, int value, int max) {
 	if (i == max)
 		return 0;
 	else {
-// printf("FIND_OMENU_NUM - valeur cherchée: %d;  i: %d; v. cour: %d\n",value,i, list[i].num);
+// printf("FIND_OMENU_NUM - valeur cherchï¿½e: %d;  i: %d; v. cour: %d\n",value,i, list[i].num);
 		return i;
 	}
 }

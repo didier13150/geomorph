@@ -16,7 +16,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * Foundation Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
 #include <string.h>
@@ -81,7 +81,7 @@ void apply_voronoi (hf_wrapper_struct *hfw) {
 	voronoi_adjust_edges (hfw->hf_struct->result_buf, hfw->hf_struct->hf_buf, hfw->hf_struct->tmp2_buf, hfw->hf_options->img->voronoi->edges_level,  hfw->hf_struct->max_x, hfw->hf_struct->max_y);
 	
 	unset_watch_cursor(hfw);
-// printf("TEMPS DE CRAQUÈLEMENT: %d\n",clock() - t1);
+// printf("TEMPS DE CRAQUï¿½LEMENT: %d\n",clock() - t1);
 }
 
 void apply_voronoi_callb (GtkWidget *wdg, gpointer data) {

@@ -16,7 +16,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * Foundation Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
 #include <gtk/gtk.h>
@@ -59,7 +59,7 @@
 
 // Fill mode
 // FILL_RANGE is the original behaviour (ex. for faults)
-// Here we fill around the actual value of (x,y), in a ± range
+// Here we fill around the actual value of (x,y), in a ï¿½ range
 // FILL_MAX is the mode required for the "paint bucket"
 // Here we fill up to a max value
 

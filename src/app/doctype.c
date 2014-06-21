@@ -16,7 +16,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * Foundation Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
 #include <string.h>
@@ -270,7 +270,7 @@ void type_choice_dialog_new(types_wrapper *types,
 	types->type_choice_dialog = gtk_vbox_new(FALSE, 0);
 	gtk_widget_show(types->type_choice_dialog);
 	types->default_type->stack = stack;
-// printf("Type Choice Dialog New avant création TOOLBAR\n");
+// printf("Type Choice Dialog New avant crï¿½ation TOOLBAR\n");
 	if (types->nbtypes>1) {
 		tbar = 
 		standard_toolbar_new (types->nbtypes, types->interface_items, 
