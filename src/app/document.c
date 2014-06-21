@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "globals.h"
 #include "doc.h"
 #include "../icons/attention.xpm"
@@ -301,8 +302,8 @@ doc_wrapper *doc_prepare_to_load(gchar *path_n_file, types_wrapper *types) {
 		doc_type_index = -1;
 	}
 //	printf("IDX: %d\n", doc_type_index);
-	if (doc_type_index < 0) {
-		buf = (gchar *) x_malloc(strlen(buf)+strlen(_("File extension <<%s>> unknown or non-existent"))+1, "gchar (buf)");
+	if (doc_type_index > 0) {
+		buf = (gchar *) x_malloc(strlen(fname)+strlen(_("File extension <<%s>> unknown or non-existent"))+1, "gchar (fname)");
 		sprintf(buf,_("File extension <<%s>> unknown or non-existent"),fname);
 		my_msg(buf,WARNING);
 		x_free(buf);
@@ -401,7 +402,7 @@ gint doc_save_question (doc_wrapper *dw) {
 gint doc_close (GtkWidget *wdg, GdkEvent *event, gpointer callb_data) {
 
 	gint answer;
-	GList *node;
+	GList *node = 0;
 	doc_swap_struct *dsw;
 	dsw = (doc_swap_struct *) callb_data;
 
@@ -522,11 +523,11 @@ gint count_modified_documents (doc_swap_struct *dsw) {
 }
 
 gint count_documents (doc_swap_struct *dsw) {
-	doc_wrapper *dw;
+	//doc_wrapper *dw;
 	GList *node;
 	gint count=0;
 	for (node = dsw->doc_list; node; node = node->next) {
-		dw = (doc_wrapper *) node->data;
+		//dw = (doc_wrapper *) node->data;
 		count++;
 	}
 	return count;

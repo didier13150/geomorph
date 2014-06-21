@@ -18,6 +18,10 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+// get_current_dir_name() is only prototyped if _GNU_SOURCE is defined
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
 #include "./main.h"
 #include "./globals.h"
 #include "./app.h"
@@ -109,8 +113,8 @@ gchar *find_config_file() {
 				else {
 					// Geomorph directory ("default_dir") doesn't exist
 					// Create one with default scenes and rc file
-					buf = (gchar *) x_malloc(strlen(_("Creation of the default working directory?"))+1+strlen(default_dir), "const gchar (buf - Creation of the default working directory MSG)");
-					sprintf(buf,_("Creation of the default working directory?"),default_dir);
+					buf = (gchar *) x_malloc(strlen(_("Creation of the default working directory: %s ?"))+1+strlen(default_dir), "const gchar (buf - Creation of the default working directory MSG)");
+					sprintf(buf,_("Creation of the default working directory: %s ?"),default_dir);
 					if (!yes_no(buf,TRUE))
 						exit(0);
 //					if (buf) x_free(buf);

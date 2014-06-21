@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "globals.h"
 #include "doc.h"
 #include "stack.h"
@@ -30,7 +31,7 @@ stack_struct *stack_struct_new (gpointer (*specific_commit_or_reset) (gpointer s
 	stack->reset_fn = NULL;
 	stack->commit_flag = FALSE;
 	stack->generic_commit_or_reset = (gpointer) generic_commit_or_reset;
-	stack->specific_commit_or_reset = specific_commit_or_reset;
+	stack->specific_commit_or_reset = (gpointer) specific_commit_or_reset;
 	return stack;
 }
 

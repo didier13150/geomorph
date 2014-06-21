@@ -18,6 +18,10 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+// get_current_dir_name() is only prototyped if _GNU_SOURCE is defined
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE
+#endif
 #include <gtk/gtk.h>
 #include <gdk/gdkrgb.h>
 #include <stdio.h>
@@ -574,7 +578,7 @@ gint ok_create_callb(GtkWidget *wdg, gpointer data) {
 			if (app->docs->last_doc->type->tools_dialog ==
 				app->docs->current_doc->type->tools_dialog)
 		//	If type of new doc. = type of last one, same controls, do nothing!
-				return;
+				return FALSE;
 		if (app->docs->last_doc)
 			if (app->docs->last_doc->type->tools_dialog)  { 
 				// Changing type - replace tools dialog

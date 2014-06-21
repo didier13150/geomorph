@@ -19,6 +19,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "doc.h"
 
 extern gint TOOLS_X, TOOLS_Y, CREATION_X, CREATION_Y, MAIN_BAR_X, MAIN_BAR_Y;

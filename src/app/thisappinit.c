@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include "thisappinit.h"
 
 // Include files peculiar to this application
@@ -75,12 +76,12 @@ doc_type_struct doc_type_list[NBDOCTYPES] = { {
 	NULL, 			// paste
 	NULL, 			// paste special
 	NULL, 			// run
-	hf_dialog_defaults,	// defaults
+	(gpointer) hf_dialog_defaults,	// defaults
 	hf_stats,
 	hf_commit_creation,
 	hf_get_last_action,
 	hf_get_icon,
-	set_creation_container,
+	(gpointer) set_creation_container,
 	NULL // undo / redo stack struct
  }
 // ,
