@@ -22,35 +22,22 @@ For more details, see:
 Installing Geomorph from the source package
 --------------------------------------------------
 
-1. Open a console and untar the archive:
-
-tar zxf geomorph-0.60.tgz
-
-2. Change to the Geomorph directory:
-
-cd geomorph-0.60
-
-3. Build the software:
-
-./bootstrap.sh
-./configure
-make
-
-4. Logon as "root":
-
-su
-
-5. Install the executable:
-
-make install
-
-6. Leave the root account:
-
-exit
-
-7. Install you as a user:
-
-./install-user
+1. Open a console and untar the archive:  
+`tar zxf geomorph-0.60.tgz`
+2. Change to the Geomorph directory:  
+`cd geomorph-0.60`
+3. Build the software:  
+`./bootstrap.sh`  
+`./configure`  
+`make`  
+4. Logon as "root":  
+`su`
+5. Install the executable:  
+`make install`
+6. Leave the root account:  
+`exit`
+7. Install you as a user:  
+`./install-user`
 
 This script creates a /home/.../geomorph directory, a configuration file in this directory and installs shortcuts on the Gnome and KDE desktops.
 
@@ -59,39 +46,27 @@ If you upgrade from 0.2x to 0.3x or 0.4x, you should also update the geomorphrc 
 
 If you are experimented and want to choose yourself were to create the required structures, you can check the script, create the required directory and files manually, then create a compliant Geomorph configuration file.
 
-8. "make uninstall" as root would uninstall Geomorph.  However, the users won't be uninstalled.
+`make uninstall` as root would uninstall Geomorph.  However, the users won't be uninstalled.
 
 
 Installing Geomorph from the binary package
 --------------------------------------------------
 
-1. Open a console and untar the archive:
-
-tar zxf geomorph-0.60-bin.tgz
-
-2. Change to the Geomorph directory:
-
-cd geomorph-0.60
-
-3. Log on as "root":
-
-su
-
-4. Install the program:
-
-./install-bin
-
-5. Leave the root account:
-
-exit
-
-6. Install you as a user:
-
-./install-user
-
+1. Open a console and untar the archive:  
+`tar zxf geomorph-0.60-bin.tgz`
+2. Change to the Geomorph directory:  
+`cd geomorph-0.60`
+3. Log on as "root":  
+`su`
+4. Install the program:  
+`./install-bin`
+5. Leave the root account:  
+`exit`
+6. Install you as a user:  
+`./install-user`
 See the comments for step 7 of the source install process.
 
-7. "./uninstall" as root in the same directory would uninstall Geomorph, but without removing any of the users' directories and configuration files.
+`./uninstall` as root in the same directory would uninstall Geomorph, but without removing any of the users' directories and configuration files.
 
 
 Installing the docs
@@ -99,25 +74,16 @@ Installing the docs
 
 The documentation of version 0.30 and later is available separately, in an achive whose name is geomorph-doc-AAAA-MM.tgz.
 
-1. Open a console and untar the archive:
-
-tar zxf geomorph-doc-AAAA-MM.tgz 
-
-2. Change to the Geomorph documentation directory: 
-
-cd geomorph-doc
-
-3. Log on as "root":
- 
- su
- 
-4. Execute the install script:
-
-./install-doc
-
-5. Leave the root account:
-
-exit
+1. Open a console and untar the archive:  
+`tar zxf geomorph-doc-AAAA-MM.tgz `
+2. Change to the Geomorph documentation directory:   
+`cd geomorph-doc`
+3. Log on as "root":  
+`su`
+4. Execute the install script:  
+`./install-doc`
+5. Leave the root account:  
+`exit`
 
 The install script copies the files in /usr/local/share/geomorph/doc and tries to modify the "doc_dir" variable in the configuration file "geomorphrc" (if the script can find this file!).
 

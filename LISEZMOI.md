@@ -22,107 +22,72 @@ Pour davantage d'informations, voir:
 2. /usr/local/share/geomorph/doc/index.htmlsi la documentation a été installée.
 3. http://geomorph.sourceforge.net
 
-Installing Geomorph from the source package
---------------------------------------------------
+Installation de Geomorph depuis le paquet source
+------------------------------------------------
 
-1. Open a console and untar the archive:
+1. Ouvrir une console et détarrer l'archive:  
+`tar zxf geomorph-0.60.tgz`
+2. Entrer dans le répertoire Geomorph:  
+`cd geomorph-0.60`
+3. Construction du logiciel:  
+`./bootstrap.sh`  
+`./configure`  
+`make`  
+4. Devenir le super-utilisateur "root":  
+`su`
+5. Installer le programme:  
+`make install`
+6. Quitter le compte super-utilisateur root:  
+`exit`
+7. Installer en temps qu'utilisateur:  
+`./install-user`
 
-tar zxf geomorph-0.60.tgz
+Ce script créé un répertoire /home/$USER/geomorph, un fichier de configuration dans ce répertoire et install les raccourcis pour les bureaux Gnome and KDE.
 
-2. Change to the Geomorph directory:
-
-cd geomorph-0.60
-
-3. Build the software:
-
-./bootstrap.sh
-./configure
-make
-
-4. Logon as "root":
-
-su
-
-5. Install the executable:
-
-make install
-
-6. Leave the root account:
-
-exit
-
-7. Install you as a user:
-
-./install-user
-
-This script creates a /home/.../geomorph directory, a configuration file in this directory and installs shortcuts on the Gnome and KDE desktops.
-
-If you upgrade from 0.2x to 0.3x or 0.4x, you should also update the geomorphrc file:
+Si vous mettez à jour depuis une version 0.2x, 0.3x ou 0.4x, vous devez mettre à jour le fichier geomorphrc:
 ./update-rc
 
-If you are experimented and want to choose yourself were to create the required structures, you can check the script, create the required directory and files manually, then create a compliant Geomorph configuration file.
+Si vous êtes un utilisateur expérimenté et que vous voulez choisir le chemin de la structure nécessaire à l'application, vous pouvez éditer le script, créer manuellement le répertoire ainsi que les fichiers nécessaires à l'exécution de l'application, et créer un fichier de configuration adapté pour Geomorph.
 
-8. "make uninstall" as root would uninstall Geomorph.  However, the users won't be uninstalled.
+`make uninstall` en tant que root désinstallera Geomorph.  Dans tout les cas, le répertoire et les fichiers de Geomorph dans les répertoires utilisateurs ne seront pas effacé.
 
 
-Installing Geomorph from the binary package
---------------------------------------------------
+Installation de Geomorph depuis le paquet binaire
+-------------------------------------------------
 
-1. Open a console and untar the archive:
+1. Ouvrir une console et détarrer l'archive:  
+`tar zxf geomorph-0.60-bin.tgz`
+2. Entrer dans le répertoire Geomorph:  
+`cd geomorph-0.60`
+3. Devenir le super-utilisateur "root":  
+`su`
+4. Installer le programme:  
+`./install-bin`
+5. Quitter le compte super-utilisateur root:  
+`exit`
+6. Installer en temps qu'utilisateur:  
+`./install-user`
+Voir les commentaires de l'étape 7 de l'installation depuis les sources.
 
-tar zxf geomorph-0.60-bin.tgz
-
-2. Change to the Geomorph directory:
-
-cd geomorph-0.60
-
-3. Log on as "root":
-
-su
-
-4. Install the program:
-
-./install-bin
-
-5. Leave the root account:
-
-exit
-
-6. Install you as a user:
-
-./install-user
-
-See the comments for step 7 of the source install process.
-
-7. "./uninstall" as root in the same directory would uninstall Geomorph, but without removing any of the users' directories and configuration files.
+`make uninstall` en tant que root désinstallera Geomorph.  Dans tout les cas, le répertoire et les fichiers de Geomorph dans les répertoires utilisateurs ne seront pas effacé.
 
 
 Installing the docs
 -------------------
 
-The documentation of version 0.30 and later is available separately, in an achive whose name is geomorph-doc-AAAA-MM.tgz.
+La documentation depuis la version 0.30 et supérieur est disponible séparément dans une archive nommée geomorph-doc-AAAA-MM.tgz.
 
-1. Open a console and untar the archive:
+1. Ouvrir une console et détarrer l'archive:  
+`tar zxf geomorph-doc-AAAA-MM.tgz `
+2. Entrer dans le répertoire documentation de Geomorph:   
+`cd geomorph-doc`
+3. Devenir le super-utilisateur "root":  
+`su`
+4. Exécuter le script d'installation:  
+`./install-doc`
+5. Quitter le compte super-utilisateur root:  
+`exit`
 
-tar zxf geomorph-doc-AAAA-MM.tgz 
+Le script d'installation copie les fichiers dans /usr/local/share/geomorph/doc et essaie de modifier la variable "doc_dir" du fichier "geomorphrc" (si le script peut trouver ce fichier!).
 
-2. Change to the Geomorph documentation directory: 
-
-cd geomorph-doc
-
-3. Log on as "root":
- 
- su
- 
-4. Execute the install script:
-
-./install-doc
-
-5. Leave the root account:
-
-exit
-
-The install script copies the files in /usr/local/share/geomorph/doc and tries to modify the "doc_dir" variable in the configuration file "geomorphrc" (if the script can find this file!).
-
-If an older version of the documentation exists in /usr/local/share/geomorph/doc, it is overwritten. The script won't overwrite the installed documentation with an older one. This directory contains a file named "VERSION" with the date of the version, and the script creates here a "stamp" file with the installation date.
-
+Si une version plus ancienne de la documentation existe dans /usr/local/share/geomorph/doc, elle sera écrasée. Le script n'écrasera la documentation installée avec une version plus ancienne. Ce répertoire contient un fichier "VERSION" avec la date de la version et le script créera un fichier d'horodatage avec la date d'installation.
