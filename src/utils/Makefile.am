@@ -5,6 +5,6 @@ libutils_a_SOURCES = utils.c config_rc_file.c config_dialog.c filesel.c \
 	x_alloc.h x_alloc.c
 AM_CPPFLAGS =  @GTK_CFLAGS@
 LDADD = @GTK_LIBS@ @GTKGLEXT_LIBS@  -lgtkglext-x11-1.0 -lgdkglext-x11-1.0 
-CLEANFILES = *~
+CLEANFILES = *~ *.o libutils.a
 DISTCLEANFILES = .dep/*.P
 

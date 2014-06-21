@@ -5,5 +5,5 @@ libfourier_a_SOURCES = fft.c fft.h fourier.h fourier.c \
 
 AM_CPPFLAGS = @GTK_CFLAGS@ @GTKGLEXT_CFLAGS@
 LDADD = @GTK_LIBS@ @GTKGLEXT_LIBS@ ../utils/libutils.a
-CLEANFILES = *~
+CLEANFILES = *~ *.o libfourier.a
 DISTCLEANFILES = .dep/*.P

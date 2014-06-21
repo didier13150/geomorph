@@ -22,5 +22,5 @@ libhf_a_SOURCES = surfadd.c img_process_dialog.c surfadd_dialog.c \
 
 AM_CPPFLAGS =  @GTK_CFLAGS@ @GTKGLEXT_CFLAGS@  -lgtkglext-x11-1.0 -lgdkglext-x11-1.0 
 LDADD = @GTK_LIBS@ @GTKGLEXT_LIBS@ ../utils/libutils.a ../fourier/libfourier.a
-CLEANFILES = *~
+CLEANFILES = *~ *.o libhf.a
 DISTCLEANFILES = .dep/*.P
