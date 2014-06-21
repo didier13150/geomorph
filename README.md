@@ -15,6 +15,7 @@ Geomorph generates square images and shows a 3D preview of the resulting landsca
 These 2D images can be processed with a tool like Povray for rendering the landscape.
 
 For more details, see:
+
 1. ./index.html in the directory where the documentation archive is unpacked.
 2. /usr/local/share/geomorph/doc/index.html if the documentation is installed.
 3. http://geomorph.sourceforge.net

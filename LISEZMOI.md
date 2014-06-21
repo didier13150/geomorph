@@ -18,6 +18,7 @@ Ces images peuvent être traitées à l'aide d'un logiciel d'illumination comme 
 ("renderer") pour donner un paysage réaliste.
 
 Pour davantage d'informations, voir:
+
 1. ./index.html  dans le répertoire où l'archive de la documentation a été décomprimée,
 2. /usr/local/share/geomorph/doc/index.htmlsi la documentation a été installée.
 3. http://geomorph.sourceforge.net
