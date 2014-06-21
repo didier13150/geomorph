@@ -53,6 +53,6 @@ for (i=0; i<steps; i++) {
 }
 
 printf("}\n");
+return 0;
 }
-
 
