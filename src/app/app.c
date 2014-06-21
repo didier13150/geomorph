@@ -212,7 +212,7 @@ void process_options(option_file_type *options) {
 		if (is_integer(buf))
 			DISPLAY_DOC_OFFSET = atol(buf);
 	}
-	
+	// Force document to website (not included in package yet)
 	gchar *uri = "http://geomorph.sourceforge.net";
 	put_option(options,"files","doc_dir",uri);
 	DOC_DIR = uri;
@@ -220,7 +220,7 @@ void process_options(option_file_type *options) {
 	if ((buf = get_option(options,"files","doc_dir")) && strlen(buf))
 		DOC_DIR = buf;
 	else {
-		DOC_DIR = uri;
+		DOC_DIR = DOCUMENT_DIR;
 		put_option(options,"files","doc_dir",DOC_DIR);
 	}
 	*/
