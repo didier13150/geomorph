@@ -46,7 +46,15 @@ char *alltrim(char *some_string) {
 				break;
 		}
 	}
-	max = stop+1;
+
+	if ((' '!=some_string[stop]) && ('\0'!=some_string[stop])
+			&& ('\n'!=some_string[stop])) {
+		max = stop + 1;
+	}
+	else {
+		max = stop;
+	}
+
 	for (i=0; i<=stop; i++) {
 		if (start_not_found)
 			if (' '!=some_string[i]) {
@@ -62,11 +70,11 @@ char *alltrim(char *some_string) {
 					max = i;
 	}
 	if (max<=start) {
-		return_string = (char *) x_malloc(1, "char (return_string in alltrim in config_rc_file.c)");
+		return_string = (char *)(intptr_t) x_malloc(1, "char (return_string in alltrim in config_rc_file.c)");
 		return_string[0] = '\0';
 		return return_string;
 	}
-	return_string = (char *) x_malloc(1+max-start, "char (return_string in alltrim in config_rc_file.c)");
+	return_string = (char *)(intptr_t) x_malloc(1+max-start, "char (return_string in alltrim in config_rc_file.c)");
 	strncpy(return_string,some_string+start,max-start);
 	return_string[max-start]='\0';
 	return return_string;
@@ -219,11 +227,9 @@ void create_option(char *buf_ptr, option_block_type *cur_bl,
 */		
 		cur_bl->nb_options++;
 	}
-	/*
 	else {
 		printf(_("Options file: <<%s>> unknown\n"),buf_ptr);
 	}  // equal sign else
-	*/
 }
 
 void print_options (	FILE *fp, 
