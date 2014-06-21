@@ -1,6 +1,5 @@
 scenesdatadir = $(geomorphdatadir)/scenes
 
-scenesdata_DATA = *.pov *.inc *.c
-scenesdata_SCRIPTS = colmap
+scenesdata_DATA = *.pov *.inc
 
-EXTRA_DIST = $(scenesdata_DATA) $(scenesdata_SCRIPTS)
+EXTRA_DIST = $(scenesdata_DATA)

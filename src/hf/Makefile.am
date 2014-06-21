@@ -20,7 +20,7 @@ libhf_a_SOURCES = surfadd.c img_process_dialog.c surfadd_dialog.c \
 	hf_tools_dialog.c hf_tools_dialog.h hf_creation_dialog.c hf_creation_dialog.h \
 	voronoi.c voronoi.h voronoi_dialog.c voronoi_dialog.h hf_calc.h
 
-INCLUDES =  @GTK_CFLAGS@ @GTKGLEXT_CFLAGS@  -lgtkglext-x11-1.0 -lgdkglext-x11-1.0 
+AM_CPPFLAGS =  @GTK_CFLAGS@ @GTKGLEXT_CFLAGS@  -lgtkglext-x11-1.0 -lgdkglext-x11-1.0 
 LDADD = @GTK_LIBS@ @GTKGLEXT_LIBS@ ../utils/libutils.a ../fourier/libfourier.a
 CLEANFILES = *~
 DISTCLEANFILES = .dep/*.P
