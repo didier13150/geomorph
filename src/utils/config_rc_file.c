@@ -316,7 +316,7 @@ int put_option (option_file_type *options, char *block_label, char *option_label
 	// Modified 2007-03 for UTF8 conversion related to files and directories
 	int i,j;
 	const gchar *buf_utf8;
-	gchar *value;
+	gchar *value = 0;
 	if (!options)
 		return FALSE;
 	for (i=0; i<options->nb_blocks; i++) {
@@ -445,7 +445,7 @@ void load_options (FILE *fp, option_file_type *current_options,
 			option_file_type *allowed_options) {
 
 //	Load options from a file without executing them
-	int current_allowed_block;
+	int current_allowed_block = 0;
 	char buf[255];
 	char *buf_ptr;
 	char *rbracket,*lbracket;

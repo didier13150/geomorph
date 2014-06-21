@@ -19,6 +19,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include <string.h>
 #include <stdlib.h>
 #include <gtk/gtk.h>
 #include "utils.h"
@@ -153,7 +154,7 @@ GtkWidget *standard_toolbar_new (gint nbitems, command_item_struct *items,
 	// More generic
 	// Returns a simple GtkWidget - no specialized struct here
 
-	gint i, index_toggled = 0;
+	gint i; // index_toggled = 0;
 	gchar *cur_group;
 	GtkWidget *lastitem=NULL, *toolbar;
 
@@ -196,8 +197,8 @@ GtkWidget *standard_toolbar_new (gint nbitems, command_item_struct *items,
 					callback_data);
 // printf("IFRADIO fin\n");
 				lastitem = (items+i)->toolbar_item;
-				if ((items+i)->iftoggle )
-					index_toggled = i;
+				//if ((items+i)->iftoggle )
+				//	index_toggled = i;
 			} // if (ifradio)
 			else {
 				(items+i)->toolbar_item = gtk_toolbar_append_element (
@@ -226,7 +227,7 @@ toolbar_struct *toolbar_new( gint nbitems, command_item_struct *items,
 	GtkTooltips *tooltips, GtkWidget *window, gpointer callback_data,
 	GtkOrientation tborient, GtkToolbarStyle tbstyle, gboolean ifradio)  {
 
-	gint i, index_toggled = 0;
+	gint i; // index_toggled = 0;
 	gchar *cur_group;
 	GtkWidget *lastitem=NULL;
 
@@ -276,8 +277,8 @@ toolbar_struct *toolbar_new( gint nbitems, command_item_struct *items,
 					callback_data);
 // printf("IFRADIO fin\n");
 				lastitem = (items+i)->toolbar_item;
-				if ((items+i)->iftoggle )
-					index_toggled = i;
+				//if ((items+i)->iftoggle )
+				//	index_toggled = i;
 			}
 			else
 				(items+i)->toolbar_item = gtk_toolbar_append_element (

@@ -148,7 +148,7 @@ static gint find_node (gpointer ptr) {
 		return (HEAP.size);
 }
 
-static gint find_node_2 (gpointer ptr) {
+/*static gint find_node_2 (gpointer ptr) {
 	// Sequential search
 	gint j;
 	for (j=0; j<HEAP.size; j++) {
@@ -157,7 +157,7 @@ static gint find_node_2 (gpointer ptr) {
 	}
 	return HEAP.size;
 	
-}
+}*/
 static void order_node (gint i) {
 	// Order the node at index i by swapping it
 	// with its predecessors
@@ -253,13 +253,14 @@ static void add_node (gpointer ptr, gint size, gchar *name) {
 
 static void check_ptr (gpointer ptr, gchar *name) {
 	// Check memory
-	if (!ptr)
+	if (!ptr) {
 		if (!HEAP.no_mem_exit) {
 			printf ("*** No more memory available when allocating %s - stopping ***\n", name);
 			exit(99);
 		}
 		else
 			(*HEAP.no_mem_exit) (name);
+	}
 }
 
 gpointer x_malloc (size_t size, gchar *name) {

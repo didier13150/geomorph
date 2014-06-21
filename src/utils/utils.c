@@ -443,6 +443,9 @@ void my_msg(gchar * message, gint flag_exit) {
 		case INFO:
 			label = gtk_label_new(_("INFORMATION"));
 			pixmap_widget = create_widget_from_xpm(GTK_WIDGET(dialog),info_xpm);
+		default:
+			label = gtk_label_new(_("UNKNOWN"));
+			pixmap_widget = create_widget_from_xpm(GTK_WIDGET(dialog),info_xpm);
 	}
 	my_msg_subcall (message, flag_exit, dialog, label, pixmap_widget, FALSE);
 }

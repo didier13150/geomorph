@@ -18,6 +18,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
+#include <string.h>
 #include "scale_buttons.h"
 #include "utils.h"
 #include "x_alloc.h"
@@ -69,8 +70,8 @@ void set_display_scale_from_label(GtkWidget *wdg, gpointer data) {
 //	Scales on the buttons are in %
 //	Internally, they are a binary shift (>>)
 	gchar *txt;
-	GtkAdjustment *vadj,*hadj;
-	GtkRequisition rq;
+	//GtkAdjustment *vadj,*hadj;
+	//GtkRequisition rq;
 	scale_buttons_struct *sbs;
 	sbs = (scale_buttons_struct *) data;
 	if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wdg)))

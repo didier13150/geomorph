@@ -92,9 +92,10 @@ void update_options(option_file_type *allowed_opt,
 		option_file_type *input_opt) {
 //	Updates the widgets with options found in "input_opt"
 //	Note for the future:  recreate the display if allowed_opt is NULL
-	gint i,bi;
+	gint i; //bi;
 	for (i=0; i<allowed_opt->nb_blocks; i++) {
-		bi = get_block_index((allowed_opt->option_block+i)->block_name,
+		//bi = 
+		get_block_index((allowed_opt->option_block+i)->block_name,
 			input_opt);
 		update_block_page(allowed_opt->option_block+i,
 			input_opt->option_block+i);
@@ -324,7 +325,7 @@ void build_integer_format (opt_callb_data *opt) {
 
 GtkObject *build_adjustment (option_type *opt) {
 	GtkObject *adj;
-	gfloat val, min, max, step_increment, page_increment;
+	gfloat val, min, max, step_increment; // page_increment = 1.0
 	if (opt->value)
 		val = atof(opt->value);
 	else
@@ -333,11 +334,11 @@ GtkObject *build_adjustment (option_type *opt) {
 	max = atof(1+strrchr(opt->field_domain,'-'));
 	if (!strcmp(opt->field_type,"float")) {
 		step_increment = 1.0/MAX(1.0,pow(10.0,get_decimals(opt)));
-		page_increment = 1.0;
+		//page_increment = 1.0;
 	}
 	else {	// integer
 		step_increment = 1.0;
-		page_increment = 1.0;
+		//page_increment = 1.0;
 	}
 	adj = gtk_adjustment_new (val,
 		min, max, 
