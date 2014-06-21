@@ -1,0 +1,261 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>The Geomorph Development</title>
+
+<meta name="author" content="Patrice St-Gelais">
+<link href="main_header.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+
+
+
+<body>
+<center>
+<div id="header"></div>
+<iframe src="navigation_en.html" marginwidth="0" marginheight="0" frameborder="0" height="80" scrolling="no" width="800">
+</iframe></center>
+<p><big><i><a name="Introduction"></a><big><b>The
+development of
+Geomorph</b></big></i><br>
+</big></p>
+<a href="#Les_principes"><span style="font-weight: bold; font-style: italic;">The philosophy</span></a><br style="font-weight: bold; font-style: italic;">
+<a href="#Les_possibilit%E9s_de_contribution"><span style="font-weight: bold; font-style: italic;">The
+contribution
+opportunities</span></a><br>
+<br>
+<big><span style="font-weight: bold; font-style: italic;"><a name="Les_principes"></a>The philosophy<br>
+<br>
+</span></big>As said in the introduction, Geomorph is an
+answer to my
+own landscapes creation requirements. It is designed
+progressively, when ideas of new landscapes ask for new tools.<br>
+<br>
+Most landscapes ideas are derivated from memories or personal
+experiences with some aesthetic feeling. Occasionally they come from
+readings. For instance, research articles about the natural process of
+dunes growth
+brought me to create tools for generating dunes and ripples in version
+0.3 of Geomorph. Desert scenes were imagined and created for tuning
+these tools, and these tools were tuned for creating these scenes...<br>
+<p>For those who know the Eric S. Raymond Essay, <a href="http://www.catb.org/%7Eesr/writings/cathedral-bazaar/cathedral-bazaar/index.html">The
+Cathedral and the Bazaar</a>, Geomorph is not a cathedral, nor a
+bazaar. It's both! I have a plan, quite well defined, but also quite
+loose (not formally documented), which evolves from trials and
+errors, discoveries, and feedback of users.<br>
+</p>
+<p>Through this half-planned, half-opportunistic roadmap, the
+development of Geomorph follows some principles, which can be summed up
+in this way:</p>
+<ul>
+<li>Provide functions for which defined results or tasks are
+foreseen. The manner in which the tool would be used is imagined before
+the tool is designed. Said differently, Geomorph is not only the
+translation of a software concept, it is first of all the
+translation of a usage model.</li>
+<li>Release new functions when they are usable for the
+anticipated
+tasks. Avoid useless or non obvious dialogs, as possible. And avoid
+crashes, even if the software is in its alpha stage. Strictly speaking,
+an alpha program is not
+complete, but it does not have to be buggy!<br>
+</li>
+<li>Describe how to use the software in guides or tutorials.
+This is
+a requirement for communicating the principles behind the usage model.
+Geomorph is not a kind of software easy to grasp intuitively for most
+users,
+like a word processor would be, for instance. The word processor
+reproduces the paradigm of the typewriter, a program like Geomorph does
+not reproduce any common paradigm. Describing the usage scenarios in
+tutorials is also an excellent way to test the robustness of the
+software and the purposfullness of the usage model.<br>
+</li>
+</ul>
+Because of these principles, Geomorph's releases are relatively scarce.
+I'm not so sure if the "Release early, release often" rule is always a
+good thing. I test new tools a lot, first for bugs, then because I want
+to be sure that the intended tasks can be done with them with some
+comfort. Users won't keep using a program which crashes and is
+awkward.<br>
+<br>
+I must also say that the Geomorph development and documentation are
+mainly a hobby, between my family and a full-time job unrelated to the
+creation of virtual landscapes.<br>
+<br>
+Testing and documenting a program creates some kind of dialog between
+the usage model and the program model. Each one improves from the
+improvement of the other. Using the tools shows their limitations, I
+improve them, I discover new way of using them, I improve the usage
+model, which feeds the software model (the tools) and so on. This is a
+feedback loop, a back and forth movement
+between a deductive line of thought (from the software model towards
+the usage model) and an inductive one (from the effective usage towards
+the software model).
+Said differently, by using the language of data modellers, this is a
+back and forth play between a "top-down" approach and a "bottom-up"
+approach. This is also the way scientific theories are built up, and I
+don't think that software can be built up differently. This is the way
+human beings learn.<br>
+<br>
+Software development is not only an engineering undertaking, nor it is
+an act of pure creativity or free-speech. A program is a built
+artifact, and because of this, it shows some formal properties which
+are
+of interest to the mathematician, the engineer, the logician. But it is
+also a text which communicates meanings and intellectual processes (a
+program can be read and understood by human beings, even when it is too
+buggy to run), and because of this it is an object of creativity and
+free-speech, which is of interest for the philosopher, the
+linguist, the psychologist, and maybe some artists. Finally, and
+particularly, when it works, a
+program is a system, a whole showing properties which cannot be
+explained by looking at its parts. One of these properties is the
+completeness (this word is not necessarily used in its formal meaning
+here), which we feel when looking at something which seems at the same
+time "complex", "well-balanced", and "simple". This property can be
+shared by almost all products of the human mind, including the works of
+art and the scientific theories. In my opinion, the ability which
+allows us to detect this property is of the aesthetic kind.<br>
+<br>
+<br>
+<big><span style="font-weight: bold; font-style: italic;"><a name="Les_possibilités_de_contribution"></a>The
+contribution
+opportunities</span></big><br>
+<br>
+For now, I design and program Geomorph alone. I'm also the main tester.<br>
+<br>
+I got constructive comments from some users, which helped me to evolve
+the product.<br>
+<br>
+In the same way, all your comments are welcome: what is the main use of
+the software for you, what tasks are difficult to perform with it, what
+do you suggest, and so on.<br>
+<br>
+I also got appreciated contributions from two German users, Tim
+Schürmann, who translated the 0.22 version, and Simon Donike, who
+continued the work for the 0.3 version. Simon also tested a lot the 0.3
+version before its release and gave feedback about the html
+documentation.<br>
+<br>
+I don't have a well-defined development model. I don't have "jobs" to
+propose for now. However, I am glad to accept offers like those of Tim
+and Simon. The main prerequisite: the Geomorph development should keep
+on being fun. For that it must respect some conditions:<br>
+<ul>
+<li>The work should be easy to distribute between contributors.</li>
+<li>A contributor should be autonomous, if not an expert, it
+his
+domain of contribution.</li>
+<li>We must agree on basic principles relevant to the intended
+work.</li>
+</ul>
+As far as I am concerned, I don't want to become a manager in the
+traditional meaning of the word. It would become a "work" and I want
+to&nbsp; keep this for my career, not for my hobbies.<br>
+<br>
+In this framework, some contributions are easier to integrate with the
+project than others. Here are some possibilities, in an increasing
+order of difficulty:<br>
+<ol>
+<li><span style="font-style: italic;">The
+translations</span> are
+among the easiest contributions. The prerequisites are that you
+understand the source language, that you understand very well how to
+use Geomorph, and that you master the target language in its written
+form. The source languages would be English or French for the
+foreseeable future. For now I prefer to continue to publish in both
+languages, because sometimes, I write first in English - even though my
+English is not up to the level of my French, being my second language.
+The translation of the software shouldn't be mixed up with the
+translation of the web site. Translating the software amounts to
+translating 400 to 500 words and phrases used in screen dialogs. These
+strings are saved in a text file with the .po extension. The translator
+should be able to understand these strings in their context, this is
+why
+he or she should be a good user of Geomorph. The translation of the web
+site is a more risky undertaking. This is a lot of work, concerning
+documents which evolve frequently.</li>
+<li><span style="font-style: italic;"><span style="font-style: italic;">Reviewers</span></span>
+would be welcomed
+contributors. The web site and the screen dialogs would benefit from
+external proof-reading, for clarity, quality, syntax, and so on. I
+would particularily appreciate the contribution of English-speaking
+reviewers.&nbsp;</li>
+<li><span style="font-style: italic;">Testing
+prereleases</span>
+under different Linux distributions and setups would also be a nice
+contribution. Compiling, installing and using are the three main points
+to test. The prerequisite are to be resourceful, to
+persevere, and to be able to describe the problems encountered.
+To perform compiling tests also requires some technical knowledge.</li>
+<li><span style="font-style: italic;">Designing
+textures</span> and
+eventually predefined Povray scenes (which I call somewhere "scene
+templates") are another contribution possibility. The prerequisites are
+the knowledge of Povray and an eye for natural phenomenons, in order to
+simulate natural textures with
+realism.</li>
+<li><span style="font-style: italic;">The
+improvement of install
+scripts </span>and the creation of packages for specific
+distributions
+(.rpm, .deb...) is another matter of contribution. I am not comfortable
+with this part of the development process. Knowledgeable contributors
+would be appreciated. Among the prerequisites, there is the knowledge
+of scripting languages (bash, rpms "specs", and so on), of the target
+distributions and of the compilation process. </li>
+<li><span style="font-style: italic;">The
+interface with other
+renderers. </span>Geomorph works with Povray&nbsp; because
+this was
+the renderer I knew when I started the project. The current Povray
+version (3,6) in not free in the sense of the GPL.<span style="font-style: italic;"></span> Free renderers
+like Aqsis or
+YafRay could be used in the future. One could contribute an interface
+and predefined scenes or templates with these renderers, or others
+unknown to me. However, a feasibilty and opportunity evaluation is
+required for each rendered. When the renderer does not accept height
+fields as images, but only meshes, using it would imply a conversion at
+each run and would be awkward.<br>
+</li>
+<li><span style="font-style: italic;">The
+development</span>
+(designing and programming) is probably the most difficult
+contribution, for the contributor and for me. Here I would insist more
+on autonomy and knowledge. About the programming
+part, some prerequisites are the knowledge of C and of the GTK library.
+The programmer should also feel comfortable with my programming style
+and the code structure, even if he / she doesn't totally endorse them.
+A few words about this: I was cautious about the data and programs
+structures. However, having worked outside of software development for
+the last fifteen years or so, I probably developped an uncommon style,
+unrelated to any specific developpers community. I don't know, either,
+all the relevant standards (I found the GNU ones too long to read...).
+However I would be very glad to have my code reread and criticized.
+Anyway, if you want to explore this possibility of contribution, the
+first step if to read the code! About the design of the software, there
+are more than one aspects: think about the internal structures, the
+interface, the tools, but also the science or craftmanship behind the
+algorithms. Who knows, maybe some of you are geomorphology experts and
+would like to feed me, if we can find a common language?<br>
+</li>
+</ol>
+Other contribution opportunities can be foreseen in the future,
+depending on how people will receive the next versions of Geomorph and
+the development path it will follow. There could be "jobs", for
+instance, for moderating and managing a forum, or for managing an
+online database which could contain Povray textures or objects provided
+by Geomorph users.<br>
+<br>
+<br>
+Written in September 2005<br>
+<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice
+St-Gelais</a></i></p>
+<ul>
+</ul>
+<center> </center>
+<br>
+<div align="center"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3" alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body></html>

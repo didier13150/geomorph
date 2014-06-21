@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html style="direction: ltr;" lang="fr"><head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>L'Explorateur de Fourier de Geomorph</title>
+
+<meta content="Patrice St-Gelais" name="author">
+<meta content="Explications de base sur l'utilisation de l'Explorateur de Fourier de Geomorph" name="description">
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen"></head>
+<body>
+<center>
+<div id="header"></div>
+<big><iframe src="../../navigation_fr.html" marginwidth="0" marginheight="0" frameborder="0" height="80" scrolling="no" width="800">
+</iframe></big></center>
+<big><strong style="font-style: italic;"><img style="border: 1px solid ; width: 34px; height: 34px;" alt="" src="../fourier_icon.png" hspace="2" vspace="0">L'explorateur
+de Fourier de Geomorph</strong></big><br>
+<br style="font-style: italic; font-weight: bold;">
+<span style="font-style: italic; font-weight: bold;">Qu'est-ce
+que l'explorateur de Fourier?</span><br>
+<br>
+L'Explorateur de Fourier est un outil offert par Geomorph pour traiter
+un terrain avec une transformation de Fourier. Il permet d'ajuster
+finement les fréquences du terrain, ou de tout autre image éditable
+avec Geomorph, et de voir les résultats en temps réel.<br>
+<br style="font-style: italic; font-weight: bold;">
+<span style="font-style: italic; font-weight: bold;">Qu'entend-on
+par les fréquences d'une image?</span><br>
+<br>
+Considérez une fréquence comme un niveau particulier de détail. Les hautes
+fréquences (ou courtes longueurs d'onde) correspondent à de petits
+détails, les basses fréquences (ou grandes longueurs d'onde) à des
+structures plus imposantes.<br><br>
+<span style="font-style: italic;"><span style="font-weight: bold;">Qu'est-ce qu'une transformation de Fourier</span></span><span style="font-style: italic; font-weight: bold;">?</span><br>
+<br>
+Joseph
+Fourier (1768-1830) est un mathématicien français qui a postulé que
+toute fonction peut être décomposée en une somme de fonctions
+périodiques simples comme des sinus ou des cosinus. Une somme de ce
+genre est une appelée une série de Fourier.<br>
+<br>Ainsi, une transformation de Fourier prend des données dans le
+"domaine spatial" (un son, une image, un terrain...) et les traduit
+dans le "domaine des fréquences' ou "spectre des fréquences", qui
+représente la somme des fonctions périodiques.<br>
+<br>Le principe est plus facile à visualiser avec une image
+reconnaissable qu'avec un terrain, c'est pourquoi nous l'illustrerons
+avec une photographie de Bouboule le Chat.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td>
+<div style="text-align: center;"><a href="../bouboule512.png"><img style="border: 2px solid ; width: 256px; height: 256px;" alt="" src="../Bouboule256.jpg"></a><br>
+Le "domaine spatial" de Bouboule le Chat<br>
+</div>
+<div style="text-align: center;"><small><span style="font-style: italic;">Cliquez avec le bouton de droite pour télécharger une version 16 bits de 512x512, utilisable dans Geomorph.</span></small></div>
+</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../Bouboule_frq.jpg"><br>Le "spectre des fréquences" de Bouboule le Chat</td>
+</tr>
+</tbody>
+</table>
+<br>Une représentation du résultat de la transformation de Fourier est
+proposée à droite. Il ne s'agit pas du résultat lui-même, parce qu'en réalité, ce n'est pas&nbsp;une image! Le
+centre de l'image coïncide avec la coordonnée (0,0) du résultat, soit
+les plus basses fréquences. Il est habituel de déplacer le résultat de
+la moitié de sa grandeur pour centrer la zone qui contient
+l'information ayant le plus d'impact sur l'apparence de l'image
+d'origine.<br>
+<br>Si vous appliquez une tranformation de Fourier inverse au spectre des fréquences, vous obtiendrez le domaine spatial d'origine.<br>
+<br>Une transformation de Fourier décompose une image en ses
+fréquences, mais on peut aussi composer une image à partir de
+fréquences choisies. Ce principe est appliqué dans Geomorph lorsque
+l'on crée un terrain par "addition progressive de surfaces". Dans <a href="egg_box_tutorial.html">cet exemple</a>,
+un terrain "boîte d'oeufs" est généré et sera utilisé dans ce tutoriel,
+avec l'image de Bouboule et le terrain par défaut de Geomorph.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../EggBox512.png"><img style="border: 2px solid ; width: 256px; height: 256px;" alt="" src="../EggBox256.jpg"></a><br>Le terrain "boîte d'oeufs" utilisé dans ce tutoriel.<br>
+</td>
+<td style="text-align: center;">
+<br>
+<img style="width: 255px; height: 256px;" alt="" src="../EggBox_frq_blowup.jpg"><br>Le
+spectre de fréquences de cette image. Notez comment les points sont
+régulièrement espacés. On se serait attendu à moins de points, parce
+qu'il n'y a qu'une fréquence apparente. En fait, les points plus
+sombres peuvent être vus comme des harmoniques d'une note de musique.<br>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../Default512.png"><img style="border: 2px solid ; width: 256px; height: 256px;" alt="" src="../Default256.jpg"></a><br>Le terrain "par défaut" de Geomorph ...</td>
+<td style="text-align: center;"><img style="width: 240px; height: 240px;" alt="" src="../Default_frq_blowup.jpg"><br>
+... et son spectre de fréquences. Comme le domaine spatial a été généré
+à l'aide d'un processus pseudo-aléatoire, les fréquences sont réparties
+plus uniformément que dans les deux autres images.</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br style="font-style: italic; font-weight: bold;">
+<span style="font-style: italic; font-weight: bold;">Que peut-on faire avec une transformation de Fourier? </span><br>
+<br>
+Sommairement:<br>
+<ul>
+<li>Mettre à zéro des hautes fréquences dans le spectre de fréquences,
+et convertir le spectre résultant dans le domaine spatial, donne une
+image plus floue.</li>
+<li>L'augmentation des hautes fréquences donne une image d'apparence plus précise.</li>
+<li>Mettre à zéro les basses fréquences donne une apparence embossée, avec un contraste plutôt réduit.</li>
+<li>L'augmentation des hautes fréquences donne... ça dépend! Avec
+Bouboule le Chat, le résultat dépasse l'intervalle de valeurs
+affichable si le contraste de l'image originale n'est pas abaissé
+auparavant.</li>
+</ul>
+Tout cela peut être fait avec l'Explorateur de Fourier, en appliquant un masque au spectre des fréquences.<br>
+<br>
+<span style="font-weight: bold; font-style: italic;">Quelques points utiles à connaître au sujet de l'interface de l'Explorateur de Fourier</span><br>
+<br style="font-style: italic;">
+<span style="font-style: italic;">... plutôt que de les apprendre par essais et erreurs</span><br>
+<ol>
+<li>L'Explorateur de Fourier est un dialogue "modal". Les fenêtres dans
+lesquelles sont édités les documents Geomorph ne répondent pas pendant
+que l'Explorateur est ouvert. Vous devez quitter l'explorateur avant de
+travailler à nouveau dans ces fenêtres. Pour la même raison, lorsque
+vous désirez afficher le terrain avec POV-Ray, vous devez cliquer sur
+l'icône POV-Ray de l'Explorateur, non celui de la fenêtre du document -
+il est facile de se tromper!</li>
+<li>Quand vous quittez l'Explorateur en fermant la fenêtre, les
+changements effectués ne sont pas conservés. Pour les conserver, vous
+devez obligatoirement cliquer le bouton "Conserver et quitter".</li>
+<li>Le "Choix d'aperçu" est ce qui est conservé au retour dans la
+fenêtre du document Geomorph. Ainsi, si vous avez choisi d'afficher en
+3D le spectre de fréquences, cette image remplacera le terrain en cours
+d'édition. C'est volontaire, pour ceux qui voudraient utiliser ces
+images comme des terrains. Au retour dans la fenêtre d'édition, vous
+pouvez annuler ce changement, comme tout autre changement.
+</li>
+</ol>
+<span style="font-weight: bold; font-style: italic;">L'utilisation du masque</span><br style="font-weight: bold; font-style: italic;">
+<br>Le masque de l'Explorateur de Fourier est contrôlé par cette barre d'outils: <img style="width: 164px; height: 36px;" alt="" src="../filters.png"><br>
+<br>Le principe est simple: la partie en rouge du masque, ajustable
+avec des échelles à curseur, est retirée du spectre de fréquences avant
+d'appliquer la transformation inverse de Fourier.<br>
+<br>Voici un exemple avec Bouboule le Chat:<br>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><img style="width: 30px; height: 30px;" alt="The block filter" src="../block.png"><br>
+(1)<br>Bloc</td>
+<td style="text-align: center;"><img style="width: 246px; height: 246px;" alt="" src="../cat_block_mask_5.jpg"><br>Le
+masque "bloc" à un niveau de 5% sur la largeur et la profondeur. Seules
+les fréquences les plus basses, au centre, sont conservées. Cela
+adoucit l'image.</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_block_5.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 30px; height: 30px;" alt="The Frame filter" src="../frame.png"><br>
+(2)<br>Cadre</td>
+<td style="text-align: center;"><img style="width: 241px; height: 241px;" alt="" src="../cat_frame_mask_5.jpg"><br>Le
+masque "cadre" à un niveau de 5%. Seules les fréquences les plus
+élevées (les détails) sont conservées. Le résultat correspond à l'image
+d'origine, moins l'image adoucie en (1).</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_frame_5.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 30px; height: 30px;" alt="The Empty Box filter" src="../empty_box.png"><br>
+(3)<br>Boîte</td>
+<td style="text-align: center;"><img style="width: 248px; height: 248px;" alt="" src="../cat_empty_box_mask_5_5.jpg"><br>Le
+masque "boîte" à un niveau de 5%, la grandeur de la bande étant aussi
+fixée à 5%. Seules les fréquences moyennes sont conservées.</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_empty_box_5_5.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 30px; height: 30px;" alt="The Ditch filter" src="../ditch.png"><br>
+(4)<br>Fossé</td>
+<td style="text-align: center;"><img style="width: 239px; height: 239px;" alt="" src="../cat_ditch_mask_5_5.jpg"><br>Le
+masque et la bande sont encore fixés à 5% de la grandeur du spectre de
+fréquences. Le résultat équivaut à l'image originale moins les
+fréquences moyennes produites en (3).</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_ditch_5_5.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>Les images du spectre de fréquences masqué sont agrandies, comme
+elles le sont dans l'Explorateur de Fourier, parce que les fréquences
+les plus importantes pour l'oeil sont au centre.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td><br>Et il y a plus: l'amplitude du masque peut être ajustée pour
+réduire son effet. En outre, l'amplitude peut être négative. Dans ce
+cas, le masque devient bleu et l'effet est inversé. Par exemple, si le
+masque bleu est appliqué sur les fréquences les plus élevées, le
+résultat aura l'air plus précis - ou d'avoir plus de bruit de surface
+s'il s'agit d'un terrain.
+</td>
+<td style="text-align: center;"><img style="width: 120px; height: 120px;" alt="" src="../negative_filter.png"><br>
+<span style="font-style: italic;">Le masque "bloc" avec une amplitude négative.</span></td>
+</tr>
+</tbody>
+</table>
+<br>
+&nbsp;<br>
+<span style="font-style: italic; font-weight: bold;">L'effet d'une amplitude négative </span><span style="font-style: italic;">(le masque "bloc" à 5%)</span><br>
+<br>La première tranche, à gauche, montre l'image originale, la tranche
+du centre montre l'effet d'une amplitude de 100%, la troisième tranche
+montre l'effet d'une amplitude de -100%.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../default_blue_example.jpg"></td>
+<td style="text-align: center;"><img style="width: 300px; height: 225px;" alt="" src="../default_blue_preview.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_blue_example.jpg"></td>
+<td style="text-align: center;"><img style="width: 301px; height: 223px;" alt="" src="../cat_blue_preview.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold; font-style: italic;">L'utilisation d'un masque asymétrique</span><br>
+<br>Pour ceux qui voudraient explorer des effets inhabituels, le masque
+peut être décentré, et il peut être de forme rectangulaire plutôt que
+carrée.<br>
+<br>Pour déplacer le masque, ajustez les curseurs +X et +Y.<br>
+<br>Pour&nbsp;étirer le masque dans une dimension, décochez le bouton
+avec un signe "=" à la droite des échelles de largeur et de profondeur,
+qui relie ces deux échelles. Leurs curseurs se déplaceront séparément.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><img style="width: 246px; height: 246px;" alt="" src="../cat_rectangular_mask.jpg"><br>Un masque rectangulaire avec une largeur de 2% et une profondeur de 10%.</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_rectangular.jpg"></td>
+<td style="text-align: center;"><img style="width: 294px; height: 224px;" alt="" src="../cat_rectangular_preview.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 250px; height: 250px;" alt="" src="../cat_offset_mask.jpg"><br>Un masque de 10% décentré, +X=6%, +Y=5%.</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_offset.jpg"></td>
+<td style="text-align: center;"><img style="width: 292px; height: 222px;" alt="" src="../cat_offset_preview.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 251px; height: 251px;" alt="" src="../default_asym_mask.jpg"><br>
+Largeur=10%, profondeur=1%, +X=5%, avec le terrain par défaut de Geomorph.</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../default_asym.jpg"></td>
+<td style="text-align: center;"><img style="width: 297px; height: 221px;" alt="" src="../default_asym_preview.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 249px; height: 249px;" alt="" src="../egg_box_rectangular_mask.jpg"><br>
+Largeur=0% (1 pixel), largeur=10%, sur l'image "boîte d'oeufs".</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../egg_box_rectangular.jpg"><br>La source est à gauche, le résultat à droite: on peut voir qu'il n'y a plus d'onde horizontale.</td>
+<td><img style="width: 296px; height: 222px;" alt="" src="../egg_box_rectangular_preview.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<span style="font-style: italic; font-weight: bold;">D'autres caractéristiques de l'interface<br><br style="font-style: italic;"></span>
+<span style="font-style: italic;">Les parties réelles et imaginaires</span><br>
+<br>L'affichage du spectre de fréquences montre trois onglets, appelés
+"Réel", "Imaginaire" et "Magnitude". Le résultat d'une tranformation de
+Fourier est un nombre complexe, composé d'une partie réelle et d'une
+partie imaginaire. La partie imaginaire est un coefficient multiplié
+par la racine carrée de -1. La partie réelle correspond à l'amplitude
+de l'onde, la partie imaginaire à sa phase. La magnitude (ou module),
+qui est généralement ce que l'on affiche en représentant une
+transformation de Fourier, est le résultat de la racine carrée de (réel<sup>2</sup> + imaginaire<sup>2</sup>).
+En supposant qu'un nombre imaginaire est représenté dans un plan
+cartésien, X étant le coefficient réel, Y le coefficient imaginaire, la
+magnitude est la longueur du vecteur de (0,0) à (réel, imaginaire), tel
+que calculée par la formule de Pythagore.<br><br>Qu'est-ce qui peut
+être fait avec ces onglets? Le masque est appliqué seulement sur
+l'onglet couramment affiché. Par exemple, si vous masquez le
+spectre de fréquences à 100% et choisissez l'onglet "imaginaire", le
+résultat ne contiendra que l'effet de la partie réelle.&nbsp;<br>
+<br>
+<span style="font-style: italic;">Le bouton "Réutiliser le résultat"</span><br>
+<br>Le bouton "Réutiliser le résultat" prend la transformation inverse
+de Fourier, générée après l'application du filtre courant et affichée
+dans l'aperçu, puis l'utilise pour remplacer l'image source. Ainsi,
+vous pouvez y appliquer un nouveau filtre sans retourner dans la
+fenêtre de document de Geomorph.<br>
+<br>
+<span style="font-style: italic;"><span style="font-weight: bold;">Pour en savoir plus</span></span><span style="font-weight: bold; font-style: italic;"></span><br>
+<br>Voici quelques liens, en anglais, que j'avais consultés en
+concevant l'Explorateur de Fourier, il y a déjà deux ou trois ans:&nbsp;<br>
+<br>
+<a href="http://homepages.inf.ed.ac.uk/rbf/HIPR2/fourier.htm">Image
+Transforms - Fourier Transform</a><br>
+<a href="http://www.dspguide.com/ch24/5.htm">Fourier Image
+Analysis</a><br>
+<a href="http://support.svi.nl/wiki/FourierTransform">Fourier
+transform</a><br>
+<a href="http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/OWENS/LECT4/node2.html">Fourier
+transform theory</a><br>
+<a href="http://en.wikipedia.org/wiki/Fourier_transform">Fourier
+transform - Wikipedia, the free encyclopedia</a><br>
+<a href="http://zone.ni.com/devzone/cda/ph/p/id/121">Introduction
+to the frequency domain</a><br>
+<br>En français, je vous réfère à Wikipedia:<br><br><a href="http://fr.wikipedia.org/wiki/S%C3%A9rie_de_Fourier">Série de Fourier</a>, page qui contient aussi un lien vers une <a href="http://www.sciences.univ-nantes.fr/physique/perso/gtulloue/Elec/Fourier/fourier1.html">animation Flash</a> intéressante<br><a href="http://fr.wikipedia.org/wiki/Transform%C3%A9e_de_Fourier">Transformée de Fourier</a><br><br>Écrit en avril 2008<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice
+St-Gelais</a></i></p>
+<ul>
+</ul>
+<center> </center>
+<br>
+<div align="center"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3" alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body></html>

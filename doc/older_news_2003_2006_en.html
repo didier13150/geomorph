@@ -1,0 +1,700 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR"
+ content="Mozilla/4.77 [fr] (X11; U; Linux 2.4.3-20mdk i686) [Netscape]">
+  <title>Geomorph - English</title>
+</head>
+
+<link href="main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><span style="font-weight: bold;"><a name="Top"></a><big><span
+ style="font-style: italic;">Geomorph - News - Archive</span></big></span></big><br>
+<p><a href="#Whats_going_on_with_Geomorph_June_the"><big><span
+ style="font-style: italic; font-weight: bold;">What's
+going on with Geomorph (June the 30th, 2006)</span></big></a><br>
+<a href="#Whats_new_in_version_0.31_November_the"><big>Version 0.31
+(November the 25th, 2005)</big></a><br>
+&nbsp;&nbsp;&nbsp;&nbsp; <a href="#Update_about_version_0.31">Update
+about version 0.31 (November
+the 28th)</a><br>
+<a href="#Whats_new_in_version_0.23"><big>What's
+new in version 0.30 (October the 31st, 2005)</big></a><br>
+<a href="#February_the_2nd_2005"><big>February
+the 2nd, 2005</big></a><br>
+<a href="#whats_new_0_22"><big>What's new
+in version 0.22 (October the 30th, 2004)</big></a><big><br>
+<a href="#whats_new_0_21">What's new in version 0.21 (August the 16th,
+2004)</a></big><big><br>
+<a href="#whats_new_0_20">What's new in
+version 0.20 (</a></big><a href="#whats_new_0_20"><big>May
+the 7th, 2004)</big></a><br>
+<a href="#whats_new"><big>What's new in version 0.12 (</big><big>November
+the 16th, 2003)</big></a><span style="text-decoration: underline;"><br>
+</span><a href="#Replace_a_broken_file"><big>Replace a broken file (</big></a><big><a
+ href="#Replace_a_broken_file">November
+the 16th, 2003)</a><br>
+</big></p>
+<p><big><span style="font-style: italic; font-weight: bold;"><br>
+<a name="Whats_going_on_with_Geomorph_June_the"></a>What's
+going on with Geomorph (June the 30th, 2006)</span></big><br>
+</p>
+<p>Geomorph is not dead, though the updates are less frequent for some
+very good and trivial reasons (work, family...). I also apologize for
+the scarcity of the site updates, particularily for those who expected
+to get their work displayed.<br>
+</p>
+<p>Version 0.40 will provide a cracks network tool, among a few other
+goodies. Maybe I'll also be able to package a "Fourier Explorer"
+subsystem. The internals are done, but the interface is a challenge.<br>
+</p>
+<p>There are also a few noticeable news:<br>
+</p>
+<ul>
+</ul>
+<ol>
+  <li>A FreeBSD port of Geomorph is now available at <a
+ class="moz-txt-link-freetext"
+ href="http://www.freshports.org/graphics/geomorph">http://www.freshports.org/graphics/geomorph.</a><span
+ class="moz-txt-link-freetext"> My best thanks to Dmitry Marakasov for
+providing it.</span> </li>
+</ol>
+<ol start="2">
+  <li><span class="moz-txt-link-freetext">The Gallery has been updated
+with very interesting work from Marc Carson, Jaime Vives Piqueres and
+Simon Donike.</span></li>
+</ol>
+<table
+ style="margin-left: auto; margin-right: auto; width: 100%; text-align: left;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="text-align: center; vertical-align: top;"><a
+ href="gallery/Marc%20Carson/index.html"><img
+ title="Real Surface - Marc Carson" alt="Marc Carson"
+ src="gallery/Marc%20Carson/vignettes/Real%20Surface.jpg"
+ style="border: 0px solid ; width: 150px; height: 125px;"></a><br>
+      </td>
+      <td style="text-align: center; vertical-align: top;"><a
+ href="gallery/Jaime%20Vives%20Piqueres/index.html"><img
+ alt="Jaime Vives Piqueres" title="Jaime Vives Piqueres"
+ src="gallery/Jaime%20Vives%20Piqueres/vignettes/Demo%20Geomorph%201.jpg"
+ style="border: 0px solid ; width: 180px; height: 120px;"></a></td>
+      <td style="text-align: center; vertical-align: top;"><a
+ href="gallery/Simon%20Donike%202006-01/index.html"><img
+ alt="Canyon - Simon Donike" title="Canyon - Simon Donike"
+ src="gallery/Simon%20Donike%202006-01/vignettes/Canyon.jpg"
+ style="border: 0px solid ; width: 180px; height: 135px;"></a><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ol start="3">
+  <li><span class="moz-txt-link-freetext">The German messages file of
+the 0.31 package displays the special characters of this language
+incorrectly (&szlig;,
+&uuml;...),
+because of a double UTF-8 conversion.</span></li>
+</ol>
+<ul>
+  <ul>
+    <li><span class="moz-txt-link-freetext">If you are using the
+binary, you
+can get the right <a href="de.gmo">de.gmo file here</a>. Login as root
+and copy it like this, in a console:<br>
+cp -fv&nbsp; po/de.gmo
+/usr/local/share/locale/de/LC_MESSAGES/geomorph.mo</span></li>
+    <li><span class="moz-txt-link-freetext">If you are using the
+source, you can use the first method, or if you prefer a slower method,
+you can get the <a href="de.po">right de.po file here</a>, copy it in
+~/geomorph-0.31/po, recompile and reinstall.</span></li>
+  </ul>
+</ul>
+I also forgot to provide a link to a page exposing the development
+philosophy and the contribution opportunities, written in september
+2005. <a href="development_en.html">So here it is</a>.<br>
+<br>
+So expect to have some news from Geomorph at the beginning of the Fall,
+I hope!<br>
+<br>
+Patrice St-Gelais<br>
+<br>
+<ul>
+</ul>
+<big><span style="font-style: italic; font-weight: bold;"></span></big>
+<p><big><span style="font-weight: bold; font-style: italic;"><a
+ name="Whats_new_in_version_0.31_November_the"></a>Version 0.31
+(November the 25th, 2005)</span></big><br>
+</p>
+<p>Version 0.31 fixes these bugs:<br>
+</p>
+<ol>
+  <li>Some users with a Nvidia video card and the Nvidia proprietary
+driver were not able to display the preview at all. Version 0.31 uses
+the GtkGLExt library instead of GtkGLArea, which solves the problem.
+Special thanks to Vincent Le Prince for testing this change.<br>
+  </li>
+</ol>
+<ol start="2">
+  <li>With the "fill bucket":</li>
+</ol>
+<ul style="margin-left: 40px;">
+  <li>Use of the "subtract" option does not
+crash Geomorph anymore.</li>
+  <li>Filling up 10 areas or more (or subtracting them) does not exit
+Geomorph anymore.<br>
+  </li>
+</ul>
+<ol start="2">
+</ol>
+<ol start="3">
+  <li>The installation scripts have been corrected. A new Geomorph user
+can be installed in one of 2 ways: from the uncompressed archive, or at
+the first launch of Geomorph. The second one was not working because of
+a typo. Furthermore, the "sed" command was used with a GNU extension
+which does not work on some systems. This extension is no more used.</li>
+</ol>
+<ol start="4">
+  <li>The cloning function ( <img alt="save a copy as"
+ src="./save_copy_as_icon.jpg" style="width: 22px; height: 22px;"> )
+now works without errors with a
+new and unsaved document. Geomorph asks to save it before copying it.<br>
+  </li>
+</ol>
+<ol start="5">
+  <li>Output of comments in the geomorphrc file are now translated to
+the current locale. They were written in the UTF-8 format, a concern
+for French and German users.</li>
+</ol>
+This version doesn't add any new features.<br>
+<br>
+The <a href="installing_en.html">download and install page</a>, plus
+the <a href="faq_en.html">FAQ,</a> have been updated.<br>
+<br>
+If you prefer to compile the program from the source, notice
+that the libgtkglext and libgtkglext-devel packages are now
+dependencies, replacing their libgtkglarea counterparts. The binary
+includes the required library ("statically linked"), so
+you don't need to search for it.<br>
+<br>
+The use of hardware acceleration for OpenGL (direct rendering - DRI)
+could produce instabilities when closing and opening many documents.
+Furthermore, the memory problems already described in the FAQ are still
+present. Unlike version 0.30, version 0.31
+allows to choose if the Geomorph preview is accelerated or not. By
+default, acceleration in Geomorph 0.31 is unactive, even when it is
+active for other programs. Please consult <a
+ href="faq_en.html#How_can_I_activate__unactivate_the">this section in
+the FAQ</a> if you want to use
+hardware acceleration.<br>
+<br>
+<a name="Update_about_version_0.31"></a><span style="font-weight: bold;">Update
+about version 0.31 (November the 28th)</span><br>
+<br>
+The source package (not the binary) contains an unwanted copy of the
+"geomorphrc" options file. It is located in the root directory,
+~/geomorph-0.31/. If you try to run Geomorph from this directory, in
+the console, after compiling or installing it, this file would be read
+instead of yours, usually in ~/geomorph/. If your default Geomorph
+directory is suddenly /home/patrice/geomorph, this is what is
+happening! It does not happen if you start Geomorph from elsewhere, for
+instance from the icon on your desktop. If you keep the geomorph-0.31
+directory, I suggest that you delete the file to avoid future errors.
+Thanks to Cyril Br&ucirc;lebois for submitting the problem.<br>
+<br>
+<p><big><span style="font-weight: bold; font-style: italic;"><a
+ name="Whats_new_in_version_0.23"></a>What's new in version 0.30
+(October the 31st, 2005)<br>
+</span></big><br>
+A new version of Geomorph is finally available, after one year!<br>
+<br>
+The migration towards the GTK2 libraries explains most of the work. It
+does not improve the interface or the features of Geomorph, at least
+for now. This is a long term investment, to avoid obsolescence.<br>
+<br>
+But version 0.30 also provides a lot of improvements.<br>
+<br>
+For instance, if you like desert or seashore landscapes, you'll be able
+to use Geomorph for creating dunes and ripples.<br>
+</p>
+<div style="text-align: center;"><img src="povray/desert_and_tree.jpg"
+ alt="Dunes et vaguelettes" style="width: 400px; height: 240px;"
+ hspace="10" vspace="10"><span
+ style="font-style: italic; font-weight: bold;"><br>
+Dunes and ripples produced with Geomorph</span><br>
+</div>
+<br>
+There are also optimizations which should increase the speed of drawing
+and make easier the edition of height fields of 1024x1024 pixels or
+larger.<br>
+<br>
+In the documentation, there is a new <a
+ href="tools/en/tools_index.html">tools index</a> and a <a
+ href="povray/en/Process.html">Povray section</a>, which contains among
+others <a
+ href="povray/en/Texturing%20a%20Geomorph%20height%20field%20with%20Povray.html">a
+texturing section</a>. <br>
+<br>
+<div style="text-align: center;"><img alt="Exemples de textures"
+ src="textures_examples.jpg" style="width: 640px; height: 120px;"
+ hspace="10" vspace="10"><br>
+<span style="font-style: italic; font-weight: bold;">Povray textures
+provided with Geomorph</span><br>
+</div>
+<br>
+The new sections contain a lot of images, because it's easier to
+understand new concepts from examples. It's a bit slow on a 56k line,
+sorry! The documentation is now distributed separately from the
+software, under a <a
+ href="licences/Creative%20Commons%20Deed%20-%20en.html">Common
+Creative license</a>.<br>
+<br>
+There are now more Povray textures and scenes installed when creating a
+new user directory, and many of them have been improved when writing
+the documentation section about Povray.<br>
+<br>
+The <a href="gallery/Patrice/index.html">gallery</a> also contains
+more examples. Most new features of Geomorph are designed and tested
+during the development of the landscapes published in this gallery and
+in the tutorials. The gallery also contains links to some scene files
+and height fields used.<br>
+<br>
+Here is a more complete list of improvements:<br>
+<br>
+1. The new features<br>
+<ul>
+  <li>4 new tools</li>
+</ul>
+<div style="margin-left: 80px;"><img alt="" src="new_tools0_23.jpg"
+ style="width: 168px; height: 60px;"><br>
+</div>
+<ul>
+  <ul>
+    <li>Gravity erosion<br>
+    </li>
+    <li>Oriented gravity erosion<br>
+    </li>
+    <li>Dunes generation, derivated from the papers of Bruno Andreotti
+and his colleagues
+(<a href="http://www.lps.ens.fr/recherche/formes/papers.html">http://www.lps.ens.fr/recherche/formes/papers.html</a>)<br>
+    </li>
+    <li>Ripples generation, derivated from the same papers</li>
+  </ul>
+</ul>
+<div style="margin-left: 40px;">No detailed documentation exists for
+these tools yet, but <a href="tools/en/tools_index.html">the new tools
+index</a> shows previews of the results and gives some advices.<br>
+</div>
+<ul>
+  <li><img alt="" src="fill_tool.jpg" style="width: 57px; height: 44px;"
+ align="middle">A new "fill bucket", in the drawing section, for
+filling depressions up to a specified height, with a variable level of
+noise.<br>
+  </li>
+  <li><img alt="" src="stop.jpg" style="width: 39px; height: 38px;">A
+new button which stops the Povray rendering, as suggested by Simon
+Donike, the german version contributor.<br>
+  </li>
+  <li>A closing dialog, which shows all the unsaved documents - very
+convenient for those who stack a lot of height fields during a
+trial-and-error work!<br>
+  </li>
+</ul>
+2. The new improvements and corrections<br>
+<ul>
+  <li>Drawing is now faster. The main source of slowness was the
+preview update. Now, the preview is updated at low resolution when
+drawing, and at the full chosen resolution when the mouse button is
+released.</li>
+  <li>Many dialogs have been optimized with a similar technique. For
+instance, the horizontal or vertical translation is echoed in the
+preview when the mouse button is released, after dragging the scale
+button.</li>
+  <li>An other optimization technique has been generalized, when it is
+relevant: most scales now provide buttons for increasing or decreasing
+the value without having to drag the scale. With large height fields,
+it could be difficult to drag the scale cursor when Geomorph refreshes
+the image of the height field or its preview.</li>
+  <li>The naming convention for Povray output has been changed. For
+instance, executing a file terrain.pov calling a height field with the
+name hf.png would give now a landscape called _hf.png instead of
+terrain.png. In the preceding version, the risk of overwriting the PNG
+height field with the Povray output was significant (e.g. a terrain.png
+height field rendered with the terrain.pov file gives a terrain.png
+output...). The _ prefix can be changed in the options file geomorphrc.<br>
+  </li>
+  <li>There were scaling errors with the pen tools, which are now
+corrected.<br>
+  </li>
+  <li>The erosion and crests processes outcome should look now more
+natural. The slopes are now hexagonal instead of rectangular.<br>
+  </li>
+  <li>Scrolling controls have been added, when the height field display
+is scaled up. Drawing small details should be easier.<br>
+  </li>
+  <li>In the "Waves" tool, the period can now be set to a value of 10
+with a predictable outcome. The height field is then covered with a
+gradient of half a wave length.<br>
+  </li>
+  <li>The changes and the undo/redo stack are now managed in a better
+way. The auto-accept feature, when there is a change of context (for
+instance, when clicking on a new tool or on a new document window), now
+works more consistently.<br>
+  </li>
+  <li>The default browser defined in the options file when a new user
+is installed is now Epiphany instead of Galeon. Netscape is not a
+choice anymore. The choices are tried in this order: Epiphany, Firefox,
+Mozilla,
+Konqueror, Galeon.</li>
+  <li>Many segmentation faults have been corrected.</li>
+</ul>
+The <a href="faq_en.html">FAQ</a> has been largely rewritten. A few
+new problems are documented, specially a significant memory leak
+related to some video cards for which the X server driver supports
+direct rendering.<br>
+<br>
+Notice that there has been no 0.23 official version. I decided to
+rename it 0.30, because the changes are significant.<br>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+<p><span style="font-weight: bold;"><a name="February_the_2nd_2005"></a><big><span
+ style="font-style: italic;">February the 2nd, 2005</span></big></span><br>
+</p>
+<ol style="font-style: italic;">
+  <li>The binary package of 0.22 was broken</li>
+</ol>
+<div style="margin-left: 40px;">The uploaded file was incomplete. You
+can get the complete one on the <a href="installing_en.html">download
+page</a>. Thanks to Simon for submitting the problem.<br>
+</div>
+<ol style="font-style: italic;" start="2">
+  <li>Problem running Povray from Geomorph 0.22 under Mandrake 10.1</li>
+</ol>
+<div style="margin-left: 40px;">Upgrading to Mandrake 10.1, I
+discovered that Povray calling was not working right anymore. It simply
+doesn't execute, and if you start Geomorph from the command line, you
+see an error message, giving the .pov extension <span
+ style="font-style: italic;">after</span> the Povray options. I reckon
+it could happen with other recent distributions.<br>
+If you experiment this problem, go to the <a href="installing_en.html">download
+page</a> and fetch the "b" version.<br>
+</div>
+<ol start="3">
+  <li><span style="font-style: italic;">Geomorph 0.23 is on the way!</span><br>
+  </li>
+</ol>
+<div style="margin-left: 40px;">I'm working on it, but the pace is not
+very fast! It will be converted to GTK+2, and offer faster drawing
+functions, thanks to optimisations in the way the OpenGL preview is
+refreshed. Also, the rain erosion would look more natural, and I hope
+to be able to offer a few interesting new functions.<br>
+</div>
+<br>
+Stay tuned!<br>
+<br>
+Patrice<br>
+<br>
+<a name="whats_new_0_22"></a><i><big> </big></i><b><i><big>What's new
+in version 0.22</big></i></b><br>
+<br>
+Version 0.22 was released on October the 30th, 2004.<br>
+<br>
+It features two main improvements:<br>
+<ol>
+  <li>The "fault" pen has been improved for creating cracks and
+fissures. A <a href="tut_cracks/en/The_Cracks_Tutorial.html">tutorial</a>
+is provided.</li>
+  <ul>
+    <li>The width of the crack can be controlled (the separation
+level).&nbsp;</li>
+    <li>The default behavior is now to accept automatically the crack,
+fault or fissure when the user clicks away from the current control
+line. This makes the creation of networks easier.</li>
+  </ul>
+  <li>Geomorph is now translated in German. This is a contribution from
+Tim Sch&uuml;rmann, to whom I give my best thanks! Tim insists that his
+translation is experimental, so I ask German speaking users to send me
+their
+corrections or suggestions, if any.</li>
+</ol>
+<div align="center"><a href="tut_cracks/en/The_Cracks_Tutorial.html"><img
+ src="tut_cracks/sea_and_rocks2_50.jpg"
+ alt="Cracks and fissures tutorial" height="240" width="320"> </a><br>
+</div>
+<br>
+A few problems have also been solved:<br>
+<ul>
+  <li>The "antialiasing" had been unwillingly unactivated in the rotate
+tool. It's now restored. It's my mistake, I promise to be more careful
+in the future...&nbsp;</li>
+  <li>There is no more segmentation fault when the altitude difference
+of the "fault" pen is activated before drawing the first control line
+during the session.&nbsp;</li>
+  <li>In the "fault" pen, sometimes, the direction where was applied
+the altitude difference was not consistent. For some directions, it was
+not possible to invert the difference. It now works. <br>
+  </li>
+</ul>
+The lighting of the Povray scene <i>simple_terrain.pov</i> has also
+been changed to look more closely like the OpenGL preview. <br>
+<br>
+<a name="whats_new_0_21"></a><i><big> <b>What's new in version 0.21</b></big></i><br>
+<br>
+Version 0.21 was released on August the 16th, 2004.<br>
+<br>
+This version solves the problem relative to messages and titles
+displayed as capitalized nicknames under environments localized for
+other languages than English or French. For instance, an item like
+"File" was displayed as "FILETXT", and "Progressive sum of surfaces" as
+"HFSURFADD_TOOLTIP".
+&nbsp;This problem also occured in systems without any
+internationalization
+package installed.<br>
+<br>
+This version would also likely compile successfully under more
+different flavours of Linux.<br>
+<br>
+No new features are provided. If you use Geomorph 0.20 and your
+messages and titles are fine, you likely don't need to download the
+0.21 version.<br>
+<br>
+However, if your want to participate by translating the Geomorph
+messages and titles in your own language, you need the new ".po"
+catalog provided with the current version. This is an invitation. If
+you want to try, I
+would be very happy to send you detailed instructions and to support
+you
+:-).<br>
+<br>
+Here is a complete list of the changes:<br>
+<ul>
+  <li>All the message and title keys ("FILETXT" and the like) have
+been converted to full-sentence English, respecting the standard of the
+internalization library ("gettext"). The keys are now exactly
+equivalent
+to the English translation, except for a few very long error messages.
+These keys would appear if your language is not English or French, or
+if
+your system is not internationalized at all.<br>
+  </li>
+  <li>The installation scripts (aclocal - automake) and the
+internationalization scripts provided with "gettext" have been
+reinitialized with more recent versions.</li>
+  <li>A library option has been added (libGLU) so that the package
+can now compile under SuSE 9.1, and probably other Linux flavours.</li>
+  <li>Three programs have been modified so that they can compile under
+older versions of gcc without a fatal error. Geomorph 0.20 dit not
+compile under Mandrake 8.0, Slackware 8.1 and probably other
+distributions of
+the same era, because of some C declaration ordering.</li>
+  <li>The "pause" option has been added in the default Povray options,
+in the "geomorphrc" file (+P), so that the output window of the
+renderer stays open when the rendering is done.&nbsp;</li>
+  <li>The "libgtkgl" library is now included in the binary package
+("statically linked"), so that the new user don't have to search for
+it.
+This library is part of the "gtkglarea" package, which is not installed
+in most current Linux distributions.<br>
+  </li>
+  <li>The desktop shortcuts created during the initial installation now
+point to the right icon. The icon had been moved in version 0.20 to
+/usr/local/share/geomorph, so that it would not depend on the version
+in the future, but the shortcuts had not been upgraded.</li>
+  <li>The FAQ and the installation instructions have been upgraded.</li>
+</ul>
+Special thanks to Tim Sch&uuml;rmann for helping me to debug the
+installation process! <br>
+<br>
+<i><big><a name="whats_new_0_20"></a> <b>What's new in
+version 0.20</b></big></i><br>
+<br>
+Version 0.20 was released on May the 7th, 2004.<br>
+<br>
+It features a lot of enhancements, the most important being these ones:<br>
+<blockquote><b><img src="continuous_pen_0_20.jpg" alt="" height="62"
+ width="152"> A continuous gaussian pen is now available</b>. It
+provides size and level controls, a preview, a tip choice, an effect
+choice (raise, dig, smooth), and controls for adjusting speed against
+quality. The result is straightforward, and I hope it would be useful.
+But believe me, it's not easy to put up a set up allowing to draw
+really smooth thick lines in a 16-bit image! It took me almost one year
+to get it right. The next step would be to implement "wide" tips,
+allowing to draw roads with their ditches, for instance. For now, the
+tips have to be purely gaussian or very acute, otherwise the stroke
+"folds" on curves.</blockquote>
+<blockquote><b><img src="fault_pen_0_20.jpg" alt="" height="60"
+ width="147"> A fault pen has been added</b>, with which you draw a
+control line generating a fractal fault. You adjust the control line
+with the mouse and the effect on the fault is seen instantly. You can
+control how the fault is divided, the altitude difference, the
+smoothing, and even add basic crevasses. It was fun to develop, and I'd
+call it "cool"! I propose a <a
+ href="tut_fault/en/The_Fault_Tutorial.html">tutorial</a> about it.</blockquote>
+<blockquote><b><img src="waves0-20.jpg" alt="" height="60" width="59">
+The "waves tool" is now a lot better.</b> <i>Aliasing is now
+controlled.</i> Random vertical variations now work, and so does the
+"refresh seed" button. Wave shapes are slightly improved. When there
+are more than 2 tabs,
+accepting the changes doesn't modify the order in which they are
+applied.
+Globally, I would call the tool "almost usable", depending on your
+requirements. The main drawback is when you apply lateral waves at an
+angle which is not 90-180-270&deg;, you get non-continuous edges (this
+is normal), but there is no tool yet to crop/scale the image for
+removing these edges.
+If you only use vertical waves, or apply a gaussian filter to blacken
+the
+edges after accepting the waves transformation, this is not a concern.<br>
+</blockquote>
+<br>
+There are also a lot of small to medium improvements which should make
+your life easier when using Geomorph:<br>
+<ul>
+  <li>Context changes are now better handled. For instance, when you
+edit a document and open or create a new document before accepting the
+changes, the changes are now automatically accepted. In the previous
+version, changes where accepted only when clicking on an icon of the
+menu bar where the user was. For now, the only option is to
+automatically accept the changes. The other possibilities are to cancel
+the changes as the
+default behaviour (this is how Gimp does), or to ask. A parameter in
+the
+option file could be added in the future for choosing the default
+behaviour, if somebody asks for.</li>
+  <li>The height field pen now offers a spacing control. This
+gives more regular strokes.</li>
+  <li>The rain erosion now works adequately on images which don't wrap.</li>
+  <li>Rotation of a non-wrapping image now gives "rebounding"
+continuous corners, instead of non-continuous wrapping corners.</li>
+  <li>In draw mode, the value of the pixe under the mouse pointer is
+now displayed. Also, when the display is scaled (25%, 50%... 200%,
+400%), the mouse pointer position in the image is correctly displayed.</li>
+  <li>The height field pen "subdivision 2" is now recalculated
+for each dot drawn, like "subdivision 1".</li>
+  <li>The style of some icons has been standardized, like those of the
+pen bar.</li>
+  <li>It should now be possible to install Geomorph elsewhere than in
+the default directory (thanks Warren), though I didn't test the feature.</li>
+  <li>Some bugs have been corrected:</li>
+  <ul>
+    <li>The first change to the second document created during
+a session couldn't be undone. Now, it can be.</li>
+    <li>There is no more seg fault when we apply a tool displaying a
+watch, like the rain erosion, after having undone all the changes
+on a document.</li>
+    <li>There is no more seg fault when smoothing an image after having
+undone its first change in a session.</li>
+    <li>There is no more seg fault when reading a 16 bits RGB PNG file,
+like those created with Cinepaint / Filmgimp.</li>
+    <li>There is no more seg fault when applying the "craters" tool on
+the first created document during a session, or when displaying the
+warning message saying that not all the craters were drawn, after
+applying the tool with a low slope threshold. </li>
+  </ul>
+</ul>
+<br>
+<i><big><a name="whats_new"></a> <b>What's new in version 0.12</b></big></i><br>
+<br>
+Version 0.12 was released on November the 16th, 2003.<br>
+<br>
+The OpenGL preview has improved a lot. The main goal was to get a
+coherent view between Povray and Geomorph. It should speed up both the
+Povray scene design and the height field design:<br>
+<ul>
+  <li>An angle scale has been added (a zoom).</li>
+  <li>View parameters are now output as the main camera in predefined
+Povray scenes.</li>
+  <li>5 views (Povray cameras) can be defined for each
+document.</li>
+  <li>The cameras are stored in the PNG height field file.</li>
+  <li> The rotation angle values were adjusted, to make them consistent
+with Povray.</li>
+  <li>The scales were overhauled for correcting bugs and providing more
+user-friendly steppings.<br>
+  </li>
+</ul>
+The use of the preview dialog is now <a
+ href="preview/en/The_Preview_Dialog.html">documented</a>.<br>
+<br>
+The Povray scene definitions have been updated to benefit from the
+preview.<br>
+<br>
+The other important enhancements to Geomorph are two tutorials. Click
+on the thumbnails below to browse them.<br>
+<br>
+<table border="0" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td align="center" valign="top"><a
+ href="tut_desert/en/The_Desert_Tutorial.html"><img
+ src="tut_desert/th_final.jpg" alt="The Desert Tutorial" height="113"
+ width="150"> </a><br>
+      </td>
+      <td align="center" valign="top"><a
+ href="tut_moon/en/The_Sea_And_Moon_Tutorial.html"><img
+ src="tut_moon/th_render7.jpg" alt="The Sea and Moon Tutorial"
+ height="112" width="149"> </a><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+The&nbsp;<i>sea_n_moon.pov</i> Povray scene was added to the
+distribution, relatively to the second tutorial.<br>
+<br>
+Lastly, Geomorph 0.12 provides these minor improvements:
+<ul>
+  <li>A "change directory" was added before Povray rendering, so that
+all files referenced in a scene can be found in the current scene
+directory.</li>
+  <li>A&nbsp;"watch" cursor is now displayed when long
+processes are run.</li>
+  <li>The minimal width of horizontal scales (height of vertical ones)
+was increased from 50 to 75 pixels.</li>
+  <li>These segmentation faults were corrected:</li>
+  <ul>
+    <li>When giving a file name on the command line.</li>
+    <li>When leaving with many documents open (unfrequent).<br>
+    </li>
+  </ul>
+</ul>
+<p><a name="Replace_a_broken_file"></a><b><big><i>Replace a broken file</i></big></b></p>
+<p>The "desert.pov" Povray scene distributed with Geomorph 0.12 before
+March the 1st, 2004, is an old corrupted version. The file which works
+with the tutorial is <a href="tut_desert/desert.pov">here</a>. Sorry
+for
+this.<br>
+</p>
+<p>Put the file in your personnal Geomorph directory. The default is
+~/geomorph. If you think you will install new users, you can also copy
+it, as root, under /usr/local/share/geomorph/0.12/scenes, so that they
+get the right version.<br>
+</p>
+<p>The package distributed on Sourceforge (necessarily after March the
+1st) contains the right file.<br>
+</p>
+<p><a href="#Top">Back to top</a></p>
+<p> <b><font color="#000000"> Contact:&nbsp;</font></b>&nbsp;&nbsp; <i><a
+ href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a></i></p>
+<ul>
+</ul>
+<center> </center>
+<br>
+<div align="center"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><a
+ href="http://sourceforge.net/"> </a>
+</div>
+</body>
+</html>

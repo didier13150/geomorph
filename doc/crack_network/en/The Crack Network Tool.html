@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>The Crack Network Tool</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><span style="font-weight: bold;"><img alt=""
+ src="../icon_crack_network.jpg" style="width: 61px; height: 61px;"
+ align="middle">The Crack Network Tool<br>
+</span></big></big><span style="font-weight: bold;"><br>
+<a href="#Introduction">Introduction</a></span><span
+ style="font-weight: bold;"><br>
+<a href="#The_principles">The principles</a></span><span
+ style="font-weight: bold;"><br>
+<a href="#The_interface">The interface</a></span><span
+ style="font-weight: bold;"><br>
+<a href="#The_cell_distribution">The
+cell distribution</a><br>
+</span><a href="#The_use_of_the_current_height_field"><span
+ style="font-weight: bold;">The use of the current
+height field</span></a><span style="font-weight: bold;"><br>
+<a href="#The_crack_width">The crack width</a><br>
+</span><a style="font-weight: bold;"
+ href="#New_Povray_scenes_provided_for_this_tool">New Povray scenes
+provided for this tool</a><br>
+<a href="#Some_fun_uses_of_this_tool"><span style="font-weight: bold;">Some
+fun uses of this tool and the Povray scenes provided</span></a><br>
+<big><big><span style="font-weight: bold;"><br>
+</span></big></big>
+<div style="text-align: center;"><a name="cracknet_example"></a><img
+ alt="" src="../crack_net_example.jpg"
+ style="width: 800px; height: 480px;"><br>
+</div>
+<br>
+<br>
+<span style="font-weight: bold;"><a name="Introduction"></a>Introduction</span><br>
+<br>
+The ability to create a close-looking imitation of a river bed or a
+field fractured by drought is the starting idea for this tool.<br>
+<br>
+The algorithms used in Geomorph for fracturing a terrain are mainly
+inspired by the article <a
+ href="http://www.cs.usask.ca/%7Emould/papers/crack.pdf"><span
+ style="font-style: italic;">Image-Guided Fracture</span></a>, from
+David Mould of the University of Saskatchewan. I adapted the concepts
+and added some features, like the ability to raise the cracks edges so
+that the surface looks like if it was shrinking when drying.<br>
+<br>
+Because Geomorph is a design tool with which interactive feedback is
+required, the process is basically "non-realistic". This is faster and
+more creative than a real-world simulation process.<br>
+<br>
+Depending on how you play with the parameters and from
+which height field you start, you can get a convincingly realistic
+result, or a fanciful one like cracks guided by a word.<br>
+<br>
+From a realistic stance, when drying and cracking, an elastic surface
+like mud gives more or less regular hexagonally shaped cells. On the
+opposite, a non-elastic one like ceramic or most soils generally
+produces rectangular cells. The Geomorph's crack network tool <img
+ alt="" src="../voronoi.jpg" style="width: 22px; height: 22px;">
+produces
+hexagons, more or less regular. If you want rectangular cells, you can
+use instead the "fault pen" <img alt="" src="../faultpen.jpg"
+ style="width: 22px; height: 22px;">, setting the difference in
+altitude to 0
+and drawing parallel / perpendicular cracks.<br>
+<br>
+Notice that the crack network process can be slow, depending on the
+parameters, even
+if it's designed with an interactive use in mind.<br>
+<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;"><a name="The_principles"></a>The
+principles</span><br>
+<br>
+Cracks are the boundaries of "cells". Differently stated, there is a
+crack where the distance between two cell centers is equal.<br>
+<br>
+Mathematically, Geomorph's crack networks are Voronoi diagrams.<br>
+<br>
+The generation process is roughly this one:<br>
+<ul>
+  <li>Spill some amount of "seeds" on a surface. For instance, if an
+average cell size of 10% of the surface size is chosen, the surface
+being square, 100 seeds are scattered. The spacing of the seeds can be
+more or less random.<br>
+  </li>
+  <li>Use the pixels around each of these seeds as a boundary.</li>
+  <li>Expand each boundary by running away from its parent seed.</li>
+  <li>When an other boundary is encountered, stop. This common boundary
+defines a crack.</li>
+</ul>
+The current height field is typically used as a noise function for
+moving the
+boundaries in an irregular way.<br>
+<br>
+The height field can also be used as a "guide" instead of a noise
+grid. In that case, the higher values of the height field act as a
+"fence" and forces a crack to appear. This allows, for instance, to use
+letters as a guide.<br>
+<br>
+<br>
+<span style="font-weight: bold;"><a name="The_interface"></a>The
+interface</span><br>
+<br>
+When you choose&nbsp;<img alt="the voronoi tool" src="../voronoi.jpg"
+ style="width: 22px; height: 22px;"> in the tool dialog, you get this
+options dialog:<br>
+<br>
+<br>
+<table
+ style="margin-left: auto; margin-right: auto; width: 100%; text-align: left;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style=""><img alt="" src="options.jpg"
+ style="width: 260px; height: 364px;"></td>
+      <td style="text-align: left;">
+      <ul>
+        <li>The <span style="font-weight: bold;">average cell size</span>
+is specified in percent of the linear size of the image. For instance,
+a 10% size gives
+100 cells and 5% gives 400 cells.</li>
+      </ul>
+      <br>
+      <ul>
+        <li>The <span style="font-weight: bold;">seed</span> controls
+the pseudo-random generator, for any process requiring it, for instance
+when the displacement of cell centers is calculated. If you start from
+the same seed and the same image, you are supposed to get the same
+result.<br>
+        </li>
+      </ul>
+      <br>
+      <ul>
+        <li>These subdialogs are detailed separetely:</li>
+        <ul>
+          <li>The <a href="#The_cell_distribution"><span
+ style="font-weight: bold;">cell distribution</span></a>.</li>
+          <li>The <a href="#The_use_of_the_current_height_field"><span
+ style="font-weight: bold;">use of the current height field</span></a>.</li>
+          <li>The <a href="#The_crack_width"><span
+ style="font-weight: bold;">crack width</span></a>.</li>
+        </ul>
+      </ul>
+      <br>
+      <ul>
+        <li>The <span style="font-weight: bold;">edge raising</span>
+is used to emulate the shrinking of a drying surface. It is activated
+only after the cracks are calculated when hitting <span
+ style="font-style: italic;">Apply</span>.<br>
+        </li>
+      </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold;"><a name="The_cell_distribution"></a>The
+cell distribution</span><br>
+<br>
+<div style="text-align: center;"><img alt="" src="roll_down_distrib.jpg"
+ style="width: 272px; height: 125px;"><br>
+</div>
+<br>
+The examples are scaled down to half their linear size. In all cases,
+we begin
+with the default "subdivision 2" image, except when stated differently.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Uniform
+/ random</span><br>
+      <br>
+The seeds, which are the cell centers, are scattered in a random way.<br>
+      </td>
+      <td style="vertical-align: top;"><img alt="" src="../example1.jpg"
+ style="width: 256px; height: 256px;"> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Centered
+/ random</span><br>
+      <br>
+More seeds are "spilled" in the center of the terrain. Cells are
+smaller in the center. This gives more or less a "hammer blow" effect.
+The spacing is proportional to the square of the distance from the
+center.<br>
+      </td>
+      <td style="vertical-align: top;"><img alt="" src="../example2.jpg"
+ style="width: 256px; height: 256px;"> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Regular
+/ perturbated<br>
+      <br>
+      </span>The seeds are regularly laid out on the surface. This
+gives regular hexagons, with a slight vertical stretch.<br>
+The seeds are then moved
+by a random amount, in a range specified by the user.<br>
+The example shows the effect of a random parameter of 0, 50 (default)
+and 100 on a uniform grey image. If you use a height field as noise,
+with the random parameter set to 0, the centers would be regularly
+spaced, but the lines wouldn't be straight.<br>
+      <br>
+Notes:<br>
+      <ol>
+        <li>The cell size is rounded to the nearest size for giving an
+even number of cells rows, otherwise the bottom row would be irregular.</li>
+        <li>The hexagons are slightly stretched to produce a tileable
+height field. When rendering with Povray, scaling down the Z dimension
+by 0.866 should give regular hexagons.<br>
+        </li>
+      </ol>
+      </td>
+      <td style="vertical-align: top;"><img alt=""
+ src="../example3-4-5.jpg" style="width: 256px; height: 256px;"> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Multi-scale
+distribution (for uniform and centered cell distribution only)</span><br>
+      <br>
+This options repeats the cracking process at a lower level scale, using
+the higher
+level boundaries as a guide.<br>
+      <br>
+The example shows the effect of a 1x+2x+4x scale.<br>
+      <br>
+The crack width is 1 and the grid size
+is 5% . First,
+the program computes a crack net with a cell size of 20% (4x), with a
+width of 4 pixels. On a second step, this net is reused for computing a
+crack net with a cell size of 10% and lines of 2 pixels, inside the
+bigger cells. The process is repeated a third time to compute 5% cells
+into the 10% cells, with boundaries of 1 pixel width.<br>
+      <br>
+Hint: <br>
+      <div style="margin-left: 40px;">On a 512x512 grid, results are
+better when using a size
+less than 10% and a crack width of 1. In the case shown, the basic
+crack width has been decreased from 2 to 1. </div>
+      <br>
+Caution: <br>
+      <div style="margin-left: 40px;">This can be a very long
+process, particularly when noise is applied and a small cell size is
+chosen.<br>
+      </div>
+      </td>
+      <td style="vertical-align: top;"><img alt="" src="../example6.jpg"
+ style="width: 256px; height: 256px;"><br>
+      </td>
+    </tr>
+    <tr align="center">
+      <td colspan="2" rowspan="1" style="vertical-align: top;"><span
+ style="font-style: italic; font-weight: bold;"><br>
+      </span><span style="font-style: italic; font-weight: bold;"><a
+ name="multilevel_rendering"></a></span><span
+ style="font-style: italic; font-weight: bold;">Rendering of a
+multiscale crack network with cracknet_bumptest.pov<br>
+      <br>
+      <img alt="" src="../_multiscale_example.jpg"
+ style="width: 640px; height: 384px;"><br>
+      </span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;"><a
+ name="The_use_of_the_current_height_field"></a>The use of the current
+height field</span><br>
+<br>
+<span style="font-weight: bold; font-style: italic;">1. Using the
+height field as a noise source</span><br>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td colspan="2" rowspan="1"
+ style="vertical-align: middle; text-align: center;"><img alt=""
+ src="roll_down_use_of_hf.jpg" style="width: 250px; height: 91px;"><br>
+A height field used as a noise source locally
+perturbs the cracks depending on the altitude value.<br>
+From left to right, the example shows what is produced
+with a noise level of 0, 50 and 100.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../noise_example.jpg" style="width: 256px; height: 256px;"></td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../_noise_example.jpg" style="width: 400px; height: 240px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold; font-style: italic;">2. Using the
+height field as a "guide"</span><br>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr align="center">
+      <td colspan="2" rowspan="1" style="vertical-align: top;"><img
+ alt="" src="roll_down_use_as_guide.jpg"
+ style="width: 258px; height: 263px;"><br>
+When using the "guide" option, the height field values are given a
+greater weight than with the "noise" option. <br>
+This is mainly intended to be used with a height field showing steep
+transitions from dark to clear areas. These transitions become
+"fences". <br>
+A check box allows to use a second height field to add some noise to
+the cracks in the uniform background. This secondary height field is of
+the "subdivision 1" kind. The seed and the roughness can be controlled.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../test_guide_1a.jpg" style="width: 256px; height: 256px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../test_guide_1b.jpg" style="width: 256px; height: 256px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../test_guide_2a.jpg" style="width: 256px; height: 256px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../test_guide_2b.jpg" style="width: 256px; height: 256px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;"><a name="The_crack_width"></a>The
+crack width</span><br>
+<br>
+The cracks width is specified in pixels. It is an absolute parameter,
+so the resulting look depends on the size of the heigth field.<br>
+<br>
+The width can also vary depending on the distance of the crack from the
+cell center. The rationale is that cracks are created by the surface
+tension, which makes the surface shrink until it "tears up". The
+tension can be regarded as constant per unit of surface. When going
+away from a cell center, the tension of
+each unit adds up to its neighbours until a crack is encountered, so
+that the shrinking
+stress can be considered stronger when the distance of the crack from
+the center of a cell is greater.<br>
+<br>
+<div style="text-align: center;"><img alt=""
+ src="roll_down_crack_width.jpg" style="width: 257px; height: 99px;"><br>
+</div>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: middle; text-align: center;"><span
+ style="font-weight: bold;">Fixed width, 1 / 2 / 4 (512x512)</span><br>
+      <img alt="" src="../width1-2-4.jpg"
+ style="width: 256px; height: 256px;"><br>
+      </td>
+      <td style="vertical-align: middle; text-align: center;"><img
+ alt="" src="../_width1-2-4.jpg" style="width: 400px; height: 240px;"
+ align="middle"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle; text-align: center;"><span
+ style="font-weight: bold;">Variable width, from 2 to 6 (512x512)</span><br>
+      <img alt="" src="../variable_width_example.jpg"
+ style="width: 256px; height: 256px;"><br>
+      </td>
+      <td style="vertical-align: middle; text-align: center;"><img
+ alt="" src="../_variable_width_example.jpg"
+ style="width: 400px; height: 240px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold;"><a
+ name="New_Povray_scenes_provided_for_this_tool"></a>New Povray scenes
+provided for this
+tool</span><br>
+<br>
+Crack networks can be used as a standard height field in a Povray scene.<br>
+<br>
+They can also be used as a bump map on an infinite ground plane, like
+in <a href="#cracknet_example">the introductory image of this page</a>.
+In that case, the network is
+tiled to fill the plane.<br>
+<br>
+These new scenes are provided:<br>
+<ol>
+  <li><a href="../cracknet_bumptest.pov"><span
+ style="font-style: italic; font-weight: bold;">cracknet_bumptest.pov</span></a>
+shows the current height field as a bump map on an infinite plane. It
+is
+tuned to be used with the default camera 3. This is the scene used to
+render the <a href="#multilevel_rendering">multiscale example</a>.<br>
+  </li>
+  <li><a href="../cracknet.pov"><span
+ style="font-style: italic; font-weight: bold;">cracknet.pov</span></a>
+is a
+composite scene, using a ground map (the crack network) called <span
+ style="font-style: italic;">group_map.png</span> as a bump map and the
+current height field rendered in the usual way. It was used to render <a
+ href="#cracknet_example">the introductory landscape of this page</a>.</li>
+  <li><a href="../cracknet_nobump.pov"><span
+ style="font-style: italic; font-weight: bold;">cracknet_nobump.pov</span></a>
+is a
+composite scene using the crack network as a foreground height field.
+It's more difficult to use than the former, because the crack network
+is not tiled. Edges must be hidden, for instance by parts of the
+background height field.</li>
+</ol>
+<div style="text-align: center;"><span style="font-weight: bold;"><a
+ name="nobump"></a>Example
+of <span style="font-style: italic;">cracknet_nobump.pov</span> with a
+2048x2048 ground height field</span><br>
+</div>
+<br>
+<div style="text-align: center;"><img alt="" src="../_stepf_camera4.jpg"
+ style="width: 640px; height: 384px;"><br>
+</div>
+<br>
+A new pigment map,<span style="font-style: italic;"> <a
+ href="../maprock_redmud.inc">maprock_redmud.inc</a></span>
+is provided
+to work with these scenes. It is intended to reproduce<span
+ style="font-style: italic;"></span> sedimentary bands, when used as a
+gradient pattern.<br>
+<br>
+For using <span style="font-style: italic;">cracknet.pov</span>, you
+should start by defining a crack network and save it as <span
+ style="font-weight: bold;">ground_map.png</span>. Then, you work on
+your main height field, which can
+be considered as a background terrain. A 512x512 height field is
+sufficient for such a map.<br>
+<br>
+Similarly, when using <span style="font-style: italic;">cracknet_nobump.pov</span>,
+you should start by saving your crack network as <span
+ style="font-weight: bold;">ground_map.png</span>. In
+that case, better results are obtained with a huge height field,
+1024x1024 or 2048x2048. Cracking such a height field usually requires
+enough time to prepare a coffee.<br>
+<br>
+In both cases, you'll probably have to translate and scale both image
+objects in the Povray file to get a convincing result. As usual, these
+parameters are grouped at the end of the file, after the "**********"
+line.<br>
+&nbsp;<br>
+Notice that the scenes do not have to be used with a crack network.
+Interesting results can also be produced, for instance, by using a wavy
+height field as the ground. Check this page.<br>
+<br>
+Some additional hints:<br>
+<ol>
+  <li>For all scenes, begin with the default camera 3.</li>
+  <li>For larger cracks, results are more natural after smoothing the
+crack network with a radius of 1, or more with huge height fields.<br>
+  </li>
+</ol>
+<a href="../cracknet_scenes.tgz">This package</a> contains further
+examples. One of these examples features trees
+generated with the java program Povtree. Another one is the<a
+ href="#cracknet_example">
+introductory scene of this page</a> adapted to be rendered as an height
+field instead of a map.<br>
+<br>
+<a name="cracknet_with_trees"></a><br>
+<div style="text-align: center;"><img alt=""
+ src="../_crack_net_trees_example.jpg"
+ style="width: 800px; height: 480px;"><br>
+<br>
+</div>
+<br>
+<span style="font-weight: bold;"><a name="Some_fun_uses_of_this_tool"></a>Some
+fun uses of this tool and the Povray scenes provided</span><br>
+<br>
+<span style="font-style: italic; font-weight: bold;">1. Write a word</span><br>
+<br>
+<a href="#cracknet_example">The image at the top of this page</a> uses
+the word <span style="font-style: italic;">Geomorph </span>as a guide.<br>
+<br>
+For this purpose:<br>
+<ol>
+  <li>Start with a black height field ("uniform" <img alt=""
+ src="../uniform_icon.jpg" style="width: 28px; height: 28px;"> - the
+default height
+field - at 0% level).</li>
+  <li>Choose the "draw" subdialog <img alt="" src="../pencil.jpg"
+ style="width: 22px; height: 22px;"> and write your text with a small
+continuous
+pen&nbsp;<img alt="" src="../penstandard.jpg"
+ style="width: 22px; height: 22px;"> at its maximum level. With a
+512x512 map, the smallest size
+(radius of 2) gives the best result.</li>
+  <li>Go back to the "edit" subdialog <img alt=""
+ src="../transform.jpg" style="width: 22px; height: 22px;"> to choose
+the crack network tool, and set the height field use to "guide" instead
+of "noise".</li>
+</ol>
+Some hints:<br>
+<ol>
+  <li>For thinning your letters, you can use the "crest" tool <img
+ alt="" src="../crests.jpg" style="width: 22px; height: 22px;">.</li>
+  <li>For sharpening your letters, you can use the "threshold" tool <img
+ alt="" src="../threshold.jpg" style="width: 22px; height: 22px;"> to
+cut the range, and so cut the blurring, then use the "brightness /
+contrast" tool&nbsp;<img alt="" src="../brightness_contrast.jpg"
+ style="width: 22px; height: 22px;"> to raise the constrast to the max,
+using the "auto"
+button.</li>
+</ol>
+<br>
+<span style="font-style: italic; font-weight: bold;">2. Using a crack
+width of 0</span><br>
+<br>
+Try to set the crack width to 0 and the edges level to 100%, then
+revert the result. You will get something like this:<br>
+<br>
+<div style="text-align: center;"><span style="font-weight: bold;">With </span><span
+ style="font-style: italic; font-weight: bold;">cracknet_bumptest.pov</span><br>
+<span style="font-style: italic;"></span></div>
+<span style="font-style: italic;"><br>
+</span>
+<div style="text-align: center;"><img alt="" src="../_fun1.jpg"
+ style="width: 640px; height: 384px;"><br>
+</div>
+<br>
+<div style="text-align: center;"><span style="font-weight: bold;">With </span><span
+ style="font-style: italic; font-weight: bold;">sea_and_fog.pov, </span><span
+ style="font-weight: bold;">non
+eroded and eroded</span><br style="font-style: italic;">
+</div>
+<br>
+<div style="text-align: center;"><img alt="" src="../_fun2.jpg"
+ style="width: 640px; height: 384px;"><br>
+</div>
+<br>
+<span style="font-style: italic; font-weight: bold;"></span><br>
+<span style="font-style: italic; font-weight: bold;">3. Using an other
+height field than a crack network as a normal map</span><br>
+<a href="Using%20Geomorph%20height%20fields%20as%20normal%20maps.html"><br>
+</a>See <a
+ href="Using%20Geomorph%20height%20fields%20as%20normal%20maps.html">this
+page.</a><br>
+<br>
+______________________<br>
+<br>
+Written in December 2006<br>
+<br>
+<a href="../../doc_index_en.html"><img src="../../preview/GeoMorph.jpg"
+ alt="" style="border: 2px solid ; width: 32px; height: 32px;"
+ align="left"> </a><a href="../../doc_index_en.html">Back to the
+documentation index</a><br>
+<br>
+<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a><br>
+</i></p>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a></div>
+</body>
+</html>

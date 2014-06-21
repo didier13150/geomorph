@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Using Geomorph height fields as normal maps</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><span style="font-weight: bold;">Using a Geomorph height field as
+a
+normal map</span></big><br>
+<br>
+The scene <a href="../cracknet_bumptest.pov"><span
+ style="font-style: italic;">crack_bumptest.pov</span></a> designed
+when developping<a href="The%20Crack%20Network%20Tool.html"> the crack
+network tool</a> can be used with other kind of height field with
+interesting
+results. Here are two examples.<br>
+<br>
+<div style="text-align: center;"><img alt="" src="../_fun3.jpg"
+ style="width: 640px; height: 384px;"><br>
+</div>
+<br>
+This wavy height field was created this way:<br>
+<ol>
+  <li>Create a "uniform" gray map <img alt="" src="../uniform_icon.jpg"
+ style="width: 28px; height: 28px;"> (the default when you start
+Geomorph).</li>
+  <li>Use the "waves" tool <img alt="" src="../waves.jpg"
+ style="width: 22px; height: 22px;">:</li>
+  <ol>
+    <li>In tab 1 (with an up / down wave as default), set the amplitude
+to 10 or the like, and the period
+to 6.</li>
+    <li>In tab 2 (with a north / south wave as default), set the
+amplitude to 55 or the like, the period to 9
+and rotate by 90&deg;.</li>
+  </ol>
+  <li>Use the default camera 3, rotate it by 135&deg; in the preview.</li>
+  <li>Render <img alt="" src="../povchoice_icon.jpg"
+ style="width: 28px; height: 28px;"> with <span
+ style="font-style: italic;">crack_bumptest.pov</span>.<br>
+  </li>
+</ol>
+<div style="text-align: center;">&nbsp;<img alt="" src="../_fun4.jpg"
+ style="width: 640px; height: 384px;"><br>
+</div>
+<br>
+This height map was created this way:<br>
+<ol>
+  <li>Choose a "progressive sum of surfaces"&nbsp;<img alt=""
+ src="../surfadd_icon.jpg" style="width: 28px; height: 28px;"> height
+field.</li>
+  <li>In the creation dialog and in the "Primitive surface" -&gt;
+"Shape filter" subdialog, choose the "no filter" building block <img
+ alt="" src="../nofilter.jpg" style="width: 22px; height: 22px;">.</li>
+  <li>Continuing in the creation dialog, roll down the "Wave length
+control" subdialog,
+initialize all the wave lengths to 0 (there is a button for this) and
+set the 64 wave length to 50-60.</li>
+  <li>Render with <span style="font-style: italic;">crack_bumptest.pov</span>.<br>
+  </li>
+</ol>
+In the creation dialog, you can also try different XY displacement
+levels.<br>
+<br>
+_________________________<br>
+<br>
+Written in December 2006<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a><br>
+</i></p>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a></div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>Using Povray from Geomorph</title>
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<div style="text-align: center;"><big><big><big><span
+ style="font-weight: bold;">Using Povray from Geomorph</span></big></big></big><br>
+</div>
+<br>
+The purpose of Geomorph is to create and edit terrain maps. Creating
+believable landscapes requires also a "renderer" like Povray, which
+takes the 2D terrain map, places it in a 3D world and allows the user
+to add textures, a sun, a sky, clouds, water or other objects.<br>
+<br>
+Unfortunately, Povray does not offer a GUI. As input, it takes text
+files of commands operating on mathematical coordinates, or "scene
+files", bearing the .pov extension, as seen on the schema at the bottom.<br>
+<br>
+Povray files can be modified with text editors. <a
+ href="Geomorph%20-%20Predefined%20Povray%20Scripts.html">Geomorph
+provides some
+standard scenes or templates to make the task easier</a>. These pages
+present basic information for users who want to edit these scenes to
+experiment with Povray.<br>
+<ul>
+  <li><a href="Anatomy%20of%20a%20Povray%20file.html">Anatomy of a
+Povray file
+for using Geomorph</a> explains how the scenes are structured.</li>
+  <li><a
+ href="Texturing%20a%20Geomorph%20height%20field%20with%20Povray.html">Texturing
+a Geomorph height field with Povray</a> shows the Geomorph predefined
+textures and explains how to use them.</li>
+  <li>The <a
+ href="Geomorph%20and%20Povray%20-%20How%20to%20deal%20with%20the%20skyline.html">Skyline
+Challenge</a> presents a few techniques for dealing with the skyline,
+given the fact that a height field is a finite surface.<br>
+  </li>
+</ul>
+<br>
+<center><img src="img0.jpg"><br>
+</center>
+<br>
+<div style="text-align: left;"><span style="font-weight: bold;"><a
+ name="How_Geomorph_launches_Povray"></a>How
+Geomorph launches Povray</span><br>
+<br>
+When the Geomorph user clicks on the "Render" button <img alt=""
+ src="../povrender_icon.jpg" style="width: 28px; height: 28px;"
+ align="middle">, a command like
+this one is executed:<br>
+<br>
+povray +I<span style="font-style: italic;">scene.pov</span> +O<span
+ style="font-style: italic;">_hfname.png</span> +P + D +FN +W480
++H640 <br>
+<br>
+This command can also be executed on the command line, in a Linux
+console.<br>
+<br>
+Before launching the command, Geomorph saves the active document in the
+"test.png" file. The Povray templates use this name as input. This way,
+you can render the active height field to see the outcome of what you
+are doing, before saving it under its actual name, in case you want to
+cancel the last change.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="2" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;"><span
+ style="font-style: italic;">Version 0.40 and later</span><span
+ style="font-weight: bold;"><br>
+      <span style="font-weight: bold;"></span></span></span>Now the
+active document name is contained in the global variable <span
+ style="font-style: italic;">main_terrain</span>. It is "test.png" if
+the active document has unsaved modifications, or the document name if
+it has been saved.<span style="font-weight: bold;"><span
+ style="font-weight: bold;"><span style="font-weight: bold;"></span><br>
+      </span></span></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Geomorph also saves the parameters of the current camera in the <span
+ style="font-style: italic;">camera.inc</span> file.<br>
+<br>
+The meaning of the options are:<br>
++I : Input scene, the *.pov text file you can edit.<br>
++O : Output file, a PNG or a TGA.<br>
++FN: Output the result in the PNG format (use +FT for TGA, and -F for
+no file ouput)<br>
++D : Displays the image. -D cancels the display, for instance when only
+a file is required (with +FN or +FT).<br>
++P : Pauses after displaying the image, otherwise the image disappears
+immediately.<br>
++W, +H : Width and height, in pixels<br>
+<br>
+The +FN, +D, +P, +W and +H parameters can be changed in the options
+dialog.<br>
+<br>
+Starting with version 0.23 of Geomorph, the output file name is the
+height field file name prefixed with "_". The prefix can be changed
+in the options dialog. This prefix avoids
+overwriting of the height field file by the output file.<br>
+<br>
+When typing the Povray command in a console, outside Geomorph, if no
+output file is specified
+and an image output is required with
+the +FN or +FT option, the name of the scene file is used. For
+instance, <span style="font-style: italic;">desert.pov</span> would
+give <span style="font-style: italic;">desert.png</span> - in this
+case, it is preferable that your height field name is not <span
+ style="font-style: italic;">desert.png </span>!<br>
+</div>
+<div style="text-align: left;"><br>
+When editing a Povray file rendered from Geomorph, it is recommended to
+start Geomorph from a console. This way, the Povray error messages
+would be displayed on the console.<br>
+<br>
+Written in May 2005, modified in January 2007.<br>
+<br>
+<font color="#cccccc"><b><font color="#000000">
+Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a></i><br>
+<br>
+<a href="../../doc_index_en.html"> <img
+ src="../../tut_fault/GeoMorph.jpg" alt="" align="left" height="32"
+ width="32"> </a><a href="../../doc_index_en.html">Back to the
+documentation index</a><br>
+</div>
+<br>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body>
+</html>

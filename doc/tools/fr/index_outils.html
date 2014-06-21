@@ -1,0 +1,1238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Les outils de Geomorph</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<div style="text-align: center;"><big><big><big><span
+ style="font-weight: bold;"><a name="The_Geomorph_tools"></a>Les outils
+de Geomorph<br>
+<small><span style="font-style: italic;">Une r&eacute;f&eacute;rence
+sommaire (version 0.4)</span></small><br>
+</span></big></big></big></div>
+<br>
+Tous les exemples montr&eacute;s ont &eacute;t&eacute; calcul&eacute;s
+&agrave; partir du terrain "Subdivision 2" standard, d'une grandeur de
+512x512 pixels. La sc&egrave;ne Povray par d&eacute;faut a
+&eacute;t&eacute; utilis&eacute;e (<span style="font-style: italic;">simple_terrain.pov</span>).
+Le point de
+vue est celui de la cam&eacute;ra 2 telle que
+pr&eacute;d&eacute;finie au moment de l'installation, la hauteur de la
+cam&eacute;ra &eacute;tant r&eacute;gl&eacute;e &agrave; -0,10
+plut&ocirc;t que 0,10.<br>
+<br>
+<table
+ style="margin-left: auto; margin-right: auto; width: 100%; text-align: left;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="text-align: center;"><span style="font-weight: bold;">RELIEF
+ORIGINAL<br>
+      </span></td>
+      <td style="text-align: center;"><img alt="" src="../default.jpg"
+ style="width: 256px; height: 256px;"></td>
+      <td style="text-align: center;"><img alt=""
+ src="../default_result.jpg" style="width: 320px; height: 240px;"></td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-weight: bold; font-style: italic;">
+<div style="text-align: center;"><big><big><span
+ style="font-weight: bold; font-style: italic;">Cliquez sur le bouton
+pour acc&eacute;der &agrave; l'outil</span><br>
+</big></big></div>
+<br>
+<table style="margin-left: auto; margin-right: auto; text-align: left;"
+ border="1" cellpadding="1" cellspacing="1">
+  <tbody>
+    <tr>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Brightness_and_contrast"><img title="Brightness and contrast"
+ alt="Brightness and contrast" src="../buttons/01.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Threshold"><img title="Threshold" alt="Threshold"
+ src="../buttons/02.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Revert"><img alt="Revert" title="Revert" src="../buttons/03.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Mathematical_transformations"><img
+ alt="Mathematical transformations" title="Mathematical transformations"
+ src="../buttons/04.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Cityscape"><img alt="Cityscape" title="Cityscape"
+ src="../buttons/05.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Giant_Causeway"><img alt="Giant Causeway" title="Giant Causeway"
+ src="../buttons/06.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Terraces"><img alt="Terraces" title="Terraces"
+ src="../buttons/07.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Smooth"><img alt="Smooth" title="Smooth" src="../buttons/08.jpg"
+ style="border: 0px solid ; height: 22px; width: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Accentuer_le_bruit"><img alt="" src="../buttons/sharpen.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Translation"><img alt="Translation" title="Translation"
+ src="../buttons/10.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Rotation"><img alt="Rotation" title="Rotation"
+ src="../buttons/11.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Stretch_and_compress"><img alt="Stretch and compress"
+ title="Stretch and compress" src="../buttons/12.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Horizontal_mirror"><img alt="Horizontal mirror"
+ title="Horizontal mirror" src="../buttons/13.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Vertical_mirror"><img alt="Vertical mirror"
+ title="Vertical mirror" src="../buttons/14.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="index_outils.html#Noise"><img alt="Noise" title="Noise"
+ src="../buttons/09.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="index_outils.html#Merge"><img alt="Merge" title="Merge"
+ src="../buttons/15.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a></td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="index_outils.html#Shape_filter"><img alt="Shape filter"
+ title="Shape filter" src="../buttons/16.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="index_outils.html#Crests_erosion"><img alt="Crests"
+ title="Crests" src="../buttons/17.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="index_outils.html#Rain_erosion"><img alt="Rain erosion"
+ title="Rain erosion" src="../buttons/18.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="index_outils.html#Whimsical_erosion"><img alt="Whimsical erosion"
+ title="Whimsical erosion" src="../buttons/19.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="index_outils.html#Craters"><img alt="Craters" title="Craters"
+ src="../buttons/20.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+    </tr>
+    <tr>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Gravity_erosion"><img alt="Gravity erosion"
+ title="Gravity erosion" src="../buttons/22.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Oriented_gravity_erosion"><img alt="Oriented gravity erosion"
+ title="Oriented gravity erosion" src="../buttons/23.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Dunes"><img alt="Dunes" title="Dunes" src="../buttons/24.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Ripples"><img alt="Ripples" title="Ripples"
+ src="../buttons/25.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="index_outils.html#Waves"><img alt="Waves" title="Waves"
+ src="../buttons/21.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Relever_les_bords"><img alt="" src="../buttons/27.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Relever_les_bords"><img alt="" src="../buttons/28.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;">Outil<br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Utilisation,
+conseils<br>
+      </td>
+      <td
+ style="vertical-align: top; font-weight: bold; text-align: center;">Exemple<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/01-icon-brightness.jpg"
+ style="width: 61px; height: 61px;" align="left"><a
+ name="Brightness_and_contrast"></a>Luminosit&eacute;
+et contraste<br>
+      </td>
+      <td style="vertical-align: top;">Ces contr&ocirc;les de
+luminosit&eacute; et contraste sont similaires &agrave; ceux offerts
+par la plupart des logiciels de manipulation d'image, &agrave; la
+diff&eacute;rence que la luminosit&eacute; doit &ecirc;tre
+interpr&eacute;t&eacute;e comme l'altitude.<br>
+      <br>
+&Agrave; souligner:<br>
+      <ul>
+        <li>Le bouton "Automatique" ajuste l'intervalle de
+densit&eacute; du relief aux valeurs minimales et maximales permises,
+soit 0 et 65535.</li>
+        <li>Si le changement n'est pas satisfaisant et que les curseurs
+sont &agrave; leurs valeurs extr&ecirc;mes, acceptez le changement. Les
+curseurs reviennent &agrave; leur position initiale. Vous pouvez aussi
+utiliser le bouton "R&eacute;p&eacute;ter".<br>
+        </li>
+        <li>Quand l'option "Conserver la luminosit&eacute;" est
+activ&eacute;e, la luminosit&eacute; moyenne du relief (son altitude
+moyenne) est conserv&eacute;e lorsque le contraste varie. Dans ce cas,
+si le contraste est diminu&eacute;, l'altitude minimale augmente,
+l'image devient grise. Quand l'option n'est pas activ&eacute;e,
+l'altitude minimale demeure constante lorsque le contraste varie.</li>
+        <li>Pour simuler un r&eacute;seau de vall&eacute;es (exemple
+2), activez l'option "Inverser la pente" dans le dialogue "Traitement
+des d&eacute;bordements", puis diminuez la luminosit&eacute;. Cela
+fonctionne mieux lorsque l'intervalle d'altitude a &eacute;t&eacute;
+&eacute;tendu auparavant &agrave; son maximum &agrave; l'aide du bouton
+"Automatique".<br>
+        </li>
+      </ul>
+Le c&ocirc;t&eacute; droit de l'exemple 2 montre le r&eacute;sultat
+lorsque le contraste a &eacute;t&eacute; diminu&eacute; &agrave; -50.<br>
+L'exemple 2 montre les "vall&eacute;es" cr&eacute;&eacute;es lorsque
+l'option "Inverser la pente" est active et la luminosit&eacute; est
+diminu&eacute;e &agrave; -80.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../br_contr_1.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../br_contr_2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/02-icon-threshold.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Threshold"></a><br>
+Seuil<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil "coupe" les sommets du
+relief &agrave; une valeur maximale, et ses creux &agrave; une valeur
+minimale.<br>
+      <br>
+Son usage le plus &eacute;vident est de simuler des m&eacute;sas (voir
+le <a href="../../tut_desert/fr/Tutoriel_desert.html">tutoriel sur le
+d&eacute;sert</a>).<br>
+      <br>
+Un curseur "%" permet de fusionner le r&eacute;sultat avec le relief
+source. Ainsi, l'exemple montr&eacute; utilise 60% du r&eacute;sultat
+et 40% de la source. Cela introduit un peu de bruit dans les
+r&eacute;gions coup&eacute;es, pour plus de r&eacute;alisme. Ici,
+l'altitude a &eacute;t&eacute; coup&eacute;e avec un minimum de 15000
+et un maximum de 40000.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../threshold.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/03-icon-revert.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Revert"></a>Inversion<br>
+      </td>
+      <td style="vertical-align: top;">Inverse la hauteur des pixels (0
+est remplac&eacute; par 65535, 1 par 65534, et ainsi de suite).<br>
+      <br>
+Cliquez sur le bouton &agrave; nouveau pour revenir &agrave; l'original.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../revert.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/04-icon-mathematical_transfo.jpg"
+ style="width: 61px; height: 61px;" align="left"><a
+ name="Mathematical_transformations"></a> Transformations
+math&eacute;matiques<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil applique des
+transformations de puissance ou logarithmiques.<br>
+      <br>
+Une transformation de puissance augmente le caract&egrave;re abrupt des
+pentes, rend les sommets plus &eacute;troits et diminue le bruit au bas
+des pentes. <br>
+      <br>
+Par contre, une transformation logarithmique &eacute;largit les sommets
+et diminue le bruit en altitude<br>
+      <br>
+Une transformation de puissance avec un exposant inf&eacute;rieur
+&agrave; 1.0 a aussi pour effet d'&eacute;largir les sommets.<br>
+      <br>
+Dans l'exemple donn&eacute;, la fonction puissance(altitude,4) a
+&eacute;t&eacute; appliqu&eacute;e au relief par d&eacute;faut. Une
+rotation de 180&deg; a &eacute;t&eacute; appliqu&eacute;e dans
+l'aper&ccedil;u.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../fh.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/05-icon-city.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Cityscape"></a><br>
+Ville<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil d&eacute;coupe le
+relief en cellules carr&eacute;es ou rectangulaires,
+s&eacute;par&eacute;es par des "rues", et fait la moyenne des altitudes
+&agrave; l'int&eacute;rieur de chaque cellule.<br>
+&nbsp; <br>
+Avec une texture appropri&eacute;e, le r&eacute;sultat peut ressembler
+&agrave; une ville de gratte-ciel (quelqu'un pourrait dire: si le
+relief est assez &eacute;loign&eacute; de la cam&eacute;ra...), ou quoi
+que ce soit que vous puissiez imaginer.<br>
+      <br>
+Pour obtenir une ville post-apocalyptique, le r&eacute;sultat peut
+&ecirc;tre fusionn&eacute; avec le relief source afin d'ajouter du
+bruit au sommet des gratte-ciel (essayez "x" comme op&eacute;rateur de
+fusion et 100% comme valeur de m&eacute;lange), puis
+&eacute;rod&eacute;, et ainsi de suite...<br>
+      <br>
+Je dois cr&eacute;diter le logiciel <span style="font-style: italic;">Bryce</span>
+pour cette id&eacute;e.<br>
+      <br>
+Malheureusement, Geomorph n'offre pas encore de texture qui simule de
+fa&ccedil;on r&eacute;alise des rang&eacute;es de fen&ecirc;tres, dans
+la version 0.23.&nbsp; C'est laiss&eacute; comme exercice &agrave;
+l'utilisateur ;-).<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../city.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/06-icon-giant_causeway.jpg"
+ style="width: 61px; height: 61px;" align="left"><a
+ name="Giant_Causeway"></a><br>
+Chauss&eacute;e des g&eacute;ants<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil fonctionne comme
+l'outil "ville", sauf que les cellules &agrave; l'int&eacute;rieur
+desquelles la moyenne est faite sont hexagonales plut&ocirc;t que
+rectangulaires.<br>
+      <br>
+L'usage envisag&eacute; est de simuler des piliers de basalte comme
+ceux de la Chauss&eacute;e des G&eacute;ants, en Irlande du Nord.<br>
+      <br>
+Les hexagones sont s&eacute;par&eacute;s par une bordure dont la
+largeur est contr&ocirc;lable par l'utilisateur.<br>
+      <br>
+Un dialogue permet de fusionner la source et le r&eacute;sultat, afin
+d'ajouter du bruit au sommet des colonnes.<br>
+      <br>
+L'exemple a &eacute;t&eacute; cr&eacute;&eacute; avec les
+param&egrave;tres suivants, les autres &eacute;tant laiss&eacute;s
+&agrave; leur valeur par d&eacute;faut: Rayon: 32; Bord: 1; Lissage -
+rayon: 2; M&eacute;lange source et r&eacute;sultat: 50.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../giant_causeway.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/07-icon-terraces.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Terraces"></a><br>
+Terrasses<br>
+      </td>
+      <td style="vertical-align: top;">L'outil "Terrasses" stratifie
+l'altitude selon le nombre de niveaux sp&eacute;cifi&eacute; par
+l'utilisateur.<br>
+      <br>
+La hauteur des niveaux peut &ecirc;tre randomis&eacute;e pour donner un
+r&eacute;sultat plus naturel.<br>
+      <br>
+Un dialogue de post-traitement est propos&eacute; afin de lisser les
+ar&ecirc;tes des niveaux et de retirer les "aiguilles"
+(art&eacute;facts) qui sont cr&eacute;&eacute;es quand la surface du
+niveau le plus &eacute;lev&eacute; d'une colline est trop
+&eacute;troite. &Agrave; noter que ce dialogue contient un bouton
+"Appliquer" distinct, parce que ce post-traitement est trop exigeant en
+temps UCT pour &ecirc;tre appliqu&eacute; interactivement, lorsque les
+curseurs sont d&eacute;plac&eacute;s (autrement dit: n'oubliez pas de
+cliquer sur ce bouton si vous d&eacute;placer les curseurs du dialogue
+de post-traitement!).<br>
+      <br>
+Comme dans plusieurs outils, le r&eacute;sultat peut &ecirc;tre
+fusionn&eacute; avec la source. C'est une fa&ccedil;on d'&eacute;viter
+d'obtenir des niveaux moins plats, qui peuvent avoir l'air moins
+naturels. La fusion de la source et du r&eacute;sultat avec une
+op&eacute;ration de soustraction peut aussi &ecirc;tre utilis&eacute;e
+pour cr&eacute;er une cavit&eacute; remplie avec de l'eau, comme dans
+cette <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice%20St-Gelais/14-%20Terraces.html">sc&egrave;ne</a>.<br>
+      <br>
+L'exemple montr&eacute; a &eacute;t&eacute; calcul&eacute; &agrave;
+partir des param&egrave;tres suivants, les autres &eacute;tant
+laiss&eacute;s &agrave; leur valeur par d&eacute;faut: <br>
+      <div style="margin-left: 40px;">Niveaux: 7 <br>
+      </div>
+      <div style="margin-left: 40px;">Racine: 550023695 (pour la
+randomisation)<br>
+Rayon de lissage: 2<br>
+Rayon de suppression des art&eacute;facts: 10<br>
+Fusion - m&eacute;lange: 0 (50% de la source + 50% du r&eacute;sultat)<br>
+      </div>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../terraces.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/08-icon-smooth.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Smooth"></a><br>
+Lissage<br>
+      </td>
+      <td style="vertical-align: top;">Il s'agit d'un outil standard de
+lissage, qui enl&egrave;ve les fr&eacute;quences les plus
+&eacute;lev&eacute;es du relief (c'est-&agrave;-dire les
+d&eacute;tails). L'outil peut aussi &ecirc;tre utilis&eacute; pour
+enlever les fr&eacute;quences les plus basses et conservers les plus
+&eacute;lev&eacute;es.<br>
+      <br>
+Cet outil est utile dans un grand nombre de situations, par exemple
+pour enlever de l&eacute;gers d&eacute;fauts apr&egrave;s une
+transformation ou pour pr&eacute;parer le terrain en vue de certaines
+transformations.<br>
+      <br>
+Un exemple de correction de d&eacute;fauts est donn&eacute; par un
+terrain de type "subdivision 2" g&eacute;n&eacute;r&eacute; sans les
+hautes fr&eacute;quences. Ce genre de terrain requiert souvent un peu
+de lissage pour faire dispara&icirc;tre le "r&eacute;seau
+g&eacute;n&eacute;rateur", une structure ressemblant &agrave; un
+craquelin au soda.<br>
+      <br>
+L'exemple du haut montre le r&eacute;sultat du lissage du terrain par
+d&eacute;faut avec un rayon de 20 pixels.<br>
+      <br>
+L'image du bas montre ce qui a &eacute;t&eacute; enlev&eacute; lors du
+lissage. Ce sont les hautes fr&eacute;quences. Pour les obtenir,
+c'est-&agrave;-dire pour enlever les basses fr&eacute;quences, il faut
+choisir l'op&eacute;ration "-" (soustraction) dans le dialogue de
+fusion source / r&eacute;sultat, et d&eacute;placer le curseur du
+param&egrave;tre "M&eacute;lange" &agrave; une valeur
+l&eacute;g&egrave;rement inf&eacute;rieure &agrave; 100.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../smooth1.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../smooth2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/icon_sharpen.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Accentuer_le_bruit"></a>Accentuer le bruit</td>
+      <td style="vertical-align: top;">Cet outil est similaire &agrave;
+la fonction d'"augmentation des contrastes" ("sharpen") offerte par les
+programmes de dessin non vectoriel comme The Gimp.<br>
+      <br>
+Avec un faible rayon, l'outil peut &ecirc;tre utilis&eacute; pour
+augmenter le bruit de surface du terrain, comme dans l'exemple
+montr&eacute;. Ici deux passes ont &eacute;t&eacute; faites avec un
+rayon de 1 et le niveau &agrave; 7,5. <br>
+      <br>
+Un rayon &eacute;lev&eacute; accentue les bordures et amplifie les
+reliefs dont la fr&eacute;quence correspond au rayon, en lissant les
+fr&eacute;quences plus &eacute;lev&eacute;es. De plus, les lignes ou
+zones fonc&eacute;es s'&eacute;largissent.</td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../sharpen.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/10-icon-translate.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Translation"></a><br>
+Translation<br>
+      </td>
+      <td style="vertical-align: top;">Les reliefs
+g&eacute;n&eacute;r&eacute;s par Geomorph sont pavables,
+c'est-&agrave;-dire qu'ils peuvent &ecirc;tre dispos&eacute;s en
+tuiles., Les c&ocirc;t&eacute;s Est et Ouest d'une part, et Nord et Sud
+d'autre part, se connectent sans couture ou s'"enroulent".<br>
+      <br>
+Cela signifie qu'un relief peut &ecirc;tre "d&eacute;plac&eacute;" en
+continu, par exemple pour centrer une colline.<br>
+      <br>
+L'exemple montre le r&eacute;sultat d'une translation horizontale de
+30% et verticale de -50%.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../translate.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/11-icon_rotate.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Rotation"></a><br>
+Rotation<br>
+      </td>
+      <td style="vertical-align: top;">Un terrain peut subir une
+rotation d'un angle arbitraire, sans bris de continuit&eacute;.<br>
+      <br>
+La rotation d'un angle autre qu'un multiple de 90&deg; annule la
+propri&eacute;t&eacute; de pavage.<br>
+      <br>
+Lorsque le terrain est pavable, les zones situ&eacute;es hors des
+limites du
+terrain source sont compl&eacute;t&eacute;es en "enroulant" le terrain.
+Par exemple,
+l'indice 512 d'un terrain de 512x512 est remplac&eacute; par l'indice
+0,
+l'indice 513 par 1, et ainsi de suite.<br>
+      <br>
+Lorsque le terrain n'est pas pavable, le compl&eacute;ment est fait par
+un
+effet de miroir: l'indice 512 est remplac&eacute; par 511, 513 par 510,
+et
+ainsi de suite.<br>
+      <br>
+La rotation du terrain ne doit pas &ecirc;tre confondue avec la
+rotation de la cam&eacute;ra dans l'aper&ccedil;u. La rotation du
+terrain n'est g&eacute;n&eacute;ralement pas r&eacute;versible, sauf
+quand l'angle est un multiple de 90&deg;. Par contre, la rotation de la
+cam&eacute;ra ne r&eacute;f&egrave;re qu'&agrave; l'angle de vision du
+terrain et peut &ecirc;tre remise &agrave; 0 &agrave; tout moment.<br>
+      <br>
+L'exemple montre une rotation de 45&deg;.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../rotate.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/12-icon_stretch_compress.jpg"
+ style="width: 61px; height: 61px;" align="middle"><a
+ name="Stretch_and_compress"></a><br>
+&Eacute;tirement et
+compression<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil est principalement
+bas&eacute; sur la propri&eacute;t&eacute; de pavage discut&eacute;e
+pour la translation et la rotation.<br>
+      <br>
+Parce que le Nord et le Sud, ainsi que l'Ouest et l'Est se connectent
+en continu, un relief peut &ecirc;tre "&eacute;tir&eacute;" en
+pla&ccedil;ant 2 copies de lui-m&ecirc;me c&ocirc;te &agrave;
+c&ocirc;te, et en diminuant l'un des axes de 50%.<br>
+      <br>
+La r&eacute;p&eacute;tition du processus sur l'autre axe produit 3
+pav&eacute;s du m&ecirc;me terrain.<br>
+      <br>
+L'exemple du haut montre le terrain par d&eacute;faut apr&egrave;s un
+&eacute;tirement vertical (N-S).<br>
+      <br>
+L'exemple du bas montre le m&ecirc;me terrain apr&egrave;s un
+&eacute;tirement vertical (N-S), suivi d'un &eacute;tirement horizontal
+(E-O). Il faut cliquer sur le bouton "Accepter" entre les deux
+&eacute;tirements.<br>
+      <br>
+Notez comment le r&eacute;sultat est accident&eacute;. Le relief
+original appara&icirc;t 4 fois, r&eacute;duit de 50% sur les axes X et
+Z, mais l'altitude (axe Y) n'est pas r&eacute;duite.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../stretch1.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../stretch2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/13-icon_horizontal_mirror.jpg"
+ style="width: 61px; height: 61px;" align="middle"><a
+ name="Horizontal_mirror"></a><br>
+Mirroir horizontal<br>
+      </td>
+      <td style="vertical-align: top;">Le relief est retourn&eacute;
+horizonalement d&egrave;s que l'on clique sur l'ic&ocirc;ne.<br>
+      <br>
+Cliquez sur l'ic&ocirc;ne &agrave; nouveau pour revenir au relief
+d'origine.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../mirror_h.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/14-icon_vertical_mirror.jpg"
+ style="width: 61px; height: 61px;" align="middle"><a
+ name="Vertical_mirror"></a><br>
+Mirroir vertical<br>
+      </td>
+      <td style="vertical-align: top;"> Le relief est retourn&eacute;
+verticalement d&egrave;s que l'on clique sur l'ic&ocirc;ne.<br>
+      <br>
+Cliquez sur l'ic&ocirc;ne &agrave; nouveau pour revenir au relief
+d'origine.</td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../mirror_v.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/09-icon-noise.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Noise"></a>Noise</td>
+      <td style="vertical-align: top;">Cet outil appelle l'algorithme
+"subdivision 2", n'en conserve que les hautes fr&eacute;quences qui
+font office de "bruit", et les additionne au relief courant.<br>
+      <br>
+L'exemple a &eacute;t&eacute; calcul&eacute; en prenant comme source <a
+ href="index_outils.html#Smooth">le
+terrain liss&eacute; avec un rayon de 20 pixels</a>.<br>
+      <br>
+Le r&eacute;sultat n'est pas imm&eacute;diat. Pour l'obtenir, vous
+devez r&eacute;gler le pourcentage &agrave; une valeur
+sup&eacute;rieure &agrave; 0% puis cliquer sur le bouton "Appliquer".<br>
+      <br>
+Des curseurs permettent de r&eacute;gler les param&egrave;tres de
+"Distribution" et "Relief". <br>
+      <br>
+La "Distribution" contr&ocirc;le la densit&eacute; du bruit.
+Plus la distribution est &eacute;lev&eacute;s, plus les
+asp&eacute;rit&eacute;s sont &eacute;parses. Ce param&egrave;tre est
+utilis&eacute; comme exposant de l'altitude.<br>
+      <br>
+Le "Relief" contr&ocirc;le l'amplitude du bruit.</td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../noise.jpg" style="width: 320px; height: 240px;"></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/15-icon_merge.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Merge"></a><br>
+Fusion<br>
+      </td>
+      <td style="vertical-align: top;">L'outil de fusion sert &agrave;
+superposer le terrain courant (celui que vous &ecirc;tes en train
+d'&eacute;diter) avec un terrain choisi parmi ceux qui sont
+d&eacute;j&agrave; ouverts.<br>
+      <br>
+Une liste des terrains disponibles et un aper&ccedil;u de celui qui est
+choisi sont affich&eacute;s dans le dialogue de l'outil.<br>
+      <br>
+Le terrain choisi peut &ecirc;tre ajout&eacute;, soustrait ou
+multipli&eacute; avec le terrain actif. Les deux terrains peuvent
+&ecirc;tre aussi compar&eacute;s avec une fonction minimum ou maximum.
+La luminosit&eacute; relative des deux terrains peut &ecirc;tre
+ajust&eacute;e. Le terrain choisi (fusionn&eacute;) peut &ecirc;tre
+aussi d&eacute;plac&eacute; par rapport &agrave; l'autre pour obtenir
+des effets particuliers.<br>
+      <br>
+Cet outil a &eacute;t&eacute; cr&eacute;&eacute; dans un but
+tr&egrave;s g&eacute;n&eacute;ral. Par exemple, il peut servir &agrave;
+ajouter un type de bruit particulier, ce bruit &eacute;tant fourni par
+le terrain choisi.<br>
+      <br>
+Une autre utilisation moins &eacute;vidente est celle donn&eacute;e en
+exemple. Le terrain par d&eacute;faut a &eacute;t&eacute;
+fusionn&eacute; avec lui-m&ecirc;me pour donner un effet de
+cr&ecirc;tes. L'op&eacute;ration "min" a &eacute;t&eacute; choisie, la
+valeur "m&eacute;lange" a &eacute;t&eacute; mise &agrave; 0, et le
+terrain choisi a &eacute;t&eacute; d&eacute;plac&eacute;
+horizontalement de 20%.<br>
+      <br>
+Un truc: pour rafra&icirc;chir la liste des reliefs dans
+l'aper&ccedil;u du dialogue de l'outil, cliquez &agrave; nouveau sur
+l'ic&ocirc;ne de l'outil.<img alt="" src="../icons/15-icon_merge.jpg"
+ style="width: 61px; height: 61px;" align="top"><br>
+Plusieurs outils de Geomorph offrent la fonction de fusion dans un
+sous-dialogue. Dans ce cas, le terrain courant est implicitement la
+source, et le terrain choisi est le r&eacute;sultat.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../merge.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/16-icon_shape_filter.jpg"
+ style="width: 61px; height: 61px;" align="middle"><a
+ name="Shape_filter"></a><br>
+Filtre de forme<br>
+      </td>
+      <td style="vertical-align: top;">L'utilit&eacute; du "filtre de
+forme" est principalement d'abaisser les c&ocirc;t&eacute;s en
+additionnant ou en multipliant le relief avec une fonction
+d&eacute;riv&eacute;e de la courbe gaussienne.<br>
+      <br>
+Cela cr&eacute;e une "&icirc;le".<br>
+      <br>
+L'apparence est diff&eacute;rente selon que la cloche est
+ajout&eacute;e au terrain (exemple 1) ou multipli&eacute;e avec
+(exemple 2).<br>
+      <br>
+La multiplication donne une sorte de rivage dont l'altitude
+d&eacute;cro&icirc;t progressivement.<br>
+      <br>
+Dans les deux exemples, la cam&eacute;ra a &eacute;t&eacute;
+tourn&eacute;e de 180&deg;.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../filter1.jpg" style="width: 320px; height: 240px;"><br>
+      <br>
+      <img alt="" src="../filter2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/17-icon_crests.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Crests_erosion"></a><br>
+Cr&ecirc;tes<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil &eacute;rode le
+terrain en retirant une partie du sol, variant selon la pente.<br>
+      <br>
+Les endroits dont la pente est inf&eacute;rieure &agrave; un seuil
+exprim&eacute; en degr&eacute;s et choisi par l'utilisateur ne perdent
+pas de sol et deviennent des cr&ecirc;tes.<br>
+      <br>
+L'utilisateur choisit le nombre de fois que le processus est
+r&eacute;p&eacute;t&eacute;. L'exemple a &eacute;t&eacute; produit avec
+8 r&eacute;p&eacute;titions. <br>
+      <br>
+Cet outil est tr&egrave;s utile pour donner une apparence plus
+naturelle au terrain.<br>
+      <br>
+Une utilisation recommand&eacute;e est de raffiner les cr&ecirc;tes
+cr&eacute;&eacute;es par l'"&eacute;rosion par la pluie" ou
+l'"&eacute;rosion fantaisiste". Essayez quelque chose comme 3
+r&eacute;p&eacute;titions.<br>
+      <br>
+L'outil peut aussi &ecirc;tre utilis&eacute; pour "&eacute;largir" les
+collines. Essayez ceci: inversez le terrain, appliquez l'outil
+cr&ecirc;tes, puis inversez le &agrave; nouveau.<br>
+      <br>
+Voici des particularit&eacute;s qui peuvent aider &agrave; comprendre
+le processus:<br>
+      <ul>
+        <li>Le sol est retir&eacute; pixel par pixel. En
+cons&eacute;quence, l'apparence globale du r&eacute;sultat
+d&eacute;pend de la grandeur du terrain. Pour le m&ecirc;me nombre de
+r&eacute;p&eacute;titions, un relief de 512x512 aura l'air plus
+transform&eacute; qu'un relief de 1024x1024 (les cr&ecirc;tes auront
+une plus haute fr&eacute;quence dans le dernier cas).<br>
+        </li>
+        <li>La pente est calcul&eacute;e dans 6 directions,
+s&eacute;par&eacute;es par 60&deg;. Avant la version 0.23, la pente
+&eacute;tait calcul&eacute;e dans 8 directions. Apr&egrave;s un grand
+nombre de r&eacute;p&eacute;titions, des structures rectangulaires
+pouvaient appara&icirc;tre. Dor&eacute;navant, ce seront plut&ocirc;t
+des structures hexagonales.<br>
+        </li>
+        <li>Le sol retir&eacute; n'est pas conserv&eacute;. L'altitude
+moyenne du terrain d&eacute;cro&icirc;t.</li>
+      </ul>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../crests.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/18-icon_rain_erosion.jpg"
+ style="width: 61px; height: 61px;" align="middle"><a
+ name="Rain_erosion"></a><br>
+&Eacute;rosion par la pluie<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil cr&eacute;e un terrain
+&eacute;rod&eacute; en d&eacute;versant de la pluie goutte par goutte
+sur des coordonn&eacute;es al&eacute;atoires. Quand la pente est
+sup&eacute;rieure &agrave; un certain seuil en degr&eacute;s, les
+gouttes d&eacute;placent du sol vers le bas de la pente. Quand la pente
+est inf&eacute;rieure &agrave; ce seuil, le sol est
+d&eacute;pos&eacute;. Le processus d&eacute;coupe des canaux
+&eacute;troits dans la surface.<br>
+      <br>
+Le r&eacute;sultat peut &ecirc;tre raffin&eacute; en appliquant l'outil
+"cr&ecirc;tes", avec 2 ou 3 r&eacute;p&eacute;titions.<br>
+      <br>
+Le sol est d&eacute;plac&eacute; vers le bas de la pente dans une de 6
+directions, &agrave; chaque point. Autrement dit, le processus simule
+une sym&eacute;trie hexagonale.<br>
+      <br>
+Notez que l'algorithme a &eacute;t&eacute; am&eacute;lior&eacute; entre
+la version 0.31 et la version 0.4. L'ancien algorithme ne fonctionnait
+pas correctement sur des surfaces planes craquel&eacute;es. De plus, la
+simulation de la sym&eacute;trie hexagonale n'&eacute;tait pas au
+point, il y avait des art&eacute;facts. L'ancien algorithme est encore
+disponible, cependant.<br>
+      <br>
+Le nouvel algorithme propose deux param&egrave;tres principaux: la
+force, qui correspond &agrave; la quantit&eacute; de sol
+d&eacute;plac&eacute;e &agrave; chaque it&eacute;ration, et la
+duret&eacute;, qui correspond en gros &agrave; la pente des parois des
+canaux, ou &agrave; l'inverse du degr&eacute; de diffusion du sol
+d&eacute;plac&eacute;. Une duret&eacute; peu &eacute;lev&eacute; donne
+des canaux plus "flous".<br>
+      <br>
+Le premier exemple montr&eacute; a &eacute;t&eacute; produit avec
+l'ancien algorithme et 25000 gouttes.<br>
+      <br>
+Le second exemple a &eacute;t&eacute; produit avec le nouvel algorithme
+et 100000 gouttes.<br>
+      <br>
+Notez que le r&eacute;sultat est tr&egrave;s sensible &agrave; la
+grandeur du terrain. Les canaux sont cr&eacute;&eacute;s au niveau des
+pixels. Ils auront l'air plus &eacute;troits sur une surface de
+1024x1024 que sur une surface de 512x512.<br>
+      <br>
+De plus, un terrain de 1024x1024 requiert 4 fois plus de gouttes qu'un
+terrain de 512x512 pour obtenir le m&ecirc;me niveau d'&eacute;rosion,
+parce que sa surface est 4 fois plus grande.<br>
+      <br>
+Contrairement &agrave; l'outil "cr&ecirc;tes", l'&eacute;rosion par la
+pluie ne diminue pas l'altitude moyenne du terrain.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../rain_erosion.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../erosion1.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/19-icon_whimsical_erosion.jpg"
+ style="width: 61px; height: 61px;" align="middle"><a
+ name="Whimsical_erosion"></a><br>
+&Eacute;rosion fantaisiste<br>
+      </td>
+      <td style="vertical-align: top;">L'"&eacute;rosion fantaisiste"
+peut &ecirc;tre utilis&eacute;e pour g&eacute;n&eacute;rer rapidement
+une apparence "c&ocirc;tel&eacute;e".<br>
+      <br>
+Le param&egrave;tre de rayon contr&ocirc;le l'&eacute;chelle (la
+fr&eacute;quence) des "c&ocirc;tes".<br>
+      <br>
+Cet outil ne pr&eacute;tend en aucune fa&ccedil;on simuler quelque
+processus naturel que ce soit. Le r&eacute;sultat va
+g&eacute;n&eacute;ralement montrer des "boucles" non convaincantes dans
+les vall&eacute;es. Cependant,le r&eacute;sultat peut constituer un
+point de d&eacute;part pour un travail d'&eacute;rosion
+suppl&eacute;mentaires avec d'autres outils, qui feront
+dispara&icirc;tre ces "boucles".<br>
+      <br>
+L'exemple 1 montre le r&eacute;sultat lorsque les param&egrave;tres par
+d&eacute;faut sont utilis&eacute;s.<br>
+      <br>
+L'exemple 2 montre le m&ecirc;me r&eacute;sultat, modifi&eacute; avec
+le cycle suivant de transformations:<br>
+      <ul>
+        <li>&Eacute;rosion par la pluie avec 25000 gouttes. <br>
+        </li>
+        <li>Cr&ecirc;tes avec 3 r&eacute;p&eacute;titions.<br>
+        </li>
+        <li>&Eacute;rosion par la pluie avec 25000 gouttes, encore.<br>
+        </li>
+        <li>Cr&ecirc;tes avec 3 r&eacute;p&eacute;titions, encore.</li>
+      </ul>
+      <ul>
+      </ul>
+Notez comment le "squelette de cr&ecirc;tes" est mieux d&eacute;fini
+dans cet exemple que dans celui montr&eacute; pour l'"&eacute;rosion
+par la pluie" vue plus haut.<br>
+      <br>
+Un truc pour les aventureux: un r&eacute;sultat &eacute;trange peut
+&ecirc;tre obtenu en r&eacute;glant &agrave; 0 le param&egrave;tre
+"m&eacute;lange" du sous-dialogue de "fusion".<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../whimsical_erosion_1.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../whimsical_erosion_2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/20-icon_craters.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Craters"></a><br>
+Crat&egrave;res<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil vise &agrave; imiter
+une "pluie de m&eacute;t&eacute;ores".<br>
+      <br>
+Il fonctionne mieux sur un terrain de contraste r&eacute;duit.<br>
+      <br>
+Jouez avec les param&egrave;tres de bruit pour obtenir un
+r&eacute;sultat plus convaincant.<br>
+      <br>
+L'exemple a &eacute;t&eacute; produit en utilisant le terrain par
+d&eacute;faut, apr&egrave;s avoir r&eacute;duit sont contraste &agrave;
+-50 &agrave; l'aide de l'outil "Luminosit&eacute; et contraste". 20
+crat&egrave;res ont &eacute;t&eacute; demand&eacute;s, et le bruit
+radial a &eacute;t&eacute; r&eacute;gl&eacute; &agrave; 8%.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../craters.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/21-icon_waves.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Waves"></a><br>
+Ondes<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil applique des
+d&eacute;placements ondulatoires au relief, selon un axe choisi par
+l'utilisateur.<br>
+      <br>
+Le dialogue par d&eacute;faut propose 2 onglets. Le premier onglet est
+pr&eacute;r&eacute;gl&eacute; pour produire une d&eacute;formation
+verticale (sur l'axe Y), le second pour produire un d&eacute;placement
+horizontal (sur l'axe X ou Y, selon la rotation du d&eacute;placement).<br>
+      <br>
+Pour voir le r&eacute;sultat de la transformation, le curseur de
+l'"amplitude" doit &ecirc;tre r&eacute;gl&eacute; &agrave; une valeur
+sup&eacute;rieure &agrave; 0.<br>
+      <br>
+Les transformations sont appliqu&eacute;es ("empil&eacute;es") dans
+l'ordre des onglets.<br>
+      <br>
+Par exemple, quand les 2 onglets sont r&eacute;gl&eacute;s pour
+d&eacute;placer le terrain verticalement, et l'un des ensembles de
+vagues est tourn&eacute; de 90&deg;, un r&eacute;seau
+d'interf&eacute;rences appara&icirc;tra.<br>
+      <br>
+L'utilisateur peut ajouter des onglets pour empiler plus de 2
+d&eacute;formations.<br>
+      <br>
+Des d&eacute;formations lat&eacute;rales (X-Z) cr&eacute;eront des
+bordues non continues sur les terrains non pavables. Parmi les
+techniques visant &agrave; minimiser cet effet, on peut cadrer le
+terrain avec la cam&eacute;ra pour masquer les bordures, ou utiliser le
+"filtre de forme" pour lisser progressivement les c&ocirc;t&eacute;s
+(cr&eacute;er une &icirc;le). Dans le futur, souhaitons-le, Geomorph
+offrira une fonction de mise &agrave; l'&eacute;chelle pour "couper"
+ces bordures.<br>
+      <br>
+L'exemple 1 montre une utilisationsimple de l'outil. Dans le premier
+onglet (d&eacute;formation verticale), l'amplitude est
+r&eacute;gl&eacute;e &agrave; 36, la p&eacute;riode &agrave; 6 et la
+rotation &agrave; 135&deg;. Dans le second (d&eacute;formation
+lat&eacute;rale), l'amplitude est r&eacute;gl&eacute;e &agrave; 35 et
+la p&eacute;riode &agrave; 8.<br>
+      <br>
+L'exemple 2 montre comment l'outil peut &ecirc;tre utilis&eacute; pour
+&eacute;lever des collines &agrave; l'arri&egrave;re-plan. En premier
+lieu, l'outil "Luminosit&eacute; et contraste" a &eacute;t&eacute;
+utilis&eacute; pour diminuer le contraste &agrave; -30, l'option
+"Conserver la luminosit&eacute;" &eacute;tant d&eacute;sactiv&eacute;e.
+En second lieu, dans l'outil "Ondes", seul le premier ongle a
+&eacute;t&eacute; utilis&eacute;, pour cr&eacute;er une seule vague
+dans l'image (p&eacute;riode = 10). La phase a &eacute;t&eacute;
+r&eacute;gl&eacute;e &agrave; 50, pour d&eacute;placer la cr&ecirc;te
+de la vague &agrave; la bordure Nord. L'amplitude a &eacute;t&eacute;
+r&eacute;gl&eacute;e &agrave; 50. Cette technique a &eacute;t&eacute;
+utilis&eacute;e pour &eacute;lever les montagnes d'arri&egrave;re-plan
+dans <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice%20St-Gelais/images/13-%20Painted%20Desert.jpg">l'exemple
+du D&eacute;sert Peint</a>.<br>
+      <br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../waves1.jpg" style="width: 320px; height: 240px;"><br>
+      <br>
+      <img alt="" src="../waves2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/22-icon_gravity_erosion.jpg"
+ style="width: 61px; height: 61px;" align="middle"><a
+ name="Gravity_erosion"></a><br>
+&Eacute;rosion par gravit&eacute;<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil d&eacute;place le sol
+selon la pente.<br>
+      <br>
+Contrairement &agrave; l'outil "cr&ecirc;tes", aucun sol n'est perdu.
+L'altitude moyenne du terrain reste en gros la m&ecirc;me.<br>
+      <br>
+Cet outil peut &ecirc;tre utilis&eacute; pour adoucir la surface en
+conservant un peu de bruit.<br>
+      <br>
+Avec un seuil de pente &eacute;lev&eacute;, on obtient des cr&ecirc;tes
+l&eacute;g&egrave;res.<br>
+      <br>
+L'exemple 1 montre le relief par d&eacute;faut apr&egrave;s 50
+r&eacute;p&eacute;titions, avec un seuil de pente de 60&deg;. Notez les
+cr&ecirc;tes.<br>
+      <br>
+L'exemple 2 montre le r&eacute;sultat apr&egrave;s 50
+r&eacute;p&eacute;titions et un seuil de pente de 30&deg;.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../gravity60.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../gravity30.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/23-icon_oriented_gravity_erosion.jpg"
+ style="width: 61px; height: 61px;" align="middle"><a
+ name="Oriented_gravity_erosion"></a><br>
+&Eacute;rosion par gravit&eacute; orient&eacute;e<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil applique
+l'&eacute;rosion par gravit&eacute; selon une des 4 directions
+cardinales (N - S - E - O).<br>
+      <br>
+L'exemple 1 montre le r&eacute;sultat apr&egrave;s 50
+r&eacute;p&eacute;titions, dans la direction par d&eacute;faut (Est).<br>
+      <br>
+Dans l'exemple 2, le premier r&eacute;sultat a &eacute;t&eacute;
+confirm&eacute;, la direction a &eacute;t&eacute; chang&eacute;e pour
+l'Ouest et le processus a &eacute;t&eacute; appliqu&eacute; &agrave;
+nouveau 50 fois.<br>
+      <br>
+Dans l'exemple 3, le dialogue de fusion a &eacute;t&eacute;
+utilis&eacute; pour superposer le terrain original avec l'exemple 2. La
+luminosit&eacute; de l'un des reliefs a d&ucirc; &ecirc;tre
+ajust&eacute;e pour donner un effet de "rochers" qui sortent du
+"sable". La cam&eacute;ra a &eacute;t&eacute; tourn&eacute;e de
+345&deg; (-15&deg;) autour de l'axe Y.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../oriented_gravity1.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../oriented_gravity2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../oriented_gravity3.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/24-icon_dunes.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Dunes"></a><br>
+Dunes<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil d&eacute;place le sol
+de gauche &agrave; droite, en le projetant comme s'il s'agissait de
+sable au vent.<br>
+      <br>
+La formule utilis&eacute;e est d&eacute;riv&eacute;e des recherches de <a
+ href="http://www.lps.ens.fr/recherche/formes/papers.html">Bruno
+Andreotti et ses coll&egrave;gues</a> au sujet des dunes barkhanes
+(dunes en forme de croissant). Les r&eacute;sultats ne sont pas aussi
+r&eacute;alistes qu'ils pourraient l'&ecirc;tre (il est difficile
+d'obtenir des dunes barkhanes avec l'outil!), mais suffisent &agrave;
+un usage artistique.<br>
+      <br>
+L'exemple montre le r&eacute;sultat obtenu &agrave; partir des
+param&egrave;tres par d&eacute;faut.<br>
+      <br>
+Ces param&egrave;tres, contr&ocirc;lables par l'utilisateur, sont:<br>
+      <ul>
+        <li>Le nombre de r&eacute;p&eacute;titions du processus.</li>
+        <li>La vitesse relative du vent, directement reli&eacute;e
+&agrave; la distance &agrave; laquelle les grains de sable sont
+projet&eacute;s. L'effet de cr&ecirc;te d&eacute;pend beaucoup de ce
+param&egrave;tre. Les cr&ecirc;tes sont moins visibles lorsque le vent
+est plus rapide.</li>
+        <li>L'"amplitude", qui correspond en gros &agrave; l'action de
+la pente sur la capacit&eacute; du vent de d&eacute;placer le sable.<br>
+        </li>
+        <li>Le seuil de pente, au-dessus duquel le sable
+d&eacute;gringole &agrave; cause de la gravit&eacute; (il est
+"relax&eacute;"), ind&eacute;pendamment du vent. La valeur habituelle
+est 30&deg;.</li>
+        <li>Une option de "raffinement des cr&ecirc;tes". Quand elle
+est activ&eacute;e, un l&eacute;ger processus de "vaguelettes" est
+appliqu&eacute; (voir le prochain outil), qui a pour effet d'accentuer
+les cr&ecirc;tes.<br>
+        </li>
+        <li>Une option "lisser avant". Un param&egrave;tre de rayon est
+affich&eacute; lorsque cette option est activ&eacute;e. Le
+r&eacute;sultat est plus naturel lorsque le relief est liss&eacute;
+avant d'appliquer le processus de dunes. Le lissage est fait &agrave;
+l'aide de l'outil de lissage standard.<br>
+        </li>
+      </ul>
+Un truc pour obtenir une approximation de dune barkhane: appliquer le
+processus sur une colline gaussienne g&eacute;n&eacute;r&eacute;e avec
+le filtre de forme "pointu" appliqu&eacute; sur un terrain
+uniform&eacute;ment gris.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../dunes.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/25-icon_ripples.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Ripples"></a><br>
+Vaguelettes<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil cr&eacute;e des
+vaguelette en "faisant ramper" des grains de sable.<br>
+      <br>
+SVP notez:<br>
+      <ul>
+        <li>Le relief <span style="font-style: italic;">doit</span>
+pr&eacute;senter du bruit de haute fr&eacute;quence. Ne le lissez pas
+avant d'appliquer l'outil.</li>
+        <li>Les r&eacute;sultats sont meilleurs sur des terrains dont
+le contraste est faible.</li>
+        <li>Les r&eacute;sultats sont meilleurs sur des terrains de
+haute r&eacute;solution (1024x1024 et plus).<br>
+        </li>
+      </ul>
+L'exemple propos&eacute; provient du terrain par d&eacute;faut, dont le
+contraste a &eacute;t&eacute; r&eacute;duit &agrave; -70 avant
+d'appliquer 50 r&eacute;p&eacute;titions de l'outil "vaguelettes".<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../ripples.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/icon_edge_lift.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Relever_les_bords"></a>Relever les bords<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil peut &ecirc;tre
+utlis&eacute; pour relever les bords de surfaces planes dont les bords
+sont abrupts.<br>
+      <br>
+Les exemples <a href="../../tut_water_maps/fr/Using_water_maps.html">"Terraces"
+et "Chauss&eacute;e des g&eacute;ants"</a> ont recours &agrave; cet
+outil.<br>
+      <br>
+      </td>
+      <td style="vertical-align: top;"><img alt=""
+ src="../lift_edges.jpg" style="width: 320px; height: 240px;"></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/icon_crack_network.jpg"
+ style="width: 61px; height: 61px;" align="left"><a
+ name="R&eacute;seau_de_craquelures"></a>R&eacute;seau de craquelures<br>
+      </td>
+      <td style="vertical-align: top;">Cet outil sert &agrave;
+cr&eacute;er diff&eacute;rents types de r&eacute;seaux de craquelures,
+des plus r&eacute;alistes aux plus fantaisistes.<br>
+      <br>
+Vous pouvez m&ecirc;me &eacute;crire un mot et l'int&eacute;grer comme
+des craquelures dans le r&eacute;seau.<br>
+      <br>
+      <a href="../../crack_network/fr/The%20Crack%20Network%20Tool.html">Ce
+guide</a> propose quelques exemples et des explications. </td>
+      <td style="vertical-align: top;"><img alt="" src="../cracknet.jpg"
+ style="width: 320px; height: 240px;"></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<a href="#The_Geomorph_tools">Haut de la page</a><br>
+<br>
+&Eacute;crit en ao&ucirc;t 2005 par Patrice St-Gelais<br>
+Mis &agrave; jour en d&eacute;cembre 2006<br>
+<br>
+<a href="../../doc_index_en.html"> <img src="../../GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_fr.html">Retour &agrave; l'index de la
+documentation</a><br>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body>
+</html>

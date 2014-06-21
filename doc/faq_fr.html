@@ -1,0 +1,708 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR" content="Mozilla">
+  
+  <title>Geomorph - FAQ version française</title><meta content="Patrice St-Gelais" name="author">
+  <meta content="Geomorph - FAQ version française" name="description">
+<link href="main_header.css" rel="stylesheet" type="text/css" media="screen"></head>
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="navigation_fr.html" marginwidth="0" marginheight="0" frameborder="0" height="80" scrolling="no" width="800">
+</iframe>
+</center>
+
+<font color="#000000"><b><font size="+3">Geomorph - FAQ</font></b></font><br>
+<br>
+<a href="#FONCTIONNEMENT"><span style="font-weight: bold;">FONCTIONNEMENT</span></a><br>
+<ul>
+</ul>
+<ul>
+  <li><a href="#Quelle_est_la_diff%E9rence_entre_la">Quelle
+est la
+différence entre la subdivision 1 et la subdivision 2?</a></li>
+  <li><a href="#%C0_quoi_sert_la_racine">À quoi sert la
+"racine"?</a></li>
+</ul>
+<a href="#FICHIERS_DE_SORTIE_PNG"><span style="font-weight: bold;">FICHIERS
+DE SORTIE (PNG)</span></a><br>
+<ul>
+  <li><a href="#Pourquoi_avoir_choisi_le_format_PNG">Pourquoi avoir
+choisi le format PNG?</a></li>
+  <li><a href="#Comment_puis-je_importer_des_images">Comment importer
+des images externes dans Geomorph?</a>&nbsp;</li>
+  <li><a href="#Comment_puis-je_%E9diter_des_images_">Comment
+éditer des images produites par Geomorph sans perdre les nuances
+de tonalité?</a></li>
+</ul>
+<span style="font-weight: bold;"><a href="#DIALOGUE_DAPER%C7U">DIALOGUE
+D'APERÇU</a></span><a href="#Laffichage_3D_de_laper%E7u_dispara%EEt_"><br>
+</a>
+<ul>
+  <li><a href="#Laffichage_3D_de_laper%E7u_dispara%EEt_">L'affichage 3D
+de
+l'aperçu disparaît parfois. Que puis-je faire?</a></li>
+  <li><a href="#Laffichage_3D_de_laper%E7u_dispara%EEt_">Le
+dialogue d'aperçu ne s'affiche pas du tout lorsque je
+démarre Geomorph, et j'obtiens un message comme quoi OpenGL
+n'est pas disponible. Est-ce normal? <span style="font-weight: bold;">(mis
+à jour le 2005-11-25)</span></a></li>
+  <li><a href="#How_can_I_activate__unactivate_the">Comment activer ou
+désactiver l'accélération matérielle (DRI)
+? <span style="font-weight: bold;">(nouveau, 2005-11-25)</span><br>
+    </a></li>
+</ul>
+<a href="#INTERFACE"><span style="font-weight: bold;">INTERFACE</span></a><a href="#INTERFACE"><span style="font-weight: bold;"></span></a><br>
+<ul>
+  <li><a href="#Dans_loutil_XYZ_la_liste_des_documents">Dans
+le dialogue de l'outil XYZ, la liste des documents disponibles ne
+montre pas le
+document que je viens de créer. Comment la rafraîchir?</a></li>
+  <li><a href="#Jai_ajout%E9_du_bruit_%E0_haute_fr%E9quence">J'ai
+ajouté
+du bruit à haute fréquence sur le relief, mais je ne le
+vois pas. Que puis-je faire?</a></li>
+  <li><a href="#Pourquoi_tous_les_titres_de_menus_de">Pourquoi tous
+les
+titres de menus, de boutons, ainsi que tous les messages d'erreur
+s'affichent-ils en pseudo-anglais, avec des abréviations et en
+lettres majuscules?</a> <br>
+  </li>
+  <li><a href="#desktop_icon">J'ai installé Geomorph 0.3x, et
+l'icône du raccourci de la version 0.1x sur mon bureau est
+disparu. Où se trouve-t-il?</a></li>
+</ul>
+<a href="#PERFORMANCE"><span style="font-weight: bold;">PERFORMANCE,
+MÉMOIRE,
+STABILITÉ</span></a><br>
+<ul>
+  <li><a href="#Geomorph_est_lent_Jai_de_la_difficult%E9">Geomorph est
+lent!
+J'ai de la difficulté à dessiner ou à
+déplacer les curseurs des échelles. Que puis-je faire?</a></li>
+  <li><a href="#Jobtiens_un_message_%E0_leffet_quil">J'obtiens un
+message à l'effet qu'il manque de mémoire quand je tente
+de créer un nouveau document. Que faire? <span style="font-weight: bold;">(mis à jour le 2005-11-25)</span><br>
+    </a></li>
+  <li><a href="#Jai_une_carte_vid%E9o_XYZ_avec_un_pilote">Quelle est la
+quantité normale de mémoire consommée par
+Geomorph? <span style="font-weight: bold;">(nouveau, 2005-11-25)</span><br>
+    </a></li>
+  <li><a href="#Geomorph_sinterrompt_avec_une_erreur">Geomorph
+s'interrompt avec une erreur quand je tente d'ouvrir un document,
+après
+avoir fermé tous les autres documents. Que faire?<span style="font-weight: bold;"> (mis à jour le 2005-11-25)</span><br>
+    </a></li>
+  <li><a href="faq_fr.html#Pourquoi_Geomorph_sinterrompt-il">Pourquoi
+Geomorph s'interrompt-il (crash) quand je clone un document? <span style="font-weight: bold;">(mis à jour le 2005-11-25)</span><br>
+    </a></li>
+</ul>
+<span style="font-weight: bold;"><a href="#MOTEUR_DE_RENDU_POVRAY"><span style="font-weight: bold;">MOTEUR DE RENDU (POVRAY)</span></a><br>
+</span>
+<ul>
+  <li><a href="#When_I_click_on_the_render_icon_">Quand je clique sur l'icône de rendu, il ne se passe rien. Que puis-je faire?<span style="font-weight: bold;"> (ajouté le 1er août 2008)</span></a></li><li><a href="#Pourquoi_Geomorph_g%E8le-t-il_quand">Pourquoi
+Geomorph gèle-t-il quand j'exécute Povray en cliquant sur
+l'icône de rendu?</a></li>
+  <li><a href="#Pause_povray">L'image
+Povray disparaît dès qu'elle s'affiche. Que puis-je faire?
+    </a></li>
+  <li><a href="#Pourquoi_ne_pas_offrir_des_rendus_avec">Pourquoi
+ne pas offrir des rendus avec un autre moteur de rendu que Povray,
+comme Aqsis ou YafRay par exemple?</a></li>
+</ul>
+<span style="font-style: italic;"></span><br>
+<span style="font-weight: bold;"><span style="font-style: italic;"></span></span>
+<hr style="width: 100%; height: 2px;"><span style="font-weight: bold;"><br>
+</span><span style="font-weight: bold;"><a name="FONCTIONNEMENT"></a>FONCTIONNEMENT<br>
+<br>
+</span>
+<div style="margin-left: 40px;"></div>
+<br>
+<i><a name="Quelle_est_la_différence_entre_la"></a><span style="font-weight: bold;">Quelle est la différence entre la
+subdivision 1 et la subdivision 2?</span></i>
+<blockquote>Le principe de la subdivision est expliqué dans <a href="intro_fr.html">l'introduction.</a> <br>
+  <br>
+Pour déplacer l'altitude des points sur la surface, la
+subdivision 1 <img alt="" src="subdiv1_icon.jpg" style="width: 28px; height: 28px;"> fait un "OU exclusif" (NOR) avec
+des valeurs
+aléatoires, tandis que la subdivision 2 <img alt="" src="subdiv2_icon.jpg" style="width: 28px; height: 28px;"> additionne
+ou soustrait
+ces valeurs (les "creux"
+et les "bosses"). &nbsp;Le traitement est beaucoup plus rapide avec un
+NOR. &nbsp;Entre
+autres, le programme n'a pas à gérer les
+débordements,
+sous 0 ou par-dessus 65535. &nbsp;C'est d'ailleurs la subdivision 1 que
+dessine
+par défaut le "crayon relief"<img alt="" src="penhf2.jpg" style="width: 22px; height: 22px;">. <br>
+  <br>
+Les reliefs créés par la subdivision 1 sont
+différents, plus "bruts", comme stratifiés avec beaucoup
+de bruit. Ils sont parfois plus intéressants que ceux de la
+subdivision 2.<br>
+  <br>
+La subdivision 1 offre cependant moins de contrôle sur le
+résultat que la subdivision 2. La subdivision 2 offre un
+paramètre de contrôle de la distribution des "bosses"
+et des "creux" de façon à ce qu'ils ne soient pas trop
+régulièrement répartis. &nbsp;L'amplitude des
+longeurs
+d'onde est aussi contrôlable. &nbsp;Une amplitude de 0 permet de
+retirer sélectivement des fréquences. &nbsp;Par
+exemple, le retrait des hautes fréquences (longueurs d'onde de
+2, 4 ou 8 pixels) donne l'équivalent d'une image de relief
+lissée avec un rayon de 8 pixels à l'aide de la
+boîte à outil.<br>
+</blockquote>
+<br>
+<i><a name="À_quoi_sert_la_racine"></a><span style="font-weight: bold;">À
+quoi sert la "racine"?</span></i>
+<blockquote>La "racine" est un nombre servant de point de départ
+au générateur de nombres pseudo-aléatoires du
+système d'exploitation.<br>
+  <br>
+Geomorph utilise souvent des valeurs aléatoires, par exemple
+pour déplacer la hauteur d'un sommet lors de la subdivision,
+pour déplacer une bosse ou une autre surface sur le sol dans la
+génération de reliefs par addition de surfaces, ou pour
+générer du bruit.<br>
+  <br>
+Sans ces corrections aléatoires, il ne serait pas possible de
+générer des reliefs réalistes. Mettez le
+paramètre "Déplacement XY" à 0 dans l'addition
+progressive de surfaces <img alt="" src="surfadd_icon.jpg" style="width: 28px; height: 28px;"> et faites "Activer", pour vous en
+convaincre.<br>
+  <br>
+En précisant la racine de départ, qui est inscrite dans
+le fichier de configuration "geomorphrc", les résultats
+deviennent reproductibles (d'où l'expression
+"pseudo-aléatoire"). &nbsp;Ainsi, les algorithmes de
+génération de reliefs devraient toujours donner le
+même résultat au démarrage de
+Geomorph, ou lorsqu'on tape manuellement une racine en particulier.<br>
+  <br>
+</blockquote>
+<span style="font-weight: bold;"><a name="FICHIERS_DE_SORTIE_PNG"></a>FICHIERS
+DE SORTIE (PNG)<br>
+<br>
+</span>
+<blockquote></blockquote>
+<i><a name="Pourquoi_avoir_choisi_le_format_PNG"></a><span style="font-weight: bold;">Pourquoi avoir choisi le format PNG?</span><br>
+</i>
+<blockquote>Une image de relief de qualité requiert des valeurs
+exprimées sur 16 bits, c'est-à-dire offrant 65536 nuances
+ou niveaux d'altitude distincts. Habituellement, les images sont
+exprimées sur 8 bits et offrent 256 nuances par couleur ou
+"canal".<br>
+  <br>
+Les images de relief sont monochromes. Lorsqu'on les exprime sur 8
+bits, on obtient une échelle réduite à 256
+altitudes distinctes. Le rendu final du relief peut alors montrer un
+effet d'escalier désagréable.<br>
+  <br>
+PNG est un des rares formats gérant des images de 16 bits
+par canal. Il est reconnu par de nombreux logiciels, dont Povray, et
+permet la compression sans perte. Le format est très souple et
+permet
+de sauvegarder des commentaires et d'autres informations descriptives
+avec
+l'image. Ainsi, Geomorph écrit dans chaque image PNG qu'il
+créée si celle-ci est pavable ou non (si elle
+"s'enroule"). Enfin, c'est un standard libre de droits,
+créé pour éviter des situations comme celles
+vécues avec le format GIF il y a quelques années. <br>
+  <br>
+</blockquote>
+<i><a name="Comment_puis-je_importer_des_images"></a><span style="font-weight: bold;">Comment importer des images
+externes dans Geomorph?</span><br>
+</i>
+<blockquote>Vous devez utiliser un logiciel qui reconnaît le
+format de votre image externe, peut en changer l'échelle pour
+que sa grandeur soit compatible avec Geomorph et enregistre le
+résultat en format PNG.<br>
+  <br>
+Geomorph reconnaît des images PNG carrées de 128, 256,
+512, 1024, 2048 ou 4096 pixels de côté. Il ne fait pas
+encore de conversion d'échelle. &nbsp;Cependant, il transforme
+les images RGB en nuances de gris, et les canaux de 8 bits (256
+nuances) en canaux
+de 16 bits (65536 nuances).<br>
+  <br>
+GIMP est un bon choix pour rogner ou mettre à l'échelle
+une image d'une profondeur de 8 bits, en noir et blanc ou en couleurs,
+et la sauvegarder en PNG 8 bits. Geomorph n'aura pas de
+difficulté
+à la lire.<br>
+  <br>
+L'outil "lissage"&nbsp;<img alt="" src="smooth.jpg" style="width: 22px; height: 22px;"> avec un petit rayon permet
+d'atténuer l'effet
+de stratification du à la conversion d'une image de 256 valeurs
+en image de 65536 valeurs. L'outil "bruit" <img alt="" src="noise_icon.jpg" style="width: 22px; height: 22px;"> permet
+d'ajouter des hautes
+fréquences et d'obtenir une apparence plus natuelle.<br>
+  <br>
+</blockquote>
+<i><a name="Comment_puis-je_éditer_des_images_"></a><span style="font-weight: bold;">Comment éditer des images
+produites par Geomorph sans perdre les nuances de tonalité?</span><br>
+</i>
+<blockquote>Geomorph ne répond probablement pas à tous
+les besoins
+d'édition d'images de relief.&nbsp; Vous désirerez
+peut-être
+utiliser un logiciel de dessin externe.<br>
+  <br>
+GIMP v. 1.x et v. 2.x lisent les images 16 bits créées
+par
+Geomorph, mais les ramènent à 8 bits (256 nuances
+plutôt
+que 65536).<br>
+  <br>
+Filmgimp (maintenant Cinepaint - voir <a href="http://cinepaint.sourceforge.net">cinepaint.sourceforge.net</a>)
+lit et sauvegarde des images PNG à canaux de 16 bits. Même
+si le logiciel est conçu pour l'édition de films, il peut
+être utilisé pour éditer des images fixes.<br>
+  <br>
+Je ne connais pas d'autre logiciel libre qui édite des images
+à canaux de 16 bits.<br>
+</blockquote>
+<br>
+<span style="font-weight: bold;"><a name="DIALOGUE_DAPERÇU"></a>DIALOGUE
+D'APERÇU<br>
+<br>
+</span><br>
+<span style="font-weight: bold; font-style: italic;"><a name="Laffichage_3D_de_laperçu_disparaît_"></a>L'affichage 3D de
+l'aperçu disparaît parfois. Que puis-je faire?</span><br>
+<br>
+<div style="margin-left: 40px;">Ce problème ne semble se
+produire que sous KDE, pas sous Gnome. J'en ignore l'origine.<br>
+<br>
+La seule solution est de cliquer sur le bouton "Rafraîchir" de
+l'aperçu.<br>
+<br>
+<br>
+</div>
+<span style="font-weight: bold;"><span style="font-style: italic;"><a name="Le_dialogue_daperçu_ne_saffiche_pas_du"></a>Le
+dialogue d'aperçu ne s'affiche pas du tout lorsque je
+démarre Geomorph, et j'obtiens un message comme quoi OpenGL
+n'est pas disponible. Est-ce normal?<br>
+</span></span><br>
+<div style="margin-left: 40px;">Ce problème a été
+observé dans 2 situations:<br>
+<br>
+1. Geomorph 0.30 est utilisé avec une carte Nvidia
+récente et le pilote fourni par Nvidia. La solution est de
+mettre à jour Geomorph à la version 0.31 ou
+ultérieure. À partir de la version 0.31, la librairie
+libgtkglext est utilisée à la place de libgtkglarea, ce
+qui corrige le problème.<br>
+<br>
+2. Il pourrait arriver, bien que ce soit peu probable, que le module
+"glx" (couche 3D) ne soit pas chargé par le système
+X-Windows.
+Vérifiez si "glx" est spécifié dans la section
+"Module" du fichier de configuration
+/etc/X11/xorg.conf (si vous utilisez Xorg) ou /etc/X11/XF86Config ou
+/etc/X11/XF86Config-4 (si
+vous utilisez XFree86). Cette section devrait ressembler
+à
+ceci:<br>
+<br>
+<span style="font-family: monospace;">Section "Module"</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "dbe" #
+Double-Buffering Extension</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "type1"</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "freetype"</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "extmod"</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "v4l" #
+Video for Linux</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "glx" #
+3D layer</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp; &nbsp; Load "dri" #
+direct rendering </span><br style="font-family: monospace;">
+<span style="font-family: monospace;">EndSection</span><br>
+<br>
+Si "glx" est demandé, vérifiez dans le journal
+/var/log/Xorg.0.log ou /var/log/XFree86.0.log s'il est chargé
+avec succès. <br>
+<br>
+La commande "glxinfo" exécutée dans une console X pourra
+aussi vous indiquer si les extensions glx sont disponibles, si cette
+commande existe sur votre système.<br>
+<br>
+Si les extensions GLX sont disponibles et que l'aperçu ne
+s'affiche toujours pas, contactez-moi.<br>
+<br>
+<div style="margin-left: 40px;"><br>
+</div>
+</div>
+<a name="How_can_I_activate__unactivate_the"></a><span style="font-weight: bold; font-style: italic;">Comment activer ou
+désactiver l'accélération matérielle (DRI)?
+</span><br style="font-weight: bold; font-style: italic;">
+<span style="font-weight: bold; font-style: italic;"></span>
+<div style="margin-left: 40px;"><br>
+L'accélération matérielle du système
+d'affichage est fournie par le module DRI ("direct rendering
+infrastructure") du pilote de la carte vidéo.<br>
+<br>
+L'accélération matérielle peut améliorer la
+vitesse de rotation ou de déplacement de l'aperçu du
+terrain, en accélérant les appels OpenGL. Cependant, elle
+n'a aucun effet sur la vitesse de rafraîchissement du terrain. Le
+maillage de l'aperçu est recalculé après toute
+modification du terrain. C'est la partie la plus lourde du traitement,
+et elle a lieu avant tout appel à la librairie OpenGL. <br>
+<br>
+De plus, l'activation du module DRI peut provoquer ces problèmes:<br>
+<ul>
+  <li>Une utilisation anormale de la mémoire,
+apparemment&nbsp;reliée à l'interaction entre le
+pilote de la carte vidéo, le sous-système X-Windows et le
+noyau Linux. Ce problème semblait généralisé vers 2005-2006 (Geomorph
+0.31), mais s'est progressivement corrigé avec les mises à jour des
+pilotes, du noyau ou de X-Windows. Il peut encore être vu avec du
+nouveau matériel et des pilotes immatures, comme par exemple, sur
+l'ordinateur portable de 2008 sur lequel ce texte est révisé, doté d'un
+accélérateur graphique Intel X3100...<br>
+  </li>
+  <li>Des erreurs de segmentation lorsque les documents sont
+enregistrés un par un (observées avec une carte Matrox
+G400, non rapporté pour d'autres cartes jusqu'à
+présent).<br>
+  </li>
+</ul>
+Geomorph 0.31 permet de spécifier si
+l'accélération matérielle est activée ou
+non, seulement pour Geomorph, sans effet sur les autres applications.
+En raison du peu de bénéfices et des problèmes
+mentionnés, Geomorph 0.31 est livré avec
+l'accélération matérielle
+désactivée. Cependant, vous pouvez l'activer en utilisant
+une de ces méthodes: <br>
+<ul>
+  <li>Appelez le dialogue d'options&nbsp;<img alt="" src="settings.jpg" style="width: 22px; height: 22px;"> dans la barre du menu, allez
+à l'onglet "Aperçu 3D", et changez la valeur de la
+variable "Accélération matérielle" de FALSE ou
+&lt;aucune valeur&gt; à TRUE.</li>
+  <li>Éditez le fichier "geomorphrc" (habituellement dans
+/home/&lt;vous&gt;/geomorph/). Dans la section [3d_preview], changez
+"direct_rendering = FALSE" à TRUE, ou ajoutez la ligne si elle
+n'existe pas.<br>
+  </li>
+</ul>
+</div>
+<div style="margin-left: 40px;"><br>
+</div>
+<span style="font-weight: bold;"><a name="INTERFACE"></a>INTERFACE<br>
+<br>
+</span><br>
+<span style="font-weight: bold;"><span style="font-style: italic;"><a name="Dans_loutil_XYZ_la_liste_des_documents"></a>Dans
+le dialogue de l'outil XYZ, la liste des documents disponibles ne
+montre pas le
+document que je viens de créer. Comment la rafraîchir?</span></span><br>
+<br>
+<div style="margin-left: 40px;">Un nouveau clic sur
+l'icône de l'outil rafraîchira la liste des documents
+ouverts.<br>
+<br>
+Ce comportement se rencontrera dans l'outil "fusion"&nbsp;<img alt="" src="merge_button.jpg" style="width: 22px; height: 22px;"> ou dans
+l'option
+"Filtrer avec un document ouvert" <img alt="" src="filt_hf.jpg" style="width: 22px; height: 22px;"> du filtre de forme <img alt="" src="filters.jpg" style="width: 22px; height: 22px;">.<br>
+<br>
+</div>
+<span style="font-style: italic;"><span style="font-weight: bold;"></span></span><br>
+<span style="font-weight: bold; font-style: italic;"><a name="Jai_ajouté_du_bruit_à_haute_fréquence"></a>J'ai ajouté
+du bruit à haute fréquence sur le relief, mais je ne le
+vois pas. Que puis-je faire?</span><br>
+<br>
+<div style="margin-left: 40px;">Le bruit de haute fréquence ne
+s'affiche pas en projection 2D, et est très difficile à
+voir dans l'aperçu. Pour bien le voir, il faut exécuter
+une scène Povray.<br>
+<br>
+Pourquoi? Supposons que la hauteur est sensiblement proportionnelle
+à l'étendue du sol, sur une image de 512x512 dont
+l'altitude maximale varie de 2<sup>14</sup> à 2<sup>15</sup>.
+Les longueurs d'onde de l'ordre de 2 pixels varieront d'une altitude
+d'environ 2<sup>6</sup> à 2<sup>7</sup>. Comme l'affichage
+se fait obligatoirement avec 256 valeurs (2<sup>8</sup>) plutôt
+que 65536 (2<sup>16</sup>), il faut diviser les valeurs d'altitude
+par 256 avant de les afficher. Les hautes fréquences tombent
+ainsi à 0 et ne sont pas affichables.<br>
+<br>
+<br>
+</div>
+<i><a name="Pourquoi_tous_les_titres_de_menus_de"></a><span style="font-weight: bold;">Pourquoi tous les titres de menus, de
+boutons, ainsi que tous les messages d'erreur s'affichent-ils en
+pseudo-anglais, avec des abréviations et en lettres majuscules?</span></i>
+<blockquote>Ce problème est disparu depuis la version 0.21.<br>
+  <br>
+</blockquote>
+<i><a name="desktop_icon"></a><span style="font-weight: bold;">J'ai
+installé Geomorph 0.2x ou 0.3x après
+avoir désintallé 0.1x, et l'icône du raccourci sur
+mon
+bureau est disparu, même si le raccourci est demeuré.
+Où
+se trouve-t-il?</span></i>
+<blockquote>L'emplacement de cet icône a changé. Il se
+trouve à partir de la version 0.20 à l'adresse
+/usr/local/share/geomorph/GeoMorph.xpm. Modifiez les
+propriétés de votre raccourci pour qu'il pointe sur cette
+adresse.<br>
+</blockquote>
+<i> </i>
+<br>
+<span style="font-weight: bold;"><a name="PERFORMANCE"></a>PERFORMANCE,
+MÉMOIRE, STABILITÉ<br>
+<br>
+</span><span style="font-weight: bold;"><span style="font-style: italic;"><span style="font-weight: bold;"></span></span><br>
+</span><span style="font-style: italic; font-weight: bold;"><a name="Geomorph_est_lent_Jai_de_la_difficulté"></a>Geomorph est lent!
+J'ai de la difficulté à dessiner ou à
+déplacer les curseurs des échelles. Que puis-je faire?</span><br>
+<br>
+<div style="margin-left: 40px;">Geomorph est lent lorsque les images
+éditées sont trop grandes pour la
+puissance du processeur.<br>
+<br>
+Règle générale, le ralentissement commence
+à être sensible lorsque la
+grandeur linéaire de l'image correspond à la vitesse du
+processeur.
+Ainsi, l'édition d'une image de 2048x2048 sera laborieuse sur
+les
+processeurs de 2 Ghz. C'est très approximatif: une image de
+2048x2048
+est 4 fois plus grande qu'une image de 1024x1024, mais un processeur de
+2Ghz risque d'être plus de deux fois plus puissant qu'un
+processeur de
+1Ghz - en effet on risque d'avoir changé de
+génération de processeur en passant de 1Ghz à 2Ghz.<br>
+<br>
+À partir de la version 0.30, quelques stratégies sont
+utilisées
+pour faciliter
+l'édition de grandes images. Par
+exemple, lorsque le curseur de certaines échelles est
+déplacé, l'aperçu
+n'est pas rafraîchi avant le relâchement du bouton de
+souris. Des
+boutons ont aussi été ajoutés à
+côté ou en-dessous de plusieurs échelles pour
+déplacer le curseur par incréments <img alt="" src="scale_n_buttons.jpg" style="width: 112px; height: 37px;">. C'est
+encore
+perfectible,
+contactez-moi si vous identifiez des possibilités ou des besoins
+d'amélioration.<br>
+<br>
+Enfin, il n'est pas recommandé d'utiliser Geomorph en
+réseau, c'est-à-dire lorsque le programme
+s'exécute
+sur l'ordinateur A et
+est affiché sur le poste B par le système X-Windows.<br>
+<br>
+</div>
+<br>
+<span style="font-style: italic; font-weight: bold;"><a name="Jobtiens_un_message_à_leffet_quil"></a>J'obtiens un
+message à l'effet qu'il manque de mémoire quand je tente
+de créer un nouveau document. Que faire?</span><br>
+<br>
+<div style="margin-left: 40px;">Sauvegardez tous vos documents, et
+redémarrez Geomorph.<br>
+<br>
+Il y a au moins deux raisons possibles à ce manque de
+mémoire:<br>
+<ol>
+  <li>Vous avez ouvert trop de documents à la fois pour la
+mémoire physique de votre ordinateur. En principe, Geomorph
+fonctionne sur une machine de 256 Mo. Cependant, vous pouvez
+éprouver des difficultés même avec cette
+quantité de mémoire, par exemple si vous augmentez le
+nombre de niveaux d'annulation de 5 à 10 et ouvrez de nombreux
+documents. Dans ce cas, fermer des documents libérera de la
+mémoire, mais le mieux est encore de redémarrer
+l'application.</li>
+  <br>
+  <li>L'accélération
+matérielle de votre carte
+vidéo est activée (module DRI - direct rendering). Sur la plupart des
+systèmes testés il y a quelques années (~2005-2006), cela entrainaît
+une utilisation
+anormale de la mémoire. À partir de la version 0.31, vous
+pouvez désactiver l'accélération matérielle
+pour Geomorph seulement, sans la désactiver pour l'ensemble de
+votre système, avant de redémarrer Geomorph. <a href="#How_can_I_activate__unactivate_the">Voir cette question.</a><br>
+  </li>
+</ol>
+À l'exception du problème de mémoire relié
+à l'accélération matérielle, qui ne
+dépend pas de Geomorph, la version 0.31 perd environ 250 k de
+mémoire à chaque document ouvert et refermé.
+<ol>
+</ol>
+<br>
+</div>
+<span style="font-style: italic; font-weight: bold;"><a name="Jai_une_carte_vidéo_XYZ_avec_un_pilote"></a>Quelle est la
+quantité normale de mémoire consommée par
+Geomorph? </span><span style="font-style: italic; font-weight: bold;"></span><br>
+<br>
+<div style="margin-left: 40px;">Selon que l'accélération
+matérielle de la carte vidéo est activée ou non,
+et selon qu'elle est activée pour Geomorph ou seulement pour les
+autres applications X-Windows, l'affichage de la barre de
+menu avec un seul document de 512x512 peut requérir de 20
+à 50 Mo.<br>
+<br>
+Sans accélération matérielle, chaque document
+supplémentaire de 512x512 requiert
+environ 2 Mo, ou 10 Mo lorsque 5 niveaux de l'historique sont remplis.<br>
+<br>
+Autrement, l'usage est très variable selon la distribution et le
+pilote de la carte vidéo,
+allant de 10 Mo à 30 Mo supplémentaires par document
+(historique non rempli), et la mémoire n'est pas toute
+libérée lors de la fermeture d'un document. La fermeture
+de Geomorph, cependant, libère toute la mémoire.<br>
+<br>
+<br>
+</div>
+<span style="font-style: italic;"><span style="font-weight: bold;"><a name="Geomorph_sinterrompt_avec_une_erreur"></a>Geomorph s'interrompt
+avec une erreur quand je tente d'ouvrir un document, après avoir
+fermé tous les autres documents. Que faire?<br>
+</span></span>
+<div style="margin-left: 40px;"><br>
+Essayez de désactiver l'accélération
+matérielle pour Geomorph. C'est possible depuis la version 0.31.
+<a href="#How_can_I_activate__unactivate_the">Voir cette question</a>.<br>
+<br>
+<br>
+</div>
+<span style="font-weight: bold;"><a name="Pourquoi_Geomorph_sinterrompt-il"></a><span style="font-style: italic;"><span style="font-weight: bold;">Pourquoi
+Geomorph s'interrompt-il (crash) quand je clone un document?</span></span></span><br>
+<br>
+<div style="margin-left: 40px;">Ce problème a été
+corrigé dans la version 0.31. Il se produisait lorsque le
+document à cloner n'était pas enregistré.
+Maintenant, Geomorph demande d'enregistrer le document avant le clonage.<br>
+<br>
+<br>
+</div>
+<span style="font-weight: bold;"><a name="MOTEUR_DE_RENDU_POVRAY"></a>MOTEUR
+DE RENDU (POVRAY)<br>
+<br>
+</span><span style="font-weight: bold;"><span style="font-style: italic;"><a name="When_I_click_on_the_render_icon_"></a>Quand je clique sur l'icône de rendu </span></span><img style="width: 28px; height: 28px; font-weight: bold; font-style: italic;" alt="" src="povrender_icon.jpg"><span style="font-weight: bold; font-style: italic;">, il ne se passe rien. Que puis-je faire?</span><br><br><div style="margin-left: 40px;">Ces explications valent pour POV-Ray 3.6.<br><br>En premier lieu, démarrez Geomorph à partir d'une console afin de voir les messages retournés par POV-Ray.<br><br>Si POV-Ray ne démarre pas du tout, lisez la prochaine question. Geomorph devrait probablement geler.<br><br>Si
+POV-Ray démarre mais n'affiche aucune image, la sortie de POV-Ray
+(d'habitude très longue!) devrait contenir un message d'erreur, à
+quelque part.<br><br>Si le message dit quelque chose au sujet d'un
+fichier "povray.conf" manquant ("missing"), vérifiez si vous avez un
+tel fichier dans votre répertoire /home/.../.povray/3.6. Ce fichier est
+apparu avec la version 3.6 pour ajouter des contrôles de sécurité. Si
+le fichier est absent, créez-le:&nbsp;<br><ul><li>Si vous avez installé
+POV-Ray à partir de www.povray.org, un script "install" devrait être
+inclus. Exécutez ce script avec l'option "user": tapez "./install user"
+dans le répertoire où l'archive est décompressée (sans les guillemets!).</li><li>Si
+vous avez installé l'application avec un paquet de votre distribution,
+il se peut que vous ayez à créer des répertoires .povray et .povray/3.6
+dans votre répertoire personnel, et à y copier le fichier povray.conf
+par défaut. Vous pouvez aussi y copier le fichier povray.ini par
+défaut. Ces fichiers peuvent être trouvés à des endroits comme
+/etc/povray/3.6 (Ubuntu 7.x),
+/usr/local/etc/povray/3.6 (Fedora 8), etc. - vérifiez la liste des
+fichiers avec votre gestionnaire d'archives.</li><li>Dans
+povray.conf, assurez-vous d'inscrire une entrée pour votre répertoire
+personnel&nbsp;(ou /home/.../geomorph, si vous voulez être plus
+restrictif) dans la section [Permitted Paths]. Cette entrée devrait se
+lire comme suit: "read+write* =&nbsp; /home/your_id/geomorph"
+(sans les guillemets!).</li></ul>Si le message n'est pas relié povray.conf, peut-être avez-vous fait une erreur en modifiant le script POV-Ray?<br><br>Si
+vous ne trouvez pas de solution, copiez et collez-moi la sortie texte
+de la console dans un courriel. Je vais voir ce que je peux peux faire.<br></div><br>
+<span style="font-style: italic;"><span style="font-weight: bold;"><a name="Pourquoi_Geomorph_gèle-t-il_quand"></a>Pourquoi
+Geomorph gèle-t-il quand j'exécute Povray en cliquant sur
+l'icône de rendu <img alt="" src="povrender_icon.jpg" style="width: 28px; height: 28px;">?</span></span><br>
+<br>
+<div style="margin-left: 40px;">Geomorph ne trouve pas
+l'exécutable de Povray, soit que Povray n'est pas
+installé, soit que le nom de l'exécutable n'est pas bien
+écrit dans le fichier d'options <span style="font-family: monospace;">~/geomorph/geomorphrc</span>. <br>
+<br>
+Vérifiez la variable "renderer" dans "geomorphrc", ou passez par
+le dialogue des options dans la barre de menu de Geomorph&nbsp;<img alt="" src="settings.jpg" style="width: 22px; height: 22px;"> pour
+vérifier le nom de l'exécutable. Pour savoir si
+l'exécutable existe, faites "which &lt;nom&gt;" dans une console
+(ex. "which povray36").<br>
+<br>
+Lorsque Geomorph est gelé, vous devez tuer le processus avec
+xkill ou kill -9 &lt;pid&gt; dans une console.<br>
+<br>
+<br>
+</div>
+<i><a name="Pause_povray"></a><span style="font-weight: bold;">L'image
+Povray disparaît dès qu'elle s'affiche. Que puis-je faire?</span></i>
+<br>
+<br>
+<div style="margin-left: 40px;">Il&nbsp; faut ajouter l'option "Pause"
+lors de l'exécution de Povray. Il y a trois façons de le
+faire:<br>
+<ol>
+  <li>Allez dans le dialogue d'options <img alt="" src="settings.jpg" style="width: 22px; height: 22px;"> de la barre de menus, ajoutez
+l'option +P dans
+l'item "Autres
+options de
+rendu sur la ligne de commande" de l'onglet "Rendu d'illumination 3D".</li>
+</ol>
+<ol start="2">
+  <li>Modifiez directement la variable <span style="font-family: monospace;">other_render_options</span> dans
+le fichier <span style="font-family: monospace;">~/geomorph/geomorphrc</span>:<br>
+  </li>
+</ol>
+</div>
+<div style="margin-left: 40px;">
+<div style="margin-left: 40px;"><span style="font-family: monospace;">[rendering]&nbsp;
+</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">...</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">other_render_options = <span style="font-weight: bold;">+P</span> +D -F +L/home/.../geomorph;</span><br>
+</div>
+<br>
+<ol start="3">
+  <li>Insérez la ligne <span style="font-family: monospace;">Pause_when_Done
+=
+on</span> dans le fichier <span style="font-family: monospace;">~/.povrayrc</span>,
+si vous en avez un. Vous pouvez
+copier ce
+fichier de <span style="font-family: monospace;">/usr/lib/povray-3.6/ini/povray.ini.</span></li>
+</ol>
+</div>
+<br>
+<span style="font-weight: bold;"><span style="font-style: italic;"><a name="Pourquoi_ne_pas_offrir_des_rendus_avec"></a>Pourquoi
+ne pas offrir des rendus avec un autre moteur de rendu que Povray,
+comme Aqsis ou YafRay par exemple?</span></span><br>
+<br>
+<div style="margin-left: 40px;">Aqsis et YafRay sont des moteurs de
+rendu libres, couverts par le premier par la GPL, le second par la
+LGPL, contrairement à la version actuelle de Povray (3.6). <br>
+<br>
+Pourquoi ne pas avoir choisi d'interfacer avec un moteur de rendu libre
+plutôt que Povray? Je n'en connaissais pas
+d'autres moteurs de rendu que Povray lorsque j'ai commencé le
+développement de
+Geomorph. Je n'ai pas d'objection de principe à produire des
+sorties pour Aqsis ou d'autres moteurs. C'est simplement une question
+de manque d'expertise et de temps pour apprendre les interfaces puis
+développer les fonctions nécessaires. Je crois que ces
+deux moteurs de rendu ne traitent pas directement les images de relief
+et qu'il faut auparavant les transformer en treillis (mesh).
+L'exécution risque d'être lente, mais c'est
+réalisable. Un bon sujet de contribution pour les
+intéressés!<br>
+</div>
+<span style="font-weight: bold;"></span><br>
+<hr style="width: 100%; height: 2px;">
+<p>Révisé le 25 novembre 2005, le 27 janvier 2007 et le 1er août 2008<br>
+<br>
+<font color="#000000"> Contact:&nbsp;</font>&nbsp;&nbsp; <i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a></i></p>
+<ul>
+</ul>
+<center> </center>
+</body></html>

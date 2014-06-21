@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>The Option File of Geomorph</title>
+
+<meta content="Patrice St-Gelais" name="author">
+<meta content="An overview of the Geomorph dialog for updating the option file" name="description">
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen"></head>
+<body>
+<center>
+<div id="header"></div>
+<big><iframe src="../../navigation_en.html" marginwidth="0" marginheight="0" frameborder="0" height="80" scrolling="no" width="800">
+</iframe></big></center>
+<big><span style="font-weight: bold; font-style: italic;">The
+option file of Geomorph: geomorphrc</span></big><br>
+<br><a href="#Introduction">Introduction</a><br><a href="#An_update_checklist">An update checklist</a><br><a href="#Some_interesting_options">Some interesting options</a><br><div style="margin-left: 40px;"><a href="#files">[files]</a><br><a href="#interface">[interface]</a><br><a href="#application">[application]</a><br><a href="#rendering">[rendering]</a><br><a href="#3d_preview">[3d_preview]</a><br><a href="#Camera_1_to_Camera_5">[Camera_1] to [Camera_5]</a></div><br><span style="font-weight: bold;"><span style="font-style: italic;"><a name="Introduction"></a>Introduction<br><br></span></span>
+On startup, Geomorph reads some options or parameters in the <span style="font-style: italic;">geomorphrc</span> file,
+such as where to save the temporary data, what is the default interface
+style, and so on.<br>
+<br>
+This file is usually saved in the<span style="font-style: italic;">
+/home/&lt;your_id&gt;/geomorph</span> directory. However,
+you may also have other <span style="font-style: italic;">geomorphrc</span> files elsewhere. Geomorph first checks if it can find a <span style="font-style: italic;">geomorphrc</span> file in
+the directory where the program is started. An other option is to give the <span style="font-style: italic;">geomorphrc</span> file on the command line with its path: <span style="font-style: italic;">geomorph mydirectory/geomorphrc</span>. Geomorph will recognize it as an option file instead as a terrain, as long as it called <span style="font-style: italic;">geomorphrc.</span><br>
+<br>
+The <span style="font-style: italic;">geomorphrc</span>
+file contains one line for each parameter. The parameters are grouped
+by blocks. The syntax is:<br>
+<br>
+[block1]<br>
+option1 = value1 ; comments<br>
+option2 = value2 ; comments<br>
+...<br>
+<br>
+[block2]<br>
+option3 = value3 ; comments<br>
+...<br>
+<br>
+For instance, here is the beginning of my own file:<br>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td><span style="font-family: monospace;">[files]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; Directories and files</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">def_dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= geomorph&nbsp;&nbsp; ; Default directory</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">hf_dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= /home/patrice/geomorph ; Default directory (Height fields)</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">pov_dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= /home/patrice/geomorph ; Default directory (Povray scenes)</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">tmp_dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= /home/patrice/geomorph/tmp/ ; Default directory (temporary files)</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">doc_dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= /usr/local/share/geomorph/doc/index.html ; Default directory
+(documentation)</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">doc_reader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= firefox&nbsp;&nbsp;&nbsp; ; Default HTML reader</span><br style="font-family: monospace;">
+<br style="font-family: monospace;">
+<span style="font-family: monospace;">[interface]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; Interface</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">interface_style&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= Integrated ; Interface style</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">menu_in_doc_window&nbsp;&nbsp;
+= TRUE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;
+Display the main menu in each document window</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">icons_in_doc_window&nbsp;
+= TRUE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;
+Display the main menu icons in each document window</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">pad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+=
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; Dialog padding (pixels)</span><br>
+...</td>
+</tr>
+</tbody>
+</table>
+<br>
+You may edit the file with you preferred
+text editor, but it is a lot easier to use the dialog
+provided by Geomorph. It is also safer because it limits choices by
+using scales and
+menus, so the input is validated. It is called by clicking the "Options
+at
+the application launch" icon <img style="width: 35px; height: 35px;" alt="" src="../settings.png">in the main menu bar.<br>
+<br>The window shows each block as a tab. The controls allow to load and save a <span style="font-style: italic;">geomorphrc</span> file from any directory:<br><br><div style="text-align: center;"><img style="width: 751px; height: 163px;" alt="" src="application.png"><br><img style="width: 753px; height: 84px;" alt="" src="controls.png"><br></div><br><span style="font-style: italic;">The changes are effective only after restarting Geomorph.<br><br></span>The title of each option in the dialog are written as comments in the
+generated <span style="font-style: italic;">geomorphrc.</span><br>
+<br>
+Notice that when you update Geomorph with a version providing more
+options, for instance from version 0.40 to 0.50, saving the option
+file from the provided dialog automatically adds the new variables.<br>
+<a name="An_update_checklist"></a><br><span style="font-weight: bold;"><span style="font-style: italic;">An update checklist</span></span><br><br>For reference purpose, here are the main changes in <span style="font-style: italic;">geomorphrc</span> from 0.4 to 0.5. If you reuse your <span style="font-style: italic;">geomorphrc</span> file while updating, you may want to check these options and change them manually.<br><br><table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2"><tbody><tr><td style="font-weight: bold;">Tab</td><td style="font-weight: bold;">Option</td><td style="font-weight: bold;">Value in version 0.5x</td><td style="font-weight: bold;">Comment</td></tr><tr><td>[Directories and files]</td><td>Default directory (temporary files)</td><td>/home/&lt;your_id&gt;/geomorph/tmp</td><td>When updating, the directory is not created automatically. It is recommended to create it.</td></tr><tr><td>[Interface]</td><td>Interface style</td><td>Integrated</td><td>At least try the new style!</td></tr><tr><td>[Application]</td><td>Default history size (undo / redo)</td><td>10 instead of 5</td><td>Recommended</td></tr><tr><td>[Application]</td><td>Default terrain</td><td>"Subdiv2" instead of "Uniform"</td><td>"Subdiv2",
+with the provided default seed, gives the "standard Geomorph terrain".
+The preceding uniform gray canvas was best suited for drawing valleys
+and mountains with the pen.</td></tr></tbody></table><span style="font-style: italic;"></span><br><br>
+<span style="font-style: italic; font-weight: bold;"><a name="Some_interesting_options"></a>Some
+interesting options</span><br>
+<br>
+Most options are pretty obvious from their title. Options or details
+that may be of some importance are described here.<br><br>REMINDER: the changes would be effective only after restarting Geomorph.<br>
+<br>
+<span style="font-weight: bold;"><a name="files"></a>[files]</span><br>
+<br>
+This is where you set the directories and files for saving and
+processing data. Most users would be happy with the default settings.<br>
+<br>
+2 points should be emphasized:<br>
+<ul>
+<li>The <span style="font-style: italic;">"tmp_dir ; Default directory (temporary files)"</span>
+variable is new in version 0.50. If you are updating Geomorph from an
+older version, be sure to create the directory. You may simply use your
+existing /home/.../geomorph directory.</li>
+<li>You may want to initialize&nbsp;<span style="font-style: italic;">"doc_dir ; Default directory (documentation)"</span> to
+<span style="font-style: italic;">geomorph.sourceforge.net</span>, if you don't want to download the
+documentation package. Important: do not prefix the site name with
+<span style="font-style: italic;">http://.</span>
+</li>
+</ul>
+<span style="font-weight: bold;"><a name="interface"></a>[interface]</span><br>
+<br>
+The first 3 options are new in version 0.50:<br>
+<ol>
+<li><span style="font-style: italic;">Interface style</span>:
+controls whether the interface is "integrated" or is split in multiple
+windows, in the Gimp style, which was the initial Geomorph interface. The default in a fresh install is
+"integrated".</li>
+<li><span style="font-style: italic;">Display the main menu in each document window:&nbsp;</span>this option is relevant only if the "Gimp style" is chosen. It displays the main bar menu redundantly, in each document window.</li>
+<li><span style="font-style: italic;">Display the main menu icons in each document window:&nbsp;</span>same as the previous option, for menu icons.</li>
+</ol>Other options of interest are the&nbsp;<span style="font-style: italic;">Height field default size</span>,
+which I suggest to set in pixels instead of percent (the percent is
+used if "no value" is chosen for the pixel parameter), and the&nbsp;<span style="font-style: italic;">Default image display size</span>,
+which relates to how the height field appears in the interface. For
+instance, with a height field default size of 512 and a display size of
+1024, the height field would be saved at 512x512 pixels and displayed
+blown up by 200%.<br><a name="application"></a><br><span style="font-weight: bold;">[application]</span><br><br><span style="font-style: italic;">Default history size (undo / redo):</span>&nbsp;&nbsp;&nbsp;
+was set to 5 before Geomorph 0.5, now set to 10. A bigger size means
+more memory, but memory is less a concern nowadays. Those who update
+may want to increase the size manually. However, <a href="../../faq_en.html">beware of the OpenGL DRI memory leak</a>, still seen on recent Linux systems.<br><br><span style="font-style: italic;">Default terrain:</span>
+This option is new from version 0.5. The default terrain up to Geomorph
+0.4 was a uniform gray, intended to be used as a drawing canvas. Now,
+it's the default "Subdivision 2" terrain use in the Geomorph tutorials, but you can change it if you
+want.<br><br><span style="font-style: italic;">Default seed for random generator:</span>
+if you want to reproduce the tutorials with the default terrain, stick
+with the provided value of 0x6b8b4567. The 0x prefix means that this is
+an hexadecimal value, but you may also use a decimal integer.<br><br style="font-weight: bold;"><span style="font-weight: bold;"><a name="rendering"></a>[rendering]</span><br><br>The rendering is done with POV-Ray. For now, nothing is provided for other renderers.<br><br><span style="font-style: italic;">Renderer: </span>Should generally
+be set to "povray". With previous versions of POV-Ray, other names were
+used, like "povray35", "x-povray", and so on. You may also give a full
+path, if POV-Ray is not in your $PATH variable.<br><br><span style="font-style: italic;">Render_width, render_height:</span> default size of the POV-Ray output, overriding the values set in the general <span style="font-style: italic;">povray.ini</span> file.<br><br><span style="font-style: italic;">Scene: </span>The default scene used for rendering your terrains. It could be any POV-Ray script, as long as it follows the <a href="../../povray/en/Process.html">Geomorph standard</a> for setting&nbsp;the terrain name and the other options.<br><br><span style="font-style: italic;">Hf_output_for_rendering: </span>name of the temporary file where the edited terrain is written, in the <span style="font-style: italic;">tmp_dir</span> directory. Usually test.png.<br><br><span style="font-style: italic;">Output_prefix:</span>
+the POV-Ray display output prefix. The POV-Ray display is written in a
+PNG file, like the terrain. &nbsp;If the terrain is saved
+in <span style="font-style: italic;">document0.png</span>, the POV-Ray landscape would be rendered in <span style="font-style: italic;">&lt;prefix&gt;document0.png</span>, whatever script is used. The default prefix is the underscore (<span style="font-style: italic;">_document0.png</span>). A value is mandatory, otherwise you'll overwrite your terrains...<br><br><span style="font-style: italic;">Other_render_options:</span> The command line options passed to the "povray" program. The default are: <span style="font-style: italic;">+D +P +L/home/&lt;your_id&gt;/geomorph</span>,
+respectively: display the output, pause after display until the user
+click on the image (important!), and use the geomorph directory as a
+source for POV-Ray include files (.inc).<br><br><span style="font-weight: bold;"><a name="3d_preview"></a>[3d_preview]</span><br><br>These
+options control the preview in the right part of the document window,
+apart from the cameras, which are controlled in the next blocks.<br><br><span style="font-style: italic;">3D mesh size (in nodes on one edge of the HF):</span>
+size of the "mesh" in nodes used for
+displaying the terrain. One node is represented by 2 polygons. The default is 128x128 nodes. With more polygons,
+sharper details are seen, but refreshing the display is slower. Don't
+forget that a 256x256 mesh requires 4 times the processing of a 128x128
+mesh. This parameter is equivalent to the "detail" button in the preview, given in % of
+the terrain size by power of 2 steps.<br><br><span style="font-style: italic;">Default 3D mesh size when drawing (in nodes):</span>
+Keeping the preview up to date requires a lot of processing when
+drawing or adjusting some parameters with&nbsp;scales. A technique used
+in Geomorph to avoid sluggishness is to decrease the mesh size when the
+user holds down the mouse button. So, this option controls the amount
+by which the mesh size is decreased. The default is 64x64, or 50% of
+the default mesh size. You can experiment with other values and test
+them by drawing.<br><br><span style="font-style: italic;">Default preview size (in pixels):</span> The image preview width in the document window.<br><br><span style="font-style: italic;">Automatic update:</span>
+TRUE or FALSE: controls whether or not the preview is refreshed when
+the terrain is modified. If set to FALSE, you'll need to click on the "Refresh"
+button. It may be useful to set it to FALSE when a high mesh size is used, or when the computer is not powerful enough.<br><br><span style="font-style: italic;">Show the camera controls on startup:</span>&nbsp;TRUE
+is the default, try FALSE for a more "zen" preview. Without the dialog,
+the camera can also be controlled by holding one of the 3 mouse buttons
+in the preview area, excepted for the field of view.<br><br><span style="font-style: italic;">Hardware acceleration for OpenGL (DRI):</span>
+TRUE or FALSE: controls whether or not the OpenGL hardware acceleration
+of your video card is used for displaying and texturing the polygons in
+the preview. In the current state of Geomorph (version 0.50), this
+option makes only a small performance difference, because the preview
+shows only simple static scenes, with simple textures. Furthermore,
+some X-Windows drivers cause a huge memory leakage when this option is set to
+TRUE. This was the case a few years ago with the ATI and Nvidia
+proprietary drivers, which seem OK now (2008), but this&nbsp;was observed recently
+under Ubuntu 7.10, using the free Intel driver on a
+laptop with the X3100 graphic chipset. For this reason, the default is FALSE. You may try to set it to
+TRUE and use the system monitor to compare the memory usage, when opening
+and closing documents.<br><a name="Camera_1_to_Camera_5"></a><br style="font-weight: bold;"><span style="font-weight: bold;">[Camera_1]</span> to <span style="font-weight: bold;">[Camera_5]</span><br><br>These are the default settings for the 5 preview cameras, translated as POV-Ray cameras.<br><br>All
+options relate to&nbsp;specific parameters which can be set in the
+preview interface. The only parameter which cannot be set in the GUI is
+the <span style="font-style: italic;">Default aspect ratio</span>, which affects the POV-Ray camera but not the preview. The default is 4:3 (for instance, consistent with <span style="font-style: italic;">render_width X render_height</span> values of <span style="font-style: italic;"></span>800x600).<br><br>Unfortunately, there is no "save" function in the document window to save the parameters in the <span style="font-style: italic;">geomorphrc</span> file. You have to set them manually, for now.<br><br><br>Written in June 2008.<br><br><p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a></i></p>
+
+<br>
+<a href="../../doc_index_en.html"> <img src="../../tut_fault/GeoMorph.jpg" alt="" align="left" height="32" width="32"> </a><a href="../../doc_index_en.html">Back to the
+documentation index</a><br>
+
+<br>
+<br><div style="text-align: center;">
+<a href="http://sourceforge.net/"><img src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3" alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br></div><br><br><br><br><br><br><br><br>
+</body></html>

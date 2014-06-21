@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Les r&eacute;seaux de craquelures</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><span style="font-weight: bold;"><img alt=""
+ src="../icon_crack_network.jpg" style="width: 61px; height: 61px;"
+ align="middle">Les r&eacute;seaux de craquelures<br>
+</span></big></big><span style="font-weight: bold;"><br>
+<a href="#Introduction">Introduction</a></span><span
+ style="font-weight: bold;"><br>
+<a href="#The_principles">Les principes</a></span><span
+ style="font-weight: bold;"><br>
+<a href="#The_interface">L'interface</a></span><span
+ style="font-weight: bold;"><br>
+<a href="#The_cell_distribution">La distribution des cellules</a><br>
+</span><a href="#The_use_of_the_current_height_field"><span
+ style="font-weight: bold;">L'utilisation du terrain en cours
+d'&eacute;dition</span></a><span style="font-weight: bold;"><br>
+<a href="#The_crack_width">La largeur des craquelures</a><br>
+</span><a style="font-weight: bold;"
+ href="#New_Povray_scenes_provided_for_this_tool">Les nouveaux scripts
+Povray fournis pour exploiter les r&eacute;seaux de craquelures</a><br>
+<a style="font-weight: bold;" href="#Some_fun_uses_of_this_tool">Quelques
+utilisations amusantes de cet outil et des scripts Povray fournis</a><br
+ style="font-weight: bold;">
+<big><big><span style="font-weight: bold;"><br>
+</span></big></big>
+<div style="text-align: center;"><a name="cracknet_example"></a><img
+ alt="" src="../crack_net_example.jpg"
+ style="width: 800px; height: 480px;"><br>
+</div>
+<br>
+<br>
+<span style="font-weight: bold;"><a name="Introduction"></a>Introduction</span><br>
+<br>
+L'intention de d&eacute;part de cet outil est de pouvoir cr&eacute;er
+une imitation rapproch&eacute;e d'un lit de rivi&egrave;re ou d'un
+champ ass&eacute;ch&eacute;.<br>
+<br>
+Les algorithmes utilis&eacute;s dans Geomorph pour fracturer un terrain
+sont principalement inspir&eacute;s de l'article <a
+ href="http://www.cs.usask.ca/%7Emould/papers/crack.pdf"><span
+ style="font-style: italic;">Image-Guided Fracture</span></a>, de
+David Mould de l'Universit&eacute; de la Saskatchewan. J'ai
+adapt&eacute; les concepts et ajout&eacute; quelques fonctions, comme
+la possibilit&eacute; d'&eacute;lever les rebords des craquelures de
+fa&ccedil;on &agrave; ce que la surface ait l'air d'avoir
+r&eacute;tr&eacute;ci en s&eacute;chant.<br>
+<br>
+Parce que Geomorph est un outil de conception pour lequel l'interaction
+en temps r&eacute;el est importante, le processus est fondamentalement
+non r&eacute;aliste. Cette approche est plus rapide et plus
+cr&eacute;ative qu'une simulation qui tente de reproduire le processus
+r&eacute;el.<br>
+<br>
+Selon la fa&ccedil;on dont vous r&eacute;glez les param&egrave;tres et
+selon le terrain d'o&ugrave; vous partez, vous pouvez obtenir un
+r&eacute;sultat d'un r&eacute;alisme convaincant, ou un r&eacute;sultat
+fantaisiste, comme des craquelures guid&eacute;es par un mot.<br>
+<br>
+D'un point de vue r&eacute;aliste, lorsqu'une surface &eacute;lastique
+comme de la boue s&egrave;che et craqu&egrave;le, il en r&eacute;sulte
+des cellules plus ou moins hexagonales. Par contre, une surface non
+&eacute;lastique comme de la c&eacute;ramique ou la plupart des sols
+donnera des cellules plut&ocirc;t rectangulaires. L'outil de
+r&eacute;seaux de craquelures <img alt="" src="../voronoi.jpg"
+ style="width: 22px; height: 22px;"> produit des hexagones, plus ou
+moins r&eacute;guliers. Si vous d&eacute;sirez des cellules
+rectangulaires, vous pouvez utiliser plut&ocirc;t le "crayon de
+failles" <img alt="" src="../faultpen.jpg"
+ style="width: 22px; height: 22px;">, en r&eacute;glant la
+diff&eacute;rence d'altitude &agrave; 0 et en dessinant des crevasses
+perpendiculaires puis parall&egrave;les.<br>
+<br>
+Notez que le processus peut &ecirc;tre lent, selon les
+param&egrave;tres choisis, m&ecirc;me s'il a &eacute;t&eacute;
+con&ccedil;u pour un usage interactif.<br>
+<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;"><a name="The_principles"></a>Les
+principes</span><br>
+<br>
+Les craquelures sont les fronti&egrave;res de "cellules". Autrement
+dit, il y a une craquelure lorsque la distance entre deux centres de
+cellules est &eacute;gale.<br>
+<br>
+Math&eacute;matiquement, les r&eacute;seaux de craquelures de Geomorph
+sont des diagrammes de Vorono&iuml;.<br>
+<br>
+Le processus de g&eacute;n&eacute;ration est en gros le suivant:<br>
+<ul>
+  <li>On r&eacute;pand une certaine quantit&eacute; de "graines" sur
+une surface. Par exemple, si la grandeur moyenne des cellules choisie
+est de 10% de la grandeur de la surface, la surface &eacute;tant
+carr&eacute;e, 100 graines sont &eacute;parpill&eacute;es. L'espacement
+des graines peut &ecirc;tre plus ou moins al&eacute;atoire.<br>
+  </li>
+  <li>On utilise les pixels autour de chaque graine comme une
+fronti&egrave;re.<br>
+  </li>
+  <li>On &eacute;tend chaque fronti&egrave;re en s'&eacute;loignant
+progressivement de la graine d'origine.<br>
+  </li>
+  <li>Quand une autre fronti&egrave;re est rencontr&eacute;e, on
+arr&ecirc;te. Cette fronti&egrave;re commune d&eacute;finit une
+craquelure.<br>
+  </li>
+</ul>
+Le terrain d'origine est typiquement utilis&eacute; comme une fonction
+de bruit pour d&eacute;placer les fronti&egrave;res d'une fa&ccedil;on
+irr&eacute;guli&egrave;re.<br>
+<br>
+Le terrain peut aussi &ecirc;tre utilis&eacute; comme un "guide"
+plut&ocirc;t qu'une matrice de bruit. Dans ce cas, les valeurs les plus
+&eacute;lev&eacute;es agissent comme une "cl&ocirc;ture" et forcent
+l'apparition d'une crevasse. Cela permet, par exemple, de craqueler le
+terrain en suivant des lettres.<br>
+<br>
+<br>
+<span style="font-weight: bold;"><a name="The_interface"></a>L'interface</span><br>
+<br>
+Quand vous choisissez <img alt="the voronoi tool" src="../voronoi.jpg"
+ style="width: 22px; height: 22px;"> dans la bo&icirc;te &agrave;
+outils, vous obtenez ce dialogue d'options:<br>
+<br>
+<br>
+<table
+ style="margin-left: auto; margin-right: auto; width: 100%; text-align: left;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style=""><img alt="" src="options.jpg"></td>
+      <td style="text-align: left;">
+      <ul>
+        <li>La <span style="font-weight: bold;">grandeur moyenne des
+cellules</span> est sp&eacute;cifi&eacute;e en pourcentage de la
+grandeur lin&eacute;aire du terrain. Ainsi, une grandeur de 10% donnera
+100 cellules, et 5% donnera 400 cellules.</li>
+      </ul>
+      <br>
+      <ul>
+        <li>La <span style="font-weight: bold;">racine</span>
+contr&ocirc;le le g&eacute;n&eacute;rateur pseudo-al&eacute;atoire,
+pour tout processus qui le requiert, par exemple pour calculer le
+d&eacute;placement du centre des cellules. Si vous partez de la
+m&ecirc;me racine et du m&ecirc;me terrain, vous obtiendrez le
+m&ecirc;me r&eacute;sultat.<br>
+        </li>
+      </ul>
+      <br>
+      <ul>
+        <li>Ces sous-dialogues sont d&eacute;taill&eacute;s
+s&eacute;par&eacute;ment: <br>
+        </li>
+        <ul>
+          <li>La <a href="#The_cell_distribution"><span
+ style="font-weight: bold;">distribution des cellules</span></a>.</li>
+          <li><a href="#The_use_of_the_current_height_field"><span
+ style="font-weight: bold;">L'utilisation du terrain en cours
+d'&eacute;dition</span></a>.</li>
+          <li>La <a href="#The_crack_width"><span
+ style="font-weight: bold;">largeur des craquelures</span></a>.</li>
+        </ul>
+      </ul>
+      <br>
+      <ul>
+        <li>Le rel&egrave;vement des bords est utilis&eacute; pour
+simuler le r&eacute;tr&eacute;cissement d'une surface en train de
+s&eacute;cher. Le dialogue est activ&eacute; seulement apr&egrave;s le
+calcul des craquelures, ex&eacute;cut&eacute; en cliquant <span
+ style="font-style: italic;">Appliquer.</span><br>
+        </li>
+      </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold;"><a name="The_cell_distribution"></a>La
+distribution des cellules</span><br>
+<br>
+<div style="text-align: center;"><img alt="" src="roll_down_distrib.jpg"><br>
+</div>
+<br>
+Les exemples sont r&eacute;duits &agrave; la moiti&eacute; de leur
+grandeur lin&eacute;aire. Dans tous les cas, le terrain de
+d&eacute;part est une "subdivision 2", sauf lorsque
+sp&eacute;cifi&eacute; autrement.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Uniforme
+/ al&eacute;atoire</span><br>
+      <br>
+Les graines, qui constituent le centre des cellules, sont
+r&eacute;parties de fa&ccedil;on al&eacute;atoire.<br>
+      </td>
+      <td style="vertical-align: top;"><img alt="" src="../example1.jpg"
+ style="width: 256px; height: 256px;"> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Centr&eacute;e
+/ al&eacute;atoire</span><br>
+      <br>
+Davantage de graines sont d&eacute;pos&eacute;es au centre du terrain.
+Les cellules sont donc plus petites au centre. Le r&eacute;sultat
+ressemble plus ou moins &agrave; un "coup de marteau". L'espacement est
+proportionnel au carr&eacute; de la distance au centre du terrain.<br>
+      </td>
+      <td style="vertical-align: top;"><img alt="" src="../example2.jpg"
+ style="width: 256px; height: 256px;"> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">R&eacute;guli&egrave;re
+/ perturb&eacute;e<br>
+      <br>
+      </span>Les graines sont d&eacute;pos&eacute;es
+r&eacute;guli&egrave;rement sur la surface. Le r&eacute;sultat est un
+plan d'hexagones l&eacute;g&egrave;ment &eacute;tir&eacute;s &agrave;
+la verticale.<br>
+Les graines sont dans un deuxi&egrave;me temps d&eacute;plac&eacute;es
+d'une distance al&eacute;atoire, dans un intervalle
+sp&eacute;cifi&eacute; par l'utilisateur.<br>
+L'exemple montre l'effet d'une variation al&eacute;atoire de 0, 50
+(d&eacute;faut) et 100 sur un terrain gris uniforme. Si vous utilsez un
+terrain comme source de bruit, avec la variation al&eacute;atoire
+&agrave; 0, les centres des cellules seront r&eacute;guli&egrave;rement
+espac&eacute;s, mais les lignes ne seront pas droites. <br>
+      <br>
+Notes:<br>
+      <ol>
+        <li>La grandeur des cellules est arrondie &agrave; la grandeur
+la plus rapproch&eacute;e qui donnera un nombre pair de rang&eacute;es,
+autrement la derni&egrave;re rang&eacute;e serait
+irr&eacute;guli&egrave;re.<br>
+        </li>
+        <li>Les hexagones sont l&eacute;g&egrave;rement allong&eacute;s
+&agrave; la verticale de fa&ccedil;on &agrave; ce que le terrain soit
+pavable. Dans un script Povray, r&eacute;duire l'&eacute;chelle de
+l'axe Z dans un rapport de 0,866 devrait donner des hexagones
+r&eacute;guliers.<br>
+        </li>
+      </ol>
+      </td>
+      <td style="vertical-align: top;"><img alt=""
+ src="../example3-4-5.jpg" style="width: 256px; height: 256px;"> </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Distribution
+&agrave; &eacute;chelle multiple (pour distribution uniforme ou
+centr&eacute;e seulement) </span><br>
+      <br>
+Cette option r&eacute;p&egrave;te le processus de craquelure &agrave;
+une &eacute;chelle inf&eacute;rieure, en r&eacute;utilisant les
+fronti&egrave;res des cellules de niveau sup&eacute;rieur comme guide.<br>
+      <br>
+L'exemple montre l'effet d'une &eacute;chelle de 1x+2x+4x.<br>
+      <br>
+La largeur des craquelures est de 1 pixel et la grandeur des cellules
+est fix&eacute;e &agrave; 5%. Premi&egrave;rement, le programme calcule
+un r&eacute;seau de craquelures avec des cellules de 20% (4x) et une
+largeur de 4 pixels. Deuxi&egrave;mement, ce r&eacute;seau est
+r&eacute;utilis&eacute; pour calculer un r&eacute;seau de craquelures
+avec des cellules &agrave; 10% et des lignes de 2 pixels. Enfin, le
+processus est r&eacute;p&eacute;t&eacute; une troisi&egrave;me fois
+pour calculer des cellules de 5% dans celles de 10%, avec des
+fronti&egrave;res de 1 pixel.<br>
+      <br>
+Un conseil: <br>
+      <div style="margin-left: 40px;">Sur un terrain de 512x512, les
+r&eacute;sultats sont meilleurs quand la grandeur de d&eacute;part des
+cellules est
+inf&eacute;rieure &agrave; 10% et la largeur des lignes est de 1. Dans
+l'exemple montr&eacute;, la largeur des lignes
+a &eacute;t&eacute; r&eacute;duite de sa valeur
+pr&eacute;d&eacute;finie de 2 &agrave; 1.<br>
+      </div>
+      <br>
+Avertissement: <br>
+      <div style="margin-left: 40px;">Le processus peut &ecirc;tre
+tr&egrave;s long, particuli&egrave;rement quand du bruit est
+appliqu&eacute; et que les cellules sont petites.<br>
+      </div>
+      </td>
+      <td style="vertical-align: top;"><img alt="" src="../example6.jpg"
+ style="width: 256px; height: 256px;"><br>
+      </td>
+    </tr>
+    <tr align="center">
+      <td colspan="2" rowspan="1" style="vertical-align: top;"><span
+ style="font-style: italic; font-weight: bold;"><br>
+      </span><span style="font-style: italic; font-weight: bold;"><a
+ name="multilevel_rendering"></a></span><span
+ style="font-style: italic; font-weight: bold;">Rendu d'un
+r&eacute;seau de craquelures &agrave; &eacute;chelle multiple avec
+cracknet_bumptest.pov<br>
+      <br>
+      <img alt="" src="../_multiscale_example.jpg"
+ style="width: 640px; height: 384px;"><br>
+      </span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;"><a
+ name="The_use_of_the_current_height_field"></a>L'utilisation du
+terrain en cours d'&eacute;dition</span><br>
+<br>
+<span style="font-weight: bold; font-style: italic;">1. Le terrain
+comme source de bruit</span><br>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td colspan="2" rowspan="1"
+ style="vertical-align: middle; text-align: center;"><img alt=""
+ src="roll_down_use_of_hf.jpg"><br>
+Un terrain utilis&eacute; comme source de bruit perturbe localement les
+craquelures selon la valeur de l'altitude.<br>
+De gauche &agrave; droite, l'exemple montre ce qui est produit par un
+niveau de bruit de 0, 50 et 100.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../noise_example.jpg" style="width: 256px; height: 256px;"></td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../_noise_example.jpg" style="width: 400px; height: 240px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold; font-style: italic;">2. Le terrain
+comme "guide"</span><br>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr align="center">
+      <td colspan="2" rowspan="1" style="vertical-align: top;"><img
+ alt="" src="roll_down_use_as_guide.jpg"><br>
+Quand l'option "guide" est utilis&eacute;e, les valeurs d'altitude
+re&ccedil;oivent un poids plus grand qu'avec l'option "bruit".<br>
+Cette option donne des r&eacute;sultats plus &eacute;vidents avec un
+terrain qui montre des transitions abruptes entre les zones claires et
+fonc&eacute;es. Ces transitions deviennent des "cl&ocirc;tures".<br>
+Une case &agrave; cocher permet d'utiliser un terrain secondaire pour
+ajouter du bruit aux craquelures composant l'arri&egrave;re-plan
+uniforme. Ce terrain est de type "subdivision 1". La racine et le
+niveau de relief peuvent &ecirc;tre contr&ocirc;l&eacute;s.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../test_guide_1a.jpg" style="width: 256px; height: 256px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../test_guide_1b.jpg" style="width: 256px; height: 256px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../test_guide_2a.jpg" style="width: 256px; height: 256px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../test_guide_2b.jpg" style="width: 256px; height: 256px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;"><a name="The_crack_width"></a>La
+largeur des craquelures</span><br>
+<br>
+La largeur des craquelures est donn&eacute;e en pixels. Il s'agit d'un
+param&egrave;tre absolu. L'apparence du r&eacute;sultat d&eacute;pend
+donc de la grandeur du terrain.<br>
+<br>
+Il est aussi possible de faire varier la largeur des craquelures selon
+leur distance par rapport au centre de la cellule. Le principe est que
+les craquelures sont cr&eacute;&eacute;es par des tensions de surface,
+qui am&egrave;nent un r&eacute;tr&eacute;cissement de la surface
+jusqu'&agrave; ce que celle-ci "d&eacute;chire". En moyenne, la tension
+peut &ecirc;tre consid&eacute;r&eacute;e comme constante par
+unit&eacute; de surface. En s'&eacute;loignant d'un centre de cellule,
+la tension de chaque unit&eacute; de surface s'additionne &agrave; sa
+voisine jusqu'&agrave; ce qu'une crevasse soit rencontr&eacute;e. Le
+stress qui cr&eacute;e le r&eacute;tr&eacute;cissement en "tirant" des
+points de la surface vers le centre peut alors &ecirc;tre
+consid&eacute;r&eacute; plus fort lorsque la distance du point
+consid&eacute;r&eacute; au centre d'une cellule est plus importante.<br>
+<br>
+<div style="text-align: center;"><img alt=""
+ src="roll_down_crack_width.jpg"><br>
+</div>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: middle; text-align: center;"><span
+ style="font-weight: bold;">Fixed width, 1 / 2 / 4 (512x512)</span><br>
+      <img alt="" src="../width1-2-4.jpg"
+ style="width: 256px; height: 256px;"><br>
+      </td>
+      <td style="vertical-align: middle; text-align: center;"><img
+ alt="" src="../_width1-2-4.jpg" style="width: 400px; height: 240px;"
+ align="middle"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: middle; text-align: center;"><span
+ style="font-weight: bold;">Variable width, from 2 to 6 (512x512)</span><br>
+      <img alt="" src="../variable_width_example.jpg"
+ style="width: 256px; height: 256px;"><br>
+      </td>
+      <td style="vertical-align: middle; text-align: center;"><img
+ alt="" src="../_variable_width_example.jpg"
+ style="width: 400px; height: 240px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold;"><a
+ name="New_Povray_scenes_provided_for_this_tool"></a>Les nouveaux
+scripts Povray fournis pour exploiter les r&eacute;seaux de craquelures</span><br>
+<br>
+Les r&eacute;seaux de craquelures peuvent &ecirc;tre utilis&eacute;s
+comme des objets "height field" standard dans un script Povray.<br>
+<br>
+Ils peuvent aussi &ecirc;tre utilis&eacute;s comme une "carte de
+relief" ("normal map") sur un plan de sol infini, comme dans<a
+ href="#cracknet_example"> l'image introductive de cette page</a>. Dans
+ce cas, le r&eacute;seau de craquelures est pav&eacute; pour remplir le
+plan.<br>
+<br>
+Ces nouveaux scripts sont offerts:<br>
+<ol>
+  <li><a href="../cracknet_bumptest.pov"><span
+ style="font-style: italic; font-weight: bold;">cracknet_bumptest.pov</span></a>
+montre le terrain courant comme une carte de relief ("normal map") sur
+un
+plan infini. Le script est adapt&eacute; pour &ecirc;tre utilis&eacute;
+avec la cam&eacute;ra pr&eacute;d&eacute;finie 3. Il a
+&eacute;t&eacute; utilis&eacute; pour cr&eacute;er <a
+ href="#multilevel_rendering">l'exemple &agrave; &eacute;chelles
+multiples</a>.<br>
+  </li>
+  <li><a href="../cracknet.pov"><span
+ style="font-style: italic; font-weight: bold;">cracknet.pov</span></a>
+est une sc&egrave;ne composite, qui recourt &agrave; une carte de sol
+(un r&eacute;seau de craquelures) appel&eacute;e <span
+ style="font-style: italic;">ground_map.png</span> comme "normal map"
+et
+au terrain courant rendu selon la m&eacute;thode habituelle. C'est ce
+qui a &eacute;t&eacute; utilis&eacute; pour cr&eacute;er <a
+ href="#cracknet_example">le paysage qui introduit cette page</a>.</li>
+  <li><a href="../cracknet_nobump.pov"><span
+ style="font-style: italic; font-weight: bold;">cracknet_nobump.pov</span></a>
+est une sc&egrave;ne composite qui emploie un r&eacute;seau de
+craquelures comme un terrain d'avant-plan. Le script est plus difficile
+&agrave; utiliser que le pr&eacute;c&eacute;dent, parce que le
+r&eacute;seau de craquelures n'est pas pav&eacute;. Les
+c&ocirc;t&eacute;s doivent &ecirc;tre cach&eacute;s, par exemple sous
+des zones du terrain d'arri&egrave;re-plan.<br>
+  </li>
+</ol>
+<div style="text-align: center;"><span style="font-weight: bold;"><a
+ name="nobump"></a>Un
+exemple de <span style="font-style: italic;">cracknet_nobump.pov</span>
+un terrain de sol de
+2048x2048 &agrave; l'avant-plan</span><br>
+</div>
+<br>
+<div style="text-align: center;"><img alt="" src="../_stepf_camera4.jpg"
+ style="width: 640px; height: 384px;"><br>
+</div>
+<br>
+Une nouvelle carte de pigments,<span style="font-style: italic;"> <a
+ href="../maprock_redmud.inc">maprock_redmud.inc</a></span>, est
+fournie pour s'int&eacute;grer &agrave; ces scripts. Utilis&eacute;e
+comme gradient ("gradient pattern" dans le langage de Povray), elle
+permet de
+reproduire des bandes s&eacute;dimentaires.<br>
+<br>
+Pour utiliser <span style="font-style: italic;">cracknet.pov</span>,
+vous devez commencer par d&eacute;finir un r&eacute;seau de craquelures
+et l'enregistrer sous <span style="font-weight: bold;">ground_map.png</span>.
+Puis, vous travaillez sur votre terrain principal, qui peut &ecirc;tre
+consid&eacute;r&eacute; comme un arri&egrave;re-plan. Une grille de
+512x512 est suffisante pour ce terrain.<br>
+<br>
+Similairement, lorsque <span style="font-style: italic;">cracknet_nobump.pov</span>
+est utilis&eacute;,
+vous devez d'abord enregistrer votre r&eacute;seau de craquelures sous <span
+ style="font-weight: bold;">ground_map.png</span>. Dans ce cas, de
+meilleurs r&eacute;sultats sont obtenus avec un grand terrain, de
+1024x1024 ou 2048x2048. Craqueler un tel terrain peut requ&eacute;rir
+assez de temps pour se pr&eacute;parer un caf&eacute;.<br>
+<br>
+Dans les deux cas, vous aurez probablement &agrave; d&eacute;placer et
+mettre &agrave; l'&eacute;chelle les deux objets dans Povray pour
+obtenir un r&eacute;sultat convaincant. Comme &agrave; l'habitude, ces
+param&egrave;tres sont regroup&eacute;s &agrave; la fin du script
+Povray, apr&egrave;s la ligne d'ast&eacute;risques "**********".<br>
+&nbsp;<br>
+Notez qu'il n'est pas n&eacute;cessaire que <span
+ style="font-style: italic;">ground_map.png</span> soit un
+r&eacute;seau de craquelures. Des r&eacute;sultats int&eacute;ressants
+peuvent &ecirc;tre obtenus, par exemple, en utilisant un terrain
+ondul&eacute; comme plan de sol. <a
+ href="Using%20Geomorph%20height%20fields%20as%20normal%20maps.html">Voyez
+cette page</a>.<br>
+<br>
+Quelques trucs additionnels:<br>
+<ol>
+  <li>Pour tous ces scripts, commencez avec la cam&eacute;ra
+pr&eacute;d&eacute;finie 3.<br>
+  </li>
+  <li>Les craquelures plus larges semblent plus naturelles apr&egrave;s
+un lissage avec un rayon de 1, ou davantage si le terrain est vraiment
+grand.<br>
+  </li>
+</ol>
+<a href="../cracknet_scenes.tgz">Cette archive</a> contient d'autres
+exemples. Un de ces exemples met en sc&egrave;ne des arbres
+g&eacute;n&eacute;r&eacute;s avec le programme java Povtree, et un
+autre exemple est le script utilis&eacute; pour cr&eacute;er le paysage
+<a href="#cracknet_example">montr&eacute; en introduction</a>,
+adapt&eacute; afin que les craquelures soient traduites comme un
+terrain plut&ocirc;t que comme une carte ("normal map").<br>
+<br>
+<div style="text-align: center;"><img alt=""
+ src="../_crack_net_trees_example.jpg"
+ style="width: 800px; height: 480px;"><br>
+<br>
+</div>
+<br>
+<span style="font-weight: bold;"><a name="Some_fun_uses_of_this_tool"></a>Quelques
+utilisations amusantes de cet outil et des scripts Povray fournis</span><br>
+<br>
+<span style="font-style: italic; font-weight: bold;">1. &Eacute;crire
+un mot</span><br>
+<br>
+<a href="#cracknet_example">L'image au haut de cette page</a> utilise
+le mot <span style="font-style: italic;">Geomorph</span> comme guide.<br>
+<br>
+Voici comment:<br>
+<ol>
+  <li>Partez avec un terrain noir ("uniforme" <img alt=""
+ src="../uniform_icon.jpg" style="width: 28px; height: 28px;"> - le
+terrain par d&eacute;faut - &agrave; un niveau de 0%).</li>
+  <li>Choisissez le dialogue de dessin <img alt="" src="../pencil.jpg"
+ style="width: 22px; height: 22px;"> et &eacute;crivez votre texte avec
+un petit crayon continu&nbsp;<img alt="" src="../penstandard.jpg"
+ style="width: 22px; height: 22px;"> &agrave; son niveau maximal. Avec
+un terrain de 512x512, la grandeur la plus petite
+(un rayon de 2) donne le meilleur r&eacute;sultat.</li>
+  <li>Retournez au dialogue d'&eacute;dition <img alt=""
+ src="../transform.jpg" style="width: 22px; height: 22px;"> pour
+choisir l'outil de r&eacute;seau de craquelures, et choisissez comme
+utilisation de l'image courante "guide" plut&ocirc;t que "bruit".<br>
+  </li>
+</ol>
+Quelques conseils:<br>
+<ol>
+  <li>Pour amincir vos lettres, vous pouvez utiliser l'outil de
+cr&ecirc;tes <img alt="" src="../crests.jpg"
+ style="width: 22px; height: 22px;">..</li>
+  <li>Pour durcir les contours de vos lettres, vous pouvez utiliser
+l'outil de seuil <img alt="" src="../threshold.jpg"
+ style="width: 22px; height: 22px;"> pour r&eacute;duire l'intervalle
+de valeurs de gris, coupant ainsi le flou, puis l'outil
+"luminosit&eacute; / constraste" <img alt=""
+ src="../brightness_contrast.jpg" style="width: 22px; height: 22px;">
+pour &eacute;lever le contraste au maximum &agrave; l'aide du bouton
+"automatique".</li>
+</ol>
+<br>
+<span style="font-style: italic; font-weight: bold;">2. Utiliser une
+largeur de craquelures de 0</span><br>
+<br>
+Essayez de r&eacute;gler la largeur des craquelures &agrave; 0 et le
+rel&egrave;vement des bords &agrave; 100%, puis inversez le
+r&eacute;sultat. Vous obtiendrez quelque chose comme ce qui suit: <br>
+<br>
+<div style="text-align: center;"><span style="font-weight: bold;">Avec </span><span
+ style="font-style: italic; font-weight: bold;">cracknet_bumptest.pov</span><br>
+<span style="font-style: italic;"></span></div>
+<span style="font-style: italic;"><br>
+</span>
+<div style="text-align: center;"><img alt="" src="../_fun1.jpg"
+ style="width: 640px; height: 384px;"><br>
+</div>
+<br>
+<div style="text-align: center;"><span style="font-weight: bold;">Avec </span><span
+ style="font-style: italic; font-weight: bold;">sea_and_fog.pov</span><span
+ style="font-weight: bold;">, non &eacute;rod&eacute; et
+&eacute;rod&eacute;<br>
+</span></div>
+<br>
+<div style="text-align: center;"><img alt="" src="../_fun2.jpg"
+ style="width: 640px; height: 384px;"><br>
+</div>
+<br>
+<span style="font-style: italic; font-weight: bold;"></span><br>
+<span style="font-style: italic; font-weight: bold;">3. L'utilisation
+d'un terrain autre qu'un r&eacute;seau de craquelures comme "carte de
+normales" </span><br>
+<a href="Using%20Geomorph%20height%20fields%20as%20normal%20maps.html"><br>
+</a>Voyez <a
+ href="Using%20Geomorph%20height%20fields%20as%20normal%20maps.html">cette
+page.</a><br>
+<br>
+______________________<br>
+<br>
+&Eacute;crit en d&eacute;cembre 2006<br>
+<br>
+<a href="../../doc_index_fr.html"><img src="../../preview/GeoMorph.jpg"
+ alt="" style="border: 2px solid ; width: 32px; height: 32px;"
+ align="left"> </a><a href="../../doc_index_fr.html">Retour &agrave;
+l'index de la documentation</a><br>
+<br>
+<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a><br>
+</i></p>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a></div>
+</body>
+</html>

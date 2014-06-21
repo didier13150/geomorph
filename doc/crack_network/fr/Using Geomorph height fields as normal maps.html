@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Using Geomorph height fields as normal maps</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><span style="font-weight: bold;">Utilisation d'un relief Geomorph
+comme "carte de normales" Povray</span></big><br>
+<br>
+Le script <a href="../cracknet_bumptest.pov"><span
+ style="font-style: italic;">crack_bumptest.pov</span></a> con&ccedil;u
+en d&eacute;veloppant <a href="The%20Crack%20Network%20Tool.html">l'outil
+de g&eacute;n&eacute;ration de craquelures</a> peut &ecirc;tre
+employ&eacute; avec d'autres types de terrain pour produire des
+r&eacute;sultats int&eacute;ressant. Voici deux exemples. <br>
+<br>
+<br>
+<div style="text-align: center;"><img alt="" src="../_fun3.jpg"
+ style="width: 640px; height: 384px;"><br>
+</div>
+<br>
+Ce terrain ondul&eacute; a &eacute;t&eacute; cr&eacute;&eacute; de
+cette fa&ccedil;on: <br>
+<ol>
+  <li>Cr&eacute;er un terrain "uniforme" gris <img alt=""
+ src="../uniform_icon.jpg" style="width: 28px; height: 28px;"> (le
+d&eacute;faut quand vous d&eacute;marrez
+Geomorph).</li>
+  <li>Appelez l'outil "ondes" <img alt="" src="../waves.jpg"
+ style="width: 22px; height: 22px;">:</li>
+  <ol>
+    <li>Dans l'onglet 1 (celui avec une onde pr&eacute;d&eacute;finie
+&agrave; la verticale), r&eacute;glez l'amplitude &agrave; environ 10
+et la p&eacute;riode &agrave; 6.<br>
+    </li>
+    <li>Dans l'onglet 2 (celui avec une onde dans l'axe nord-sud),
+r&eacute;glez l'amplitude &agrave; environ 55, la p&eacute;riode
+&agrave; 9 et donnez une rotation de 90&deg;.</li>
+  </ol>
+  <li>Choisissez la cam&eacute;ra pr&eacute;d&eacute;finie 3, faites
+une rotation de 135&deg; dans l'aper&ccedil;u.</li>
+  <li>Ex&eacute;cutez <img alt="" src="../povchoice_icon.jpg"
+ style="width: 28px; height: 28px;"> <span style="font-style: italic;">crack_bumptest.pov</span>.</li>
+</ol>
+<div style="text-align: center;">&nbsp;<br>
+<img alt="" src="../_fun4.jpg" style="width: 640px; height: 384px;"><br>
+</div>
+<br>
+Cet autre terrain a &eacute;t&eacute; cr&eacute;&eacute; de cette
+fa&ccedil;on:<br>
+<ol>
+  <li>Choisissez un terrain d' "addition progressive de surfaces"&nbsp;<img
+ alt="" src="../surfadd_icon.jpg" style="width: 28px; height: 28px;">.</li>
+  <li>Dans le dialogue de cr&eacute;ation et dans le sous-dialogue
+"Surface primitive" -&gt;
+"Filtre de forme", choisissez l'image "sans filtre" <img alt=""
+ src="../nofilter.jpg" style="width: 22px; height: 22px;"> comme bloc
+de construction.</li>
+  <li>En continuant dans le dialogue de cr&eacute;ation,
+d&eacute;roulez le sous-dialogue "Contr&ocirc;le des longueurs
+d'ondes", initialisez toutes les longueurs d'onde &agrave; 0 (il y a un
+bouton unique pour cela) et r&eacute;glez la longueur d'onde 64
+&agrave; 50 ou 60.<br>
+  </li>
+  <li>Ex&eacute;cutez&nbsp;<img alt="" src="../povchoice_icon.jpg"
+ style="width: 28px; height: 28px;"> <span style="font-style: italic;">crack_bumptest.pov</span>.<br>
+  </li>
+</ol>
+Dans le dialogue de cr&eacute;ation, vous pouvez aussi essayer
+diff&eacute;rents niveaux de d&eacute;placement dans le plan XY.<br>
+<br>
+_________________________<br>
+<br>
+&Eacute;crit en d&eacute;cembre 2006<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a><br>
+</i></p>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a></div>
+</body>
+</html>

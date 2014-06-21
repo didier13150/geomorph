@@ -1,0 +1,256 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR" content="Mozilla">
+  <title>Geomorph - English</title>
+</head>
+
+<link href="main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><i><a name="Introduction"></a><big><b>What is
+Geomorph?</b></big></i></big><span
+ style="font-weight: bold; font-style: italic;"><big><br>
+<br>
+<a href="#An_overview">An overview</a></big></span><span
+ style="font-weight: bold;"><big><span style="font-style: italic;"><br>
+<a href="#La_g%E9n%E9ration_dune_image_de_relief">The generation of a
+height field</a></span></big></span><span style="font-weight: bold;"><big
+ style="font-style: italic;"><br>
+<a href="#Pourquoi_Geomorph">Why Geomorph?</a></big></span><big
+ style="font-style: italic;"><br>
+<a href="#Une_feuille_de_route"><span style="font-weight: bold;">A road
+map?</span></a></big><i><big><b><br>
+<a href="#How_to_be_informed_of_new_releases">How
+to
+be informed of new releases</a></b></big></i><big>
+</big>
+<p><span style="font-weight: bold; font-style: italic;"><a
+ name="An_overview"></a><big>An overview</big></span><br>
+</p>
+<p>Geomorph is a height field generator and editor for the Linux
+operating system.<br>
+</p>
+<p>A height field is a kind of topographic map. &nbsp;It is a 2D
+projection of a 3D landscape.<br>
+</p>
+<p>Geomorph generates square images and shows a 3D preview of the
+resulting landscape. &nbsp;The resulting 2D image can be processed with
+a tool like Povray for rendering the landscape.<br>
+</p>
+Example:<br>
+<font color="#000000"><br>
+</font>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td align="center" valign="top"><font color="#000000">Height field<br>
+      </font> </td>
+      <td align="center" valign="top"><font color="#000000">Preview<br>
+      </font> </td>
+      <td align="center" valign="top"><font color="#000000">Povray
+rendering</font><br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top"><img src="hf.jpg"
+ alt="Heightfield" height="257" width="255"> <br>
+      </td>
+      <td align="center" valign="top"><img src="preview.jpg"
+ alt="Preview" height="255" width="256"> <br>
+      </td>
+      <td align="center" valign="top"><img src="final.jpg" alt="Final"
+ height="239" width="319"> <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p><br>
+See also the <a
+ href="http://geomorph.sourceforge.net/gallery/index.html">Gallery</a>.
+&nbsp;Povray scenes used in the author's part of the gallery are
+included in the Geomorph
+package.<br>
+</p>
+<p>Geomorph actually exists in an alpha stage, localized in French,
+English and German. <a href="screenshots/screenshots.html">Here are
+some screenshots.</a> It is generally stable.</p>
+<p> </p>
+<p>Its main features are, for now: </p>
+<ul>
+  <li> An environment allowing multiple documents in multiple windows.</li>
+  <li>Output in PNG files with 16 bits per channel, from 128x128 to
+4096x4096 pixels, giving 65536 levels from black to white.<br>
+  </li>
+  <li> Tools to generate height fields by simple subdivision or
+repeated sum of an arbitrary surface.</li>
+  <li>A fractal pen for drawing irregular surfaces.<br>
+  </li>
+  <li> Pens for drawing smooth strokes, craters, faults, cracks and
+fissures.</li>
+  <li> Edit and transform tools appropriate to image editing -
+brightness/contrast and the like (few "paint" programs can edit 16 bits
+per channel images).</li>
+  <li><a href="tools/en/tools_index.html"> Edit and transform tools</a>
+relevant to height field editing -
+erosion, quantization ("terraces"), cityscapes, and the like.</li>
+  <li> A Povray run button, for testing the current image with a scene
+you select.</li>
+  <li> An undo/redo history, with multiple levels. The default history
+stacks has 5 levels, but this parameter can be adjusted in the
+configuration file.</li>
+  <li> A display scale control.</li>
+  <li>An OpenGL preview (MesaGL).</li>
+  <li>A tool for editing configuration files, where default directories
+and other parameters are saved.</li>
+</ul>
+<p> </p>
+<ul>
+</ul>
+<p>The Geomorph <a href="doc_index_en.html">documentation</a> is
+mainly made up of the tutorials and the guides of this web site.<br>
+<br>
+</p>
+<span style="font-weight: bold;"><a
+ name="La_g&eacute;n&eacute;ration_dune_image_de_relief"></a><big><span
+ style="font-style: italic;">The generation of a height field</span></big></span><br>
+<p>Geomorph creates height fields by distorting a surface in a random
+way. Distortions are applied at progressively decreasing scale levels.</p>
+<p>Suppose that we start from a flat surface of 512x512 pixels. In a
+first step, the surface center is moved vertically with a randomly
+chosen altitude, a bit like pinching a sheet. In a second step, the
+surface is divided in four parts, and the center of each part is also
+moved randomly above or under its current level. In a third step, each
+of this four parts is also divided in four, for a total of sixteen
+surfaces, which are then pinched in their middle, and so on until the
+subdivided surfaces have a 3 pixel diameter or less.<br>
+</p>
+<p>A slice taken in the whole surface would roughly have this look:<br>
+</p>
+<table style="width: 100%; text-align: left;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;">Step 1<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;">Step 2<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;">Step 3<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;">Step 4<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="step1.jpg" style="border: 1px solid ; width: 100px; height: 50px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="step2.jpg" style="border: 1px solid ; width: 100px; height: 50px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="step3.jpg" style="border: 1px solid ; width: 100px; height: 50px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="step4.jpg" style="border: 1px solid ; width: 100px; height: 50px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Usually, unlike this example, the surface is smoothed at each step
+(much more like the pinching of the sheet).<br>
+</p>
+<p>This subdivision method is not unique to Geomorph, it is frequently
+used for generating artificial height maps. Applying the same process
+at progressively decreasing scales gives a so-called "self-similar"
+surface. This surface is characterized by a fractional dimension (or
+fractal), which means, in this case, a dimension between 2 and 3.<br>
+</p>
+<p>Geomorph also provides a variation on this process, in which
+surfaces are added to a base surface at progressively decreasing
+scales. The added surfaces are derivated from a primitive surface,
+usually a gaussian bell, or from any image chosen by the user.<br>
+<br>
+</p>
+<span style="font-weight: bold;"><a name="Pourquoi_Geomorph"></a><big
+ style="font-style: italic;">Why Geomorph?</big></span><br
+ style="font-weight: bold;">
+<p>Geomorph is an answer to my own creative requirements under Linux,
+for aesthetical purposes. The available tools when I decided to work on
+this project (at the end of 2000, I think) were lacking
+functionnalities or stability.<br>
+<br>
+I am in part motivated by an interest towards the biosphere and the
+processes which make it evolve. This is somehow for me an extension of
+photography.<br>
+</p>
+<p>Developing software is also a self-actualizing activity of creation.<br>
+</p>
+<p>I think we are still in the infancy of art creation by digital
+means. It is still possible, and sometimes required, to develop our own
+tools. This is not unlike the Middle-Age or Renaissance painters who
+prepared their pigments themselves.<br>
+<br>
+</p>
+<p> </p>
+<p style="font-weight: bold;"><a name="Une_feuille_de_route"></a><big
+ style="font-style: italic;">A road map?</big></p>
+<p>I already have a lot of ideas waiting to be implemented. These ideas
+are answers to specific requirements for landscapes creation. Here are
+some of them, in a jumble (without any promise!):<br>
+</p>
+<ul>
+  <li>Tools for importing and scaling external images or height fields.<br>
+  </li>
+  <li>A generator and editor for tree-like structures, for creating
+cracks, eroded crests or river deltas.</li>
+  <li>A "route" pen, working with a function for animating the camera.</li>
+  <li>Selection masks, or the like.</li>
+  <li>Better erosion tools (for digging rivers in an existing height
+fields, for creating terrains with rounded crests, and so on).<br>
+  </li>
+  <li>Tools for assisting in the creation of Povray scenes, for
+instance a GUI for choosing the main parts of a landscape (sky, clouds,
+ground, sun, textures, water plane).<br>
+  </li>
+</ul>
+Some of these improvements require a new file format. This is not so
+simple. <br>
+<br>
+All comments I receive help me to prioritize these ideas or others. So,
+yours are welcome!<br>
+<br>
+&nbsp;<i><big><a name="How_to_be_informed_of_new_releases"></a><b>How
+to
+be informed of new releases</b></big></i><br>
+<br>
+You can receive an e-mail for each new release by subscribing on <a
+ href="http://freshmeat.net/projects/geomorph/">the project page at
+freshmeat.net</a> (<a
+ href="http://freshmeat.net/subscribe/41381/?url=%2Fprojects%2Fgeomorph%2F">Subscribe
+to new releases</a>).<br>
+<br>
+<p> <b><font color="#000000"> Contact:&nbsp;</font></b>&nbsp;&nbsp; <i><a
+ href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a></i></p>
+<ul>
+</ul>
+<center> </center>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+<br>
+<br>
+<br>
+</body>
+</html>

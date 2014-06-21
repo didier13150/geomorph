@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>The Geomorph Fault Tutorial</title>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <meta name="author" content="Patrice St-Gelais">
+  <meta name="description"
+ content="Part of the Geomorph software documentation">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><b><a name="Geomorph"></a><i>Geomorph - The Fault Tutorial<br>
+</i></b></big></big> <b><i> </i></b><b><i> </i></b><br>
+This tutorial shows how to use the "fault pen" for drawing a basic
+fault, and how to improve its realism with the rain erosion.<br>
+<br>
+<b><i> <big>Topics</big></i></b>
+<ul>
+  <li>Basic use of the fault pen<br>
+  </li>
+  <li>Eroding a fault<br>
+  </li>
+  <li>Using the erosion threshold for eroding the fault without eroding
+the whole terrain<br>
+  </li>
+  <li>"Craterizing" the terrain without damaging the fault<br>
+  </li>
+</ul>
+<b><i> <big>The result</big></i></b><br>
+<br>
+<div align="center"><img src="../result1.jpg" alt="" height="480"
+ width="640"> <br>
+</div>
+<br>
+<b><i> <big><br>
+The result - Martian style ;-)</big></i></b><br>
+<b><i><br>
+</i></b>
+<div align="center"><b><i><img src="../result3.jpg" alt="" height="480"
+ width="640"> </i></b><br>
+</div>
+<b><i><br>
+<br>
+<big>Steps</big></i></b><br>
+<br>
+This tutorial uses the default scene definition <i>simple_terrain.pov</i>
+provided with Geomorph 0.20 and higher.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b>1. Height field creation</b><br>
+      <br>
+      <div align="left"><img src="tool1_en.jpg" alt="" align="left"
+ height="418" width="248"> <br>
+Create a new document of your choice. Here I used "subdivision #2" with
+default parameters.<br>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../doc1.jpg" alt=""
+ height="257" width="257"> <br>
+&nbsp; <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>2. Decrease the contrast</b><br>
+      <br>
+      <div align="center">
+      <div align="left"><img src="tool2_en.jpg" alt="" align="left"
+ height="487" width="225"> If you want to visually emphasize the
+altitude difference of the fault, you need to lessen the contrast.<br>
+      <br>
+      </div>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../doc2.jpg" alt=""
+ height="256" width="256"> <br>
+&nbsp; <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3. Drawing the fault</b><br>
+      <br>
+I chosed to draw the fault diagonally for this example. You can move
+the fault by dragging the ends of the red control line.<br>
+      <br>
+      <div align="left"><img src="tool3_en.jpg" alt="" align="left"
+ height="716" width="258"> </div>
+Check the "cracks" box for creating basic cracks. We'll use the rain
+erosion tool to increase their realism.<br>
+      <br>
+Adjust the cracks length and width to your taste.<br>
+      <br>
+The cracks length (depth) is an arbitrary value, proportional to the
+length of the current subdivision segment.<br>
+      <br>
+The cracks width is proportional to the number of subdivision steps. A
+width of 1 means that each crack is drawn during the last subdivision,
+a width of
+2 means that each crack is drawn during the next to last subdivision
+(so it's
+wider), and so on.<br>
+      <br>
+      <img src="../light.jpg" alt="" height="42" width="42"> The higher
+part of the terrain is always the one containing the top left pixel
+(0,0). If you want to revert the altitude difference, you can move one
+end of the control line so that this pixel falls on the other side of
+the
+fault, or you can revert the sign of the altitude difference. <br>
+      <br>
+      <img src="../light.jpg" alt="" height="42" width="42"> The
+subdivision steps parameter allows a fine control of the fault detail.
+This is a binary (dichotomic) subdivision, so there is no point to use
+a parameter
+of 10, for instance, on a 256x256 height field, because this would give
+a
+fault polyline of power(2,10) = 1024 segments!<br>
+      <br>
+      <img src="../light.jpg" alt="" height="42" width="42"> The random
+variation parameters control how the segment cuts are moved, on
+the fault axis or perpendicular to it. They increase or decrease the
+irregularity
+of the fault.<br>
+      <br>
+      <img src="../light.jpg" alt="" height="42" width="42">The
+smoothing parameter controls how smoothly the altitude changes at the
+fault line. It does not smooth the fault polyline. It is applied when
+releasing the mouse.<br>
+      </td>
+      <td align="center" valign="middle"><img src="../doc3.jpg" alt=""
+ height="256" width="256"> <br>
+&nbsp; <br>
+      <img src="../preview3.jpg" alt="" height="191" width="255"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>4. Eroding the fault</b><br>
+      <br>
+      <img src="tool4_en.jpg" alt="" align="left" height="335"
+ width="215"> We'll use the water erosion tool to improve the fault
+realism.<br>
+      <br>
+Repeat the process at will.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">If
+you want to add drops, you should hit "Repeat". If you hit "Apply",
+you reapply the same number of drops to the original, uneroded, height
+field.<br>
+      <br>
+Like shown on the terrain rendered with Povray at right, the whole
+terrain is eroded. Furthermore, the erosion channels seem to run
+separated with a square angle. This looks unnatural (this is a weakness
+of the actual erosion algorithm). It would be better if only the fault
+were subsiding.<br>
+      <br>
+Notice that the Povray image was generated with the following preview
+parameters, automatically transfered to the <i>simple_terrain.pov </i>scene
+definition:<br>
+      <br>
+      <div align="center"><img src="preview4.jpg" alt="" height="217"
+ width="261"> <br>
+      </div>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img src="../doc4.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../render4_close.jpg" alt="" height="242" width="322"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>5. Eroding the fault with a slope threshold</b><br>
+      <br>
+      <img src="tool5_en.jpg" alt="" align="left" height="335"
+ width="215"> If you want to restrict the erosion to the fault, you
+only have to increase the threshold, so that only the very steep slopes
+would be eroded. Given the
+low contrast of the original terrain, the remainder of the terrain
+wouldn't be affected. <br>
+      <br>
+Hit "Reset" to restart from the original terrain. It'll work even if
+you have repeated the erosion more than once, as long as you didn't hit
+"Accept".<br>
+      <br>
+The image at right was produced with 3x100000 drops, on a 512x512
+height field.<br>
+      <br>
+      <br>
+      <img src="../question.jpg" alt="" height="41" width="42"> The
+threshold relates the the altitude difference (the slope) between
+2 pixels over which no material is moved because of water or
+subsidence.
+In absolute value, the difference is given by power(2,threshold). In
+our
+example, there is no more erosion when the difference between a point
+and
+its 8 neighbours is less than power(2,9) = 512, on a scale from 0 to
+65535.
+In a 512x512 height field, whose relative max height is also 512 (the
+rendered
+terrain fits in a cube), a threshold of 8 is equal to a 76&deg; slope,
+and
+a threshold of 10 is equal to a 83&deg; slope. The formula to calculate
+the
+slope in degrees is: arctan(power(2, threshold + log2(image_width) -
+16)).<br>
+      </td>
+      <td align="center" valign="middle">&nbsp;<br>
+      <br>
+      <img src="../result1_small.jpg" alt="" height="240" width="320"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>6. Welcome on Mars!<br>
+      </b><br>
+Even if we used a tool called "Rain erosion", the result could also be
+believable for a gravity erosion (subsidence). So, nothing precludes
+adding craters, like those we could see on planets without rain!<br>
+      <img src="tool6_en.jpg" alt="" align="left" height="773"
+ width="276"> <br>
+In our example, 20 craters were distributed on
+the surface.<br>
+      <br>
+The surface noice to keep was increased from 2 to 4 pixels, otherwise
+the craters surface looked too smooth.<br>
+      <br>
+Craters dropped on steep altitude differences look unnatural (at least
+in Geomorph!). To avoid dropping craters right over the fault, activate
+the "Draw
+if slope less than..." parameter.<br>
+      <br>
+The chosen value (10) means the a crater wouldn't be drawn if the
+maximum altitude difference under the crater is greater than 10% of the
+maximum terrain height (65535).<br>
+      <br>
+The view angle was adjusted in the preview (at right) to hide the
+skyline, otherwise cut craters could be seen at the terrain edge.<br>
+      <br>
+      </td>
+      <td valign="top">
+      <div align="center"><img src="../doc5.jpg" alt="" height="256"
+ width="256"> <br>
+      </div>
+      <br>
+      <img src="../result3_small.jpg" alt="" height="240" width="320"> <br>
+      <br>
+      <div align="center"><img src="preview5.jpg" alt="" height="222"
+ width="262"> <br>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<a href="#Geomorph">Top</a><br>
+<br>
+Written in May 2004<br>
+<br>
+<a href="../../doc_index_en.html"> <img src="../GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_en.html">Back to the documentation index</a><br>
+<br>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Terraces_Tutorial</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big style="font-weight: bold; font-style: italic;">How to create
+irrigated terraces with Geomorph</big></big><br>
+<br>
+<span style="font-weight: bold;">Using the "lift edges" tool and a
+"water map"</span><br>
+<br>
+Geomorph 0.40 provides a "lift edges" tool&nbsp;<img alt=""
+ src="../lift_edges.jpg" style="width: 22px; height: 22px;"> which
+allows, when used with the terraces tool <img alt=""
+ src="../terraces.jpg" style="width: 22px; height: 22px;">, the
+creation of
+terraces looking like those irrigated for agriculture.<br>
+<br>
+<div style="text-align: center;"><img alt=""
+ src="../terraces_example_1_7x.jpg" style="width: 800px; height: 480px;"><br>
+</div>
+<br>
+We use here the technique of the "water map", also featured in the "<a
+ href="Rivers%20on%20an%20eroded%20terrain%20with%20Geomorph.html">Eroded
+terrain with river</a>" and in the "<a
+ href="Tutorial_Giant_Causeway.html">Giant Causeway</a>" examples. Two
+copies of the same
+height field are superimposed with Povray, the first one whose edges
+are raised (the "main terrain") and which
+has a grass-like
+texture, the second one (the "water map") with a water-like
+texture and which was
+left flat.<br>
+<br>
+A new <a href="../terraces.pov">terraces.pov</a> scene is provided for
+this purpose. It takes as input the "water field" previously saved as
+<span style="font-style: italic;">hf_water.png</span> and the height
+field you are working on, whatever name it
+has.<br>
+<br>
+The example shown was created in these steps:<br>
+<br>
+<span style="font-weight: bold;">Step 1 -</span> Create a standard
+"Subdivision 2" terrain <img alt="" src="../subdiv2.jpg"
+ style="width: 22px; height: 22px;">. The example uses a
+512x512 map.<br>
+<br>
+<span style="font-weight: bold;">Step 2 -</span> Decrease its contrast
+by -30 with the "Brightness / contrast" tool <img alt=""
+ src="../brightness_contrast.jpg" style="width: 22px; height: 22px;">.
+Black areas produce edges
+looking too high; white areas can produce overflow.<br>
+<br>
+<span style="font-weight: bold;">Step 3 - </span>Create the terraces <img
+ alt="" src="../terraces.jpg" style="width: 22px; height: 22px;">. 6
+levels where used in the example, with
+a smoothing radius of 2 and an artifact removal radius of 12 pixels.
+"Removing the artifacts" means removing the peaks which appear too
+narrow, at the higher level.<br>
+<br>
+<span style="font-weight: bold;">Step 4 -</span> Clone the terrain
+using "Copy under a new name"<img alt="" src="../save_copy_as.jpg"
+ style="width: 22px; height: 22px;"> in the menu bar, name the clone <span
+ style="font-style: italic;">hf_water.png</span>.<br>
+<br>
+<span style="font-weight: bold;">Step 5 -</span> Crest the water map
+using the "Crests" tool <img alt="" src="../crests.jpg"
+ style="width: 22px; height: 22px;"> with the default parameter of 3
+steps, so
+that the water map does not "stick out" under the terraces.<br>
+<br>
+<span style="font-weight: bold;">Step 6 -</span> Raise the edges of the
+terraces with the "Lift edges" tool <img alt="" src="../lift_edges.jpg"
+ style="width: 22px; height: 22px;">. Here the default radius of 20
+was used, with a level of 15.<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;">Step 7 -</span> You may smooth the
+terraces with the "Smooth" tool <img alt="" src="../smooth.jpg"
+ style="width: 22px; height: 22px;">, depending on the look you want.
+Here a smoothing radius of 4 was used.<br>
+<br>
+<span style="font-weight: bold;">Step 8 -</span> Render with <a
+ href="../terraces.pov">terraces.pov</a>.<br>
+<br>
+Like in the 2 other <a href="Using_water_maps.html">tutorials
+featuring water maps</a>, the X and Z scales in the <a
+ href="../terraces.pov">terraces.pov</a> scene file can be stretched to
+improve the result. Here, a scaling factor of 1.7x was used.<br>
+<br>
+___________________<br>
+<br>
+Written in January 2007<br>
+<br>
+<a href="../../doc_index_en.html"><img src="../../preview/GeoMorph.jpg"
+ alt="" style="border: 2px solid ; width: 32px; height: 32px;"
+ align="left"> </a><a href="../../doc_index_en.html">Back to the
+documentation index</a><br>
+<br>
+<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a><br>
+</i></p>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a></div>
+<br>
+<br>
+</body>
+</html>

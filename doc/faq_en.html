@@ -1,0 +1,626 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR" content="Mozilla/4.77 [fr] (X11; U; Linux 2.4.3-20mdk i686) [Netscape]">
+  
+  <title>Geomorph FAQ - English</title><meta name="author" content="Patrice St-Gelais">
+<link href="main_header.css" rel="stylesheet" type="text/css" media="screen"></head>
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="navigation_en.html" marginwidth="0" marginheight="0" frameborder="0" height="80" scrolling="no" width="800">
+</iframe>
+</center>
+
+<font color="#000000"><b><font size="+3">Geomorph - FAQ<br>
+<br>
+</font></b></font><a href="#FONCTIONNEMENT"><span style="font-weight: bold;">PRINCIPLES</span></a><br>
+<ul>
+  <li><a href="faq_en.html#What_is_the_difference_between_the">What
+is the
+difference between the subdivision 1 and the subdivision 2?</a></li>
+  <li><a href="faq_en.html#What_is_the_use_of_the_seed">What is the
+use of
+the "seed"?</a></li>
+</ul>
+<a href="#FICHIERS_DE_SORTIE_PNG"><span style="font-weight: bold;">OUTPUT
+FILES (PNG)</span></a><br>
+<ul>
+  <li><a href="faq_en.html#Why_choose_the_PNG_format_for_Geomorph">Why
+did you choose
+the PNG format for Geomorph?</a></li>
+  <li><a href="faq_en.html#How_can_I_import_external_images_into">How
+can I
+import external images into Geomorph?</a></li>
+  <li><a href="faq_en.html#How_can_I_edit_65536_shades_images">How can
+I edit
+65536-shade images created by Geomorph without losing the shades?</a></li>
+</ul>
+<span style="font-weight: bold;"><a href="#DIALOGUE_DAPER%C7U">THE
+PREVIEW DIALOG</a></span><a href="faq_fr.html#Laffichage_3D_de_laper%E7u_dispara%EEt_"><br>
+</a>
+<ul>
+  <li><a href="#Laffichage_3D_de_laper%E7u_dispara%EEt_">The 3D preview
+disappears sometimes. What can be done?<br>
+    </a></li>
+  <li><a href="#Le_dialogue_daper%E7u_ne_saffiche_pas_du">The preview
+dialog is not displayed at all when starting Geomorph, and there is a
+message saying that OpenGL is not available. Is it normal?<span style="font-weight: bold;"> (updated November the 25th, 2005)</span></a><span style="font-weight: bold;"></span></li>
+  <li><a href="#How_can_I_activate__unactivate_the">How can I activate
+or unactivate the direct rendering (hardware acceleration)?<span style="font-weight: bold;"> (new, November the 25th, 2005)</span><br>
+    </a></li>
+</ul>
+<a href="#INTERFACE"><span style="font-weight: bold;">INTERFACE</span></a><a href="faq_fr.html#INTERFACE"><span style="font-weight: bold;"></span></a><br>
+<ul>
+  <li><a href="#Dans_loutil_XYZ_la_liste_des_documents">In the dialog
+of the XYZ tool, the list of the available documents does not show the
+last document I opened or created. How can I refresh it?</a></li>
+  <li><a href="#Jai_ajout%E9_du_bruit_%E0_haute_fr%E9quence">I added
+high frequency noise to the height field, but I cannot see it. How can
+I see it?<i><span style="font-weight: bold;"></span></i></a></li>
+  <li><a href="#I_see_all_the_messages_and_the_dialogs">I see all the
+messages and the dialogs text in some annoying pseudo-English, written
+in capitals. What's happening?</a></li>
+  <li><a href="#desktop_icon">I installed
+Geomorph 0.2x or 0.3x after
+uninstalling
+Geomorph 0.1x, and the desktop icon is gone, though the shortcut is
+still
+present. What can I do?</a></li>
+</ul>
+<a href="#PERFORMANCE"><span style="font-weight: bold;">PERFORMANCE,
+MEMORY,
+STABILITY</span></a><br>
+<ul>
+  <li><a href="#Geomorph_est_lent_Jai_de_la_difficult%E9">Geomorph is
+slow! The pencil and the scale widgets are difficult to move. What can
+be done?</a></li>
+  <li><a href="#Jobtiens_un_message_%E0_leffet_quil">I get a message
+telling that there is no more memory to create a new document. What
+should I do? <span style="font-weight: bold;">(updated November the
+25th, 2005)</span><br>
+    </a></li>
+  <li><a href="faq_fr.html#Jai_une_carte_vid%E9o_XYZ_avec_un_pilote">What
+should be the normal memory usage of Geomorph? <span style="font-weight: bold;">(new, November the 25th, 2005)</span><br>
+    </a></li>
+  <li><a href="#Geomorph_sinterrompt_avec_une_erreur">Geomorph stops
+with an error when I try to open a new document, after having closed
+all the documents. What can be done?<span style="font-weight: bold;">
+(updated November the 25th, 2005)</span><br>
+    </a></li>
+  <li><a href="#Pourquoi_Geomorph_sinterrompt-il">Why does
+Geomorph crash when I try to clone a document? <span style="font-weight: bold;">(updated November the 25th, 2005)</span><br>
+    </a></li>
+</ul>
+<span style="font-weight: bold;"><a href="#MOTEUR_DE_RENDU_POVRAY"><span style="font-weight: bold;">RENDERER (POVRAY)</span></a><br>
+</span>
+<ul>
+  <li><a href="#When_I_click_on_the_render_icon_">When I click on the render icon, nothing happens. What can I do? <span style="font-weight: bold;">(added August the 1st, 2008)</span></a></li><li><a href="#Pourquoi_Geomorph_g%E8le-t-il_quand">Why does
+Geomorph freeze when I click on the render icon?</a></li>
+  <li> <a href="#Pause_povray">The Povray output disappears
+as soon as
+it
+is done. What can I do?</a></li>
+  <li><a href="#Pourquoi_ne_pas_offrir_des_rendus_avec">Why doesn't
+Geomorph interface with other renderers than Povray, for instance
+Aqsis or YafRay?</a></li>
+</ul>
+<span style="font-style: italic;"><br>
+</span>
+<hr style="width: 100%; height: 2px;"><span style="font-weight: bold;"></span>
+<ul>
+</ul>
+<br>
+<span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><span style="font-weight: bold;"><a name="FONCTIONNEMENT"></a>PRINCIPLES</span>
+<br>
+<br>
+<br>
+<i><a name="What_is_the_difference_between_the"></a><span style="font-weight: bold;">What is the
+difference between the subdivision 1 and the subdivision 2?</span></i>
+<blockquote>The subdivision principle is explained in the <a href="intro_en.html">introduction.</a><br>
+  <br>
+Subdivision 1 <img alt="" src="subdiv1_icon.jpg" style="width: 28px; height: 28px;"> uses the "exclusive or" (NOR)
+instead of add
+and subtract for moving the altitude of the points on the surface
+(making "hills" and
+"holes"). while subdivision 2 <img alt="" src="subdiv2_icon.jpg" style="width: 28px; height: 28px;"> uses add and subtract. Subdivision
+1 is a lot
+faster because the "NOR" doesn't involve managing the overflows (over
+65535) or the underflows (under 0). Because it's faster, it is the
+process used by the default height field pen<img alt="" src="penhf2.jpg" style="width: 22px; height: 22px;">.<br>
+  <br>
+Subdivision 1 height fields seem more rough, like if they were
+stratified with a lot of noise. Sometimes they look more insteresting
+than subidivision 2 height fields.<br>
+  <br>
+Subdivision 1, however, gives less control over the result than
+subidivision 2. Subdivision 2 provides parameters to control the
+distribution of the hills and holes, so that they are not too regularly
+scattered
+on the ground plane. It is also possible to control the amplitude of
+wave lengths composing the heightfield. A 0 ampiltude means that the
+corresponding frequency is removed. For instance, removing high
+frequencies (wavelength of 2, 4 and 8 pixels) is roughly equivalent to
+smoothing the image with a radius of 8 pixels by using the toolbox.<br>
+  <i><br>
+  </i></blockquote>
+<i><a name="What_is_the_use_of_the_seed"></a><span style="font-weight: bold;">What is the use of the
+"seed"?<br>
+<br>
+</span></i>
+<div style="margin-left: 40px;">The "seed" is a number used as a
+starting point for the
+pseudo-random number generator of the system.<br>
+<br>
+Geomorph frequently requires random values, for instance when it
+displaces the height of a point in the subdivision generation
+processes, when it displaces a bump on the ground in the surface sum
+generation process, or for creating noise.<br>
+<br>
+Without these random displacements, it wouldn't be possible to create
+realistic height fields. If you want an example, set the
+"XY displacement" parameter to 0 in the progressive sum of surfaces
+options subdialog <img src="surfadd_icon.jpg" alt="" height="28" width="28"><br>
+<br>
+Giving a random seed, written in the "geomorphrc" configuration file,
+allows to reproduce the results at will (this is why it's
+pseudo-random, not truly random). When you start Geomorph, or when you
+type a given number as seed, you should always get the same results.<br>
+<br>
+</div>
+<br>
+<span style="font-weight: bold;"><a name="FICHIERS_DE_SORTIE_PNG"></a>OUTPUT
+FILES (PNG)<br>
+<br>
+</span><br>
+<i><a name="Why_choose_the_PNG_format_for_Geomorph"></a><span style="font-weight: bold;">Why did you choose the
+PNG format for Geomorph?</span><br>
+</i>
+<blockquote>A high quality height field requires values stored on 16
+bits for each pixel, which means 65536 shades or altitude levels. Most
+images have 8 bits for each color (or channel), which means 256 shades.<br>
+  <br>
+Height fields are monochrome, so using a 8 bits image format for
+storing them means a reduced scale of 256 altitude levels. This can
+give
+a stair effect on rendered landscapes.<br>
+  <br>
+PNG is one of the few format managing 16 bits per channel. It is
+recognized by many programs, including Povray, naturally. It offers a
+lossless compression. It allows to store comments and arbitrary
+parameters
+beside the image. For instance, Geomorph write in its PNG images if
+they
+are "tileable" (if they wrap) or not, and the cameras parameters used
+in
+the preview dialog. And last but not least, it was created as a
+royalty-free
+open standard, which should avoid situations like the one which
+happened
+with the GIF format a few years ago.<br>
+  <br>
+</blockquote>
+<i><a name="How_can_I_import_external_images_into"></a><span style="font-weight: bold;">How can I
+import external images into Geomorph?</span></i>
+<blockquote>You should use a software which recognizes the file format
+of the external image, can scale it to a suitable size and can save PNG
+files.<br>
+  <br>
+Geomorph reads 128, 256, 512, 1024, 2048 or 4096 pixels wide square
+images. It doesn't scale or crop images. However, it converts RGB to
+greyscale images, and 8 bits (256 shades) greyscale images to 16 bits
+images (65536 shades).<br>
+  <br>
+The Gimp is a good choice to scale or crop most 8 bits / channel
+images, RGB or greyscale, and save it in the PNG 8 bits / channel
+format
+that Geomorph can read.<br>
+  <br>
+Using the "smooth"&nbsp;<img alt="" src="smooth.jpg" style="width: 22px; height: 22px;"> tool with a small radius in
+Geomorph would blur the
+apparent stratification of a newly converted 256 shades image to
+a 65536-shade image. Use the "noise" <img alt="" src="noise_icon.jpg" style="width: 22px; height: 22px;"> tool to add high frequencies, for
+a more natural look.<br>
+  <br>
+</blockquote>
+<i><a name="How_can_I_edit_65536_shades_images"></a><span style="font-weight: bold;">How can I edit
+65536-shade images created by Geomorph without losing the shades?</span></i>
+<br>
+<br>
+<div style="margin-left: 40px;">Geomorph does probably not fulfil all
+the requirements of
+height field editing. Maybe you'll want to use another editing tool.<br>
+<br>
+The Gimp v. 1.x and 2.x reads Geomorph images, but reduces their tonal
+range
+from 65536 shades to 256 shades (16 bits to 8 bits).<br>
+<br>
+You can try Filmgimp (now Cinepaint - see <a href="http://cinepaint.sourceforge.net/">cinepaint.sourceforge.net</a>),
+a branch from an older version of The Gimp (1.0.4). It is adapted for
+film
+editing, but reads and writes PNG 16 bits file format. I didn't play
+with
+it a lot, though.<br>
+<br>
+I don't know any other free program which edits images with 16 bits per
+channel.<br>
+<br>
+<br>
+</div>
+<span style="font-weight: bold;"><a name="DIALOGUE_DAPERÇU"></a>THE
+PREVIEW DIALOG<br>
+<br>
+</span>
+<div style="margin-left: 40px;"><br>
+</div>
+<span style="font-weight: bold; font-style: italic;"><a name="Laffichage_3D_de_laperçu_disparaît_"></a>The 3D preview
+disappears sometimes. What can be done?</span><br>
+<br>
+<div style="margin-left: 40px;">This problem seems to be related to
+KDE. So far, it has not be seen under Gnome. I don't know the source. <br>
+<br>
+The solution for now is to click on the "Refresh" button of the preview.<br>
+<br>
+</div>
+<div style="margin-left: 40px;">
+<div style="margin-left: 40px;"><br>
+</div>
+</div>
+<span style="font-weight: bold;"><span style="font-style: italic;"><a name="Le_dialogue_daperçu_ne_saffiche_pas_du"></a></span></span><span style="font-style: italic; font-weight: bold;">The
+preview dialog is not displayed at all when starting Geomorph, and
+there is a message saying that OpenGL is not available. Is it normal?</span><span style="font-weight: bold;"><span style="font-style: italic;"></span></span><br>
+<div style="margin-left: 40px;">
+<div style="margin-left: 40px;"><span style="font-weight: bold;"><span style="font-style: italic;"></span></span></div>
+<span style="font-weight: bold;"><span style="font-style: italic;"></span></span><br>
+This has been observed in 2 situations:<br>
+<br>
+1. Geomorph 0.30 is used with a recent Nvidia card and the proprietary
+driver. The solution is to update Geomorph to version 0.31 or later.
+Version 0.31 and later use the libgtkglext library instead of
+libgtkglarea, which fixes the problem.<br>
+<br>
+2. Maybe the "glx" module (the 3D layer) is not loaded by the X-Windows
+system. Check if "glx" is specified in the "Module" section of your
+configuration file /etc/X11/xorg.conf (if you use Xorg) or
+/etc/X11/XF86Config or
+/etc/X11/XF86Config-4 (if you use XFree86). This section should look
+like this:<br>
+<br>
+<span style="font-family: monospace;">Section "Module"</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "dbe" #
+Double-Buffering Extension</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "type1"</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "freetype"</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "extmod"</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "v4l" #
+Video for Linux</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "glx" #
+3D layer</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">&nbsp;&nbsp;&nbsp; Load "dri" #
+direct rendering</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">EndSection</span><br>
+<br>
+If "glx" is specified, check in the log
+/var/log/Xorg.0.log or /var/log/XFree86.0.log if it is successfully
+loaded. <br>
+<br>
+The "glxinfo" command executed in a X console, if it is available on
+your
+system, would show you if the GLX extensions are available.<br>
+<br>
+It the GLX extensions are available and if the preview is still not
+displayed, please contact me.<br>
+<br>
+<br>
+</div>
+<a name="How_can_I_activate__unactivate_the"></a><span style="font-weight: bold; font-style: italic;">How can I activate or
+unactivate the direct rendering (hardware acceleration)?</span><br style="font-weight: bold; font-style: italic;">
+<span style="font-weight: bold; font-style: italic;"></span>
+<div style="margin-left: 40px;"><br>
+The hardware acceleration of the display system is provided with the
+DRI
+module ("direct rendering infrastructure") of the video card driver.<br>
+<br>
+The hardware acceleration could speed up the terrain preview rotation
+or
+translation, by accelerating the OpenGL calls. However, it doesn't have
+any effect on the refresh speed
+of the height field. The preview mesh is recalculated after any change
+in the height field. This is the heaviest part of the processing, and
+it takes place before any call to the OpenGL library.<br>
+<br>
+Futhermore, the activation of the DRI module could produce these
+problems:<br>
+<ul>
+  <li>An abnormal memory usage. which seems to be related the the
+interaction between the video card driver, the X-Windows substem and
+the Linux kernel. It seemed generalized around 2005 (Geomorph 0.31),
+but it improved with driver, X-Windows or kernel updates. It can still
+be seen with new hardware and unmature drivers - for instance, on a
+2008 laptop with an Intel X3100 graphic accelerator like the one used
+for reviewing this text...</li>
+  <li>Crashes when closing documents one by one (observed with a Matrox
+G400 card, not reported with other cards until now).<br>
+  </li>
+</ul>
+Geomorph&nbsp;allows to specify if direct rendering is activated or
+not, only for this program, without any effect on the other
+applications. Because of the low benefits and of these problems,
+Geomorph is installed with DRI unactivated. However, you can try
+to activate it by using one of these methods:<br>
+<ul>
+  <li>Call the options dialog&nbsp;<img alt="" src="settings.jpg" style="width: 22px; height: 22px;"> in the menu bar, go to the "3D
+preview" tab, and change the "Direct rendering" value from FALSE or
+&lt;no_value&gt; to TRUE.<br>
+  </li>
+  <li>Edit the "geomorphrc" file (usually in
+/home/&lt;you&gt;/geomorph/). In the [3d_preview] section, change
+"direct_rendering = FALSE" to TRUE, or add the line if it does not
+exist.</li>
+</ul>
+<br>
+</div>
+<span style="font-weight: bold;"><a name="INTERFACE"></a>INTERFACE<br>
+<br>
+</span><br>
+<span style="font-weight: bold;"><span style="font-style: italic;"><a name="Dans_loutil_XYZ_la_liste_des_documents"></a></span></span><span style="font-style: italic; font-weight: bold;">In
+the dialog of the XYZ tool, the list of the available documents does
+not show the last document I opened or created. How can I refresh it?</span><span style="font-weight: bold;"><span style="font-style: italic;"></span></span><br>
+<br>
+<div style="margin-left: 40px;">Click on the tool icon to refresh the
+list of the open documents.<br>
+<br>
+This behaviour could be seen in the merge tool <img alt="" src="merge_button.jpg" style="width: 22px; height: 22px;"> or in the
+"Filter with an open document" option <img alt="" src="filt_hf.jpg" style="width: 22px; height: 22px;"> of the shape filter <img alt="" src="filters.jpg" style="width: 22px; height: 22px;">.<br>
+<br>
+</div>
+<div style="margin-left: 40px;"><br>
+</div>
+<span style="font-weight: bold; font-style: italic;"><a name="Jai_ajouté_du_bruit_à_haute_fréquence"></a>I added high
+frequency noise to the height field, but I cannot see it. How can I see
+it?</span><br>
+<br>
+<div style="margin-left: 40px;">The high frequency noise is not
+displayed in the 2D image, and is
+very difficult to view in the OpenGL preview. To see it accurately, it
+is required to execute a Povray scene.<br>
+<br>
+Why? For instance, suppose
+that the height is roughly proportionnal to the ground width. On a
+512x512 image whose maximum altitude is between 2<sup>14</sup> and 2<sup>15</sup>,
+a wave length of 2 pixels would vary approximately from 2<sup>6</sup>
+to
+2<sup>7</sup>. Because the display must be done with 256 values (2<sup>8</sup>)
+instead of 65536 (2<sup>16</sup>), altitude values must be divided by
+256 before displaying them. &nbsp;High frequencies fall this way to 0
+and are not displayable.<br>
+<br>
+<br>
+</div>
+<i><a name="I_see_all_the_messages_and_the_dialogs"></a> <span style="font-weight: bold;">I see all the
+messages and the dialogs text in some annoying pseudo-English, written
+in capitals. What's happening?</span></i><br>
+<blockquote>Please download the latest version, this problem has been
+solved in version 0.21.<br>
+  <br>
+</blockquote>
+<i style="font-weight: bold;"><a name="desktop_icon"></a>I installed
+Geomorph 0.2x or 0.3x after
+uninstalling
+Geomorph 0.1x, and the desktop icon is gone, though the shortcut is
+still
+present. What can I do?</i><br>
+<blockquote>The directory of this icon changed between v.0.1x and 0.2x.
+You
+can now find it at&nbsp; /usr/local/share/geomorph/GeoMorph.xpm. Modify
+the
+shorcut properties so that the icon field refers to this address.<br>
+  <br>
+</blockquote>
+<span style="font-weight: bold;"><a name="PERFORMANCE"></a>PERFORMANCE,
+MEMORY, STABILITY<br>
+<br>
+</span><span style="font-weight: bold;"></span><span style="font-weight: bold;"><span style="font-style: italic;"><span style="font-weight: bold;"></span></span></span><br>
+<span style="font-weight: bold;"></span><span style="font-style: italic; font-weight: bold;"><a name="Geomorph_est_lent_Jai_de_la_difficulté"></a>Geomorph is slow!
+The pencil and the scale widgets are difficult to move. What can be
+done?</span><br>
+<br>
+<div style="margin-left: 40px;">Geomorph is slow when the edited images
+are too large for the CPU power.<br>
+<br>
+Generally, there would be a slowdown when the linear size of the image
+is approximately equal to the CPU speed in Mhz. So, editing a 2048x2048
+could
+be sometimes annoying on a 2Ghz CPU. This is a very rough rule of
+thumb: a 2048x2048 image is 4 times bigger than a 1024x1024 image, but
+a 2Ghz CPU is probably more than twice as powerful as a 1Ghz one,
+because doubling the CPU speed usually represents a one generation step.<br>
+<br>
+Version 0.30 introduces some strategies which make easier the edition
+of huge images. For instance, when the cursor of some scales is moved,
+the preview is refreshed only when the mouse button is released.
+Buttons have also been added beside or under scales for moving the
+cursor by predefined steps <img alt="" src="scale_n_buttons.jpg" style="width: 112px; height: 37px;">. Surely, some dialogs could still
+be improved. Please contact if you have requirements or suggestions.<br>
+<br>
+Finally, it is not recommended to use Geomorph on a network, in the
+sense that the program is executed on computer A when it is displayed
+on computer B by X Windows.<br>
+<br>
+</div>
+<br>
+<span style="font-style: italic; font-weight: bold;"><a name="Jobtiens_un_message_à_leffet_quil"></a>I get a message telling
+that there is no more memory to create a new document. What should I do?</span><br>
+<blockquote>First of all, save all your documents!<br>
+  <br>
+At least, two reasons can explain this:<br>
+  <ol>
+    <li>Too many documents are open for the physical memory of
+your computer. Geomorph can work on a 256 Mb machine. However, this
+could be insufficient if, for instance, you increase the undo/redo
+stack from 5 to 10 levels or more and create a too many documents. In
+this case, closing some documents would free memory, but restarting
+Geomorph is a better solution.<br>
+    </li>
+    <br>
+    <li>The hardware acceleration (direct rendering) of your video card
+is activated. On most tested systems a few years ago (~2005-2006), this lead to an abnormal memory
+usage. From version 0.31, you can unactivate
+the direct rendering for Geomorph only, without unactivating it for
+your whole system, before restarting the program. <a href="#How_can_I_activate__unactivate_the">See this question</a>.<br>
+    </li>
+  </ol>
+With the exception of the memory problem related to hardware
+acceleration, which does not depend on Geomorph, version 0.31 has a
+memory leak of roughly 250 k for each open and closed document. <br>
+</blockquote>
+<br>
+<span style="font-style: italic; font-weight: bold;"><a name="Jai_une_carte_vidéo_XYZ_avec_un_pilote"></a>What should be the
+normal memory usage of Geomorph?</span><br>
+<div style="margin-left: 40px;"><br>
+Depending on if the video card hardware acceleration is active or not,
+and if it is active for Geomorph or for other X-Windows applications
+only, the menu bar display plus
+one 512x512 document may require from 20 to 50 MB.<br>
+<br>
+When the hardware acceleration is not active, each new 512x512 document
+requires some 2 MB, or 10 MB when the
+5 levels of the undo / redo history are filled up.<br>
+<br>
+Otherwise, the usage
+varies depending on the distribution and the video card driver. Each
+new document can require
+between 10 MB and 30 MB (history empty), and the memory is only
+partially freed
+when closing a document. It is always freed when leaving Geomorph,
+though.<br>
+<br>
+<br>
+</div>
+<span style="font-style: italic;"><span style="font-weight: bold;"><a name="Geomorph_sinterrompt_avec_une_erreur"></a>Geomorph stops with an
+error when I try to open a new document, after having closed all the
+documents. What can be done?<br>
+</span></span>
+<div style="margin-left: 40px;"><br>
+Try to unactivate the direct rendering for Geomorph. You need version
+0.31 or later for this. <a href="#How_can_I_activate__unactivate_the">See
+this question</a>.<br>
+<br>
+<br>
+</div>
+<span style="font-weight: bold;"><a name="Pourquoi_Geomorph_sinterrompt-il"></a><span style="font-style: italic;"><span style="font-weight: bold;">Why does
+Geomorph crash when I try to clone a document?</span></span></span><br>
+<br>
+<div style="margin-left: 40px;">This happened when cloning a new
+document, still unsaved, before version 0.31. Now Geomorph asks to save
+the document before cloning it.<br>
+</div>
+<br>
+<br>
+<span style="font-weight: bold;"><a name="MOTEUR_DE_RENDU_POVRAY"></a>RENDERER
+(POVRAY)<br>
+<br>
+<span style="font-style: italic;"><a name="When_I_click_on_the_render_icon_"></a>When I click on the render icon </span></span><img style="width: 28px; height: 28px; font-weight: bold; font-style: italic;" alt="" src="povrender_icon.jpg"><span style="font-weight: bold; font-style: italic;">, nothing happens. What can I do?</span><br><br><div style="margin-left: 40px;">The following explanations work for POV-Ray 3.6.<br><br>First of all, start Geomorph from a console, so that you see the POV-Ray messages.<br><br>If POV-Ray does not start at all, read the next question. Geomorph would probably freeze.<br><br>If POV-Ray starts but displays no image, there should be an error message in the verbose output.<br><br>If
+the message says something about a missing "povray.conf" file, check if
+your have such a file in your /home/.../.povray/3.6 directory. This
+file appeared with version 3.6 for controlling some security features.
+If it is absent, create it:<br><ul><li>If you installed POV-Ray from
+the package downloaded from www.povray.org, it should include an
+install script. Executing this script with the "user" option should do
+the job: run "./install user" in the directory where you unpacked the package.</li><li>If
+you installed a package provided with your distribution, you may have to create .povray
+and .povray/3.6 directories in your /home directory, and copy the
+default povray.conf file in it. You may also copy the povray.ini file.
+You can find these files in places like /etc/povray/3.6 (Ubuntu 7.x),
+/usr/local/etc/povray/3.6 (Fedora 8), etc. - check the file list with
+your package manager.</li><li>In povray.conf, be sure that you have an
+entry for your /home directory (or /home/.../geomorph directory, if you
+want to be more restrictive) in the [Permitted Paths] section. This
+entry should read like: "read+write* =&nbsp; /home/your_id/geomorph"
+(without the quotes!).</li></ul>If the message is not related to povray.conf, maybe you made a mistake when editing the POV-Ray script?<br><br>If you feel desperate, copy and paste me the console output in an e-mail, I'll see what I can do.<br><br></div>
+<span style="font-style: italic;"><span style="font-weight: bold;"><a name="Pourquoi_Geomorph_gèle-t-il_quand"></a>Why does
+Geomorph freeze when I click on the render icon <img alt="" src="povrender_icon.jpg" style="width: 28px; height: 28px;">?</span></span><br>
+<br>
+<div style="margin-left: 40px;">Geomorph does not find the POV-Ray
+program, because POV-Ray is not installed or because the name of the
+program is not written correctly in the options file <span style="font-family: monospace;">~/geomorph/geomorphrc.</span><br>
+<br>
+Check the <span style="font-family: monospace;">Renderer</span>
+variable in<span style="font-family: monospace;"> ~/geomorph/geomorphrc</span>
+, or check it in the "Renderer" tab of the options dialog in the menu
+bar&nbsp;<img alt="" src="settings.jpg" style="width: 22px; height: 22px;">. If you want to check if the
+program exists, type "<span style="font-family: monospace;">which
+&lt;name&gt;</span>" in a console
+(ex. "<span style="font-family: monospace;">which povray36</span>").<br>
+<br>
+When Geomorph is frozen, you must kill the process with
+<span style="font-family: monospace;">xkill</span> or <span style="font-family: monospace;">kill -9 &lt;pid&gt;</span> in a
+console.<br>
+<br>
+<br>
+</div>
+<i><a name="Pause_povray"></a><span style="font-weight: bold;"></span></i><span style="font-style: italic; font-weight: bold;">The Povray output
+disappears
+as soon as
+it
+is done. What can I do?</span><i><span style="font-weight: bold;"></span></i><br>
+<br>
+<div style="margin-left: 40px;">The "Pause" option must be added when
+launching POV-Ray. This can be done in one of three ways :<br>
+<ol>
+  <li>Go in the options dialog of the menu bar <img alt="" src="settings.jpg" style="width: 22px; height: 22px;"> and add the +P
+option in the variable "Other command line rendering options" in the
+"Renderer" tab.</li>
+</ol>
+<ol start="2">
+  <li>Modify the variable <span style="font-family: monospace;">other_render_options</span>
+directly in the <span style="font-family: monospace;">~/geomorph/geomorphrc</span>
+file:<br>
+  </li>
+</ol>
+</div>
+<div style="margin-left: 40px;">
+<div style="margin-left: 40px;"><span style="font-family: monospace;">[rendering]&nbsp;
+</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">...</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">other_render_options = <span style="font-weight: bold;">+P</span> +D -F +L/home/.../geomorph;</span><br>
+</div>
+<br>
+<ol start="3">
+  <li>Insert the line <span style="font-family: monospace;">Pause_when_Done
+=
+on</span> in the <span style="font-family: monospace;">~/.povrayrc</span>
+file, if you have one. You can copy a template of this file from <span style="font-family: monospace;">/usr/lib/povray-3.6/ini/povray.ini.</span></li>
+</ol>
+</div>
+<br>
+<span style="font-weight: bold;"><span style="font-style: italic;"><a name="Pourquoi_ne_pas_offrir_des_rendus_avec"></a></span></span><span style="font-style: italic; font-weight: bold;">Why doesn't Geomorph
+interface with other renderers than POV-Ray, for instance
+Aqsis or YafRay?</span><span style="font-weight: bold;"><span style="font-style: italic;"></span></span><br>
+<br>
+<div style="margin-left: 40px;">The Aqsis and YafRay renderers are free
+like in "freedom", covered by the GPL for the first, by the LGPL for
+the second, unlike the current version of POV-Ray (3.6). <br>
+<br>
+Why didn't I choose a free renderer to interface with Geomorph? At the
+beginning, POV-Ray was the sole renderer I knew. I don't mind about
+interfacing Geomorph with other renderers. It's mainly a matter of
+knowledge, of time to learn how to use the other renderers and of work
+to develop the interface functions. I think that these renderers don't
+process height maps natively, the images should be converted to
+meshes before. This could be resource-intensive, but it is feasible. A
+matter of contribution for the courageous! <br>
+</div>
+<br>
+<hr style="width: 100%; height: 2px;">
+<ol>
+</ol>
+<p>Last revisions November the 25th, 2005, January the 27th, 2007, and August the 1st, 2008<br>
+<br>
+<b><font color="#000000"> Contact:&nbsp;</font></b>&nbsp;&nbsp; <i><a href="mailto:patrice.st-gelais@oricom.ca">Patrice St-Gelais</a></i></p>
+<ul>
+</ul>
+<center> </center>
+</body></html>

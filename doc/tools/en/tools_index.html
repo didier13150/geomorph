@@ -1,0 +1,1107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>The Geomorph Tools</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<div style="text-align: center;"><big><big><big><span
+ style="font-weight: bold;"><a name="The_Geomorph_tools"></a>The
+Geomorph Tools<br>
+<small><span style="font-style: italic;">A quick index (version 0.4)</span></small><br>
+</span></big></big></big></div>
+<br>
+All the examples shown are computed with the "Subdivision 2" standard
+terrain, with a size of 512x512 pixels. The Povray scene is the default
+one (<span style="font-style: italic;">simple_terrain.pov</span>). The
+view
+is the default camera 2 provided with a fresh install of version 0.40,
+the camera height being set at -0.10 instead of 0.10.<br>
+<br>
+<table
+ style="margin-left: auto; margin-right: auto; width: 100%; text-align: left;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="text-align: center;"><span style="font-weight: bold;">ORIGINAL
+TERRAIN</span></td>
+      <td style="text-align: center;"><img alt="" src="../default.jpg"
+ style="width: 256px; height: 256px;"></td>
+      <td style="text-align: center;"><img alt=""
+ src="../default_result.jpg" style="width: 320px; height: 240px;"></td>
+    </tr>
+  </tbody>
+</table>
+<br style="font-weight: bold; font-style: italic;">
+<div style="text-align: center;"><big><big><span
+ style="font-weight: bold; font-style: italic;">Click on the button to
+reach the
+tool</span><br>
+</big></big></div>
+<br>
+<table style="margin-left: auto; margin-right: auto; text-align: left;"
+ border="1" cellpadding="1" cellspacing="1">
+  <tbody>
+    <tr>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Brightness_and_contrast"><img title="Brightness and contrast"
+ alt="Brightness and contrast" src="../buttons/01.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Threshold"><img title="Threshold" alt="Threshold"
+ src="../buttons/02.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Revert"><img alt="Revert" title="Revert" src="../buttons/03.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Mathematical_transformations"><img
+ alt="Mathematical transformations" title="Mathematical transformations"
+ src="../buttons/04.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Cityscape"><img alt="Cityscape" title="Cityscape"
+ src="../buttons/05.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Giant_Causeway"><img alt="Giant Causeway" title="Giant Causeway"
+ src="../buttons/06.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Terraces"><img alt="Terraces" title="Terraces"
+ src="../buttons/07.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Smooth"><img alt="Smooth" title="Smooth" src="../buttons/08.jpg"
+ style="border: 0px solid ; height: 22px; width: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Sharpen"><img alt="" src="../buttons/sharpen.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Translation"><img alt="Translation" title="Translation"
+ src="../buttons/10.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Rotation"><img alt="Rotation" title="Rotation"
+ src="../buttons/11.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Stretch_and_compress"><img alt="Stretch and compress"
+ title="Stretch and compress" src="../buttons/12.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Horizontal_mirror"><img alt="Horizontal mirror"
+ title="Horizontal mirror" src="../buttons/13.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Vertical_mirror"><img alt="Vertical mirror"
+ title="Vertical mirror" src="../buttons/14.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+    </tr>
+    <tr>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="tools_index.html#Noise"><img alt="Noise" title="Noise"
+ src="../buttons/09.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="tools_index.html#Merge"><img alt="Merge" title="Merge"
+ src="../buttons/15.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a></td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="tools_index.html#Shape_filter"><img alt="Shape filter"
+ title="Shape filter" src="../buttons/16.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="tools_index.html#Crests_erosion"><img alt="Crests" title="Crests"
+ src="../buttons/17.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="tools_index.html#Rain_erosion"><img alt="Rain erosion"
+ title="Rain erosion" src="../buttons/18.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="tools_index.html#Whimsical_erosion"><img alt="Whimsical erosion"
+ title="Whimsical erosion" src="../buttons/19.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="tools_index.html#Craters"><img alt="Craters" title="Craters"
+ src="../buttons/20.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+    </tr>
+    <tr>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Gravity_erosion"><img alt="Gravity erosion"
+ title="Gravity erosion" src="../buttons/22.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Oriented_gravity_erosion"><img alt="Oriented gravity erosion"
+ title="Oriented gravity erosion" src="../buttons/23.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Dunes"><img alt="Dunes" title="Dunes" src="../buttons/24.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#Ripples"><img alt="Ripples" title="Ripples"
+ src="../buttons/25.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="tools_index.html#Waves"><img alt="Waves" title="Waves"
+ src="../buttons/21.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a> </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#lift_edges"><img alt="" src="../buttons/27.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+      <td
+ style="height: 26px; width: 26px; text-align: center; vertical-align: middle;"><a
+ href="#crack_network"><img alt="" src="../buttons/28.jpg"
+ style="border: 0px solid ; width: 22px; height: 22px;"></a><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; font-weight: bold;">Tool<br>
+      </td>
+      <td style="vertical-align: top; font-weight: bold;">Use, hints<br>
+      </td>
+      <td
+ style="vertical-align: top; font-weight: bold; text-align: center;">Example<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/01-icon-brightness.jpg"
+ style="width: 61px; height: 61px;" align="left"><a
+ name="Brightness_and_contrast"></a>Brightness and contrast<br>
+      </td>
+      <td style="vertical-align: top;">There are brightness / contrast
+controls similar to those offered by most paint programs.<br>
+Of interest:<br>
+      <ul>
+        <li>The "automatic" button stretches the dynamic range of the
+terrain to the minimum and maximum allowed values, 0 and 65535.</li>
+        <li>If the change is not sufficient and the sliders cannot be
+moved further, accept the change, then move the sliders again, or use
+the "Repeat" button.<br>
+        </li>
+        <li>When the "Keep luminosity" box is checked, the average
+brightness of the terrain (its average altitude) is kept constant when
+the contrast changes.
+Then, if the contrast decreases, the minimum height increases, the
+image becomes gray. When the box
+is unchecked, the minimum height value is kept constant throughout the
+change.</li>
+        <li>To simulate a network of valleys (example 2), check the
+"Revert slope" option in the "Overflow processing" dialog and decrease
+the brightness. This works better if the dynamic range of the terrain
+has been extended to its maximum with the "Automatic" button.</li>
+      </ul>
+The right side of example 1 shows the result when the contrast is
+decreased to -50.<br>
+Example 2 shows the "valleys" created when "Revert slope" is checked
+and brightness is decreased to -80.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../br_contr_1.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../br_contr_2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/02-icon-threshold.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Threshold"></a>Threshold<br>
+      </td>
+      <td style="vertical-align: top;">This tool "cuts" the tops of the
+terrain to a maximum value, and its depressions to a minimum.<br>
+      <br>
+Its most obvious use is to simulate mesas (see the <a
+ href="../../tut_desert/en/The_Desert_Tutorial.html">Desert tutorial</a>).<br>
+      <br>
+A "%" slider allows to mix the result with the source. For instance,
+the
+example shown uses 60% of the result and 40% of the source. This puts
+some noise on the cut areas, for more realism. Here, the height was
+bounded
+by a minimum of 15000 and a maximum of 40000.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../threshold.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/03-icon-revert.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Revert"></a>Revert<br>
+      </td>
+      <td style="vertical-align: top;">Reverts the pixel height (0 is
+replaced by 65535, 1 by 65534, and so on).<br>
+      <br>
+Click the button again to revert to the original.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../revert.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/04-icon-mathematical_transfo.jpg"
+ style="width: 61px; height: 61px;" align="left"><a
+ name="Mathematical_transformations"></a>Mathematical transformations<br>
+      </td>
+      <td style="vertical-align: top;">This tool applies power or
+logarithmic transformations.<br>
+      <br>
+A power transformation increases the steepness of the slopes,
+"sharpens" the summits and decreases the noise at lower altitudes.<br>
+      <br>
+On the contrary, a log transformation "widens" the summits and
+decreases the noises at higher altitudes.<br>
+      <br>
+A power transformation with an exponent less than 1.0 also widens the
+summits.<br>
+      <br>
+In the example, the power(height, 4) function was applied to the
+default terrain. It was rotated 180&deg; in the camera preview.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../fh.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/05-icon-city.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Cityscape"></a>Cityscape<br>
+      </td>
+      <td style="vertical-align: top;">This tool cuts the height field
+in square or rectangular areas, separated by "streets", and averages
+the height values in each area.<br>
+&nbsp; <br>
+With an appropriate texture, the result could look like a city with
+skyscrapers (one would say: if it's far enough from the camera...), or
+whatever else you can imagine.<br>
+      <br>
+For a post-apocalyptic look, the result can be merged with the source
+to add noise on the top (try "x" as merge operator, and 100% as the
+"mix"
+value), eroded, and so on...<br>
+      <br>
+I must credit the <span style="font-style: italic;">Bryce</span>
+software for this idea.<br>
+      <br>
+Unfortunately, Geomorph doesn't provide yet a realistic texture for
+simulating rows of windows in the towers, in version 0.23. It is left
+as an exercise
+to the
+user ;-).<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../city.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/06-icon-giant_causeway.jpg"
+ style="width: 61px; height: 61px;" align="middle"><a
+ name="Giant_Causeway"></a><br>
+Giant Causeway<br>
+      </td>
+      <td style="vertical-align: top;">This tools works like the
+"cityscape", except that height values are averaged in hexagonal areas.<br>
+      <br>
+The intended use is to simulate the basalt pillars like those seen in
+the Giant Causeway, in Northen Ireland.<br>
+      <br>
+The hexagons are separated by a border, whose width can be set by the
+user. <br>
+      <br>
+A merge dialog is also provided, for mixing the source and the result.
+This adds noise on the top of the columns.<br>
+      <br>
+The example was generated with these parameters, other being
+left to their default values: Radius: 32; Border: 1; Smooth - radius:
+2; Mix source and result: 50.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../giant_causeway.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/07-icon-terraces.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Terraces"></a>Terraces<br>
+      </td>
+      <td style="vertical-align: top;">The terraces tool quantizes
+height values in a number of levels specified by the user.<br>
+      <br>
+The level heights can be randomized to give a more natural look.<br>
+      <br>
+A post-processing dialog is provided to smooth the edges of the levels
+and to remove "needles" (artifacts) that are created when the area of
+the top level of a hill is too small. Notice that this dialog features
+a distinct "apply" button, because this post-processing is too
+intensive to be applied immediately, when the controls are moved (said
+differently: don't forget to click that button if you move the
+post-processing sliders!).<br>
+      <br>
+As in many other tools, the result can be merged with the source. This
+is a way for decreasing the flatness of the levels, which could look
+unnatural in some instances. Merging source and result with a subtract
+operation can also
+be used to create a cavity to be filled with water, like in this <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice%20St-Gelais/14-%20Terraces.html">scene</a>.<br>
+      <br>
+The example shown was computed with the following parameters, the
+others being left to their default values:<br>
+      <div style="margin-left: 40px;">Levels: 7 <br>
+      </div>
+      <div style="margin-left: 40px;">Seed: 550023695 (for
+randomization)<br>
+Smooth radius: 2<br>
+Radius of artifact removal: 10<br>
+Merge - mix: 0 (half the source + half the result)<br>
+      </div>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../terraces.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/08-icon-smooth.jpg" style="width: 61px; height: 61px;"
+ align="middle"><a name="Smooth"></a>Smooth<br>
+      </td>
+      <td style="vertical-align: top;">This tool provides a standard
+smoothing function, for removing the highest frequencies of the
+terrain. The tool can also be used to remove the lower frequencies and
+keeping the highest.<br>
+      <br>
+It is useful in a lot of situations, for instance to remove small
+defects after a process or to prepare a terrain for some processes. <br>
+      <br>
+An
+example of removing the defects is given by a terrain of the
+"subdivision 2" type, generated without the higher frequencies. This
+kind of
+terrain frequently requires some smoothing to remove the generative
+"mesh", a soda cracker - like structure.<br>
+      <br>
+The topmost example is the result of smoothing the default terrain with
+a
+radius of 20 pixels.<br>
+      <br>
+The image at the bottom shows what was removed during the smoothing
+process. These are the highest frequencies. To obtain them (which
+means: to remove the lower frequencies), choose the "minus" operation
+in the merge source / result dialog, and move slightly the "mix" slider
+to a value less than 100.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../smooth1.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../smooth2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/icon_sharpen.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Sharpen"></a>Sharpen (inscrease noise)</td>
+      <td style="vertical-align: top;">This tool is similar to the
+"sharpen" tool provided by paint programs.<br>
+      <br>
+With a small radius, it can be used to increase the surface noise of a
+terrain, like in the example shown. Here, a radius of 1 was used and
+the terrain was processed twice with a 7.5 level. A side effect, in
+this particular case, is to emphasize the "scan line" effect of the
+subdivision algorithm.<br>
+      <br>
+A large radius creates edges and increases the amplitude of the
+bumps whose frequencies correspond to the radius, blurring higher
+frequencies. It also widens
+dark lines or areas.<br>
+      </td>
+      <td style="vertical-align: top;"><img alt="" src="../sharpen.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/10-icon-translate.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Translation"></a>Translation<br>
+      </td>
+      <td style="vertical-align: top;">The terrains generated by
+Geomorph
+can be tiled. East and West, and North and South, connect smoothly or
+"wrap".<br>
+      <br>
+This means that a terrain can be "translated" seamlessly, for
+instance to center a hill.<br>
+      <br>
+The example shows the result of a horizontal translation of 30% and a
+vertical translation of -50%.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../translate.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/11-icon_rotate.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Rotation"></a>Rotation<br>
+      </td>
+      <td style="vertical-align: top;">A terrain can be rotated
+seamlessly with an arbitrary angle.<br>
+      <br>
+Notice that any rotation other than a multiple of 90&deg; will break
+the
+tiling property.<br>
+      <br>
+When the terrain can be tiled, the areas falling outside the boundary
+are completed by wrapping the indexes. For instance, in a 512x512
+terrain, the 512 coordinate becomes 0, 513 becomes 1, and so on.<br>
+      <br>
+When the terrain cannot be tiled, these areas are filled up by
+mirroring the terrain, so that, in our example, 512 becomes 511, 513
+becomes 510, and so on.<br>
+      <br>
+The terrain rotation should not be mixed up with the camera rotation in
+the
+preview. The terrain rotation is generally non-revertible, except when
+the angle is a
+multiple of 90&deg;. On the contrary, the camera rotation relates only
+to the way
+the terrain is viewed and thus can be reset at any moment.<br>
+      <br>
+The example shows a 45&deg; rotation.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../rotate.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/12-icon_stretch_compress.jpg"
+ style="width: 61px; height: 61px;" align="left"><a
+ name="Stretch_and_compress"></a>Stretch and compress<br>
+      </td>
+      <td style="vertical-align: top;">This tool is mainly based on the
+tiling property discussed with the translation and the rotation tools.<br>
+      <br>
+Because the North and South, or the West and East connect smoothly, a
+terrain can be "stretched" by placing 2 copies of it side by side, and
+scaling down one axis by 50%.<br>
+      <br>
+Repeating the process on the other axis produces 4 tiles of the same
+terrain.<br>
+      <br>
+Example 1 shows the default height field after a vertical (N-S)
+stretching.<br>
+      <br>
+Example 2 shows the same terrain after a vertical (N-S) stretching,
+followed by a click on the <span style="font-style: italic;">accept</span>
+button, then a horizontal (W-E) stretching. Notice how the terrain
+seems rough. The original terrain appears 4 times, scaled down by 50%
+on the X and Z axis, but the height (Y axis) is not scaled down.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../stretch1.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../stretch2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/13-icon_horizontal_mirror.jpg"
+ style="width: 61px; height: 61px;" align="left"><a
+ name="Horizontal_mirror"></a>Horizontal mirror<br>
+      </td>
+      <td style="vertical-align: top;">The terrain is mirrored
+horizontally when the
+tool icon is clicked.<br>
+      <br>
+Click on the tool icon once again to return back to the orginal terrain.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../mirror_h.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/14-icon_vertical_mirror.jpg"
+ style="width: 61px; height: 61px;" align="left"><a
+ name="Vertical_mirror"></a>Vertical mirror<br>
+      </td>
+      <td style="vertical-align: top;">The terrain is mirrored
+vertically when the
+tool icon is clicked.<br>
+      <br>
+Click on the tool icon once again to return back to the original
+terrain. </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../mirror_v.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/09-icon-noise.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Noise"></a>Noise</td>
+      <td style="vertical-align: top;">This tool calls
+the "subdivision 2" algorithm, retains only the highest
+frequencies - those constituting the "noise", and adds them to the
+active
+height field.<br>
+      <br>
+We computed the example shown from the <a href="#Smooth">terrain
+smoothed with a radius
+of 20 pixels</a>.<br>
+      <br>
+To get a result, you must set the % to a value greater than 0, and then
+click the "Apply" button.<br>
+      <br>
+"Distribution" and "Roughness" sliders are provided. <br>
+      <br>
+"Distribution" controls the density or the "sparseness" of the noise.
+The higher is the value, the sparser are the "lumps" or hills. It works
+like an exponent to the height.<br>
+      <br>
+"Roughness" controls the amplitude (height) of the noise.</td>
+      <td style="vertical-align: top;"><img alt="" src="../noise.jpg"
+ style="width: 320px; height: 240px;"></td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/15-icon_merge.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Merge"></a>Merge<br>
+      </td>
+      <td style="vertical-align: top;">The merge tool allows to merge
+the
+active terrain (the one you are editing) with a terrain selected among
+the open terrains.<br>
+      <br>
+A list of the available terrains and a preview of the selected terrain
+are displayed in the tool dialog.<br>
+      <br>
+The selected terrain can be added, subtracted or multiplied with the
+current one. Terrains can also be compared with a minimum or maximum
+operation. Relative brightness of both current and selected terrains
+can be adjusted. The selected terrain can be translated for special
+effects.<br>
+      <br>
+The purpose of the tool is very general. For instance, it can be used
+to add a particular kind of noise, the noise being provided by the
+selected terrain.<br>
+      <br>
+Other less obvious uses include the transformation shown in the
+example. The default terrain was merged with itself, for a cresting
+effect. The "min" operation was selected, the "mix" value was set to 0,
+and the selected terrain was translated horizontally with a value of 20.<br>
+      <br>
+Hint: to refresh the height fields list in the tool box after creating
+a new height field, click once more on the tool icon.<img alt=""
+ src="../icons/15-icon_merge.jpg" style="width: 61px; height: 61px;"
+ align="top"><br>
+Notice that a lot of Geomorph tools offer the merge function in a
+subdialog. In this case, the current terrain is implicitly the
+source, and the selected one is the result. </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../merge.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/16-icon_shape_filter.jpg"
+ style="width: 61px; height: 61px;" align="left"><a name="Shape_filter"></a>Shape
+filter<br>
+      </td>
+      <td style="vertical-align: top;">The purpose of the "shape
+filter" iis mainly to remove edges by adding or multiplying the
+terrain with a function derivated from a gaussian bell.<br>
+      <br>
+This creates an "island".<br>
+      <br>
+The look is different, depending if the bell is added to the terrain
+(example 1) or multiplied with it (example 2).<br>
+      <br>
+The multiply option gives a smoothly decreasing "shore", more
+suitable for some uses.<br>
+      <br>
+Notice that in both examples, the camera was rotated with an angle of
+180&deg;.<br>
+      <br>
+The same tool is offered during the creation process.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../filter1.jpg" style="width: 320px; height: 240px;"><br>
+      <br>
+      <img alt="" src="../filter2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/17-icon_crests.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Crests_erosion"></a>Crests erosion<br>
+      </td>
+      <td style="vertical-align: top;">This tool erodes the terrain by
+removing soil, depending on the slope.<br>
+      <br>
+The places where the slope is less than a threshold in degrees set by
+the user loose no soil and become crests.<br>
+      <br>
+The user sets the number of steps the process is repeated. The example
+was produced with 8 steps.<br>
+      <br>
+This tool is very useful to improve the natural look of the terrain.<br>
+      <br>
+One recommended use is to refine the crests created by the "rain
+erosion" or the "whimsical erosion" tools. Try something like 3 steps.<br>
+      <br>
+The tool can also be used to "widen" the hills. Try this: revert the
+terrain, crest it, then revert it back.<br>
+      <br>
+Here are points of some interest to understand the process:<br>
+      <ul>
+        <li>The soil is removed pixel by pixel, so the global look is
+sensitive to the terrain size. With a given number of steps, a 512x512
+terrain will look more transformed than a 1024x1024 terrain (the crests
+will have higher frequencies in the latter).<br>
+        </li>
+        <li>The slope is calculated in 6 directions, separated by
+60&deg;. Before v. 0.23, it was calculated in 8 directions. After a lot
+of steps, rectangular patterns were seen. Now, it would rather be
+hexagonal patterns.<br>
+        </li>
+        <li>The removed soil is not kept, so the average height of the
+terrain decreases.</li>
+      </ul>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../crests.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/18-icon_rain_erosion.jpg"
+ style="width: 61px; height: 61px;" align="left"><a name="Rain_erosion"></a>Rain
+erosion<br>
+      </td>
+      <td style="vertical-align: top;">This tool creates an eroded
+terrain by pouring rain drop by drop at random coordinates. When the
+slope is higher than a given threshold, the drops move soil downhill.
+When the slope is lower, the soil is deposited. The process cuts narrow
+channels in the surface.<br>
+      <br>
+The result can be refined with the "crests" tool, using 2 or 3 steps.<br>
+      <br>
+The soil is moved downhill in one of 6 directions, at each point.
+Differently stated,
+the process simulates an hexagonal symmetry.<br>
+      <br>
+Notice that the algorithm was improved between the 0.31 version and the
+0.4 version. The older was not working right on flat surfaces with
+cracks.
+Moreover, the hexagonal symmetry simulation gave artifacts. The older
+algorithm is still available, though.<br>
+      <br>
+Le nouvel algorithme propose deux param&egrave;tres principaux: la
+force, qui
+correspond &agrave; la quantit&eacute; de sol d&eacute;plac&eacute;e
+&agrave; chaque it&eacute;ration, et la
+duret&eacute;, qui correspond en gros &agrave; la pente des parois des
+canaux, ou &agrave;
+l'inverse du degr&eacute; de diffusion du sol d&eacute;plac&eacute;.
+Une duret&eacute; peu &eacute;lev&eacute;
+donne des canaux plus "flous".<br>
+      <br>
+The new algorithm provides two main parameters: the strength, which
+relates to the amount of soil moved at each step, and the hardness,
+which is roughly the slope of the channel edges, or the opposite of the
+soil diffusion. A lower hardness gives "blurred" channels.<br>
+      <br>
+The first example shown was produced with the pre-0.4 algorithm and a
+setting of 25000 drops.<br>
+      <br>
+The second example was produced with the new algorithm and a setting of
+100000 drops.<br>
+      <br>
+Notice that the result is very sensitive to the terrain size. The
+channels are created at the pixel level, so they look smaller on a
+1024x1024 terrain than on a 512x512 terrain.<br>
+      <br>
+Furthermore, a 1024x1024 terrain requires 4 times more drops than a
+512x512 one for getting the same erosion level, because its surface is
+4 times larger.<br>
+      <br>
+Unlike the crests tool, the rain erosion does not decrease the average
+height of the terrain.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../rain_erosion.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../erosion1.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/19-icon_whimsical_erosion.jpg"
+ style="width: 61px; height: 61px;" align="left"><a
+ name="Whimsical_erosion"></a>Whimsical erosion<br>
+      </td>
+      <td style="vertical-align: top;">The "whimsical erosion" can be
+used to generate quickly a "ribbed" look.<br>
+      <br>
+The radius parameter controls the scale (frequency) of the "ribs".<br>
+      <br>
+The tool does not pretend to simulate any natural process, in anyway.
+The result will generally show some unnatural "loops" in the valleys.
+However, the result can constitute the basis for further erosion with
+the other tools,
+which will remove these "loops".<br>
+      <br>
+Example 1 shows the result obtained with the default parameters.<br>
+      <br>
+Example 2 shows the same result, modified with this cycle of
+transformations:<br>
+      <ul>
+        <li>Rain erosion with 25000 drops.</li>
+        <li>Crests with 3 steps.</li>
+        <li>Rain erosion with 25000 drops, again.</li>
+        <li>Crests with 3 steps, again.<br>
+        </li>
+      </ul>
+See how the "crests squeleton" is better defined in this example than
+in the "Rain
+erosion" example seen before.<br>
+      <br>
+Hint for adventurous users: a weird result can be obtained by setting
+the "mix" value of the "merge" subdialog to 100.<br>
+      <br>
+Note related to version 0.4: the example shown were computed with the
+old version of the rain erosion algorithm.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../whimsical_erosion_1.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../whimsical_erosion_2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/20-icon_craters.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Craters"></a>Craters<br>
+      </td>
+      <td style="vertical-align: top;">This tool intends to reproduce
+a "meteor rain".<br>
+      <br>
+It works better on a terrain with a lower contrast.<br>
+      <br>
+Play with the noise parameters to get a more convincing result.<br>
+      <br>
+The example was produced by using the default terrain with the contrast
+lowered to -50 with the "Brightness and contrast" tool. 20 craters were
+asked for, and the radial noise was set to 8%.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../craters.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/21-icon_waves.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Waves"></a>Waves<br>
+      </td>
+      <td style="vertical-align: top;">This tool applies wavy
+distortions to the terrain, on any axis.<br>
+      <br>
+The default dialog provides two tabs. The first tab is preset to give a
+vertical distortion (on the Y axis), the second one is preset to
+produce a horizontal distortion (on the X or Z axis, depending on the
+rotation).<br>
+      <br>
+To see the result of the distortion, the "amplitude" scale must be
+moved to a value greater than 0.<br>
+      <br>
+The distortions are applied ("stacked") in the order of the tabs.<br>
+      <br>
+For instance, when the 2 default tabs are set to distort the terrain
+vertically, and one set of waves has a 90&deg; rotation, an
+interference pattern will appear.<br>
+      <br>
+The user can add tabs, for stacking more than 2 deformations.<br>
+      <br>
+Lateral (X-Z) distortions will create non-continuous edges on
+non-tiling terrains. Techniques that can be used to minimize this
+effect include framing the terrain with the camera so that the edges
+are not shown, or using a "shape filter" to smooth progressively the
+edges (create an island). In the future, hopefully, Geomorph will offer
+a scale function to "cut" these edges.<br>
+      <br>
+Example 1 shows a straight use of the tool. In the first tab (vertical
+deformation), the amplitude is set to 36, the period to 6 and the
+rotation angle to 135. In the second tab (lateral deformation), the
+amplitude is set to 35 and the period to 8.<br>
+      <br>
+Example 2 shows how the tool can be used to raise mountains in the
+background. First, the "Brightness and constrast" tool was used to
+decrease the contrast to -30, while unchecking the "Keep luminosity"
+option. Second, in the "Waves" tool, only the first tab was used, to
+create a wave with only
+one peak in the image (period = 10). The phase was set to 50, for
+moving the crest of the wave to the north edge. The amplitude was set
+to 50. This technique was used to rise the background mountains in the <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice%20St-Gelais/images/13-%20Painted%20Desert.jpg">Painted
+Desert
+example</a>.<br>
+      <br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../waves1.jpg" style="width: 320px; height: 240px;"><br>
+      <br>
+      <img alt="" src="../waves2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/22-icon_gravity_erosion.jpg"
+ style="width: 61px; height: 61px;" align="left"><a
+ name="Gravity_erosion"></a>Gravity erosion<br>
+      </td>
+      <td style="vertical-align: top;">This tool moves down soil
+depending on the slope.<br>
+      <br>
+Unlike the "crests" tool, no soil is lost. The average height stays
+roughly the same.<br>
+      <br>
+This tool can be used to soften the surface while keeping some noise.<br>
+      <br>
+With a high slope threshold parameter, it gives some smooth cresting.<br>
+      <br>
+Example 1 shows the default height field after 50 steps, with a slope
+threshold of 60&deg;. Notice the crests.<br>
+      <br>
+Example 2 shows the result with 50 steps and a slope threshold of
+30&deg;.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../gravity60.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../gravity30.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/23-icon_oriented_gravity_erosion.jpg"
+ style="width: 61px; height: 61px;" align="left"><a
+ name="Oriented_gravity_erosion"></a>Oriented gravity erosion<br>
+      </td>
+      <td style="vertical-align: top;">This tool
+applies the gravity erosion in one of 4 directions (N - S - E - W).<br>
+      <br>
+Example 1 shows the result after 50 steps, in the default W - E
+direction.<br>
+      <br>
+In example 2, we accepted the first result, changed the direction to E
+-
+W and applied the process 50 times.<br>
+      <br>
+In example 3, we used the merge subdialog to merge the original terrain
+with example 2. We had to adjust the brightness of one of the merged
+terrains (see the merge dialog) to make the "rocks" pop out from the
+"sand". The camera was rotated 345&deg; (-15&deg;) around the Y axis.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../oriented_gravity1.jpg" style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../oriented_gravity2.jpg"
+ style="width: 320px; height: 240px;"><br>
+      <img alt="" src="../oriented_gravity3.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/24-icon_dunes.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Dunes"></a>Dunes<br>
+      </td>
+      <td style="vertical-align: top;">This tool moves soil from left
+to right, by throwing it ahead like if it were sand grains under the
+wind.<br>
+      <br>
+The formula used is derivated from the research of <a
+ href="http://www.lps.ens.fr/recherche/formes/papers.html">Bruno
+Andreotti and
+his colleagues</a> about barchan dunes (crescent shaped dunes). It is
+not
+realistic as it could be (it's difficult to get barchan dunes with
+it!), but good enough for artistic use.<br>
+      <br>
+The example shows what the default parameters produce.<br>
+      <br>
+The parameters are:<br>
+      <ul>
+        <li>The number of steps the process is applied.</li>
+        <li>The relative wind speed, directly related to the distance
+to which the sand grain are thrown. The cresting effect depends a lot
+on this parameter. The crests are smoother when the wind is faster.<br>
+        </li>
+        <li>The "amplitude", which is roughly how the slope acts upon
+the capacity of the wind to move sand.</li>
+        <li>The slope threshold, over which the sand moves downhill
+because of gravity (is "relaxed"), independently of the wind. The usual
+value is 30 degrees.</li>
+        <li>A "refine crests" check box. When it is activated, a slight
+"ripples" process is applied (see next tool), which has the effect of
+emphasizing the crests.</li>
+        <li>A "smooth before" check box. A radius parameter is
+displayed when this box is checked. The result looks more natural when
+the terrain is smoothed before processing the dunes. The smoothing is
+done with the standard "smooth" tool.</li>
+      </ul>
+Hint: to get a barchan - like dune, apply the process on a gaussian
+hill, generated with a "sharp" shape filter applied on a uniformly grey
+terrain.<br>
+      <br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../dunes.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/25-icon_ripples.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="Ripples"></a>Ripples<br>
+      </td>
+      <td style="vertical-align: top;">This tool creates ripples by
+"creeping" sand grains.<br>
+      <br>
+Please notice:<br>
+      <ul>
+        <li>The height field <span style="font-style: italic;">must</span>
+have some high frequency noise. Do not smooth it before using the tool.<br>
+        </li>
+        <li>Results are better with a low-contrast terrain.</li>
+        <li>Results are better with a high resolution terrain.<br>
+        </li>
+      </ul>
+The example provided comes from the default terrain, whose contrast was
+decreased to -70 before applying 50 steps of "rippling".<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../ripples.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/icon_edge_lift.jpg" style="width: 61px; height: 61px;"
+ align="left"><a name="lift_edges"></a>Lift edges</td>
+      <td style="vertical-align: top;">This tool can be used to raise
+the edges of flat surfaces with steep boundaries.<br>
+      <br>
+The <a href="../../tut_water_maps/en/Using_water_maps.html">"Terraces"
+and the "Giant Causeway"</a> examples use this tool.<br>
+      </td>
+      <td style="vertical-align: top;"><img alt=""
+ src="../lift_edges.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><img alt=""
+ src="../icons/icon_crack_network.jpg"
+ style="width: 61px; height: 61px;" align="left"><a name="crack_network"></a>Crack
+network</td>
+      <td style="vertical-align: top;">This tool can be used to create
+various kind of crack networks, from the most imaginary to the (al)most
+realistic.<br>
+      <br>
+You can even write a word and integrate it as cracks in the network.<br>
+      <br>
+      <a href="../../crack_network/en/The%20Crack%20Network%20Tool.html">This
+guide</a> provides some examples and explanations.<br>
+      </td>
+      <td style="vertical-align: top;"><img alt="" src="../cracknet.jpg"
+ style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<a href="#The_Geomorph_tools">Top</a><br>
+<br>
+Written in June 2005 by Patrice St-Gelais<br>
+Updated in December 2006<br>
+<br>
+<a href="../../doc_index_en.html"> <img src="../GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_en.html">Back to the documentation index</a><br>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body>
+</html>

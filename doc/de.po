@@ -1,0 +1,1884 @@
+# German translation for Geomorph
+# Contributed by Tim Schuermann, 2004
+# Simon Donike, sdonike@web.de, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: de-iso8859\n"
+"POT-Creation-Date: 2003-09-16 20:16+0000\n"
+"PO-Revision-Date: 2005-02-27 13:34+0100\n"
+"Last-Translator: simon donike <sdonike@web.de>\n"
+"Language-Team:  <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9\n"
+
+# "FILETXT"
+msgid "File"
+msgstr "Datei"
+
+# "NEW"
+msgid "New"
+msgstr "Neu"
+
+# "OPEN"
+msgid "Open"
+msgstr "Ãffnen"
+
+# "SAVE"
+msgid "Save"
+msgstr "Speichern"
+
+# "SAVE_AS"
+msgid "Save as..."
+msgstr "Speichern als..."
+
+# "SAVE_COPY_AS"
+msgid "Copy as..."
+msgstr "Kopieren als..."
+
+# "PRINT"
+msgid "Print"
+msgstr "Drucken"
+
+# "CLOSE"
+msgid "Close"
+msgstr "SchlieÃen"
+
+# "QUIT"
+msgid "Quit"
+msgstr "Beenden"
+
+# "EDIT"
+msgid "Edit"
+msgstr "Bearbeiten"
+
+# "UNDO"
+msgid "Undo"
+msgstr "RÃŒckgÃ€ngig"
+
+# "REDO"
+msgid "Redo"
+msgstr "Wiederherstellen"
+
+# "COPY"
+msgid "Copy"
+msgstr "Kopieren"
+
+# "CUT"
+msgid "Cut"
+msgstr "Ausschneiden"
+
+# "PASTE"
+msgid "Paste"
+msgstr "EinfÃŒgen"
+
+# "PASTE_SPECIAL"
+msgid "Paste special"
+msgstr "Spezielles EinfÃŒgen"
+
+# "TOOLS"
+msgid "Tools"
+msgstr "Werkzeuge"
+
+# "DOC_STATS"
+msgid "Statistics"
+msgstr "Statistiken"
+
+# "OPTIONS"
+msgid "Options"
+msgstr "Optionen"
+
+# "HELP"
+msgid "?"
+msgstr "?"
+
+# "GUIDE"
+msgid "Guide"
+msgstr "Benutzerhandbuch"
+
+# "ABOUT"
+msgid "About..."
+msgstr "Ãber..."
+
+# "NEW_TOOLTIP"
+msgid "Create a new document"
+msgstr "Ein neues Dokument erstellen"
+
+# "OPEN_TOOLTIP"
+msgid "Open a file"
+msgstr "Eine neue Datei Ã¶ffnen"
+
+# "SAVE_TOOLTIP"
+msgid "Save the current document"
+msgstr "Aktuelles Dokument speichern"
+
+# "SAVE_AS_TOOLTIP"
+msgid "Save under a new name"
+msgstr "Unter einem neuen Namen speichern"
+
+# "SAVE_COPY_AS_TOOLTIP"
+msgid "Copy under a new name"
+msgstr "Mit neuem Namen kopieren"
+
+# "PRINT_TOOLTIP"
+# msgid "Print"
+# msgstr "Drucken"
+# "CLOSE_TOOLTIP"
+msgid "Close the current document"
+msgstr "Aktuelles Dokument schlieÃen"
+
+# "QUIT_TOOLTIP"
+msgid "Quit application"
+msgstr "Anwendung beenden"
+
+# "UNDO_TOOLTIP"
+# msgid "Undo"
+# msgstr "Rueckgaengig machen"
+# "REDO_TOOLTIP"
+# msgid "Redo"
+# msgstr "Wiederherstellen"
+# "COPY_TOOLTIP"
+# msgid "Copy"
+# msgstr "Kopieren"
+# "CUT_TOOLTIP"
+# msgid "Cut"
+# msgstr "Ausschneiden"
+# "PASTE_TOOLTIP"
+# msgid "Paste"
+# msgstr "Einfuegen"
+# "PASTE_SPECIAL_TOOLTIP"
+msgid "Paste special (merge...)"
+msgstr "Spezielles EinfÃŒgen (zusammenfÃŒgen...)"
+
+# "DOC_STATS_TOOLTIP"
+msgid "Information and statistics about the current document"
+msgstr "Informationen und Statistiken ÃŒber das aktuelle Dokument"
+
+# "OPTIONS_TOOLTIP"
+msgid "Options at the application launch"
+msgstr "Programmstart-Optionen"
+
+# "GUIDE_TOOLTIP"
+msgid "User guide"
+msgstr "Benutzerhandbuch"
+
+# "ABOUT_TOOLTIP"
+msgid "Application and author"
+msgstr "Anwendung und Autor"
+
+# "DOCUMENT"
+msgid "document"
+msgstr "Dokument"
+
+# "READ_DOC"
+msgid "Reading"
+msgstr "Lese"
+
+# "OK_BUTTON"
+msgid "OK"
+msgstr "OK"
+
+# "CANCEL_BUTTON"
+msgid "Cancel"
+msgstr "Abbrechen"
+
+# "NEW_DOC"
+msgid "New document"
+msgstr "Neues Dokument"
+
+# "CREATION_COMMITTED"
+msgid "Creation committed"
+msgstr "Erzeugung durchgefÃŒhrt"
+
+# "NO_OPTIONS"
+msgid ""
+"No options\n"
+"for this document type"
+msgstr ""
+"Keine Optionen\n"
+" fÃŒr diesen Dokumententyp"
+
+# "NO_PARAMETERS"
+msgid ""
+"No parameters\n"
+"for this operation"
+msgstr ""
+"Keine Parameter\n"
+"fÃŒr diese Aktion"
+
+# "NOT_IMPLEMENTED"
+msgid "Not yet available"
+msgstr "Noch nicht verfÃŒgbar"
+
+# "DISCARD_LAST_CREATION"
+#, fuzzy
+msgid "Destroy the document you are ?"
+msgstr "Dokument verwerfen, an dem Sie ?"
+
+# "NOT_SAVED"
+msgid "<%s> has been modified. Save?"
+msgstr "<%s> wurde geÃ€ndert. Speichern?"
+
+# "OPTIONS_FOR"
+msgid "Options for"
+msgstr "Optionen fÃŒr"
+
+# "REFRESH"
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+# "RESET_SHORT"
+msgid "Reset"
+msgstr "ZurÃŒcksetzen"
+
+# "RESET"
+# msgid "Reset"
+# msgstr "Zuruecksetzen"
+# "ACCEPT"
+msgid "Accept"
+msgstr "Akzeptieren"
+
+# "TOPRANDOM"
+msgid "Random center"
+msgstr "ZufÃ€llig zentrieren"
+
+# "TOPCENTERHEIGHT"
+msgid "Center height"
+msgstr "HÃ¶he Zentrum"
+
+# "ROUGHNESS"
+msgid "Roughness"
+msgstr "Unebenheit"
+
+# "NOTHING_TO_SAVE"
+msgid "There is nothing to save!"
+msgstr "Es gibt nichts zu speichern!"
+
+# "SEED"
+msgid "Seed"
+msgstr "Grundstruktur"
+
+# "DEFAULT_SEED_LBL"
+msgid "Default seed for random generator"
+msgstr "Standard-Grundstruktur fÃŒr den Zufallsgenerator"
+
+# "DISTRIBUTION"
+msgid "Distribution"
+msgstr "Verteilung"
+
+# "DOCTYPECHOICE"
+msgid "Document type"
+msgstr "Dokumententyp"
+
+# "HFPNG"
+msgid "HeightField"
+msgstr "Height Field"
+
+# "POVINI"
+msgid ".INI Povray"
+msgstr ".INI Povray"
+
+# "HFPNG_TOOLTIP"
+msgid "Height field"
+msgstr "Height field"
+
+# "POVINI_TOOLTIP"
+msgid ".INI options file POVRAY 3.1"
+msgstr ".INI Konfigurationsdatei POVRAY 3.1"
+
+# "HFTYPECHOICE"
+msgid "Type"
+msgstr "Typ"
+
+# "HFUNIFORM"
+msgid "Uniform"
+msgstr "Einheitsform"
+
+# "HFSUBDIV1"
+msgid "Subdiv1"
+msgstr "Subdiv1"
+
+# "HFSUBDIV2"
+msgid "Subdiv2"
+msgstr "Subdiv2"
+
+# "HFSURFADD"
+msgid "SurfSum"
+msgstr "SurfSum"
+
+# "SURFADD"
+msgid "sum of surfaces"
+msgstr "Summe der OberflÃ€chen"
+
+# "HFWAVES"
+msgid "Waves"
+msgstr "Wellen"
+
+# "HFWAVES_CIRC"
+msgid "Circ. waves"
+msgstr "zirk. Wellen"
+
+# "HFUNIFORM_TOOLTIP"
+msgid "Uniform color"
+msgstr "Einheitsfarbe"
+
+# "HFSUBDIV1_TOOLTIP"
+msgid "Subdivision 1"
+msgstr "Subdivision 1"
+
+# "HFSUBDIV2_TOOLTIP"
+msgid "Subdivision 2"
+msgstr "Subdivision 2"
+
+# "HFSURFADD_TOOLTIP"
+msgid "Progressive sum of surfaces"
+msgstr "Progressive Summe der OberflÃ€chen"
+
+# "HFWAVES_TOOLTIP"
+msgid "Waves (sand, water)"
+msgstr "Wellen (Sand, Wasser)"
+
+# "HFWAVES_CIRC_TOOLTIP"
+msgid "Circular waves"
+msgstr "ZirkulÃ€re Wellen"
+
+# "SHAPEFILTER"
+msgid "Shape filter"
+msgstr "Formfilter"
+
+# "NOFILTER"
+msgid "No filter"
+msgstr "Kein Filter"
+
+# "WIDEFILTER"
+msgid "Wide"
+msgstr "Breit"
+
+# "MEDIUMFILTER1"
+msgid "Med 1"
+msgstr "Medium 1"
+
+# "MEDIUMFILTER2"
+msgid "Med 2"
+msgstr "Medium 2"
+
+# "SHARPFILTER"
+msgid "Sharp"
+msgstr "Scharf"
+
+# "GAUSSFILTER"
+msgid "Param"
+msgstr "Param"
+
+# "GAUSSFILTER_TOOLTIP"
+msgid "Gaussian bell with parameters choice"
+msgstr "GauÃ'sche Glocke mit Parameterwahl"
+
+# "GAUSSFILTER_PARAM"
+msgid "Parameters for gaussian filter"
+msgstr "Parameter fÃŒr den GauÃfilter"
+
+# "IMAGEFILTER"
+msgid "Image"
+msgstr "Bild"
+
+# "IMAGEFILTER_TOOLTIP"
+msgid "Filter with an open document"
+msgstr "Filter mit einem offenen Dokument"
+
+# "IMAGEFILTER_CHOICE"
+msgid "Document filter choice"
+msgstr "Dokumentfilter-Auswahl"
+
+# "BASE"
+msgid "Base"
+msgstr "Basis"
+
+# "EXP"
+msgid "Power"
+msgstr "Power"
+
+# "WIDTH_LBL"
+msgid "Width"
+msgstr "Weite"
+
+# "SCALE"
+msgid "Scale"
+msgstr "Skalierung"
+
+# "REVERT"
+msgid "Revert"
+msgstr "Umkehren"
+
+# "LEVEL"
+msgid "Level"
+msgstr "Niveau"
+
+# "LEVELS"
+msgid "Levels"
+msgstr "Niveaus"
+
+# "PERCENT"
+msgid "%"
+msgstr "%"
+
+# "MERGEOPER"
+msgid "Merge mode"
+msgstr "ZusammenfÃŒge-Modus "
+
+# "MULTIPLY_LBL"
+msgid "Multiply"
+msgstr "Multiplizieren"
+
+# "ADD_LBL"
+msgid "Add"
+msgstr "Addieren"
+
+# "HFTOOLS"
+# msgid "Edit"
+# msgstr "Bearbeiten"
+# "DRAW"
+msgid "Draw"
+msgstr "Zeichnen"
+
+# "HFDRAW"
+msgid "Draw HF"
+msgstr "Zeichne HF"
+
+# "TRANSFORM"
+msgid "Transform"
+msgstr "Transformieren"
+
+# "RUN"
+msgid "Run"
+msgstr "ausfÃŒhren"
+
+# "STOP"
+msgid "Stop"
+msgstr "Stopp"
+
+# "DRAW_TOOLS_TOOLTIP"
+msgid "Drawing tools"
+msgstr "Zeichenwerkzeuge"
+
+# "DRAW_TOOLTIP"
+msgid "Draw with a continuous stroke"
+msgstr "Zeichnen mit einem fortlaufenden Strich"
+
+# "HFDRAW_TOOLTIP"
+msgid "Draw with a height field"
+msgstr "Zeichnen mit einem Height Field"
+
+# "TRANSFORM_TOOLTIP"
+msgid "Filters and other transformations"
+msgstr "Filter und andere Transformationen"
+
+# "RUN_TOOLTIP"
+msgid "Run - POVRAY"
+msgstr "Starten - POVRAY"
+
+# "STOP_TOOLTIP"
+msgid "Stop - POVRAY"
+msgstr "Stopp - POVRAY"
+
+# "IMGPROCESS"
+msgid "Processes"
+msgstr "Prozesse"
+
+# "BRIGHTNESS"
+msgid "Brightness"
+msgstr "Helligkeit"
+
+# "CONTRAST"
+msgid "Contrast"
+msgstr "Kontrast"
+
+# "BRIGHTNESS_CONTRAST"
+msgid "Brightness and contrast"
+msgstr "Helligkeit und Kontrast"
+
+# "AUTOMATIC"
+msgid "Automatic"
+msgstr "Automatik"
+
+# "AUTO"
+msgid "Auto"
+msgstr "Auto"
+
+# "AUTO_CONTRAST"
+msgid "Automatic contrast"
+msgstr "Automatischer Kontrast"
+
+# "MINIMUM"
+msgid "Minimum"
+msgstr "Minimum"
+
+# "MAXIMUM"
+msgid "Maximum"
+msgstr "Maximum"
+
+# "SMOOTH"
+msgid "Smooth"
+msgstr "GlÃ€tten"
+
+# "RADIUS"
+msgid "Radius"
+msgstr "Radius"
+
+# "SHARPEN"
+msgid "Sharpen"
+msgstr "SchÃ€rfen"
+
+# "THRESHOLD"
+msgid "Threshold"
+msgstr "Schwellenwert"
+
+# "TERRACE"
+msgid "Terraces"
+msgstr "Terrassen"
+
+# "QUANTIZATION"
+msgid "Quantization"
+msgstr "AusprÃ€gung"
+
+# "MIX"
+msgid "Mix"
+msgstr "Mix"
+
+# "SOURCE"
+msgid "Source"
+msgstr "Quelle"
+
+# "RESULT"
+msgid "Result"
+msgstr "Ergebnis"
+
+# "MERGE_SOURCE_RESULT"
+msgid "Source & result merge"
+msgstr "Quelle & Ergebnis zusammenfÃŒgen"
+
+# "MIN_LBL"
+msgid "min"
+msgstr "min"
+
+# "MAX_LBL"
+msgid "max"
+msgstr "max"
+
+# "XOR_TIP"
+msgid "Exclusive OR (XOR)"
+msgstr "Exklusives ODER (XOR)"
+
+# "ARTIFACT_REMOVAL"
+msgid "Artifact removal"
+msgstr "Artefakte entfernen"
+
+# "POSTPROCESS"
+msgid "Result post-processing"
+msgstr "Ergebnis Nachbearbeitung"
+
+# "CITY"
+msgid "City"
+msgstr "Stadt"
+
+# "SKYSCRAPER_WIDTH"
+msgid "Skyscaper width"
+msgstr "HÃ¶he Hochhaus"
+
+# "WIDTH_VARIATION"
+msgid "Width variation (%)"
+msgstr "Breitenvariation (%)"
+
+# "STREETS_WIDTH"
+msgid "Streets width"
+msgstr "StraÃentiefe"
+
+# "SMOOTH_1_PIXEL"
+msgid "Smooth 1 pixel"
+msgstr "GlÃ€tte 1 Pixel"
+
+# "SUBTRACT_LBL"
+msgid "Subtract"
+msgstr "Abziehen"
+
+# "ROTATE"
+msgid "Rotate"
+msgstr "Rotieren"
+
+# "SLIDE"
+msgid "Translate"
+msgstr "Ãbertragen"
+
+# "NOISE"
+msgid "Noise"
+msgstr "Rauschen"
+
+# "NOISE_BUILDER"
+msgid "Noise builder"
+msgstr "Rauschen-Werkzeug"
+
+# "STRETCH_COMPRESS"
+msgid "Stretch and compress"
+msgstr "Dehnen und ZusammendrÃŒcken"
+
+# "STR_COMPR"
+msgid "Stretch"
+msgstr "Dehnen"
+
+# "STR_COMPR_V"
+msgid "Stretch V"
+msgstr "Vertikal dehnen"
+
+# "STR_COMPR_H"
+msgid "Stretch H"
+msgstr "Horizontal dehnen"
+
+# "ERODE"
+msgid "Erode"
+msgstr "Erodieren"
+
+# "ERODE_SIMPLE"
+msgid "Simple erosion"
+msgstr "Einfache Erosion"
+
+# "ERODE_WHIMSICAL"
+msgid "Whimsical erosion"
+msgstr "WillkÃŒrliche Erosion"
+
+# "ERODE_RAIN"
+msgid "Water erosion"
+msgstr "Wasser-Erosion"
+
+# "DROPS"
+msgid "Drops"
+msgstr "Tropfen"
+
+# "RIB_SMOOTHING"
+msgid "Rib smoothing"
+msgstr "RippenglÃ€ttung"
+
+# "STEPS"
+msgid "Steps"
+msgstr "Schritte"
+
+# "DILATE"
+msgid "Dilate"
+msgstr "Ausweiten"
+
+# "HORIZONTAL_MIRROR"
+msgid "Horizontal mirror"
+msgstr "Horizontale Spiegelung"
+
+# "VERTICAL_MIRROR"
+msgid "Vertical mirror"
+msgstr "Vertikale Spiegelung"
+
+# "PARAMETERS"
+msgid "Parameters"
+msgstr "Parameter"
+
+# "CURRENT"
+msgid "Current"
+msgstr "Aktuell"
+
+# "SELECTED"
+msgid "Selected"
+msgstr "Selektiert"
+
+# "SELECT_DOC_TO_MERGE"
+msgid "Merging image selection"
+msgstr "Bildauswahl zusammensetzen"
+
+# "LINEARWAVES"
+msgid "Linear waves"
+msgstr "Lineare Wellen"
+
+# "CIRCULARWAVES"
+# msgid "Circular waves"
+# msgstr "Zirkulaere Wellen"
+# "PHASE"
+msgid "Phase"
+msgstr "Phase"
+
+# "PERIOD"
+msgid "Period"
+msgstr "Periode"
+
+# "AMPLITUDE"
+msgid "Amplitude"
+msgstr "Amplitude"
+
+# "ANGLE"
+msgid "Angle"
+msgstr "Winkel"
+
+# "ORIENTATION"
+msgid "Orientation"
+msgstr "Orientierung"
+
+# "DEFORMATION_AXIS"
+msgid "Deformation axis"
+msgstr "Deformationsachse"
+
+# "WAVE_SHAPE"
+msgid "Shape"
+msgstr "Form"
+
+# "ORDER"
+msgid "Order"
+msgstr "Ordnung"
+
+# "HORIZONTAL"
+msgid "Horizontal"
+msgstr "Horizontal"
+
+# "VERTICAL"
+msgid "Vertical"
+msgstr "Vertikal"
+
+# "CIRCULAR"
+msgid "Circular"
+msgstr "KreisfÃ¶rmig"
+
+# "RANDOM_VAR"
+msgid "Random var."
+msgstr "ZufÃ€llige Var."
+
+# "SINE_LBL"
+msgid "Sine"
+msgstr "Sinus"
+
+# "SINEW_TOOLTIP"
+msgid "Sine wave"
+msgstr "Sinuskurve"
+
+# "SINE_CONCAVE_LBL"
+msgid "+Sine-Concave"
+msgstr "+Sinus-Konkav"
+
+# "SINE_CONCAVEW_TOOLTIP"
+msgid "Growing wave = sine, decreasing = negative curvature X*X"
+msgstr "Wachsende Kurve = Sinus, verringern = negative KrÃŒmmung X*X"
+
+# "SINE_CONCAVE_2_3_LBL"
+msgid "+Sine 2/3, -Concave 1/3"
+msgstr "+Sinus 2/3, -Konkav 1/3"
+
+# "SINE_CONCAVEW_2_3_TOOLTIP"
+msgid "Growing wave = sine 2/3, decreasing = X*X 1/3"
+msgstr "Wachsende Kurve = Sinus 2/3, verringern = X*X 1/3"
+
+# "CONCAVE_LBL"
+msgid "Concave X*X"
+msgstr "Konkav X*X"
+
+# "CONCAVEW_TOOLTIP"
+msgid "Negative curvature wave X*X"
+msgstr "Negative KrÃŒmmungskurve X*X"
+
+# "SQUARE_LBL"
+msgid "Square"
+msgstr "Quadrat"
+
+# "SQUAREW_TOOLTIP"
+msgid "Square wave"
+msgstr "Quadratische Welle"
+
+# "TRIANGLE_LBL"
+msgid "Triangle"
+msgstr "Dreieck"
+
+# "TRIANGLEW_TOOLTIP"
+msgid "Triangular wave"
+msgstr "Dreieckige Welle"
+
+# "SIZE_LBL"
+msgid "Size"
+msgstr "GrÃ¶Ãe"
+
+# "PREVIEW_LBL"
+msgid "Preview"
+msgstr "Vorschau"
+
+# "PREVIEW64_LBL"
+msgid "Preview (<=64)"
+msgstr "Vorschau (<=64)"
+
+# "TESTPOV"
+msgid "Povray test"
+msgstr "Povray Test"
+
+# "ZOOM_LBL"
+msgid "Scale % "
+msgstr "Skalierung % "
+
+# "TILES"
+msgid "Wrap (''Tiles'')"
+msgstr "Einbinden (''Kacheln'')"
+
+# "DIG"
+msgid "Dig"
+msgstr "Graben"
+
+# "DIG_VALLEY"
+msgid "Dig a valley"
+msgstr "Ein Tal graben"
+
+# "RAISE"
+msgid "Raise"
+msgstr "Anheben"
+
+# "RAISE_MOUNT"
+msgid "Raise a mountain"
+msgstr "Einen Berg auftÃŒrmen"
+
+# "XY_DISPLACEMENT"
+msgid "XY Displacement "
+msgstr "XY Verschiebung "
+
+# "H_DISPLACEMENT"
+msgid "H Displacement "
+msgstr "H Verschiebung "
+
+# "SLOPE"
+msgid "Slope"
+msgstr "GefÃ€lle"
+
+# "DENSITY"
+msgid "Density"
+msgstr "Dichte"
+
+# "PRIMITIVE_SURFACE"
+msgid "Primitive surface"
+msgstr "Einfache FlÃ€che"
+
+# "FREQUENCY_CONTROL"
+msgid "Wave length control"
+msgstr "WellenlÃ€ngen-Kontrolle"
+
+# "FREQUENCY_ACTIVATE"
+msgid "Activate wave length control"
+msgstr "Aktiviere WellenlÃ€ngenkontrolle"
+
+# "ACTIVATE"
+msgid "Activate"
+msgstr "Aktiviere"
+
+# "DIRECT_UPDATE"
+msgid "Auto update"
+msgstr "Auto Aktualisieren"
+
+# "SHOW"
+msgid "Show"
+msgstr "Anzeigen"
+
+# "HIDE"
+msgid "Hide"
+msgstr "Verbergen"
+
+# "SHOW_DIALOG"
+msgid "Show the dialog"
+msgstr "Dialog anzeigen"
+
+# "HIDE_DIALOG"
+msgid "Hide the dialog"
+msgstr "Dialog verstecken"
+
+# "PEN_TYPE"
+msgid "Pen type"
+msgstr "Stifttyp"
+
+# "PEN_LBL"
+msgid "Continuous stroke"
+msgstr "Fortlaufender Strich"
+
+# "PEN_HF_LBL"
+msgid "Pen - height field"
+msgstr "Stift - Height field"
+
+# "PEN_CRATER_LBL"
+msgid "Pen - crater"
+msgstr "Stift - Krater"
+
+# "STROKE_LBL"
+msgid "Stroke"
+msgstr "Linie"
+
+# "STROKE_CONTROL"
+msgid "Stroke control"
+msgstr "Linien-Kontrolle"
+
+# "MODE"
+msgid "Mode"
+msgstr "Modus"
+
+# "MERGE_LBL"
+msgid "Merge"
+msgstr "ZusammenfÃŒgen"
+
+# "ON_DENSITY"
+msgid "On density"
+msgstr "On Dichte"
+
+# "ON_SIZE"
+msgid "On size"
+msgstr "On GrÃ¶Ãe"
+
+# "FADE_LBL"
+msgid "Fade"
+msgstr "Verblassen"
+
+# "BLACK"
+msgid "Black"
+msgstr "Schwarz"
+
+# "WHITE"
+msgid "White"
+msgstr "Weis"
+
+# "AVRG"
+msgid "Average"
+msgstr "Durchschnitt"
+
+# "ROUGHNESS_PEN"
+msgid "Roughness / pen"
+msgstr "Unebenheit / Stift"
+
+# "EXECUTE"
+msgid "Execute"
+msgstr "AusfÃŒhren"
+
+# "APPLY"
+msgid "Apply"
+msgstr "Anwenden"
+
+# "REPEAT"
+msgid "Repeat"
+msgstr "Wiederholen"
+
+# "TOP"
+msgid "Top"
+msgstr "Oben"
+
+# "TOP_HEIGHT"
+msgid "Height"
+msgstr "HÃ¶he"
+
+# "H"
+msgid "H"
+msgstr "H"
+
+# "VARIATION"
+msgid "Variation"
+msgstr "Variation"
+
+# "FIXED"
+msgid "Fixed"
+msgstr "Fest"
+
+# "RANDOM"
+msgid "Random"
+msgstr "ZufÃ€llig"
+
+# "YES"
+msgid "Yes"
+msgstr "Ja"
+
+# "NO"
+msgid "No"
+msgstr "Nein"
+
+# "DELETE"
+msgid "Destroy"
+msgstr "VerwÃŒsten"
+
+# "DETAILS"
+msgid "Detail"
+msgstr "Detail"
+
+# "EMPTY_LBL"
+msgid "<empty>"
+msgstr "<leer>"
+
+# "NO_VALUE"
+msgid "<no value>"
+msgstr "<kein Wert>"
+
+# "MAIN_WIN_TITLE"
+#, fuzzy
+msgid "GeoMorph 0.31 - a height field creator for Linux"
+msgstr "GeoMorph 0.30 - Ein height field Generator fÃŒr Linux"
+
+# "MAX_NOTEBOOK_PAGES_REACHED"
+msgid "Maximum page reached (99)"
+msgstr "Maximale Seite erreicht (99)"
+
+# "CANNOT_DELETE_LAST_PAGE"
+msgid "The last page cannot be destroyed"
+msgstr "Die letzte Seite kann nicht zerstÃ¶rt werden."
+
+# "PBM_FORMAT_ERR"
+msgid "Incorrect PBM format. 1st line must eq P4, P5 or P6"
+msgstr "Fehlerhaftes PBM Format. Erste Zeile muss gleich P4, P5 oder P6 sein"
+
+# "PBM_XY_ERR"
+msgid "Incorrect PBM format: not able to find the size X x Y"
+msgstr "Fehlerhaftes PBM Format:  Die GrÃ¶Ãe X x Y kann nicht gefunden werden"
+
+# "PBM_TRUNC_ERR"
+msgid "Incorrect PBM format: the file seems incomplete"
+msgstr "Fehlerhaftes PBM Format:  Die Datei scheint unvollstÃ€ndig zu sein"
+
+# "PBM_VALUE_ERR"
+msgid "Incorrect PBM format: P5 and P6 require 255 values/colors"
+msgstr "Fehlerhaftes PBM Format:  P5 und P6 erfordern 255 Werte/Farben"
+
+# "PNG_CREATE_ERR"
+msgid "Not able to create the PNG data structure"
+msgstr "Kann die PNG Datenstruktur nicht erstellen"
+
+# "PNG_WRITE_ERR"
+msgid "Not able to write the PNG file"
+msgstr "Kann die PNG-Datei nicht speichern"
+
+# "PNG_CREATE_FILE_ERR"
+msgid "Not able to create the PNG file"
+msgstr "Kann die PNG-Datei nicht erstellen"
+
+# "PNG_READ_FILE_ERR"
+msgid "PNG file unreadable"
+msgstr "PNG Datei nicht lesbar"
+
+# "NEEDS_SQUARE"
+msgid "Geomorph requires a square image"
+msgstr "Geomorph benÃ¶tigt ein quadratisches Bild"
+
+# "NEEDS_POWER2"
+msgid ""
+"Geomorph requires a square image nwith edges of 128, 256, 512, 1024, 2048 or "
+"4096 pixels"
+msgstr ""
+"Geomorph benÃ¶tigt ein quadratisches Bildmit Kanten von 128, 256, 512, 1024, "
+"2048 oder 4096 Pixeln"
+
+# "TRANSFORM_FROM_8"
+msgid "8 bits image converted to 16 bits under a new name"
+msgstr "8 Bit Bild wurde unter einem neuen Namen nach 16 Bit konvertiert"
+
+# "TRANSFORM_FROM_RGB"
+msgid "Color image converted to B&W under a new name"
+msgstr "Farbbild wurde nach schwarz/weis unter einem neuen Namen konvertiert"
+
+# "TRANSFORM_FROM_RGB_ERR"
+msgid "Not able to convert this image to B&W"
+msgstr "Bild konnte nicht nach schwarz/weis konvertiert werden"
+
+# "NO_GL_ACTIVATION"
+msgid "Not able to display the Open GL preview"
+msgstr "Die OpenGL Vorschau kann nicht angezeigt werden"
+
+# "PBM_WRITE_ERR"
+msgid "Not able to write the PBM file"
+msgstr "Die PBM-Datei konnte nicht geschrieben werden"
+
+# "JPG_CREATE_FILE_ERR"
+msgid "Not able to write the JPG file"
+msgstr "Die JPG-Datei konnte nicht geschrieben werden"
+
+# "FORMAT_OPTIONS"
+msgid "File format"
+msgstr "Dateiformat"
+
+# "INCOHERENT_EXTENSION"
+msgid "Typed extension <> chosen format"
+msgstr "Eingegebene Erweiterung <> gewÃ€hltes Format - StandardmÃ€Ãig PBM"
+
+# "NO_EXTENSION"
+msgid "<no extension>"
+msgstr "<keine Erweiterung>"
+
+# "CREATE_FILETYPE_ERR"
+msgid "Not able to allocate memory for file formats option menu ?!"
+msgstr ""
+"Kein freier Speicher fÃŒr das MenÃŒ 'Dateiformat-Optionen' verfÃŒgbar ?!"
+
+# "WARNING_MSG"
+msgid "WARNING!"
+msgstr "Warnung!"
+
+# "FAIL_MSG"
+msgid "ERROR!"
+msgstr "FEHLER!"
+
+# "ABORT_MSG"
+msgid "FATAL ERROR! The program will abort"
+msgstr "Fataler Fehler! Das Programm wird beendet!"
+
+# "SORRY_MSG"
+msgid "SORRY!"
+msgstr "Entschuldigung!"
+
+# "INFO_MSG"
+msgid "INFORMATION"
+msgstr "INFORMATION"
+
+# "UNKNOWN_EXTENSION"
+msgid "File extension <<%s>> unknown or non-existent"
+msgstr "Dateinamenserweiterung <<%s>> unbekannt oder existiert nicht"
+
+# "FILE_EXISTS"
+msgid "File %s already exists. OVERWRITE ?"
+msgstr "Datei %s existiert bereits. Ãberschreiben ?"
+
+# "FILE_NOT_EXISTS"
+msgid "File %s not found or unreadable!"
+msgstr "Datei %s konnte nicht gefunden oder gelesen werden!"
+
+# "IS_NOT_A_FILE"
+msgid "%s is not a file"
+msgstr "%s ist keine Datei"
+
+# "IS_NOT_A_DIRECTORY"
+msgid "%s is not a directory"
+msgstr "%s ist kein Verzeichnis"
+
+# "OPTION_IGNORED\n"
+msgid "Options file: <<%s>> unknown\n"
+msgstr "Konfigurationsdatei: <<%s>> unbekannt\n"
+
+# "INVALID_BLOCK\n"
+msgid "Options block <<%s>> unknown; <<%s>> used\n"
+msgstr "Konfigurationsblock <<%s>> unbekannt; <<%s>> verwendet\n"
+
+# "OPEN_RD_SET_ERR"
+msgid "Not able to open the options file %s for reading."
+msgstr "Die Konfigurationsdatei %s konnte nicht zum Lesen geÃ¶ffnet werden"
+
+# "READ_SET_ERR"
+msgid "Not able to open the options file %s."
+msgstr "Die Konfigurationsdatei %s konnte nicht geÃ¶ffnet werden."
+
+# "OPEN_WR_SET_ERR"
+msgid "Not able to open the options file %s for writing."
+msgstr "Die Konfigurationsdatei %s konnte nicht zum Lesen geÃ¶ffnet werden"
+
+# "WRITE_SET_ERR"
+msgid "Not able to write in the options file %s."
+msgstr "Es konnte nicht in die Konfigurationsdatei %s geschrieben werden."
+
+# "TEXT_EDITOR_ERR"
+msgid "Not able to launch the editor! Please check: %s"
+msgstr "Der Editor konnte nicht gestartet werden! Bitte berprÃŒfen Sie: %s"
+
+# "NO_WIDGET_FOUND\n"
+msgid "No interface widget found for %s - contact the programmer!\n"
+msgstr ""
+"FÃŒr %s wurde kein Schnittstellen-Widget gefunden - bitte kontaktieren Sie "
+"den Programmierer!\n"
+
+# "OPTIONS_FILE_LBL"
+msgid "Options file %s"
+msgstr "Konfigurationsdatei %s"
+
+# "SAVE_WITH_COMMENTS"
+msgid "Save with comments"
+msgstr "Speichern mit Kommentaren"
+
+# "FILES_LBL"
+msgid "Directory and files"
+msgstr "Verzeichnis und Dateien"
+
+# "INTERFACE_LBL"
+msgid "Interface"
+msgstr "Schnittstelle"
+
+# "APPLICATION_LBL"
+msgid "Application"
+msgstr "Anwendung"
+
+# "RENDERING_LBL"
+msgid "3D rendering"
+msgstr "3D Rendering"
+
+# "DEFAULT_DIR_LBL"
+msgid "Default directory"
+msgstr "Standard-Verzeichnis"
+
+# "DEFAULT_HF_DIR_LBL"
+msgid "Default directory (Height fields)"
+msgstr "Standard-Verzeichnis (Height Fields)"
+
+# "DEFAULT_POV_DIR_LBL"
+msgid "Default directory (Povray scenes)"
+msgstr "Standard-Verzeichnis (Povray Szenen)"
+
+# "DEFAULT_DOC_DIR_LBL"
+msgid "Default directory (documentation)"
+msgstr "Standard-Verzeichnis (Dokumentation)"
+
+# "DEFAULT_DOC_READER_LBL"
+msgid "Default HTML reader"
+msgstr "Standard HTML Browser"
+
+# "PAD_LBL"
+msgid "Dialog padding (pixels)"
+msgstr "Dialog Padding (Pixel)"
+
+# "MAIN_BAR_Y_LBL"
+msgid "Vertical position of the main menu (% of display)"
+msgstr "Vertikale Position des HauptmenÃŒs (% des Bildschirms)"
+
+# "MAIN_BAR_X_LBL"
+msgid "Horizontal position of the main menu (% of display)"
+msgstr "Horizontale Position des HauptmenÃŒs (% des Bildschirms)"
+
+# "CREATION_WINDOW_Y_LBL"
+msgid "Vertical position of the creation window (%)"
+msgstr "Vertikale Position des Arbeitsfensters (%)"
+
+# "CREATION_WINDOW_X_LBL"
+msgid "Horizontal position of the creation window (%)"
+msgstr "Horizontale Position des Arbeitsfensters (%)"
+
+# "TOOLS_WINDOW_Y_LBL"
+msgid "Vertical position of the tools window (%)"
+msgstr "Vertikale Position des Werkzeug-Fensters (%)"
+
+# "TOOLS_WINDOW_X_LBL"
+msgid "Horizontal position of the tools window (%)"
+msgstr "Horizontale Position des Werkzeug-Fensters (%)"
+
+# "DISPLAY_DOC_OFFSET_LBL"
+msgid "Horizontal offset of new documents (%)"
+msgstr "Horizontaler Ausgleich des neues Dokumentes (%)"
+
+# "HF_SIZE_PERCENT_LBL"
+msgid "Height field default size (% of display)"
+msgstr "Height Field StandardgrÃ¶Ãe (% des Bildschirms)"
+
+# "HF_SIZE_PIXELS_LBL"
+msgid "Height field default size (pixels)"
+msgstr "Height Field StandardgrÃ¶Ãe (Pixel)"
+
+# "DOC_DISPLAY_SIZE_LBL"
+msgid "Default image display size (pixels)"
+msgstr "Standard Bild-AnzeigegrÃ¶Ãe (Pixel)"
+
+# "MAX_PEN_PREVIEW_LBL"
+msgid "Maximum pen preview size (pixels)"
+msgstr "Maximale Stift-VorschaugrÃ¶Ãe (Pixel)"
+
+# "FILTER_PREVIEW_SIZE_LBL"
+msgid "Filter preview size (pixels)"
+msgstr "Filter VorschaugrÃ¶Ãe (Pixel)"
+
+# "NOISE_PREVIEW_SIZE_LBL"
+msgid "Noise preview size (pixels)"
+msgstr "Rauschen VorschaugrÃ¶Ãe (Pixel)"
+
+# "MAX_HISTORY_LBL"
+msgid "Default history size (undo / redo)"
+msgstr "Anzahl Schritte fÃŒr rÃŒckgÃ€ngig/ wiederherstellen"
+
+# "RENDERER_LBL"
+msgid "3D rendering tool (Povray...)"
+msgstr "3D Rendering Werkzeug (Povray...)"
+
+# "RENDER_WIDTH_LBL"
+msgid "Default 3D rendering width"
+msgstr "Standard 3D Render-Breite"
+
+# "RENDER_HEIGHT_LBL"
+msgid "Default 3D rendering height"
+msgstr "Standard 3D Render-HÃ¶he"
+
+# "RENDER_SCENE_LBL"
+msgid "Default rendering scene (.pov...)"
+msgstr "Standard-Szene fÃŒr Rendering (.pov...)"
+
+# "HF_OUTPUT_FOR_RENDERING_LBL"
+msgid "PNG output file name for default POV scene"
+msgstr "PNG Dateiname fÃŒr die Ausgabe der Standard POV Szene"
+
+# "OTHER_RENDER_OPTIONS_LBL"
+msgid "Other command line rendering options"
+msgstr "Andere Renderparameter fÃŒr die Kommandozeile"
+
+# "CREATING_RC_FILE"
+msgid "Creation of the option file %s"
+msgstr "Erstellen der Konfigurationsdatei %s"
+
+# "CREATING_RC_ERROR"
+msgid "Fatal error during the creation of the option file"
+msgstr ""
+"Schwerer Fehler wÃ€hrend der Erstellung der Konfigurationsdatei\n"
+"Versuchen Sie sie manuell zu erstellen, in dem Sie /usr/local/share/geomorph/"
+"n.nn/geomorphrc_en\n"
+"bearbeiten und diese Datei als Kommandozeilenparameter ÃŒbergeben:  "
+"'geomorph geomorphrc'"
+
+# "CREATING_DEFAULT_DIR"
+msgid "Creation of the default working directory?"
+msgstr ""
+"Erstellen des Standard-Arbeitsverzeichnisses?\n"
+"Geomorph benÃ¶tigt ein gÃŒltiges Arbeitsverzeichnis, standardmÃ€Ãig "
+"eingestellt auf %s\n"
+"oder in der Konfigurationsdatei 'geomorphrc' angegeben. Andernfalls ist kein "
+"Arbeiten mit Geomorph mÃ¶glich."
+
+# "CREATING_DEFAULT_DIR_ERROR"
+msgid "Fatal error during the creation of the default working directory"
+msgstr ""
+"Schwerer Fehler beim Anlegen des Standard-Arbeitsverzeichnises\n"
+"Geben Sie ein existierendes Verzeichnis in geomorphrc an\n"
+"Als Beispiel siehe /usr/local/share/geomorph/n.nn/geomorphrc_en\n"
+"Starten Sie Geomorph neu und ÃŒbergeben Sie geomorphrc als Parameter auf der "
+"Kommandozeile"
+
+# "CREATING_DESKTOP_SHORTCUTS"
+msgid "Add shortcuts on the KDE and GNOME desktops?"
+msgstr "Shortcuts auf den KDE und GNOME Desktops hinzufÃŒgen?"
+
+# "CREATING_SHORTCUTS_ERROR"
+msgid "Error during the creation of one shortcut or both"
+msgstr "Ein Fehler trat beim Anlegen eines oder beider Shortcuts auf"
+
+# "UNABLE_TO_CHANGE_DIR"
+msgid "Unable to change directory to %s"
+msgstr "Verzeichnis konnte nicht nach %s gewechselt werden"
+
+# "RENDER_WITH_CHOICE"
+msgid "Choose a scene (.pov) and render it"
+msgstr "Szene wÃ€hlen (.pov) und rendern"
+
+# "RENDER_CURRENT_SCENE"
+msgid "Render the current scene (.pov)"
+msgstr "Die aktuelle Szene (.pov) rendern"
+
+# "OVERFLOW_PROCESSING"
+msgid "Overflow processing"
+msgstr "Ãberschwemmungsprozess"
+
+# "BOUND_HEIGHT"
+msgid "Bound height"
+msgstr "UmgebungshÃ¶he"
+
+# "REVERT_SLOPE"
+msgid "Revert slope"
+msgstr "Neigung umkehren"
+
+# "KEEP_LUMINOSITY"
+msgid "Keep luminosity"
+msgstr "Beleuchtung beibehalten"
+
+# "MATH_FN"
+msgid "Mathematical transformations"
+msgstr "Mathematische Transformationen"
+
+# "POWER_LBL"
+msgid "Power (height, parameter)"
+msgstr "Kraft (HÃ¶he, Parameter)"
+
+# "BASE_LBL"
+msgid "Power (parameter, height / max)"
+msgstr "Kraft (Parameter, HÃ¶he / max)"
+
+# "LOG_LBL"
+msgid "Log (height)"
+msgstr "Log (HÃ¶he)"
+
+# "CRESTS"
+msgid "Crests"
+msgstr "Bergkamm"
+
+# "PARAMETER"
+msgid "Parameter"
+msgstr "Parameter"
+
+# "CREATED_WITH"
+msgid "Created with"
+msgstr "Erstellt mit"
+
+# "TILING"
+msgid "Tiling"
+msgstr "Tiling"
+
+# "CRATERS"
+msgid "Craters"
+msgstr "Krater"
+
+# "DRAW_CRATERS"
+msgid "Draw craters one by one"
+msgstr "Zeichne Krater nacheinander"
+
+# "DRAW_CRATER_LBL"
+msgid "Draw a crater"
+msgstr "Zeichne einen Krater"
+
+# "STANDARD_CRATER_LBL"
+msgid "Standard"
+msgstr "Standard"
+
+# "PEAK_CRATER_LBL"
+msgid "With peak"
+msgstr "Mit Gipfeln"
+
+# "IRREGULAR_CRATER_LBL"
+msgid "Irregular"
+msgstr "unregelmÃ€Ãig"
+
+# "STANDARD_CRATER_TOOLTIP"
+msgid "1. Standard crater (small ~ 7 km or -, depth 20%)"
+msgstr "1. Standard Krater (klein ~ 7 km oder -, Tiefe 20%)"
+
+# "PEAK_CRATER_TOOLTIP"
+msgid "2. Crater with central peak (big ~ 15 km, depth 12%)"
+msgstr "2. Krater mit zentraler Spitze (groÃ~ 15 km, Tiefe 12%)"
+
+# "IRREGULAR_CRATER_TOOLTIP"
+msgid "3. Irregular crater (huge ~ 30 km or +, depth 7%)"
+msgstr "3. UnregelmÃ€Ãiger Krater (groÃ~ 30 km oder +, Tiefe 7%)"
+
+# "DIAMETER_LBL"
+msgid "Diameter (% of HF)"
+msgstr "Durchmesser (% von HF)"
+
+# "DEPTH_LBL"
+msgid "Depth (% of diameter)"
+msgstr "Tiefe (% des Durchmessers)"
+
+# "DEFAULT_LBL"
+msgid "Use default (1. 20%; 2. 12%; 3. 7%)"
+msgstr "Verwende Vorgaben (1. 20%; 2. 12%; 3. 7%)"
+
+# "NOISE_CONTROL"
+msgid "Noise control"
+msgstr "Rauschkontrolle"
+
+# "SMOOTH_UNDER_CRATER"
+msgid "Smooth terrain under crater"
+msgstr "GlÃ€tte Landschaft unter Krater"
+
+# "SURFACE_NOISE"
+msgid "Surface noise to keep (pixels)"
+msgstr "Beizubehaltendes OberflÃ€chen-Rauschen (Pixel)"
+
+# "RADIUS_PIXELS"
+msgid "Radius (pixels)"
+msgstr "Radius (Pixel)"
+
+# "RADIAL_NOISE"
+msgid "Radial noise (%)"
+msgstr "Radiales Rauschen (%)"
+
+# "BOUNDARY1"
+msgid "Boundary 1"
+msgstr "Grenze 1"
+
+# "BOUNDARY2"
+msgid "Boundary 2"
+msgstr "Grenze 2"
+
+# "RANDOM_DIAMETER"
+msgid "Variation between boundaries 1 & 2"
+msgstr "Unterschied zwischen Grenzen 1 & 2"
+
+# "DEPTH_N_NOISE"
+msgid "Depth and noise"
+msgstr "Tiefe und Rauschen"
+
+# "PEAK_THRESHOLD"
+msgid "Central peak from..."
+msgstr "Zentrale Spitze von..."
+
+# "DISPLAY_AT_EACH"
+msgid "Display at each..."
+msgstr "Anzeigen an jedem..."
+
+# "SLOPE_THRESHOLD"
+msgid "Draw if slope less than..."
+msgstr "Zeichne, wenn die Neigung geringer ist als..."
+
+# "SLOPE_THRESHOLD_TOO_LOW"
+msgid "n%2d craters drawn over %2dnIncrease your slope threshold to draw more"
+msgstr ""
+"n%2d Krater gezeichnet ÃŒber %2dnErhÃ¶hen Sie den Neigungsgrad um mehr zu "
+"zeichnen"
+
+# "GIANT_CAUSEWAY"
+msgid "Giant Causeway"
+msgstr "riesiger Damm"
+
+# "BORDER"
+msgid "Border"
+msgstr "Abgrenzung"
+
+# "TYPE_LBL"
+# msgid "Type"
+# msgstr "Typ"
+# "QUANTITY_LBL"
+msgid "Quantity"
+msgstr "Menge"
+
+# "OPEN_CAMERA_FILE_ERR"
+msgid "Not able to open 'camera.inc' file for writing"
+msgstr "Kann Datei 'camera.inc' nicht zum Schreiben Ã¶ffnen"
+
+# "CAMERA"
+msgid "Camera"
+msgstr "Kamera"
+
+# "SPACING"
+msgid "Spacing"
+msgstr "Leerraum"
+
+# "SPACING_CONTROL"
+msgid "Spacing control"
+msgstr "Leerraum-Kontrolle"
+
+# "UNEXPECTED_OPTION_IN"
+msgid "Unexpected option in %s; contact the programmer!"
+msgstr "Unerwartete Option in %s; kontaktieren Sie den Programmierer!"
+
+# "EFFECT"
+msgid "Effect"
+msgstr "Effekt"
+
+# "SPEED_QUALITY"
+msgid "Speed vs Quality"
+msgstr "Geschwindigkeit vor QualitÃ€t"
+
+# "SPEED"
+msgid "Speed"
+msgstr "Geschwindigkeit"
+
+# "QUALITY"
+msgid "Quality"
+msgstr "QualitÃ€t"
+
+# "ALWAYS"
+msgid "Always"
+msgstr "Immer"
+
+# "NEVER"
+msgid "Never"
+msgstr "Nie"
+
+# "ALL"
+msgid "All"
+msgstr "Alle"
+
+# "NONE"
+msgid "None"
+msgstr "Nichts"
+
+# "LOW"
+msgid "Low"
+msgstr "Gering"
+
+# "VERY_LOW"
+msgid "Very low"
+msgstr "Sehr gering"
+
+# "MEDIUM"
+msgid "Medium"
+msgstr "Mittel"
+
+# "HIGH"
+msgid "High"
+msgstr "Hoch"
+
+# "SMOOTHING"
+msgid "Smoothing"
+msgstr "GlÃ€tten"
+
+# "GAUSSIEN"
+msgid "Gaussian"
+msgstr "GauÃ"
+
+# "TIP"
+msgid "TIP"
+msgstr "Gipfel"
+
+# "FAULT_LBL"
+msgid "Fault"
+msgstr "ZerklÃŒftung"
+
+# "FAULTS"
+msgid "Faults"
+msgstr "ZerklÃŒftungen"
+
+# "DRAW_FAULTS"
+msgid "Draw faults one by one"
+msgstr "Zeichne ZerklÃŒftungen nacheinander"
+
+# "FAULT_PEN"
+msgid "Pen - fault"
+msgstr "Stift - ZerklÃŒftung"
+
+# "DIFFERENCE_IN_ALTITUDE"
+msgid "Difference in altitude"
+msgstr "Unterschied in HÃ¶he"
+
+# "FAULT_LINE"
+msgid "Fracture line"
+msgstr "ZerklÃŒftungslinie"
+
+# "SUBDIVISION_STEPS"
+msgid "Subdivision steps"
+msgstr "Unterteilungsschritte"
+
+# "FAULT_RANDOM_VARIATION"
+msgid "Random variation of subdivision points"
+msgstr "ZufÃ€llige Variation von Unterteilungspunkten"
+
+# "FAULT_WRAPPING"
+msgid "Wrapping in the fault axis"
+msgstr "An der ZerklÃŒftungsachse falten"
+
+# "CRACKS"
+msgid "Cracks"
+msgstr "Spalten"
+
+# "LENGTH_LBL"
+msgid "Length"
+msgstr "LÃ€nge"
+
+# "CONFIRM_CHANGES"
+msgid "Confirm changes?"
+msgstr "Ãnderungen bestÃ€tigen?"
+
+msgid "Draw cracks one by one"
+msgstr "Spalten nacheinander zeichnen"
+
+msgid "Accept & Refresh"
+msgstr "Akzeptieren und aktualisieren"
+
+msgid "Auto Accept & Refresh"
+msgstr "Automatisch akzeptieren und aktualisieren"
+
+# New strings in geomorph-0.23 - 2005-02
+# *** 1. "geomorphrc" options part
+msgid "3D preview"
+msgstr "3D Vorschau"
+
+msgid "3D mesh size (in nodes on one edge of the HF)"
+msgstr "3D NetzgrÃ¶Ãe (in Knoten an einer Ecke des HF)"
+
+msgid "Default 3D mesh size when drawing (in nodes)"
+msgstr "Standard 3D NetzgrÃ¶Ãe beim zeichnen (in Knoten)"
+
+msgid "Default preview size (in pixels)"
+msgstr "Standard-VorschaugrÃ¶Ãe (in Pixeln)"
+
+msgid "Automatic update (FALSE => the user must click to refresh)"
+msgstr ""
+"Automatisches Aktualisieren (unwahr => der Benutzer muss zum aktualisieren "
+"klicken)"
+
+msgid "Show the camera controls on startup"
+msgstr "Kamera-Kontrollinstrumente beim Programmstart anzeigen"
+
+msgid "Default field of view, in degrees"
+msgstr "Standard-Sichtfeld, in Grad"
+
+msgid "Default relative distance of the camera"
+msgstr "Standard Relativ-Entfernung der Kamera"
+
+msgid "Default camera back-front rotation (X)"
+msgstr "Standard Kamera Vor- u. RÃŒckwÃ€rtsdrehung (X)"
+
+msgid "Default camera right-left rotation (Y)"
+msgstr "Standard Kamera Rechts- u. Linksdrehung (Y)"
+
+msgid "Default aspect ratio (width / length)"
+msgstr "VerhÃ€ltnis Standardaussehen (Breite/ LÃ€nge)"
+
+# *** End 1. "geomorphrc" options part
+msgid "Rain erosion"
+msgstr "Regen-Erosion"
+
+msgid "Dunes"
+msgstr "DÃŒnen"
+
+msgid "Ripples"
+msgstr "Riffel"
+
+msgid "Gravity erosion"
+msgstr "Gravitations-Erosion"
+
+msgid "Oriented gravity erosion"
+msgstr "ausgerichtete Gravitations-Erosion"
+
+msgid "Fluvial erosion"
+msgstr "Flussartige Erosion"
+
+msgid "Wind"
+msgstr "Wind"
+
+msgid "Wind speed"
+msgstr "Windgeschwindigkeit"
+
+msgid "Direction"
+msgstr "Richtung"
+
+msgid "North"
+msgstr "Norden"
+
+msgid "South"
+msgstr "SÃŒden"
+
+msgid "East"
+msgstr "Osten "
+
+msgid "West"
+msgstr "Westen"
+
+# New strings, after March the 11th, 2005
+# For all the "filter" dialogs
+msgid ""
+"There is no open document\n"
+"to filter with"
+msgstr ""
+"Es ist kein Dokument geÃ¶ffnet\n"
+"zum filtern"
+
+# For the "save / discard all" dialog
+msgid "Exiting Geomorph"
+msgstr "Geomorph verlassen"
+
+msgid "These documents haven't been saved"
+msgstr "Dieses Dokument wurde noch nicht gespeichert"
+
+msgid "Click on "
+msgstr "Klicken Sie "
+
+msgid " for those you want to save"
+msgstr " fÃŒr die, die Sie speichern mÃ¶chten"
+
+msgid "Discard all and quit"
+msgstr "Alles verwerfen und beenden"
+
+msgid "Return"
+msgstr "zurÃŒck"
+
+msgid "Stop the scene rendering"
+msgstr "beende den Rendering-Prozess"
+
+msgid ""
+"Not able to find the document to close!\n"
+"Click on a document window to activate the related document"
+msgstr ""
+"Kann das zu schlieÃende Dokument nicht finden!!\n"
+"Klicken Sie auf das Dokumentfenster, um das entsprechende Dokument zu "
+"aktivieren"
+
+# "THRESHOLD"
+#, fuzzy
+msgid "Slope threshold"
+msgstr "Schwellenwert"
+
+# "SMOOTH"
+#, fuzzy
+msgid "Smooth before"
+msgstr "GlÃ€tten"
+
+# "REFRESH"
+#, fuzzy
+msgid "Refine crests"
+msgstr "Aktualisieren"
+
+# "CAMERA"
+#, fuzzy
+msgid "Camera 1"
+msgstr "Kamera"
+
+# "CAMERA"
+#, fuzzy
+msgid "Camera 2"
+msgstr "Kamera"
+
+# "CAMERA"
+#, fuzzy
+msgid "Camera 3"
+msgstr "Kamera"
+
+# "CAMERA"
+#, fuzzy
+msgid "Camera 4"
+msgstr "Kamera"
+
+# "CAMERA"
+#, fuzzy
+msgid "Camera 5"
+msgstr "Kamera"
+
+#, fuzzy
+msgid "Default camera right-left displacement"
+msgstr "Standard Kamera Rechts- u. Linksdrehung (Y)"
+
+# "RENDER_HEIGHT_LBL"
+#, fuzzy
+msgid "Default camera height"
+msgstr "Standard 3D Render-HÃ¶he"
+
+# "FILETXT"
+#, fuzzy
+msgid "Fill"
+msgstr "Datei"
+
+# "BOUND_HEIGHT"
+#, fuzzy
+msgid "Filling height"
+msgstr "UmgebungshÃ¶he"
+
+# "SELECTED"
+#, fuzzy
+msgid "Selection mode"
+msgstr "Selektiert"
+
+# "REPEAT"
+#, fuzzy
+msgid "Replace"
+msgstr "Wiederholen"
+
+# "NOISE_CONTROL"
+#, fuzzy
+msgid "Noise exponent"
+msgstr "Rauschkontrolle"
+
+msgid "Povray output prefix"
+msgstr "Povray Ausgabe-Prefix"
+
+# Added 2005-10-11
+msgid ""
+"OpenGL not found, preview not available!\n"
+"Please check in /etc/X11/xorg.conf\n"
+"or /etc/X11/XF86Config\n"
+"if the glx module is loaded"
+msgstr ""
+"OpenGL wurde nicht gefunden, Vorschau nicht möglich!\n"
+"Bitte kontrollieren Sie unter /etc/X11/xorg.conf\n"
+"oder /etc/X11/XF86Config\n"
+"ob das glx-Modul geladen ist"
+
+msgid ""
+"Error creating GtkGLArea!\n"
+"Preview not available!"
+msgstr ""
+"Fehler beim erzeugen von GtkGLArea!\n"
+"Vorschau nicht verfügbar!"
+
+# Added 2005-11-07
+msgid "Hardware acceleration for OpenGL (DRI)"
+msgstr "Hardware acceleration for OpenGL (DRI)"
+
+# Added 2005-11-25
+msgid "You'll be asked to save the document before cloning it."
+msgstr "You'll be asked to save the document before cloning it."
+
+# "VARIATION"
+#, fuzzy
+msgid "Separation"
+msgstr "Trennung"

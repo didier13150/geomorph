@@ -1,0 +1,566 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Tutoriel "Mer et Lune"</title>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <meta name="author" content="Patrice St-Gelais">
+  <meta name="description"
+ content="Tutoriel destin&eacute; aux utilisateurs de Geomorph">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><b><i>Geomorph - Le tutoriel
+"Mer et Lune"<br>
+</i></b></big></big> <b><i> </i></b><br>
+<b><i><big>Les sujets abord&eacute;s</big></i></b>
+<ul>
+  <li>Cr&eacute;er des crat&egrave;res &agrave; l'aide d'une "pluie de
+m&eacute;t&eacute;orites"</li>
+  <li>Utiliser un image de relief comme "carte de bosses" ("bump
+map") sur une sph&egrave;re<br>
+  </li>
+  <li>Utiliser la subdivision #2 avec un param&egrave;tre de
+distribution &eacute;lev&eacute;<br>
+  </li>
+  <li>&Eacute;roder un terrain avec une combinaison d'"&eacute;rosion
+fantaisiste", de pluie et de "cr&ecirc;tes"</li>
+  <li>&Eacute;lever les parties basses d'un terrain &agrave; l'aide de
+la transformation logarithmique<br>
+  </li>
+</ul>
+<big><i><b>La composition de la sc&egrave;ne</b></i></big><br>
+<br>
+Le r&eacute;sultat vis&eacute; est un satellite imaginaire gravitant
+autour d'une plan&egrave;te imaginaire sans atmosph&egrave;re visible.
+Sur la plan&egrave;te se trouve un oc&eacute;an d'un liquide
+r&eacute;fl&eacute;chissant, qui semble avoir &eacute;rod&eacute; le
+terrain (peut-&ecirc;tre y-a-t-il une atmosph&egrave;re, finalement?).
+Bref, regardez le r&eacute;sultat.<br>
+<br>
+Le centre d'int&eacute;r&ecirc;t est le satellite avec ses
+crat&egrave;res. &nbsp;La r&eacute;flexion du satelllite sur
+l'oc&eacute;an augmente l'impact de l'image. Pour mettre en
+&eacute;vidence le reflet, nous avons besoin d'un espace
+d&eacute;gag&eacute; suivant l'axe du regard, ou une vall&eacute;e. Cet
+espace peut aussi &ecirc;tre vu comme un chemin conduisant l'oeil au
+centre d'int&eacute;r&ecirc;t.<br>
+<br>
+Le satellite est une sph&egrave;re sur laquelle nous "enroulons" une
+image de relief Geomorph. L'image agit comme une transformation de la
+normale. Dans le langage de Povray, c'est une normale "bump map"
+(d&eacute;sol&eacute; pour l'anglais - toute suggestion de traduction
+est la bienvenue!).<br>
+<br>
+La lumi&egrave;re est tamis&eacute;e pour donner un effet
+de nuit<br>
+<i><b><br>
+<big>Le r&eacute;sultat</big></b></i><br>
+<br>
+<div align="center"><a name="Final_result"></a><img src="../render7.jpg"
+ alt="Sea and Moon" height="480" width="640"> <br>
+</div>
+<br>
+<big><i><b>Les &eacute;tapes<br>
+</b></i></big><br>
+Ce tutoriel est divis&eacute; en deux parties, l'une pour <a
+ href="#A._Building_the_moon">construire le satellite</a>, l'autre pour
+<a href="#B._Creating_the_final_scene">produire la sc&egrave;ne finale</a>.<br>
+<br>
+La premi&egrave;re partie utilise la d&eacute;finition de
+sc&egrave;ne <i>moon.pov</i>, la seconde est rendue avec <i>sea_n_moon.pov.</i>&nbsp;
+Les deux d&eacute;finitions de sc&egrave;nes sont fournies avec
+Geomorph , version 0.12 ou plus.<br>
+<br>
+<big><i><b><a name="A._Building_the_moon"></a>A. Construction du
+satellite</b></i></big><br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b>1. Cr&eacute;ation de l'image de relief</b><br>
+      <br>
+Cr&eacute;ez une image de relief pas trop accident&eacute;e. Un relief
+lisse donne des crat&egrave;res plus r&eacute;alistes.<br>
+      <br>
+      <div align="left"><img src="tools_moon_step1.jpg" alt=""
+ align="left" height="380" width="241"> L'algorithme de subdivision #1
+avec ses param&egrave;tres par d&eacute;faut convient parfaitement.<br>
+      <br>
+      </div>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img
+ src="../doc_moon_step1.jpg" alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_moon_step1.jpg" alt="" height="255"
+ width="256"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>2. Cr&eacute;ation d'une plaine &agrave;
+l'aide de la transformation de puissance</b> <br>
+      <br>
+Les crat&egrave;res ont un air plus naturel sur une plaine. La
+transformation de puissance permet d'en obtenir une en diminuant
+l'altitude des parties les plus basses, sans toucher aux sommets.<br>
+      <br>
+      <div align="center">
+      <div align="left"><img src="tools_moon_step2.jpg" alt=""
+ align="left" height="419" width="277"> Un exposant de 3 suffit ici
+pour donner le r&eacute;sultat escompt&eacute;.</div>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img
+ src="../doc_moon_step2.jpg" alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_moon_step2.jpg" alt="" height="257"
+ width="256"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3. Ajustement de la densit&eacute; de l'image
+pour permettre le creusage des crat&egrave;res</b><br>
+      <br>
+      <div align="left"><img src="tools_moon_step3.jpg" alt=""
+ align="left" height="486" width="232"> </div>
+Les zones de basse altitudes sont un peu trop fonc&eacute;es pour
+permettre de creuser des crat&egrave;res de fa&ccedil;on
+r&eacute;aliste. Il faut qu'il y ait un peu de sol &agrave;
+d&eacute;placer!<br>
+      <br>
+Augmentez la luminosit&eacute; et diminuez e contraste de fa&ccedil;on
+&agrave; ce que les zones basses apparaissent gris fonc&eacute;
+plut&ocirc;t que noir.<br>
+      </td>
+      <td align="center" valign="middle"><img
+ src="../doc_moon_step3.jpg" alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_moon_step3.jpg" alt="" height="254"
+ width="255"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>4. &Eacute;parpillement de
+crat&egrave;res sur le terrain</b><br>
+      <br>
+      <img src="tools_moon_step4.jpg" alt="" align="left" height="696"
+ width="230"> C'est la partie la plus amusante.<br>
+      <br>
+Cliquez sur "R&eacute;p&eacute;ter" jusqu'&agrave; ce que vous ayez
+assez de crat&egrave;res &agrave; votre go&ucirc;t.<br>
+      <br>
+Si vous cliquez sur "Appliquer" plus d'une fois, vous ne ferez que
+remplacer les 10 crat&egrave;res que vous venez de dessiner par 10
+nouveaux
+crat&egrave;res.<br>
+      <br>
+Un param&egrave;tre important dans le sous-dialogue "Diam&egrave;tre"
+est la distribution. C'est en gros l'exposant appliqu&eacute; au
+diam&egrave;tre du crat&egrave;re, choisi al&eacute;atoirement.
+&Agrave; 1, tous les diam&egrave;tres situ&eacute;s entre "Limite 1" et
+"Limite 2" ont des chances &eacute;gales d'&ecirc;tre choisis. La
+distribution des diam&egrave;tres est alors uniforme.<br>
+      <br>
+Le d&eacute;faut est 2. La distribution des diam&egrave;tres est alors
+parabolique. Il y a moins de grands crat&egrave;res, et davantage de
+petits.<br>
+      <br>
+Pour obtenir suffisamment de petits crat&egrave;res ici, une
+distribution de 8 a &eacute;t&eacute; utilis&eacute;e.<br>
+      <br>
+      <img src="../question.jpg" alt="" align="left" height="41"
+ width="42"> <small>Voici la formule, &eacute;tant donn&eacute;:<br>
+DG = le diam&egrave;tre g&eacute;n&eacute;r&eacute;, en pixels
+(d'apr&egrave;s une racine al&eacute;atoire, uniform&eacute;ment
+distribu&eacute;)<br>
+DR = le diam&egrave;tre r&eacute;sultant, en pixels<br>
+L1, L2 = les limites 1 et 2, en pixels<br>
+E = l'exposant<br>
+On normalise d'abord la diff&eacute;rence entre DG et L1, relativement
+&agrave; L2-L1, de telle sorte que cette diff&eacute;rence se situe
+entre 0 et 1. On applique l'exposant &agrave; cette valeur, puis on
+multiplie le r&eacute;sultat par L2-L1 pour reconstituer une valeur en
+pixels:<br>
+DR = [ puissance( (DG-L1)/(L2-L1), E) x (DG-L1) ] + L1<br>
+      </small><br>
+      <br>
+      <br>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img
+ src="../doc_moon_step4.jpg" alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_moon_step4.jpg" alt="" height="253"
+ width="254"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>5. Calcul et enregistrement du r&eacute;sultat</b><br>
+Calculez le r&eacute;sultat avec <i>moon.pov</i>, en cliquant <img
+ src="../../tut_desert/povchoice_icon.jpg" alt="" height="28" width="28">
+pour choisir la d&eacute;finition de sc&egrave;ne.<br>
+      <br>
+Cette d&eacute;finition n'utilise pas les param&egrave;tres de
+cam&eacute;ra calcul&eacute;s &agrave; partir de l'aper&ccedil;u,
+naturellement, puisqu'il s'agit simplement de montrer l'enroulement du
+relief autour d'une sph&egrave;re.<br>
+      <br>
+Si vous &ecirc;tes satisfait du r&eacute;sultat, sauvez-le sous <i>craters.png.</i>
+C'est le nom de l'image de relief utilis&eacute;e pour la "carte de
+bosses" ("bump map") dans <i>sea_n_moon.pov.</i><br>
+      <br>
+      <img src="../../tut_desert/question.jpg" alt="" align="left"
+ height="41" width="42"> Sous Povray 3.1, l'enroulement
+"sph&eacute;rique" &eacute;tait utilis&eacute;. Avec Povray 3.5, le
+r&eacute;sultat est &eacute;tir&eacute; et laid.
+Un enroulement "plan" a &eacute;t&eacute; utilis&eacute;. L'image
+semble
+appliqu&eacute;e perpendiculairement &agrave; l'axe Z (l'axe qui va de
+l'avant-plan &agrave; l'arri&egrave;re plan, avec la cam&eacute;ra par
+d&eacute;faut de Geomorph). Quand la cam&eacute;ra subit une rotation
+autour
+de l'axe Y (l'axe qui va du bas vers le haut), le satellite doit subir
+une rotation aussi, autrement l'image est d&eacute;form&eacute;e sur
+certains
+c&ocirc;t&eacute;s. <i>sea_n_moon.pov</i> prend cette
+difficult&eacute;
+en consid&eacute;ration, et vous devrez le faire aussi si vous
+r&eacute;utilisez
+ce code dans d'autres sc&egrave;nes. Toute suggestion ou explication
+est
+la bienvenue au sujet de ce probl&egrave;me d'"enroulement".<br>
+      </td>
+      <td align="center" valign="middle"><img src="../moon.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<big><i><b><a name="B._Creating_the_final_scene"></a><br>
+B. Cr&eacute;ation de la sc&egrave;ne finale</b></i></big><br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b>1. Cr&eacute;ation de l'image de relief</b><br>
+      <br>
+Un relief avec une grande vall&eacute;e peut &ecirc;tre
+cr&eacute;&eacute; de deux fa&ccedil;ons: en utilisant le "crayon
+relief" pour creuser la vall&eacute;e dans un terrain relativement
+uniforme, ou en employant le g&eacute;n&eacute;rateur al&eacute;atoire
+&agrave; r&eacute;p&eacute;tition jusqu'&agrave; l'obtention de la
+vall&eacute;e d&eacute;sir&eacute;e.<br>
+      <br>
+      <div align="left"><img src="tools1.jpg" alt="" align="left"
+ height="416" width="265"> Le relief &agrave; gauche a
+&eacute;t&eacute; g&eacute;n&eacute;r&eacute; en changeant la racine
+al&eacute;atoire &agrave; r&eacute;p&eacute;tition, en cliquant sur le
+bouton "Rafra&icirc;chir" (la 15e racine a &eacute;t&eacute; la bonne).
+Le param&egrave;tre de distribution a &eacute;t&eacute;
+r&eacute;gl&eacute; &agrave; une valeur &eacute;lev&eacute;e, afin
+d'accro&icirc;tre la probabilit&eacute; d'obtenir un grand espace
+d&eacute;gag&eacute;. Voir le <a
+ href="../../tut_desert/fr/Tutoriel_desert.html">tutoriel sur le
+d&eacute;sert</a> pour une explication du param&egrave;tre de
+distribution.<br>
+      <br>
+La cam&eacute;ra est r&eacute;gl&eacute;e de telle sorte que la
+vall&eacute;e devienne parall&egrave;le &agrave; l'axe de vision. La
+fl&egrave;che rouge, sur l'image de droite, montre approximativement
+o&ugrave; se trouve notre cam&eacute;ra.<br>
+&nbsp;<img src="../camera.jpg" alt="Camera" height="175" width="255"> <br>
+La sc&egrave;ne rendue avec <i>sea_n_moon.pov</i> montre
+que le plan d'eau est cach&eacute; sous le relief. Pour voir le reflet
+du satelllite, il faut accro&icirc;tre la hauteur du plan d'eau en
+modifiant
+le fichier Povray, ou encore diminuer l'altitude du fond de la
+vall&eacute;e
+en utilisant l'outil luminosit&eacute; / contraste de Geomorph.<br>
+      <br>
+      <div align="center"><img src="../render1-small.jpg" alt=""
+ height="240" width="320"> <br>
+      </div>
+      </div>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img src="../hf1.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../preview1.jpg" alt="" height="190" width="254"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>2. Diminution de l'altitude du fond de la
+vall&eacute;e</b><br>
+      <br>
+      <div align="center">
+      <div align="left"><img src="tools2.jpg" alt="" align="left"
+ height="489" width="233"> Modifions la luminosit&eacute; du relief
+plut&ocirc;t que la hauteur du plan d'eau. Une correction de
+luminosit&eacute; de -12 suffit pour nos besoins.<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+Le r&eacute;sultat est meilleur, mais le relief n'a pas encore un air
+&eacute;rod&eacute;.<br>
+      <br>
+      <div align="center"><img src="../render2-small.jpg" alt=""
+ height="240" width="320"> <br>
+      </div>
+      </div>
+      <div align="center"> </div>
+      </div>
+      <div align="center"> </div>
+      </td>
+      <td align="center" valign="middle"><img src="../hf2.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../preview2.jpg" alt="" height="190" width="254"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3. Pr&eacute;paration du terrain &agrave;
+l'&eacute;rosion avec la pluie, en utilisant l'&eacute;rosion
+"fantaisiste"</b><br>
+      <br>
+      <div align="left"><img src="tools3b.jpg" alt="" align="left"
+ height="603" width="303"> </div>
+Un terrain &eacute;rod&eacute; de fa&ccedil;on r&eacute;aliste montre
+des "c&ocirc;tes". L'&eacute;rosion par la pluie offerte par Geomorph
+donne des canaux fins, qui ne produisent pas de "c&ocirc;tes". Ces
+"c&ocirc;tes" peuvent &ecirc;tre approxim&eacute;es en recourant
+&agrave; l'"&eacute;rosion fantaisiste".<br>
+      <br>
+Les param&egrave;tres par d&eacute;faut conviennent ici.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">Vous
+devez ajuster le rayon et le lissage des c&ocirc;tes &agrave; la
+grandeur de l'image. Le d&eacute;faut de 6 et 2 pour une image de
+512x512 pixels se traduit par 3 et 1 pour une image de 256x256, 12 et 4
+pour 1024x1024, et ainsi de suite. <br>
+      <br>
+      <img src="../question.jpg" alt="" align="left" height="41"
+ width="42"> Ce processus n'a rien &agrave; voir avec l'&eacute;rosion,
+except&eacute; une ressemblance &eacute;loign&eacute;e. Il a
+&eacute;t&eacute; d&eacute;couvert par hasard, en exp&eacute;rimentant
+avec les variations de pente.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">Pour
+otenir un un r&eacute;sultat vraiment bizarre, utilisez un rayon
+de 20, en supposant une image de 512x512, d&eacute;placez
+l'&eacute;chelle "M&eacute;lange" vers "R&eacute;sultat", puis
+accroissez le contraste avec l'outil luminosit&eacute; / contraste. Si
+vous trouvez un usage pour le r&eacute;sultat, &eacute;crivez-moi!<br>
+      </td>
+      <td align="center" valign="middle"><img src="../hf3b.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../preview3b.jpg" alt="" height="190" width="254"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>4. Ajustement de la luminosit&eacute; et du
+contraste</b><br>
+      <br>
+      <img src="tools4.jpg" alt="" align="left" height="489" width="233">Le
+contraste de l'image est trop faible, il ne vaut m&ecirc;me pas la
+peine de calculer la sc&egrave;ne. Les r&eacute;glages propos&eacute;s
+dans l'outil luminosit&eacute; / contraste donnent un fond de
+vall&eacute;e
+noir ou &agrave; peu pr&egrave;s noir.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">Il
+est pr&eacute;f&eacute;rable de cliquer sur le bouton "Accepter"
+dans tous les outils, plut&ocirc;t que de compter sur l'acceptation
+automatique des changements, au moins tant que Geomorph sera en version
+alpha ou beta. Des incoh&eacute;rences ont &eacute;t&eacute;
+observ&eacute;es lorsqu'un nouveau document est ouvert ou
+cr&eacute;&eacute; et que les changements du document courant n'ont pas
+&eacute;t&eacute; accept&eacute;es.<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+Le r&eacute;sultat n'est pas mauvais, mais est un peu &eacute;trange.
+L'&eacute;rosion par la pluie fera dispara&icirc;tre la plupart des
+"trous" ou "boucles" qui laissent cette impression
+d'&eacute;tranget&eacute;.<br>
+      <br>
+      <div align="center"><img src="../render4-small.jpg" alt=""
+ height="240" width="320"> <br>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../hf4.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../preview4.jpg" alt="" height="190" width="254"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>5. &Eacute;rosion par la pluie</b><br>
+      <br>
+      <img src="tools5.jpg" alt="" align="left" height="334" width="215">L'&eacute;rosion
+par la pluie est un processus simple mais lent. Il
+&eacute;parpille des gouttes d'eau al&eacute;atoirement sur la surface
+du sol, et laisse ces gouttes descendre en d&eacute;pla&ccedil;ant de
+la
+terre tant que la pente n'est pas nulle. Le processus n'additionne pas
+les
+gouttes pour cr&eacute;er des rigoles et des ruisseaux (pas encore!).<br>
+      <br>
+Ici 300000 gouttes ont &eacute;t&eacute; jet&eacute;es sur le
+sol. Peut-&ecirc;tre vous satisferez-vous de moins, en particulier si
+votre ordinateur est lent! Cliquez trois fois sur
+"R&eacute;p&eacute;ter" pour obtenir ce r&eacute;sultat.<br>
+      <br>
+Nous sommes partis d'une image de 512x512 pixels. Pour une image de
+256x256, 75000 gouttes donneront le m&ecirc;me r&eacute;sultat. Pour
+une
+image de 1024x1024, ce sera 4 x 300000 gouttes.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">Cliquer
+sur "R&eacute;p&eacute;ter" une fois &eacute;quivaut &agrave;
+cliquer sur "Appliquer", mais cliquer sur "Appliquer" plusieurs fois ne
+donnera jamais plus de 100000 gouttes, puisque l'image originale est
+alors r&eacute;utilis&eacute;e comme point de d&eacute;part. <br>
+      <br>
+Le r&eacute;sultat para&icirc;t plus naturel maintenant. Cependant,
+l'outil "Cr&ecirc;tes" nous donnera une image plus douce.<br>
+      <br>
+      <div align="center"><img src="../render5-small.jpg" alt=""
+ height="240" width="320"> <br>
+      </div>
+      <br>
+      </td>
+      <td valign="top"><img src="../hf5.jpg" alt="" height="256"
+ width="256"> <br>
+      <br>
+      <img src="../preview5.jpg" alt="" height="190" width="254"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>6. Utiliser l'outil "Cr&ecirc;tes" pour
+adoucir le terrain &eacute;rod&eacute;</b><br>
+      <br>
+      <img src="tools6.jpg" alt="" align="left" height="334" width="215">L'outil
+"Cr&ecirc;tes" produit un genre d'&eacute;rosion par
+gravit&eacute;, en r&eacute;p&eacute;tant des micro-affaissements. Des
+parties du sol tombent sur des parties de plus basse altitude. Des
+cr&ecirc;tes &eacute;mergent l&agrave; o&ugrave; la pente est nulle et
+l'altitude est &agrave; son maximum.<br>
+      <br>
+Contrairement &agrave; l'&eacute;rosion par la pluie, cette
+transformation entra&icirc;ne une perte de sol, si bien que l'altitude
+moyenne du relief diminue.<br>
+      <br>
+R&eacute;glez le nombre de r&eacute;p&eacute;titions au niveau
+d&eacute;sir&eacute;, remettez &agrave; 0 et recommencez si vous
+n'&ecirc;tes pas satisfait.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">L'application
+des trois transformations d'&eacute;rosion ainsi que
+l'ordre dans lequel elles sont utilis&eacute;es dans ce tutoriel
+(fantaisiste - pluie - cr&ecirc;tes) n'ont rien de n&eacute;cessaire.
+De nombreuses variantes peuvent donner des r&eacute;sultats
+int&eacute;ressants. Exp&eacute;rimentez!<br>
+      <br>
+Voici le r&eacute;sultat avec 6 r&eacute;p&eacute;titions:<br>
+      <br>
+      <div align="center"><img src="../render6-small.jpg" alt=""
+ height="240" width="320"> <br>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../hf6.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../preview6.jpg" alt="" height="190" width="254"> <br>
+      <br>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <td valign="top"><b>7. Utilisation de la transformation
+logarithmique pour cr&eacute;er un &eacute;tang</b><br>
+      <br>
+      <img src="tools7.jpg" alt="" align="left" height="420" width="278">
+      <a href="#Final_result">L'image propos&eacute;e</a>, au
+d&eacute;but de ce tutoriel, montre un &eacute;tang avec un rivage non
+accident&eacute;. Une l&eacute;g&egrave;re augmentation de l'altitude
+du rivage &agrave; l'entr&eacute;e de la baie obtenue apr&egrave;s
+l'&eacute;tape 6 aura pour effet de fermer la baie et d'en faire un
+&eacute;tang. <br>
+      <br>
+La transformation logarithmique r&eacute;alisera ce changement. Elle
+&eacute;l&egrave;ve les parties les plus basses du relief sans
+&eacute;lever les parties les plus hautes. Pensez &agrave; la forme
+d'une courbe logarithmique pour en comprendre l'effet sur l'altitude.<br>
+      <br>
+Le param&egrave;tre est interpr&eacute;t&eacute; comme un pourcentage.
+Utiliser 0,5 sur un maximum de 10 signifie que 5% du r&eacute;sultat de
+la transformation logarithmique sera fusionn&eacute; avec 95% de
+l'image orgininale. 0,5 est suffisant ici, &agrave; moins de
+d&eacute;sirer un effet diff&eacute;rent.<br>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img src="../hf7.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../preview7.jpg" alt="" height="190" width="254"> <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+&Eacute;crit en octobre 2003.<br>
+<br>
+<a href="../../doc_index_fr.html"><img src="../GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_fr.html">Retour &agrave; l'index de la
+documentation</a><br>
+<br>
+</body>
+</html>

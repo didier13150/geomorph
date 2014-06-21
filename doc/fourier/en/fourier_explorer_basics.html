@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html style="direction: ltr;" lang="en"><head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>Geomorph's Fourier Explorer Basics</title>
+
+<meta content="Patrice St-Gelais" name="author">
+<meta content="Basic explanations for using the Geomorph's Fourier Explorer" name="description">
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen"></head>
+<body>
+<center>
+<div id="header"></div>
+<big><iframe src="../../navigation_en.html" marginwidth="0" marginheight="0" frameborder="0" height="80" scrolling="no" width="800">
+</iframe></big></center>
+<big><strong style="font-style: italic;"><img style="border: 1px solid ; width: 34px; height: 34px;" alt="" src="../fourier_icon.png" hspace="2" vspace="0">The
+Geomorph's Fourier Explorer</strong></big><br>
+<br style="font-style: italic; font-weight: bold;">
+<span style="font-style: italic; font-weight: bold;">What
+is the Fourier Explorer?</span><br>
+<br>
+The Fourier Explorer is a tool provided by Geomorph for
+processing a height field with the&nbsp;Fourier transform. It
+allows to
+fine tune the frequencies of the height field, or of any other image editable with Geomorph, and to see the result
+on-the-fly.<br>
+<br style="font-style: italic; font-weight: bold;">
+<span style="font-style: italic; font-weight: bold;">What
+are the frequencies of an image?</span><br>
+<br>
+Consider
+a frequency as a level of detail. High frequencies (or short wave
+lengths) mean tiny details,
+low frequencies (or large wave lengths) mean huge structures.<br>
+<br>
+<span style="font-style: italic; font-weight: bold;">What
+is a Fourier transform?</span><br>
+<br>
+Joseph
+Fourier (1768-1830) is a French mathematician who postulated that any function can
+be decomposed in a sum of simple periodic functions, like sine or
+cosine. A sum of this kind is called a Fourier series.<br>
+<br>
+So, a
+Fourier transform takes data in the "spatial domain" (a sound, a
+picture, a height field, whatever else), and transforms it in the
+"frequency domain", which refers to the sum of periodic functions.<br>
+<br>
+It's easier to understand with a recognizable image than with a height field, so we'll show it with the
+picture of Bouboule the Cat.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td>
+<div style="text-align: center;"><a href="../bouboule512.png"><img style="border: 2px solid ; width: 256px; height: 256px;" alt="" src="../Bouboule256.jpg"></a><br>
+The "spatial domain" of Bouboule the Cat<br>
+</div>
+<div style="text-align: center;"><small><span style="font-style: italic;">Right-click on the image to
+download a 512x512 16-bit png version, usable in Geomorph.</span></small></div>
+</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../Bouboule_frq.jpg"><br>
+The "frequency domain" of Bouboule the Cat</td>
+</tr>
+</tbody>
+</table>
+<br>
+A displayable representation of the Fourier transform is shown at
+right.
+Actually, the center of the image coincide with the (0,0)
+coordinate of the result. It's usual to translate it half its size for
+centering the area having the most relevant information for the look of
+the original image. The center corresponds to the
+lowest frequency.<br>
+<br>
+If you apply an inverse Fourier transform to the frequency domain,
+you'll get back the spatial domain.<br>
+<br>
+A Fourier transform decomposes an image in its frequencies, but you can
+also compose an image from chosen frequencies. See this principle at
+work <a href="egg_box_tutorial.html">here</a>,
+where an "egg box" height field is generated. This
+image
+will be used in this tutorial, beside Bouboule the Cat and the usual
+default Geomorph height field.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../EggBox512.png"><img style="border: 2px solid ; width: 256px; height: 256px;" alt="" src="../EggBox256.jpg"></a><br>
+The "Egg Box" height field used in this tutorial.<br>
+</td>
+<td style="text-align: center;">
+<br>
+<img style="width: 255px; height: 256px;" alt="" src="../EggBox_frq_blowup.jpg"><br>
+The frequency domain of this image. Notice how the dots are regularly
+spaced. One would expect less dots, because there is apparently only
+one frequency. Actually the dimmer dots can be compared to the
+harmonics
+of a musical note.<br>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="../Default512.png"><img style="border: 2px solid ; width: 256px; height: 256px;" alt="" src="../Default256.jpg"></a><br>
+The "default" Geomorph height field...</td>
+<td style="text-align: center;"><img style="width: 240px; height: 240px;" alt="" src="../Default_frq_blowup.jpg"><br>
+...
+and its frequency domain. Since the spatial domain was generated with a
+pseudo-random process, the frequencies are more uniformly distributed
+than in the two other images.</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br style="font-style: italic; font-weight: bold;">
+<span style="font-style: italic; font-weight: bold;">What
+can be done with a Fourier transform? </span><br>
+<br>
+Basically:<br>
+<ul>
+<li>Nullifying the high frequencies in the frequency domain, and
+converting it back to the spatial domain, gives a smoother image.</li>
+<li>Increasing the high frequencies gives a sharper look.</li>
+<li>Nullifying the lower frequencies gives an embossed look, with
+a rather low contrast.</li>
+<li>Increasing
+the lower frequencies gives... well, with Bouboule the Cat, it exceeds
+the image dynamic range if you don't lower the contrast of the original
+image before.</li>
+</ul>
+All of this can be done with the Fourier Explorer, using a mask filter
+over the frequency domain.<br>
+<br>
+<span style="font-weight: bold; font-style: italic;">A few
+things useful to know about the Fourier Explorer interface</span><br>
+<br style="font-style: italic;">
+<span style="font-style: italic;">... instead of
+discovering them by trial-and-error</span><br>
+<ol>
+<li>The
+Fourier Explorer is a modal dialog. The Geomorph document regular
+windows are not responsive when using it. You have to quit the Fourier
+Explorer window before working in any other Geomorph window. For the
+same reason, when rendering the result of the Fourier transform, you
+have to click on the POV-Ray icon in the Fourier window, not the one in
+the document window - it's easy to click the wrong one!</li>
+<li>When you quit the dialog by closing the
+window, the changes you made are not kept. You need to click the "Keep
+and quit" button to confirm your changes.</li>
+<li>The "Preview choice"
+is what you keep when you quit the dialog. So, if you switched from the
+spatial view to the frequency view, the current height field would be
+replaced by a view of the frequency domain. This is a feature, for
+those who want to use the frequency domain representation as a terrain.
+You can undo this change in the document window, like any other change.
+</li>
+</ol>
+<span style="font-weight: bold; font-style: italic;">Using
+the mask filter</span><br style="font-weight: bold; font-style: italic;">
+<br>
+The mask filter is controlled by this tool bar, in the Fourier Explorer
+dialog: <img style="width: 164px; height: 36px;" alt="" src="../filters.png"><br>
+<br>
+The
+principle is simple: &nbsp;the red area of the mask, adjusted
+with
+sliders, is removed from the frequency domain before applying the
+inverse Fourier transform.<br>
+<br>
+Let's see how it works over Bouboule the Cat:<br>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><img style="width: 30px; height: 30px;" alt="The block filter" src="../block.png"><br>
+(1)<br>Block</td>
+<td style="text-align: center;"><img style="width: 246px; height: 246px;" alt="" src="../cat_block_mask_5.jpg"><br>
+The "Block" mask set at a 5% level over width and depth. Only the lowest
+frequencies, at the center, are kept. This smooths the image.</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_block_5.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 30px; height: 30px;" alt="The Frame filter" src="../frame.png"><br>
+(2)<br>Frame</td>
+<td style="text-align: center;"><img style="width: 241px; height: 241px;" alt="" src="../cat_frame_mask_5.jpg"><br>
+The "Frame" mask set at a 5% level. Only the higher frequencies (the
+details)
+are kept. It equals the original image, minus the smoothed image (1).</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_frame_5.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 30px; height: 30px;" alt="The Empty Box filter" src="../empty_box.png"><br>
+(3)<br>Empty<br>Box</td>
+<td style="text-align: center;"><img style="width: 248px; height: 248px;" alt="" src="../cat_empty_box_mask_5_5.jpg"><br>
+Mask set at a 5% level over width and depth, band size also at 5%. Only
+medium frequencies are kept.</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_empty_box_5_5.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 30px; height: 30px;" alt="The Ditch filter" src="../ditch.png"><br>
+(4)<br>Ditch</td>
+<td style="text-align: center;"><img style="width: 239px; height: 239px;" alt="" src="../cat_ditch_mask_5_5.jpg"><br>
+Mask and band are set at 5% the size of the frequency map. The result equals the
+original image, minus the medium frequencies (3).</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_ditch_5_5.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+Notice that the masked frequency images are blown up, as they are in
+the Fourier Explorer window, because the most relevant frequencies for
+the eye are in the center.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td><br>
+And there is more: the amplitude of
+the mask can be adjusted to reduce the effect. Furthermore, the
+amplitude can be negative. In that case, the mask becomes blue and the
+effect is reverted. For instance, if the blue mask is applied on the
+higher frequencies, the image will look sharper - or noiser if it's an
+height field.
+</td>
+<td style="text-align: center;"><img style="width: 120px; height: 120px;" alt="" src="../negative_filter.png"><br>
+<span style="font-style: italic;">The block mask
+with a negative amplitude.</span></td>
+</tr>
+</tbody>
+</table>
+<br>
+&nbsp;<br>
+<span style="font-style: italic; font-weight: bold;">Effect
+of the negative amplitude </span><span style="font-style: italic;">(block mask at 5%)</span><br>
+<br>
+The first slice of the image is the original one, the second slice
+shows the effect of the mask with a 100% amplitude, the third slice
+shows the effect of a -100% amplitude.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="vertical-align: middle; text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../default_blue_example.jpg"></td>
+<td style="text-align: center;"><img style="width: 300px; height: 225px;" alt="" src="../default_blue_preview.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_blue_example.jpg"></td>
+<td style="text-align: center;"><img style="width: 301px; height: 223px;" alt="" src="../cat_blue_preview.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold; font-style: italic;">Using
+an asymetrical mask</span><br>
+<br>
+For those who want to explore unusual effects, the mask can be
+off-center, and it can have a rectangular shape instead
+of&nbsp;square.<br>
+<br>
+To move the mask, adjust the +X and +Y sliders.<br>
+<br>
+To
+make it rectangular, uncheck the equal sign at the right of the "Width"
+and "Depth" sliders, which binds these sliders, and move them as
+required.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><img style="width: 246px; height: 246px;" alt="" src="../cat_rectangular_mask.jpg"><br>
+A rectangular mask with a 2% width and a 10% depth.</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_rectangular.jpg"></td>
+<td style="text-align: center;"><img style="width: 294px; height: 224px;" alt="" src="../cat_rectangular_preview.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 250px; height: 250px;" alt="" src="../cat_offset_mask.jpg"><br>
+An off-center 10% mask, +X=6%, +Y=5%.</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../cat_offset.jpg"></td>
+<td style="text-align: center;"><img style="width: 292px; height: 222px;" alt="" src="../cat_offset_preview.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 251px; height: 251px;" alt="" src="../default_asym_mask.jpg"><br>
+Width=10%, depth=1%, +X=5%, with the default height field.</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../default_asym.jpg"></td>
+<td style="text-align: center;"><img style="width: 297px; height: 221px;" alt="" src="../default_asym_preview.jpg"></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img style="width: 249px; height: 249px;" alt="" src="../egg_box_rectangular_mask.jpg"><br>
+Width=0% (1 pixel), depth=10%, over the "egg box" image.</td>
+<td style="text-align: center;"><img style="width: 256px; height: 256px;" alt="" src="../egg_box_rectangular.jpg"><br>
+Source at left, result at right: we can see that the horizontal waves are removed.</td>
+<td><img style="width: 296px; height: 222px;" alt="" src="../egg_box_rectangular_preview.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<span style="font-style: italic; font-weight: bold;">Other
+features of the interface</span><br>
+<br style="font-style: italic;">
+<span style="font-style: italic;">The real and the
+imaginary parts</span><br>
+<br>
+The frequency domain view shows 3 tabs, called "Real", "Imaginary" and
+"Magnitude". The result of a Fourier transform is a complex number,
+with a real part and an imaginary part. The imaginary part is composed
+by a coefficient multiplied by the square root of -1. The real part is
+related to the
+amplitude of the wave, the imaginary to its phase. The magnitude (or
+module), which is usually displayed when showing the result of a
+Fourier transform, is given by square_root( real<sup>2</sup>
++ imaginary<sup>2</sup> ). Given that the imaginary number
+is represented in a cartesian plane, X being the real part and Y being
+the imaginary part, the magnitude is the length of the vector starting
+from (0,0) to (real, imaginary), calculated with the Pythagoras formula.<br>
+<br>
+What can be done with those tabs? The mask is only applied on the
+shown tab. So, for instance, if you mask all the frequency domain with a 100%
+block mask and choose the "imaginary" tab, the result would contain
+only the effect of the real part.<br>
+<br>
+<span style="font-style: italic;">The "Reuse result" button</span><br>
+<br>
+The "Reuse result" button takes the inverse Fourier transform,
+generated after applying the current filter and displayed in the
+preview image, and replaces the input image with it, so that you can
+apply a new filter without going back to the Geomorph document window. <br>
+<br>
+<span style="font-weight: bold; font-style: italic;">Links</span><br>
+<br>
+Here are some links that explain more thouroughly the concepts related
+to the use of
+Fourier transforms with images.<br>
+<br>
+<a href="http://homepages.inf.ed.ac.uk/rbf/HIPR2/fourier.htm">Image
+Transforms - Fourier Transform</a><br>
+<a href="http://www.dspguide.com/ch24/5.htm">Fourier Image
+Analysis</a><br>
+<a href="http://support.svi.nl/wiki/FourierTransform">Fourier
+transform</a><br>
+<a href="http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/OWENS/LECT4/node2.html">Fourier
+transform theory</a><br>
+<a href="http://en.wikipedia.org/wiki/Fourier_transform">Fourier
+transform - Wikipedia, the free encyclopedia</a><br>
+<a href="http://zone.ni.com/devzone/cda/ph/p/id/121">Introduction
+to the frequency domain</a><br>
+<br>Written in April 2008<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice
+St-Gelais</a></i></p>
+<ul>
+</ul>
+<center> </center>
+<br>
+<div align="center"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3" alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body></html>

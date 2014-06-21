@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Giant_Causeway_Tutorial</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big style="font-weight: bold; font-style: italic;">Comment
+cr&eacute;er une "Chauss&eacute;e des g&eacute;ants" avec Geomorph</big></big><br>
+<br>
+<span style="font-weight: bold;">Utilisation de l'outil de
+"rel&egrave;vement des bords" et d'une "carte des eaux"</span><br>
+<br>
+<a href="Terraces_Tutorial.html">Cette page</a> montre que l'outil de
+"rel&egrave;vement des bords" <img alt="" src="../lift_edges.jpg"
+ style="width: 22px; height: 22px;"> peut &ecirc;tre utilis&eacute;
+pour cr&eacute;er des terrasses irrigu&eacute;es en superposant une
+"carte des eaux" &agrave; un terrain transform&eacute; en terrasses. <br>
+<br>
+La m&ecirc;me technique peut &ecirc;tre utilis&eacute;e pour
+am&eacute;liorer le r&eacute;alisme d'un rivage rocheux de type
+"Chauss&eacute;e des g&eacute;ants", en recouvrant de flaques d'eau le
+sommet des piliers de basalte.<br>
+<br>
+Le script <a href="../giant_causeway.pov"><span
+ style="font-style: italic;">giant_causeway.pov</span></a> est
+propos&eacute; pour ce tutoriel. C'est un d&eacute;riv&eacute; de <a
+ href="../terraces.pov"><span style="font-style: italic;">terraces.pov</span></a>
+mais qui utilise une texture rocheuse, une &eacute;chelle et un
+&eacute;clairage diff&eacute;rents.<br>
+<br>
+<div style="text-align: center;"><img alt=""
+ src="../giant_causeway_irregular_45deg.jpg"
+ style="width: 800px; height: 480px;"><br>
+</div>
+<br>
+<span style="font-weight: bold;"><br>
+&Eacute;tape 1</span> - L'exemple montr&eacute; a &eacute;t&eacute;
+r&eacute;alis&eacute; avec un terrain "Subdivision 2" <img alt=""
+ src="../subdiv2.jpg" style="width: 22px; height: 22px;"> de 1024x1024.
+Une grande image donne des fronti&egrave;res de cellulles plus
+naturelles et offre davantage de latitude pour &eacute;roder les bords
+des piliers.<br>
+<br style="font-weight: bold;">
+<div style="text-align: center;"><span style="font-weight: bold;">&Eacute;tape
+1 - Le
+terrain "Subdivision 2" standard</span><br>
+</div>
+<br>
+<div style="text-align: center;"><img alt="" src="../default.jpg"
+ style="width: 256px; height: 256px;">&nbsp; <img alt=""
+ src="../default_result.jpg" style="width: 320px; height: 240px;"><br>
+</div>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 2</span> - Le terrain
+original
+remplit presque totalement l'intervalle d'altitude (0-65535). Il faut
+un
+peu de jeu pour relever les bords des piliers les plus
+&eacute;lev&eacute;s. Choisissez l'outil
+"Luminosit&eacute; / Contraste" <img alt=""
+ src="../brightness_contrast.jpg" style="width: 22px; height: 22px;">,
+diminuez le contraste de -30 ou &agrave; peu pr&egrave;s. <br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 3</span> - Stratifiez le
+terrain
+avec l'outil "Chauss&eacute;e des g&eacute;ants" <img alt=""
+ src="../honeycomb.jpg" style="width: 22px; height: 22px;">. Ici un
+rayon de 30 a &eacute;t&eacute; utilis&eacute;, avec une largeur de
+lignes s&eacute;paratrices de 2 pixels et un rayon de lissage de 2
+pixels. Utilisez un rayon de lissage &eacute;gal ou inf&eacute;rieur
+&agrave; la largeur des lignes, autrement l'outil de rel&egrave;vement
+des bords aura de la difficult&eacute; &agrave; d&eacute;tecter les
+bords des cellulles et certain bords ne seront pas relev&eacute;s. <br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 4</span> - (Optionnelle)
+Si vous d&eacute;sirez des flaques in&eacute;gales, dans le dialogue
+"Chauss&eacute;e des g&eacute;ants", avant d'accepter la stratification
+du terrain, allez dans le sous-dialogue de fusion et m&eacute;langez la
+source avec le r&eacute;sultat en utilisant une proportion d'environ
+70% du r&eacute;sultat. Par d&eacute;faut, la proportion est de 100% du
+r&eacute;sultat plus 0% de la source. Cela ajoutera du bruit au sommet
+des piliers. <br>
+<br>
+<div style="text-align: center;"><span style="font-weight: bold;">&Eacute;tape
+4 - Pour &eacute;viter des flaques trop r&eacute;guli&egrave;res comme
+dans cette image,<br>
+m&eacute;langez la source et le r&eacute;sultat dans l'outil
+"Chauss&eacute;e des g&eacute;ants"</span><br>
+</div>
+<br>
+<div style="text-align: center;"><img alt=""
+ src="../rendered_section_regular.jpg"
+ style="width: 256px; height: 256px;"><br>
+</div>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 5</span> - La
+cr&eacute;ation de la carte des eaux: Si vous avez saut&eacute;
+l'&eacute;tape 4, clonez le terrain avec l'outil "Copiez sous un autre
+nom" dans la barre de menus <img alt="" src="../save_copy_as.jpg"
+ style="width: 22px; height: 22px;">, appelez le clone
+<span style="font-style: italic;">hf_water.png</span>. Si vous avez
+fait l'&eacute;tape 4, votre image courante ne peut pas &ecirc;tre
+utilis&eacute;e comme carte des eaux parce que le sommet des piliers
+n'est plus plat. Dans ce cas, sauvegardez votre terrain sous le nom de
+votre choix, cr&eacute;ez un nouveau terrain en r&eacute;p&eacute;tant
+les &eacute;tapes 1 &agrave; 3 et enregistrez le r&eacute;sultat sous <span
+ style="font-style: italic;">hf_water.png</span>.<br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 6</span> - Utilisez
+l'outil de rel&egrave;vement des bords <img alt=""
+ src="../lift_edges.jpg" style="width: 22px; height: 22px;"> sur le
+terrain principal, avec le rayon pr&eacute;d&eacute;fini de 20.
+Contrairement &agrave; ce qui est recommand&eacute; dans le tutoriel
+sur les terrasses, vous devez ici cocher la case "Utiliser un seuil
+pour le noir", afin que les lignes noires soient reconnues comme les
+fronti&egrave;res des cellules. L'&eacute;chelle de contr&ocirc;le du
+niveau de soul&egrave;vement appara&icirc;t apr&egrave;s avoir
+appliqu&eacute; la transformation. Utilisez un niveau de l'ordre de 5
+&agrave; 10. Ici, 7 a &eacute;t&eacute; sp&eacute;cifi&eacute;.<br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 7</span> - (Optionnelle)
+Si vous d&eacute;sirez des bords l&eacute;g&egrave;rement
+irr&eacute;guliers comme dans l'exemple montr&eacute;, utilisez
+l'"&eacute;rosion par la pluie" <img alt="" src="../rain.jpg"
+ style="width: 22px; height: 22px;"> sur le terrain principal, avec les
+r&eacute;glages propos&eacute;s.<br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 8</span> - (Optionnelle)
+Si vous avez fait l'&eacute;tape 7, certains bords de la carte des eaux
+peuvent &ecirc;tre trop larges et d&eacute;border la fronti&egrave;re
+du pilier. Utilisez l'outil de cr&ecirc;tes <img alt=""
+ src="../crests.jpg" style="width: 22px; height: 22px;"> sur <span
+ style="font-style: italic;">hf_water.png</span> pour rendre plus
+&eacute;troites les cellules de la carte des eaux. Le nombre de
+r&eacute;p&eacute;titions par d&eacute;faut, de 3, est probablement
+trop &eacute;lev&eacute;. Diminuez ce param&egrave;tre &agrave; 1.<br>
+<br>
+<div style="text-align: center;"><span style="font-weight: bold;">Une
+partie du terrain principal, apr&egrave;s que les c&ocirc;t&eacute;s
+ont &eacute;t&eacute; soulev&eacute;s et &eacute;rod&eacute;s</span><br>
+</div>
+<br>
+<div style="text-align: center;"><img alt=""
+ src="../giant_causeway__irregular_section.jpg"
+ style="width: 256px; height: 256px;"><br>
+</div>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 9</span> - Choisissez la
+cam&eacute;ra pr&eacute;d&eacute;finie 2, ex&eacute;cutez <span
+ style="font-style: italic;">giant_causeway.pov</span>.<img alt=""
+ src="../povchoice_icon.jpg" style="width: 28px; height: 28px;"><br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 10</span> - Ajustez le
+contraste avec l'outil de luminosit&eacute; / contraste&nbsp;<img alt=""
+ src="../brightness_contrast.jpg" style="width: 22px; height: 22px;">,
+si requis : Certains piliers peuvent appara&icirc;tre plus
+&eacute;lev&eacute;s que l'eau, d'autres moins &eacute;lev&eacute;s. Si
+les piliers les plus &eacute;lev&eacute;s sont sous l'eau, augmentez le
+contraste du terrain. Si les piliers les plus &eacute;lev&eacute;s sont
+au-dessus de l'eau, et les moins &eacute;lev&eacute;s sous l'eau,
+diminuez le contraste. Un changement de niveau de
+&plusmn;1 &agrave; &plusmn;5 devrait &ecirc;tre suffisant. Vous pouvez
+ex&eacute;cuter le script Povray avec diff&eacute;rents niveaux avant
+d'accepter le changement. Parfois vous pourriez aussi avoir &agrave;
+ajuster l&eacute;g&egrave;rement la luminosit&eacute;.<br>
+<br>
+<div style="text-align: center;"><span style="font-weight: bold;">Ici
+le contraste du terrain devrait &ecirc;tre diminu&eacute; pour abaisser
+le niveau de l'eau sur les piliers les plus &eacute;lev&eacute;s</span><br>
+</div>
+<br>
+<div style="text-align: center;"><img alt="" src="../wrong_contrast.jpg"
+ style="width: 516px; height: 325px;"><br>
+</div>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 11</span> - Dans le cas
+pr&eacute;sent, pour remplir l'image r&eacute;sultante avec le terrain,
+j'ai &eacute;dit&eacute; <span style="font-style: italic;">giant_causeway.pov</span>
+pour &eacute;tirer le
+terrain dans les directions X et Z par un facteur de 1.7, et
+r&eacute;duit la hauteur (Y) par un facteur de 0.7. Ces changements
+apparaissent comme des commentaires dans le script distribu&eacute;
+avec la version 0.4. N'oubliez pas de changer l'&eacute;chelle du
+terrain et de la carte des eaux en m&ecirc;me temps. Comme &agrave;
+l'habitude, les lignes &agrave; changer dans <span
+ style="font-style: italic;">giant_causeway.pov</span> se trouvent
+apr&egrave;s la ligne
+/**********/ :<br>
+<br>
+/*******************************************************************************************/<br>
+<br>
+object {hf scale &lt;1,1,1&gt; translate y*0 texture {rock3 scale 0.6}}<br>
+// object {hf scale &lt;1.7,0.7,1.7&gt; translate y*0 texture {rock3
+scale 0.6}}<br>
+<br>
+#ifdef (water)<br>
+&nbsp;&nbsp;&nbsp; object {water scale &lt;1,1,1&gt;}<br>
+//&nbsp;&nbsp;&nbsp; object {water scale &lt;1.7,0.7,1.7&gt;}<br>
+#end<br>
+<br>
+Si vous &ecirc;tes satisfait avec le facteur d'&eacute;chelle
+(c'est-&agrave;-dire, l'&eacute;chelle X = l'&eacute;chelle Y
+= l'&eacute;chelle Z), naturellement, vous n'avez pas besoin
+d'&eacute;tirer le terrain afin de remplir l'image. Diminuer l'angle de
+la cam&eacute;ra dans l'aper&ccedil;u peut faire l'affaire. <br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 12</span> - (Optionnelle)
+L'exemple montr&eacute; a subi une rotation de 45 degr&eacute;s
+&agrave; l'aide de l'outil de rotation <img alt="" src="../rotate.jpg"
+ style="width: 22px; height: 22px;">, pour obtenir un r&eacute;sultat
+moins monotone. La carte des eaux doit subir la m&ecirc;me rotation.<br>
+<br>
+Maintenant cette sc&egrave;ne pourrait (presque) &ecirc;tre
+utilis&eacute;e comme composante d'un paysage maritime.<br>
+<br>
+<br>
+<span style="font-weight: bold;">Possibilit&eacute;s
+d'am&eacute;lioration</span><br>
+<br>
+Il y a visiblement certains aspects &agrave; am&eacute;liorer:<br>
+<br>
+(1) Les piliers de basalte sont habituellement moins r&eacute;guliers.
+Une fa&ccedil;on de simuler cela serait de partir de l'outil
+"r&eacute;seau de fractures" et de remplir des cellules de distribution
+"r&eacute;guli&egrave;re - perturb&eacute;e" avec une stratification du
+terrain. Ce n'est pas possible avec la version 0.40 de Geomorph. Un
+travail pour une future version, peut-&ecirc;tre.<br>
+<br>
+(2) Les piliers de basalte pr&eacute;sente habituellement des
+craquelures, sur le plan X-Z et dans l'axe Y. Avec la version 0.40 de
+Geomorph, des craquelures ne peuvent &ecirc;tre faites que pour
+l'ensemble du terrain. Dans la r&eacute;alit&eacute;, les craquelures
+X-Z sont souvent limit&eacute;es par les fronti&egrave;res des
+cellules. Par ailleurs, les craquelures verticales (Y) pourraient
+probablement &ecirc;tre simul&eacute;es en appliquant une texture quand
+la pente est de 90 degr&eacute;s.<br>
+<br>
+(3) La pierre entourant les flaques ne para&icirc;t pas assez humide.
+Il n'est pas trop difficile de simuler de la pierre humide quand l'eau
+forme un plan unique (voyez le r&eacute;cif de granite dans <a
+ href="../../tut_cracks/fr/Tutoriel_Crevasses.html">le tutoriel sur les
+crevasses</a>).&nbsp; Mais ici, les flaques sont &agrave;
+diff&eacute;rents niveaux. Une solution serait d'utiliser une texture
+humide pour l'ensemble du rocher afin de simuler un jour de pluie...
+Plus s&eacute;rieusement, le probl&egrave;me pourrait peut-&ecirc;tre
+&ecirc;tre r&eacute;solu par une carte de textures ("texture map")
+g&eacute;n&eacute;r&eacute;e en faisant l'intersection entre le terrain
+principal et une carte des eaux un peu plus &eacute;lev&eacute;e
+(lumineuse) que l'originale. Tous les points sous la carte des eaux
+modifi&eacute;e devraient recevoir une textures humide. Une autre
+solution serait d'exp&eacute;rimenter avec une texture de pente: les
+parties humides sont g&eacute;n&eacute;ralement celles o&ugrave; la
+pente est la plus basse. <br>
+<br>
+Tout commentaire ou suggestion sont les bienvenus.<br>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+&Eacute;crit en d&eacute;cembre 2007<br>
+<br>
+<a href="../../doc_index_fr.html"><img src="../../preview/GeoMorph.jpg"
+ alt="" style="border: 2px solid ; width: 32px; height: 32px;"
+ align="left"> </a><a href="../../doc_index_fr.html">Retour &agrave;
+l'index de la documentation</a><br>
+<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a><br>
+</i></p>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a></div>
+<br>
+<br>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Tutoriel Geomorph - dessin de failles</title>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <meta name="author" content="Patrice St-Gelais">
+  <meta name="description"
+ content="Section de la documentation du logiciel Geomorph">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><b><a name="Geomorph"></a><i>Geomorph - Le tutoriel de
+cr&eacute;ation de failles <br>
+</i></b></big></big> <b><i> <br>
+</i></b>Ce tutoriel montre comment utiliser le crayon de failles pour
+tracer une faille rudimentaire, et comment en am&eacute;liorer le
+r&eacute;alisme en l'&eacute;rodant.<br>
+<br>
+<b><i> <big>Les sujets abord&eacute;s</big></i></b>
+<ul>
+  <li>L'utilisation de base du crayon de failles</li>
+  <li>L'&eacute;rosion d'une faille</li>
+  <li>L'utilisation du seuil d'&eacute;rosion pour &eacute;roder la
+faille sans &eacute;roder le reste du terrain<br>
+  </li>
+  <li>La distribution de crat&egrave;res sur le terrain,
+sans d&eacute;truire la faille<br>
+  </li>
+</ul>
+<b><i> <big>Le r&eacute;sultat</big></i></b><br>
+<br>
+<div align="center"><img src="../result1.jpg" alt="" height="480"
+ width="640"> <br>
+</div>
+<br>
+<b><i> <big><br>
+Le r&eacute;sultat - variante martienne ;-)</big></i></b><br>
+<b><i><br>
+</i></b>
+<div align="center"><b><i><img src="../result3.jpg" alt="" height="480"
+ width="640"> </i></b><br>
+</div>
+<b><i><br>
+<br>
+<big>Les &eacute;tapes</big></i></b><br>
+<br>
+Ce tutoriel utilise la d&eacute;finition de sc&egrave;ne par
+d&eacute;faut <i>simple_terrain.pov</i> fournie avec Geomorph 0.20 et
+ult&eacute;rieur.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b>1. Cr&eacute;ation de l'image de relief</b><br>
+      <br>
+      <div align="left"><img src="tool1_fr.jpg" alt="" align="left"
+ height="417" width="268"> Cr&eacute;ez un nouveau document de votre
+choix. Ici j'ai choisi une subdivision #2, avec les param&egrave;tres
+par d&eacute;faut.<br>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../doc1.jpg" alt=""
+ height="257" width="257"> <br>
+&nbsp; <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>2. Diminution du contraste</b><br>
+      <br>
+      <div align="center">
+      <div align="left"><img src="tool2_fr.jpg" alt="" align="left"
+ height="488" width="232"> Pour mettre en &eacute;vidence la
+d&eacute;nivellation cr&eacute;&eacute;e par la faille, il est
+pr&eacute;f&eacute;rable de diminuer le contraste.<br>
+      <br>
+      </div>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../doc2.jpg" alt=""
+ height="256" width="256"> <br>
+&nbsp; <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3. Dessin de la faille</b><br>
+      <br>
+Pour cet exemple, la faille est plac&eacute;e approximativement en
+diagonale. Vous pouvez ajuster sa position en d&eacute;pla&ccedil;ant
+les extr&eacute;mit&eacute;s de la ligne de contr&ocirc;le.<br>
+      <br>
+      <div align="left"><img src="tool3_fr.jpg" alt="" align="left"
+ height="714" width="283"> </div>
+      <br>
+Cochez la case "crevasses" pour g&eacute;n&eacute;rer des crevasses
+&eacute;l&eacute;mentaires. L'outil d'&eacute;rosion permettra d'en
+augmenter le r&eacute;alisme.<br>
+      <br>
+Ajustez la longueur et la largeur des crevasses selon l'effet
+d&eacute;sir&eacute;.<br>
+      <br>
+La longueur (profondeur) des crevasses est une valeur arbitraire,
+relative &agrave; la longueur des segments du niveau de subdivision
+courant.<br>
+      <br>
+La largeur des crevasses est relative au nombre de subdivisions. Une
+largeur de 1 signifie que la crevasse est faite au niveau de la
+derni&egrave;re
+subdivision, une largeur de 2 signifie que l'avant-dernier niveau de
+subdivision
+est utilis&eacute; (la crevasse sera donc plus large), et ainsi de
+suite.<br>
+      <br>
+      <img src="../light.jpg" alt="" height="42" width="42"> La partie
+"haute" d'une faille est toujours celle contenant
+le coin sup&eacute;rieur gauche (0,0). Pour inverser la
+d&eacute;nivellation,
+il faut soit d&eacute;placer la ligne de contr&ocirc;le pour que le
+point
+(0,0) se retrouve de l'autre c&ocirc;t&eacute; de la faille, soit
+changer
+le signe de la d&eacute;nivellation.<br>
+      <img src="../light.jpg" alt="" height="42" width="42"> Le nombre
+de subdivisions peut &ecirc;tre modifi&eacute; pour augmenter
+ou diminuer le d&eacute;tail de la faille. La division est binaire
+(dichotomique). Un param&egrave;tre de 10 donnera une ligne
+bris&eacute;e de puissance(2,10) = 1024 segments. Ce niveau de
+d&eacute;tail sera inutile, par exemple, sur
+un terrain de 256x256! <br>
+      <img src="../light.jpg" alt="" height="42" width="42"> La
+variation al&eacute;atoire des points de subdivision contr&ocirc;le le
+d&eacute;placement des coupures de segment, dans l'axe de la faille ou
+perpendiculairement
+&agrave; celle-ci. Les deux param&egrave;tres permettent d'augmenter ou
+de
+diminuer l'irr&eacute;gularit&eacute; de la faille.<br>
+      <img src="../light.jpg" alt="" height="42" width="42"> Le lissage
+adoucit le changement d'altitude entre le plan sup&eacute;rieur et le
+plan inf&eacute;rieur. Ce n'est pas la ligne bris&eacute;e dessinant
+la faille qui est liss&eacute;e. Le lissage est appliqu&eacute; au
+rel&acirc;chement
+de la souris.<br>
+      </td>
+      <td align="center" valign="middle"><img src="../doc3.jpg" alt=""
+ height="256" width="256"> <br>
+&nbsp; <br>
+      <img src="../preview3.jpg" alt="" height="191" width="255"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>4. &Eacute;rosion de la faille</b><br>
+      <br>
+      <img src="tool4_fr.jpg" alt="" align="left" height="334"
+ width="214"> Utilisez l'&eacute;rosion par l'eau pour augmenter le
+r&eacute;alisme
+de la faille.<br>
+      <br>
+R&eacute;p&eacute;tez l'&eacute;rosion autant de fois que
+d&eacute;sir&eacute;.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">Pour
+ajouter des gouttes, cliquez sur le bouton
+"R&eacute;p&eacute;ter". Cliquer sur le bouton "Appliquer" ne fait que
+r&eacute;appliquer le nombre de gouttes sur l'image de d&eacute;part,
+non &eacute;rod&eacute;e.<br>
+      <br>
+Comme le montre le grossissement d'un rendu Povray &agrave; droite,
+l'ensemble du terrain est &eacute;rod&eacute;. De plus, les canaux
+d'&eacute;rosion paraissent &agrave; angle droit (c'est une
+caract&eacute;ristique de la version actuelle de l'algorithme
+d'&eacute;rosion). Ce n'est pas tr&egrave;s naturel. Il serait plus
+normal que seule la faille s'affaisse.<br>
+      <br>
+Ce rendu a &eacute;t&eacute; obtenu avec les param&egrave;tres
+d'aper&ccedil;u suivants, automatiquement transf&eacute;r&eacute;s
+&agrave; la d&eacute;finition de sc&egrave;ne <i>simple_terrain.pov</i>:<br>
+      <br>
+      <div align="center"><img src="preview4.jpg" alt="" height="217"
+ width="261"> <br>
+      </div>
+      <br>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img src="../doc4.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../render4_close.jpg" alt="" height="242" width="322"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>5. &Eacute;rosion de la faille avec seuil de
+pente</b><br>
+      <br>
+      <img src="tool5_fr.jpg" alt="" align="left" height="334"
+ width="215"> Pour n'&eacute;roder que la faille, il suffit d'augmenter
+le seuil d'application de l'&eacute;rosion, de telle fa&ccedil;on que
+seules les pentes presque verticales soient &eacute;rod&eacute;es. Le
+contraste peu &eacute;lev&eacute; du terrain de d&eacute;part fait que
+seule la faille sera touch&eacute;e.<br>
+      <br>
+Cliquez sur "Remettre &agrave; 0" pour repartir de l'image originale.
+Cela fonctionne m&ecirc;me si vous avez r&eacute;p&eacute;t&eacute;
+l'&eacute;rosion plus d'une fois, pourvu que vous n'ayez pas
+cliqu&eacute; sur "Accepter".<br>
+      <br>
+Le rendu &agrave; droite a &eacute;t&eacute; obtenu en appliquant les
+100000 gouttes trois fois, sur un terrain de 512x512.<br>
+      <br>
+      <img src="../question.jpg" alt="" height="41" width="42"> Le
+seuil indique la diff&eacute;rence d'altitude (la pente)
+en-de&ccedil;&agrave; de laquelle aucune mati&egrave;re n'est
+d&eacute;plac&eacute;e d'un point &agrave; l'autre. En altitude
+absolue, la diff&eacute;rence est donn&eacute;e par 2 exposant le seuil
+choisi. Dans l'exemple donn&eacute;, il n'y a plus d'&eacute;rosion
+lorsque l'&eacute;cart entre un point et tous ses voisins est
+inf&eacute;rieur &agrave; 512, sur une &eacute;chelle de 0 &agrave;
+65535. Sur une image de 512x512, dont la hauteur relative maximale est
+aussi de
+512 (le rendu du terrain tient dans un cube), un seuil de 9
+&eacute;quivaut &agrave; une pente d'environ 76&deg; et un seuil de 10
+&agrave; 83&deg;. La
+formule pour calculer la pente limite en degr&eacute;s est la suivante:
+arctan(exposant(2,
+seuil + log2(largeur_image) - 16)).<br>
+      </td>
+      <td align="center" valign="middle">&nbsp;<br>
+      <br>
+      <img src="../result1_small.jpg" alt="" height="240" width="320"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>6. Bienvenue sur Mars!<br>
+      </b><br>
+Bien que nous ayons utilis&eacute; l'outil "&eacute;rosion par l'eau",
+le r&eacute;sultat pourrait aussi &ecirc;tre consid&eacute;r&eacute;
+comme une &eacute;rosion par gravit&eacute; (affaissement). Alors,
+qu'il y ait eu de l'eau ou non sur un tel terrain, l'&eacute;rosion est
+plausible, et rien ne nous emp&ecirc;che d'ajouter des crat&egrave;res,
+comme ceux qu'on peut voir sur une plan&egrave;te sans pluie! <br>
+      <br>
+      <img src="tool6_fr.jpg" alt="" align="left" height="774"
+ width="271"> <br>
+Dans cet exemple, 20 crat&egrave;res ont &eacute;t&eacute; sem&eacute;s
+sur la surface.<br>
+      <br>
+Le bruit de surface &agrave; conserver a &eacute;t&eacute;
+augment&eacute; de 2 &agrave; 4 pixels, autrement la surface des
+crat&egrave;res paraissait trop lisse.<br>
+      <br>
+Les crat&egrave;res appliqu&eacute;s sur de fortes
+d&eacute;nivellations ne sont pas tr&egrave;s r&eacute;alistes. Pour
+&eacute;viter de g&eacute;n&eacute;rer des crat&egrave;res sur la
+faille, il suffit d'activer le param&egrave;tre "Dessiner si pente
+inf&eacute;rieure &agrave;...".<br>
+      <br>
+La valeur choisie (10) signifie qu'un crat&egrave;re ne sera pas
+dessin&eacute; si la d&eacute;nivellation maximale sous le
+crat&egrave;re est sup&eacute;rieure &agrave; 10% de la hauteur
+maximale d'un terrain (65535).<br>
+      <br>
+L'angle de vision a &eacute;t&eacute; ajust&eacute; dans
+l'aper&ccedil;u (&agrave; droite) afin de masquer la ligne d'horizon,
+pour ne pas montrer les crat&egrave;res coup&eacute;s &agrave; la
+bordure du terrain. <br>
+      <br>
+      </td>
+      <td valign="top">
+      <div align="center"><img src="../doc5.jpg" alt="" height="256"
+ width="256"> <br>
+      </div>
+      <br>
+      <img src="../result3_small.jpg" alt="" height="240" width="320"> <br>
+      <br>
+      <div align="center"><img src="preview5.jpg" alt="" height="222"
+ width="262"> <br>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<a href="#Geomorph">Retour au d&eacute;but</a><br>
+<br>
+&Eacute;crit en avril 2004<br>
+<br>
+<a href="../../doc_index_fr.html"> <img src="../GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a>
+<a href="../../doc_index_fr.html">Retour &agrave; l'index de la
+documentation</a><br>
+<br>
+</body>
+</html>

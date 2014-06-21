@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>Utiliser Povray à partir de Geomorph</title>
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<div style="text-align: center;"><big><big><big><span
+ style="font-weight: bold;">Utilisation de Povray à partir de Geomorph</span></big></big></big><br>
+</div>
+<br>
+La raison d'être de Geomorph est de créer et d'éditer des cartes de
+relief. La création de paysages réalistes requiert aussi un logiciel
+d'illumination ("renderer" en anglais) comme Povray. Un tel logiciel
+prend l'image de relief en 2D, l'insère dans un univers en 3D et permet
+au concepteur d'ajouter des textures, un soleil, un ciel, des nuages,
+de l'eau ou d'autres objets.<br>
+<br>
+Malheureusement, Povray n'offre pas d'interface graphique. Il prend
+comme entrée des fichiers texte contenant des commandes opérant sur des
+coordonnées mathématiques, ou des "fichiers de scènes", avec
+l'extension .pov, comme montré dans le schéma plus bas.<br>
+<br>
+Les fichiers Povray peuvent être modifiés avec des éditeurs de texte.
+<a href="Geomorph%20-%20Les%20scripts%20Povray%20pr%E9d%E9finis.html">Geomorph
+offre quelques scènes prédéfinies pour faciliter le travail</a>.
+Ces pages présentent une information de base à ceux qui voudront éditer
+ces scènes afin d'expérimenter avec Povray.<br>
+<ul>
+  <li><a href="Anatomie%20-%20fichier%20Povray.html">Anatomie d'un
+fichier Povray pour utiliser Geomorph</a> expllique comment les scènes
+prédéfinies sont structurées.</li>
+  <li><a href="Texturer%20un%20relief%20Geomorph%20avec%20Povray.html">Texturer
+un paysage Geomorph avec Povray</a> montre les textures prédéfinies
+offertes par Geomorph et explique comme les utiliser.</li>
+  <li><a
+ href="Geomorph%20et%20Povray%20-%20le%20d%E9fi%20de%20la%20ligne%20d_horizon.html">Le
+défi de la ligne d'horizon</a> présente quelques techniques pour
+composer avec la ligne d'horizon, compte tenu qu'une image de relief
+est une surface finie.<br>
+  </li>
+</ul>
+<br>
+<center><img src="img0.jpg"><br>
+</center>
+<br>
+<div style="text-align: left;"><span style="font-weight: bold;"><a
+ name="How_Geomorph_launches_Povray"></a>Comment
+Geomorph exécute Povray</span><br>
+<br>
+Quand le bouton Povray <img alt="" src="../povrender_icon.jpg"
+ style="width: 28px; height: 28px;" align="middle">est cliqué, une
+commande comme celle-ci est exécutée: <br>
+<br>
+povray +I<span style="font-style: italic;">scene.pov</span> +O<span
+ style="font-style: italic;">_hfname.png</span> +P + D +FN +W480
++H640 <br>
+<br>
+Cette commande pourrait aussi être exécutée sur la ligne de commande,
+dans une console Linux. <br>
+<br>
+Avant d'exécuter la commande, Geomorph enregistre le document actif
+dans "test.png". La scène Povray prédéfinie utiliser ce nom comme
+input. De cette façon, vous pouvez voir le résultat du relief en cours
+d'édition avant de l'enregistrer sous son vrai nom, au cas où vous
+désireriez annuler les derniers changements.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="2" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;"><span
+ style="font-style: italic;">Version 0.40 et ultérieures</span><span
+ style="font-weight: bold;"><br>
+      <span style="font-weight: bold;"></span></span></span>Dorénavant
+le nom du document actif est contenu dans la variable globale <span
+ style="font-style: italic;">main_terrain</span>. Il s'agit de
+"test.png" si le document courant a des modifications non sauvegardées,
+ou le nom du document s'il a été sauvegardé.<span
+ style="font-weight: bold;"><span style="font-weight: bold;"><span
+ style="font-weight: bold;"></span><br>
+      </span></span></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Geomorph enregistre en plus les paramètres de la caméra active dans le
+fichier <span style="font-style: italic;">camera.inc</span>. <br>
+<br>
+Voici la signification des options:<br>
++I : La scène input *.pov, le fichier texte que vous pouvez éditer.<br>
++O : Le fichier output, un PNG ou un TGA.<br>
++FN: Demande de produire le résultat dans un fichier PNG (utilisez +FT
+pour TGA, et -F pour ne créer aucun fichier).<br>
++D : Affiche l'image. -D élimine l'affichage, lorsque l'intention n'est
+que de produire une image dans un fichier avec +FN ou +FT.<br>
++P : Pause après l'affichage du résultat, autrement l'affichage
+disparaît dès la fin de l'exécution.<br>
++W, +H : Largeur et hauteur, en pixels<br>
+<br>
+Les paramètres +FN, +D, +P, +W et +H peuvent être modifiés dans le
+dialogue d'options.<br>
+<br>
+À partir de la version 0.23 de Geomorph, le nom du fichier de sortie
+est constitué du nom de l'image de relief préfixé avec "geo_". Le
+préfixe peut être changé dans le dialogue d'options. Quand aucun
+préfixe n'est donné, "_" est utilisé, pour éviter d'écraser l'image de
+relief avec le fichier de sortie.<br>
+<br>
+Quand la commande Povray est tapée dans une console, en dehors de
+Geomorph, si aucun nom n'est donné au fichier de sortie et qu'une
+sortie est demandée avec l'option +FN ou +FT, le nom du fichier texte
+de la scène est utilisé. Par exemple, <span style="font-style: italic;">desert.pov</span>
+donnera <span style="font-style: italic;">desert.png</span> - alors il
+vaut mieux que votre image de relief ne s'appelle pas <span
+ style="font-style: italic;">desert_png</span> !<br>
+<br>
+Quand vous éditer un fichier Povray qui doit être exécuté à partir de
+Geomorph, il est préférable de démarrer Geomorph dans une console. De
+cette façon, les messages d'erreur de Povray s'afficheront sur la
+console.<br>
+</div>
+<div style="text-align: left;"><br>
+<br>
+Écrit en août 2005 par Patrice St-Gelais<br>
+<br>
+</div>
+<a href="../../doc_index_fr.html"> <img
+ src="../../tut_fault/GeoMorph.jpg" alt="" align="left" height="32"
+ width="32"> </a><a href="../../doc_index_fr.html">Retour à l'index de
+la documentation</a><br>
+<br>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body>
+</html>

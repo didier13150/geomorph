@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>The Sea And Moon Tutorial</title>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <meta name="author" content="Patrice St-Gelais">
+  <meta name="description" content="Tutorial for Geomorph">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><b><i>Geomorph - The Sea and Moon Tutorial<br>
+</i></b></big></big><b><i> </i></b><br>
+<b><i><big>Topics</big></i></b>
+<ul>
+  <li>Creating craters with a "meteorite shower"</li>
+  <li>Using a height field as a "bump map" on a sphere</li>
+  <li>Using subdivision #2 with a high distribution parameter<br>
+  </li>
+  <li>Eroding the terrain with a combination of rain erosion and
+"whimsical" erosion</li>
+  <li>Using the log transformation to raise the lower parts of the
+height field<br>
+  </li>
+</ul>
+<big><i><b>The scene layout</b></i></big><br>
+<br>
+The intended result is an imaginary moon, moving around an imaginary
+planet with no visible atmosphere. On the planet there is
+an ocean of some reflective liquid, which seems to have eroded the
+terrain (so there should be some atmosphere, shouldn't it?). Well, it's
+simpler to look at the result.<br>
+<br>
+The center of interest is the moon and its craters. Reflection of the
+moon on the ocean increases the impact. So, we need a cleared area
+centered along the eye axis, in which the reflection would be visible.
+Furthermore, the cleared area can behave like a path driving the eye
+towards the moon. This cleared area would be given by a valley-like
+height
+field.<br>
+<br>
+The moon is a sphere, over which we map a Geomorph height field acting
+like a normal. In Povray language, this is a "bump map normal".<br>
+<br>
+The light is dimmed, giving a night effect.<br>
+<i><b><br>
+<big>The result</big></b></i><br>
+<br>
+<div align="center"><a name="Final_result"></a><img src="../render7.jpg"
+ alt="Sea and Moon" height="480" width="640"> <br>
+</div>
+<br>
+<big><i><b>Steps<br>
+</b></i></big><br>
+This tutorial is divided in two parts, one for <a
+ href="#A._Building_the_moon">building the moon</a>, the other for <a
+ href="#B._Creating_the_final_scene">rendering the final scene</a>.<br>
+<br>
+The moon part uses the <i>moon.pov</i> scene, the final scene
+is rendered with <i>sea_n_moon.pov.</i>&nbsp; Both are provided with
+Geomorph 0.12 and higher.<br>
+<br>
+<big><i><b><a name="A._Building_the_moon"></a>A. Building the
+moon</b></i></big><br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b>1. Height field creation</b><br>
+      <br>
+Create a new height field, not too jagged. A smooth relief gives more
+realistic craters.<br>
+      <br>
+      <div align="left"><img src="tools_moon_step1.jpg" alt=""
+ align="left" height="378" width="224"> Subdivision #1 with default
+settings is suitable and straightforward.<br>
+      <br>
+      </div>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img
+ src="../doc_moon_step1.jpg" alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_moon_step1.jpg" alt="" height="255"
+ width="256"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>2. Power transformation</b><br>
+      <br>
+We decrease the lower parts of the terrain. Craters seem more natural
+on a plain.<br>
+      <br>
+      <div align="center">
+      <div align="left"><img src="tools_moon_step2.jpg" alt=""
+ align="left" height="418" width="254"> The power transformation with
+an exponent of 3 does the job for
+the height field generated in step 1.</div>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img
+ src="../doc_moon_step2.jpg" alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_moon_step2.jpg" alt="" height="257"
+ width="256"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3. Adjusting the image density
+to allow "craters digging"</b><br>
+      <br>
+The lower altitudes are a tad too dark to allow realistic "digging" of
+craters by the meteorites.<br>
+      <br>
+      <div align="left"><img src="tools_moon_step3.jpg" alt=""
+ align="left" height="486" width="225"> </div>
+Increase the brightness, and decrease the contrast so that the
+lower parts are seen as dark grey instead of black.<br>
+      </td>
+      <td align="center" valign="middle"><img
+ src="../doc_moon_step3.jpg" alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_moon_step3.jpg" alt="" height="254"
+ width="255"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>4. Spreading craters on the terrain</b><br>
+      <br>
+      <img src="tools_moon_step4.jpg" alt="" align="left" height="693"
+ width="213"> This is the funny part.<br>
+      <br>
+Hit "Repeat" until you have enough craters for your taste.<br>
+      <br>
+If you hit "Apply" more than once, you'll only replace the 10 craters
+you have just drawn with 10 different craters.<br>
+      <br>
+One important parameter in the "Diameter" subdialog is the
+distribution. This is, roughly, the exponent to the crater diameter,
+chosen randomly. At 1, all craters sizes between "Boundary 1" and
+"Boundary 2" have the same probability of being chosen. The
+distribution of diameters is uniform.<br>
+      <br>
+The default is 2. In this case, the distribution of diameters shows a
+quadratic curve. There are more small craters, and less huge ones.<br>
+      <br>
+For getting enough small craters here, 8 was used.<br>
+      <br>
+      <img src="../question.jpg" alt="" align="left" height="41"
+ width="42"> <small>Here is the formula, given:<br>
+GD = generated diameter, in pixels (from random seed, uniformly
+distributed)<br>
+RD = resulting diameter, in pixels<br>
+B1, B2 = boundaries 1 and 2, in pixels<br>
+E = exponent<br>
+We normalize the difference between GD and B1, relatively to B2-B1, so
+that the difference fits between 0 and 1, apply the exponent to this
+value, then multiply the result by B2-B1 to reconstitute a value in
+pixels:<br>
+RD = [ power( (GD-B1)/(B2-B1), E) x (GD-B1) ] + B1<br>
+      </small><br>
+      <br>
+      <br>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img
+ src="../doc_moon_step4.jpg" alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_moon_step4.jpg" alt="" height="253"
+ width="254"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>5. Rendering and saving the result</b><br>
+      <br>
+Render the result with <i>moon.pov</i>, using <img
+ src="../../tut_desert/povchoice_icon.jpg" alt="" height="28" width="28">
+to choose the scene.<br>
+      <br>
+This scene does not use the preview camera parameters, naturally, since
+it is only a bump map wrapped around a sphere.<br>
+      <br>
+If you are satisfied with the result, save it under <i>craters.png.</i>
+It is the name of the height field used for the moon bump map in <i>sea_n_moon.pov.</i><br>
+      <br>
+      <img src="../../tut_desert/question.jpg" alt="" align="left"
+ height="41" width="42"> Under Povray 3.1, the "spherical" map type was
+used. Under Povray 3.5, this gives an ugly stretched result, so a
+"planar" map type is used. The map seems to be applied perpendicular to
+the Z axis (the foreground to background axis, with the default
+Geomorph camera). When the camera is rotated around the Y axis (the
+bottom to top axis), the moon must be
+rotated too, otherwise the map is warped on the edges. <i>sea_n_moon.pov</i>
+manages this, and you'll have to care about this if you reuse this code
+in other scenes. I would welcome any advice about this mapping question.<br>
+      </td>
+      <td align="center" valign="middle"><img src="../moon.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<big><i><b><a name="B._Creating_the_final_scene"></a><br>
+B. Creating the final scene</b></i></big><br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b>1. Creating the height field</b><br>
+      <br>
+A height field with a huge valley can be created in two ways: &nbsp;by
+using the "height field pen" for digging the valley in a relatively
+smooth height field, or by using the random generator until we get a
+valley.<br>
+      <br>
+      <div align="left"><img src="tools1.jpg" alt="" align="left"
+ height="416" width="248"> The height field at left was generated with
+the random generator, clicking repeadly on the "Refresh" button
+(actually 15 times). The distribution parameter was set to a high
+value, to increase the probability of getting a large cleared area. See
+      <a href="../../tut_desert/en/The_Desert_Tutorial.html">the desert
+tutorial</a> for an explanation about the distribution parameter.<br>
+      <br>
+We set the camera parameters so that the valley becomes parallel to the
+view axis. The little red arrow on the height field at right shows
+approximately were is the camera.<br>
+&nbsp;<img src="../camera.jpg" alt="Camera" height="175" width="255"> <br>
+      <br>
+Rendering the height field with <i>sea_n_moon.pov</i> shows that the
+water is hidden under the terrain. We must decrease the height of the
+valley bottom, or increase the height of the water plane in the Povray
+file if we want to see the satellite reflected in the water.<br>
+      <div align="center"><img src="../render1-small.jpg" alt=""
+ height="240" width="320"> <br>
+      </div>
+      </div>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img src="../hf1.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../preview1.jpg" alt="" height="190" width="254"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>2. Decreasing the height of the valley bottom</b><br>
+      <br>
+      <div align="center">
+      <div align="left"><img src="tools2.jpg" alt="" align="left"
+ height="486" width="225"> We choose to work with the brightness /
+contrast tool instead of decreasing the height of the water plane. A
+-12 brightness correction decreases the height enough for our needs.<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+The rendered scene is better, but doesn't look eroded. You can stop
+there if you're satisfied.<br>
+      <br>
+      <div align="center"><img src="../render2-small.jpg" alt=""
+ height="240" width="320"> <br>
+      </div>
+      </div>
+      <div align="center"> </div>
+      </div>
+      <div align="center"> </div>
+      </td>
+      <td align="center" valign="middle"><img src="../hf2.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../preview2.jpg" alt="" height="190" width="254"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3. Preparing to erode the terrain with rain,
+using "whimsical erosion"</b><br>
+      <br>
+      <div align="left"><img src="tools3b.jpg" alt="" align="left"
+ height="599" width="236"> </div>
+A realistic eroded terrain shows "ribs". The rain erosion provided with
+Geomorph gives a surface with delicate channels or gutters, which
+doesn't show a "ribs" effect. We can approximate "ribs" before applying
+the rain erosion, with the "whimsical erosion".<br>
+      <br>
+You can use the default settings.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">
+You should adjust the radius and the rib smoothing radius to your image
+size. The defaults of 6 and 2 for a 512x512 image translate as
+3 and 1 for a 256x256 image, 12 and 4 for a 1024x1024 image, and so on.<br>
+      <br>
+      <img src="../question.jpg" alt="" align="left" height="41"
+ width="42"> This process has nothing to do with erosion, except some
+likelihood. It was discovered more or less by chance or at random, when
+experimenting with slope maps. The name is a translation of the French
+word "fantaisiste", which means something like "funny" and "weird" (as
+"whimsical" can mean, as I understand), but never "fanciful" or
+"capricious" (as "whimsical"
+does mean). But if you play with it a bit, maybe you'll find that it
+fully
+deserves the "whimsical" adjective... Nevertheless I would consider any
+interesting suggestion about this name.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">
+Hint: on the weird side, use a radius like 20 for a 512x512 image,
+slide the "Mix" scale towards the "Result", then increase the contrast
+with the brightness / contrast tool. If you find a use for the result,
+drop me a mail!<br>
+      </td>
+      <td align="center" valign="middle"><img src="../hf3b.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../preview3b.jpg" alt="" height="190" width="254"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>4. Adjusting brightness and contrast</b><br>
+      <br>
+      <img src="tools4.jpg" alt="" align="left" height="485" width="224">
+The contrast of the image is too weak, we don't even bother to render
+it. The proposed settings for the brightness / contrast tool give a
+valley ground which is black or almost black.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">
+It's preferable that you click on the "Accept" button in all tools,
+instead of relying on the auto-accept feature, at least as long
+Geomorph is in an alpha or a beta phase. Inconsistencies were observed
+when a new document is opened or created and the last transformation
+was not committed.<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+The rendered image is not bad, but shows some strangeness. The "rain
+erosion" would get rid of most weird "holes" or "loops".<br>
+      <br>
+      <div align="center"><img src="../render4-small.jpg" alt=""
+ height="240" width="320"> <br>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../hf4.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../preview4.jpg" alt="" height="190" width="254"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>5. Applying the rain erosion</b><br>
+      <br>
+      <img src="tools5.jpg" alt="" align="left" height="333" width="214">
+The rain erosion is a simple but slow process. It drops randomly water
+on the ground, and move soil down the slope until the slope is too low.
+It doesn't add up drops to build creeks and rivers (not yet!).<br>
+      <br>
+Here 300000 drops were thrown on the ground. Maybe you'll be happy with
+less (particularly if your computer is slow!). Hit the "Repeat" button
+three times to get this result.<br>
+      <br>
+Remember that we started from an image of 512x512 pixels. For a 256x256
+image, 75000 drops would give the same result. For a 1024x1024 image,
+you'll have to use 4 x 300000 drops.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">
+Hitting "Repeat" once is the same as hitting "Apply", but hitting
+"Apply" repeatedly never gives more than 100000 drops, since it reuses
+the original image as input.<br>
+      <br>
+The rendered image is more natural now. However, we could get a
+smoother image with the "Crests" tool.<br>
+      <br>
+      <div align="center"><img src="../render5-small.jpg" alt=""
+ height="240" width="320"> <br>
+      </div>
+      <br>
+      </td>
+      <td valign="top"><img src="../hf5.jpg" alt="" height="256"
+ width="256"> <br>
+      <br>
+      <img src="../preview5.jpg" alt="" height="190" width="254"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>6. Using the "Crests" tool to smooth the
+eroded terrain</b><br>
+      <br>
+      <img src="tools6.jpg" alt="" align="left" height="335" width="214">
+The "Crests" tool implements a kind of "gravity erosion", or
+micro-subsidence. Parts of the soil fell on parts of lower altitude.
+Crests emerge where the slope is null and the height at its maximum.<br>
+      <br>
+Contrarily to the rain erosion, this transformation involves a soil
+loss, so the average height of the terrain decreases a bit.<br>
+      <br>
+Set the steps at will, reset if you are not satisfied.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">
+The 3 erosion tools and the order in which they were used here
+(whimsical - rain - crests) are not compulsory. Variations on this
+sequence can also
+give interesting results.<br>
+      <br>
+Here is what we get with the steps parameter set at 6:<br>
+      <br>
+      <div align="center"><img src="../render6-small.jpg" alt=""
+ height="240" width="320"> <br>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../hf6.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../preview6.jpg" alt="" height="190" width="254"> <br>
+      <br>
+&nbsp;</td>
+    </tr>
+    <tr>
+      <td valign="top"><b>7. Using the Log transformation to create a
+pond by raising the lower parts of the terrain</b><br>
+      <br>
+      <img src="tools7.jpg" alt="" align="left" height="418" width="253">
+The <a href="#Final_result">proposed image</a>, at the beginning of
+this tutorial, shows a pond with a smooth shore. Raising slightly the
+shore at the entrance of the cove obtained after step 6 would close the
+cove. The log transformation allows this. It raises the lower parts of
+the height field without raising the highest hills, while the deepest
+parts remain black (think about the log curve to get the figure).<br>
+      <br>
+The parameter is interpreted as a percentage. Using 0,5, over a maximum
+of 10, means that we merge 5% of the resulting log transformation with
+95% of the original image. 0,5 or so is enough here, except if you want
+another effect.<br>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img src="../hf7.jpg" alt=""
+ height="256" width="256"> <br>
+      <br>
+      <img src="../preview7.jpg" alt="" height="190" width="254"> <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Written in October, 2003<br>
+<br>
+<a href="../../doc_index_en.html"><img src="../GeoMorph.jpg" alt=""
+ style="border: 0px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_en.html">Back to the documentation index</a><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

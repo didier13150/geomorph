@@ -1,0 +1,312 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Mozilla/4.77 [fr] (X11; U; Linux 2.4.3-20mdk i686) [Netscape]"><title>Nouvelles de Geomorph</title>
+
+<meta name="author" content="Patrice St-Gelais">
+<link href="main_header.css" rel="stylesheet" type="text/css" media="screen"></head>
+<body>
+<center>
+<div id="header"></div>
+<iframe src="navigation_fr.html" marginwidth="0" marginheight="0" frameborder="0" height="80" scrolling="no" width="800">
+</iframe></center>
+<big><big><span style="font-style: italic; font-weight: bold;"><a name="Top"></a>Geomorph - un éditeur de relief pour
+Linux</span></big></big><br>
+<br>
+<a href="#Bienvenue_aux_nouveaux_utilisateurs"><big><span style="font-style: italic; font-weight: bold;">Bienvenue</span></big></a><br>
+<a href="#La_version_0.50_est_enfin_sortie"><big><span style="font-weight: bold; font-style: italic;">Lancement de
+la version 0.50 (le 1er août 2008)</span></big></a><br>
+<big><span style="font-style: italic;"><a href="#Un_correctif_important"><span style="font-weight: bold;">Correction d'une erreur de
+segmentation
+dans le crayon continu (le 17 mars 2007</span></a>)</span></big><br style="font-weight: bold; font-style: italic;">
+<a href="#Version_0_40"><big><span style="font-style: italic; font-weight: bold;">Lancement de
+la version
+0.40 (le 21 février 2007)</span></big></a><br>
+<a style="font-style: italic;" href="older_news_2003_2006_fr.html"><big>Nouvelles
+antérieures</big></a>
+<br>
+<br>
+<br>
+<big><span style="font-style: italic; font-weight: bold;"><a name="Bienvenue_aux_nouveaux_utilisateurs"></a>Bienvenue
+sur le site
+de Geomorph</span></big><br>
+<br>
+Le site de Geomorph regroupe tout ce qui s'est écrit comme
+guides et tutoriels depuis le lancement de la version 0.11, en 2003.<br>
+<br>
+Si c'est votre premier contact avec Geomorph, n'oubliez pas de
+regarder <a href="intro_fr.html">l'introduction</a>,
+qui explique
+entre autres comment sont fabriquées les cartes de relief. <br>
+<br>
+Consultez aussi la liste des guides et tutoriels dans <a href="doc_index_fr.html">l'index de la documentation</a>.<br>
+<br>
+Enfin, ne manquez pas la <a href="gallery/index.html">galerie</a>!<br>
+<br>
+<table style="margin-left: auto; margin-right: auto; width: 100%; text-align: left;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center; vertical-align: top;"><a href="http://geomorph.sourceforge.net/gallery/Marc%20Carson/index.html"><img title="Real Surface - Marc Carson" alt="Marc Carson" src="http://geomorph.sourceforge.net/gallery/Marc%20Carson/vignettes/Real%20Surface.jpg" style="border: 0px solid ; width: 150px; height: 125px;"></a><br>
+</td>
+<td style="text-align: center; vertical-align: top;"><a href="http://geomorph.sourceforge.net/gallery/Jaime%20Vives%20Piqueres/index.html"><img alt="Jaime Vives Piqueres" title="Jaime Vives Piqueres" src="http://geomorph.sourceforge.net/gallery/Jaime%20Vives%20Piqueres/vignettes/Demo%20Geomorph%201.jpg" style="border: 0px solid ; width: 180px; height: 120px;"></a></td>
+<td style="text-align: center; vertical-align: top;"><a href="http://geomorph.sourceforge.net/gallery/Simon%20Donike%202006-01/index.html"><img alt="Canyon - Simon Donike" title="Canyon - Simon Donike" src="http://geomorph.sourceforge.net/gallery/Simon%20Donike%202006-01/vignettes/Canyon.jpg" style="border: 0px solid ; width: 180px; height: 135px;"></a><br>
+</td>
+</tr>
+</tbody>
+</table>
+<a name="Lancement_de_la_version_0.50_le_16"></a><br>
+<big><span style="font-weight: bold; font-style: italic;"><a name="La_version_0.50_est_enfin_sortie"></a>Lancement
+de la version 0.50 (le 1er août 2008)</span></big><br>
+<br>
+Je suis heureux d'annoncer la version 0.50 qui, en plus de corriger
+plusieurs bogues, offre ces améliorations:<br>
+<ul>
+<li>Un nouvel "Explorateur
+de Fourier" montre en 3D la transformée de Fourier
+d'un terrain et permet d'en&nbsp;manipuler les
+fréquences d'une façon intuitive.&nbsp;<a href="fourier/fr/fourier_explorer_basics.html">Voyez
+quelques explications ici</a>.
+Je dois créditer Antonio Larrosa Jiménez, auteur de kfourier, pour le
+code de l'algorithme FFT ("Fast Fourier Transform"), que j'ai recyclé
+en le convertissant de C++ à C.</li>
+</ul>
+<ul>
+<li>Pour
+ceux qui n'aiment pas une interface à plusieurs fenêtres comme celle de
+Gimp (et à la suggestion insistante d'un utilisateur!), Geomorph peut
+maintenant être configuré pour offrir une interface
+intégrée. C'est d'ailleurs le défaut lors d'une nouvelle installation.
+L'option peut être modifiée <a href="options/fr/options_dialog.html">dans
+le fichier <span style="font-style: italic;">geomorphrc</span></a>.</li>
+</ul>
+<ul>
+<li>Le
+script d'installation de l'icône de Geomorph sur le bureau Gnome ou KDE
+a été ajusté au standard <a href="http://www.freedesktop.org">freedesktop.org</a>.
+Le script devrait maintenant
+fonctionner avec toutes les distributions récentes.</li>
+</ul>
+<ul>
+<li>En
+mode "interface Gimp", il est maintenant possible de configurer
+Geomorph pour répéter le menu principal sur chaque fenêtre de document,
+en modifiant le fichier <a href="options/fr/options_dialog.html"><span style="font-style: italic;">geomorphrc</span></a>.</li>
+</ul>
+<ul>
+<li>On
+peut changer le terrain par défaut généré lors de la création d'un
+nouveau document en modifiant les options du fichier <a href="options/fr/options_dialog.html"><span style="font-style: italic;">geomorphrc</span></a>.
+De plus, lors d'une nouvelle installation, le
+terrain par défaut n'est plus un canevas gris uniforme, destiné au
+dessin de montagnes et de vallées, mais un terrain aléatoire de type
+"subdivision 2".</li>
+</ul>
+<ul>
+<li>La gestion des répertoires par défaut, qui peuvent être
+spécifiés dans <a style="font-style: italic;" href="options/fr/options_dialog.html">geomorphrc</a>,
+a été revue.</li>
+</ul>
+<ul>
+<li>Geomorph a été testé&nbsp;sous Ubuntu 7.10 64 bits et adapté. La
+version 0.40 était compilable sans erreurs sous une architecture x64,
+mais certaines fonctions n'avaient pas le
+comportement attendu.</li>
+</ul>
+<ul>
+<li>Plusieurs
+petites améliorations ont été faites, comme le retrait du bouton
+"activer" dans la "subdivision 2" et à quelques autres endroits
+(l'activation se fait au relâchement du bouton de souris), ainsi que
+des fenêtres découlantes dans certains dialogues trop étendus.&nbsp;</li>
+</ul>
+<ul>
+<li>La <a href="faq_fr.html">FAQ</a> a été
+complétée avec une question concernant une situation où POV-Ray ne
+fonctionne pas.</li></ul><ul><li>La <a href="doc_index_fr.html">documentation</a> comporte 3 nouvelles pages. Outre <a href="fourier/fr/fourier_explorer_basics.html">l'introduction à l'Explorateur de Fourier</a> et la <a href="options/fr/options_dialog.html">description du fichier d'options <span style="font-style: italic;">geomorphrc</span></a>, jetez un coup d'oeil au court <a href="fourier/fr/egg_box_tutorial.html">tutoriel "boîte d'oeufs"</a>.</li>
+</ul>
+J'ai aussi tenté d'améliorer la présentation du site en utilisant des
+CSS.<br>
+<br>
+Je
+remercie sincèrement Simon Donike, qui encore une fois, en plus de
+traduire les dialogues en allemand, m'a aidé à résoudre plusieurs
+problèmes en essayant la version 0.50 préliminaire.<br>
+<br>
+Pour
+les prochaines versions, j'ai l'intention de travailler sur des
+fonctions d'import / export et de mise à l'échelle. Ces fonctions sont
+inséparables,
+puisque Geomorph n'édite que des images carrées en puissance de 2.
+J'aimerais aussi ajouter des
+outils de sélection à base de masque et des outils pour aider à la
+conception de scènes Povray. Il y aura peut-être une surprise, si mes
+disponibilités le permettent. Et je reste ouvert à vos suggestions!<br>
+<br>
+<br>
+<big><span style="font-weight: bold; font-style: italic;"><a name="Un_correctif_important"></a>Correction d'une
+erreur de
+segmentation dans le crayon continu (le 17 mars 2007)</span></big><br>
+<br>
+Avec la version 0.40, la modification de la grandeur ou de l'intensité
+du crayon
+continu&nbsp;<img alt="" src="penstandard.jpg" style="width: 22px; height: 22px;">&nbsp;produit une
+erreur de segmentation
+sur certains systèmes. Le problème a été
+détecté dans un environnement x64, mais peut se produire
+dans n'importe quel environnement.<br>
+<br>
+En attendant une prochaine version, vous pouvez le corriger en
+remplaçant
+"draw_dialog.c" du paquetage binaire de 0.40 par ce fichier, avant la
+compilation:<br>
+<pre wrap=""><a class="moz-txt-link-freetext" href="http://geomorph.sourceforge.net/misc/draw_dialog.c">http://geomorph.sourceforge.net/misc/draw_dialog.c</a> </pre>
+Une fois ce fichier téléchargé, ouvrez une console
+et copiez-le dans l'arborescence de Geomorph :<br>
+<br>
+<span style="font-family: monospace;">cp
+draw_dialog.c&nbsp;
+~/geomorph-0.40/src/hf/draw_dialog.c</span><br style="font-family: monospace;">
+<br>
+Merci à Sanne pour avoir soumis le bogue et testé mes
+solutions!<br>
+<br>
+<br>
+<big><a name="Version_0_40"></a><span style="font-style: italic; font-weight: bold;">La version
+0.40 est
+arrivée, enfin! (le 21 février 2007)</span><br>
+<small><br>
+Après plus d'un an, voici enfin <a href="installing_fr.html">Geomorph
+0.40</a>, qui vous propose
+quelques ajouts importants, plusieurs correctifs et une documentation
+enrichie.<br>
+<br>
+Voici les principaux ajouts:<br>
+</small></big>
+<ul>
+<li><img alt="" src="voronoi.jpg" style="width: 22px; height: 22px;">Un
+outil de <a href="crack_network/fr/The%20Crack%20Network%20Tool.html">création
+de réseaux de craquelures</a>, en bonne partie inspiré de
+l'article <a href="http://www.cs.usask.ca/%7Emould/papers/crack.pdf"><span style="font-style: italic;">Image-Guided Fracture</span></a>
+de
+David Mould.<br>
+</li>
+<li><img alt="" src="lift_edges.jpg" style="width: 22px; height: 22px;"> Un outil de <a href="tut_water_maps/fr/Tutorial_Giant_Causeway.html">relèvement
+de bords</a>.</li>
+<li><img alt="" src="sharpen.jpg" style="width: 22px; height: 22px;">Un
+outil d'accentuation du bruit (l'équivalent de "sharpen" dans
+un logiciel d'édition d'images)</li>
+<li>De nouveaux scripts Povray sont proposés pour exploiter
+ces nouveaux outils. Voyez <a href="povray/fr/Geomorph%20-%20Les%20scripts%20Povray%20pr%E9d%E9finis.html">le
+nouvel index des scripts</a>.</li>
+</ul>
+<br>
+<div style="text-align: center;"><big><small><a href="crack_network/fr/The%20Crack%20Network%20Tool.html"><img style="border: 0px solid ; width: 400px; height: 240px;" src="crack_net_trees_small.jpg" alt="" align="right"></a><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href="crack_network/fr/The%20Crack%20Network%20Tool.html"><span style="font-weight: bold; font-style: italic;">Le nouvel
+outil de
+création de craquelures</span></a><span style="font-weight: bold; font-style: italic;"> permet de
+créer
+des "cartes de normales" qui peuvent être pavées à
+l'infini</span></small></big><br>
+</div>
+<br clear="all">
+<br>
+<big><small><br>
+Geomorph n'est pas un logiciel qui peut être
+abordé d'une façon aussi intuitive qu'un traitement de
+texte. Des tutoriels et des guides sont généralement
+nécessaires. Cette
+version propose entre autres:</small></big><br>
+<ul>
+<li>Une page sur l'utilisation <a href="tut_water_maps/fr/Using_water_maps.html">de "cartes
+des eaux"</a>,
+qui donne accès à trois courts tutoriels.<br>
+</li>
+<li>Le <a href="crack_network/fr/The%20Crack%20Network%20Tool.html">guide
+sur l'utilisation de réseaux de craquelures</a> et <a href="povray/fr/Geomorph%20-%20Les%20scripts%20Povray%20pr%E9d%E9finis.html">l'index
+des scripts Povray</a> déjà mentionnés.</li>
+<li>Une page <a href="getting_started/getting_started_fr.html">"Pour
+commencer"</a> révisée et augmentée, qui
+décrit, entre autres, les différents types de subdivision
+permettant de créer un nouveau terrain.</li>
+<li>Un <a href="tools/fr/index_outils.html">index
+des outils</a>
+révisé.</li>
+<li>Une <a href="faq_fr.html">FAQ</a> ainsi
+qu'<a href="installing_fr.html">une page de téléchargement
+et
+installation</a> mises à jour.<br>
+</li>
+</ul>
+<big><small><a href="tut_water_maps/fr/Using_water_maps.html"><img alt="" src="mountains_with_water_small.jpg" style="border: 0px solid ; width: 400px; height: 240px;" align="right"></a><br>
+<br>
+<br>
+<br>
+<br>
+<br style="font-style: italic; font-weight: bold;">
+</small></big>
+<div style="text-align: center;"><big style="font-style: italic; font-weight: bold;"><small><a href="tut_water_maps/fr/Using_water_maps.html">Des tutoriels</a>
+et <a href="povray/fr/Geomorph%20-%20Les%20scripts%20Povray%20pr%E9d%E9finis.html">de
+nouveaux scripts Povray</a> permettent d'exploiter des "cartes
+des
+eaux".</small></big><br>
+</div>
+<br>
+<br clear="all">
+<br>
+<big><small><br>
+Enfin, de nombreux correctifs et améliorations ont
+été apportés, dont plusieurs en préparant
+les tutoriels. En voici quelques-uns :<br>
+</small></big>
+<ul>
+<li>L'algorithme d'érosion par la pluie <img alt="" src="rain_erosion.jpg" style="width: 22px; height: 22px;">
+a
+été amélioré d'une façon importante.
+Quelques explications sont données dans <a href="tools/fr/index_outils.html">l'index des outils</a>.</li>
+<li>Les scripts de compilation ont été mis à
+jour pour permettre une compilation sous un processeur x64 et sous
+Fedora 5, notamment (merci à Andy Pfiffer).</li>
+<li>Dans l'outil "ondes" <img alt="" src="waves.jpg" style="width: 22px; height: 22px;">, le paramètre de
+randomisation ne crée plus de discontinuité.</li>
+<li>La fiabilité du mécanisme d'acceptation automatique
+des changements, lors du passage d'un dialogue à l'autre ou
+d'une fenêtre à l'autre, a été
+améliorée.<br>
+</li>
+<li>Au sujet de la fenêtre de document: <br>
+</li>
+<ul>
+<li>la position (x,y) et
+l'altitude sous le curseur sont dorénavant toujours
+affichés dans le coin supérieur gauche, pas seulement
+lorsque le crayon est utilisé<br>
+</li>
+<li>après un agrandissement, le terrain est
+maintenant centré dans la fenêtre.<br>
+</li>
+</ul>
+</ul>
+Comme pour les dernières versions, les messages et dialogues ont
+été traduits en allemand par Simon Donike.<br>
+<br>
+À une prochaine, avant un an je l'espère!<br>
+<br>
+<a href="#Top">Retour au début</a><br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice
+St-Gelais</a></i></p>
+<ul>
+</ul>
+<center> </center>
+<br>
+<div align="center"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3" alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+<br>
+<br>
+<br>
+</body></html>

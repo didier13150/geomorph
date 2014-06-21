@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html style="direction: ltr;" lang="fr"><head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>Le tutoriel "Boîte d'oeufs" de Geomorph</title>
+
+<meta content="Patrice St-Gelais" name="author">
+<meta content="Utilisation de l'&quot;addition progressive de surfaces&quot; pour créer un terrain &quot;Boîte d'oeufs&quot;" name="description">
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen">
+</head>
+<body>
+<center>
+<div id="header"></div>
+<big><iframe src="../../navigation_fr.html" marginwidth="0" marginheight="0" frameborder="0" height="80" scrolling="no" width="800">
+</iframe></big></center>
+<big><strong style="font-style: italic;">Le tutoriel "Boîte d'oeufs"</strong></big><br>
+<span style="font-style: italic;"><span style="font-weight: bold;"><br>Comment utiliser l'"Addition progressive de surfaces" de Geomorph pour créer un terrain "Boîte d'oeufs"<br>
+</span></span><span style="font-style: italic; font-weight: bold;"></span><br>Un terrain "Boîte d'oeufs" est utilisé dans <a href="fourier_explorer_basics.html">le tutoriel de l'Explorateur de Fourier</a>.
+Nous verrons ici comment le créer avec l'"addition progressive de
+surfaces". Ce processus crée un terrain en additionnant des cloches
+gaussiennes de grandeurs différentes, déplacées aléatoirement sur la
+largeur, la profondeur et en hauteur.<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;">1. Appel de l'"Addition progressive de surfaces"</span><br>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><img style="width: 360px; height: 724px;" alt="" src="egg_box_creation_1.jpg"></td>
+<td>
+<div style="text-align: center;">
+<div style="text-align: left;">
+<div style="text-align: center;">Voici les réglages par défaut lorsque vous choisissez l'"addition progressive de surfaces" dans la fenêtre "Nouveau document".<br>
+<br>Notez que le premier "Filtre de forme" est global à l'image, alors
+que le "Filtre de forme" relié à la "Surface primitive" contrôle la
+cloche gaussienne utilisée comme bloc de construction.<br>
+<br>La "racine" est utilisée pour changer pseudo-aléatoirement la distribution globale des surfaces.<br>
+</div>
+<br>
+</div>
+<br>
+<img style="width: 192px; height: 192px;" alt="" src="../egg_box_creation_2.jpg"><br>Voici une version à échelle réduite du terrain de 512x512 qui résulte de l'application des paramètrse par défaut.<br>
+</div>
+<div style="text-align: center;"><br>
+<img style="width: 200px; height: 149px;" alt="" src="../egg_box_creation_3.jpg"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold;">2. Mise à zéro des paramètres aléatoires</span><br>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><img style="width: 358px; height: 671px;" alt="" src="egg_box_creation_4.jpg"></td>
+<td style="text-align: center;"><br>Sans le facteur aléatoire déplaçant
+les cloches sur le plan ("Déplacement XZ"), ou celui variant la hauteur
+des cellules ("H Displacement"), nous obtenons un genre de craquelin.<br>La
+pente est augmentée de 50 à 70 pour que la dénivellation soit plus
+évidente (l'image moins sombre). Cela a pour effet d'utiliser des
+cloches plus élevées comme blocs de construction.<br>
+<br>
+<img style="width: 192px; height: 192px;" alt="" src="../egg_box_creation_5.jpg"><br>
+<br>
+<img style="width: 200px; height: 149px;" alt="" src="../egg_box_creation_6.jpg"><br>
+<br>Nous déroulons le "Contrôle des longueurs d'onde" pour la prochaine étape...</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold;">3. Controlling the
+frequencies</span><br>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><img style="width: 343px; height: 558px;" alt="" src="egg_box_creation_7.jpg"></td>
+<td style="text-align: center;">Mettez à 0 toutes les longueurs d'onde, puis fixez celle de 64 pixels à 100, et voilà le résultat!<br><br>
+<img style="width: 192px; height: 192px;" alt="" src="../egg_box_creation_8.jpg"><br>
+<br>
+<img style="width: 200px; height: 150px;" alt="" src="../egg_box_creation_9.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>Écrit en avril 2008<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice
+St-Gelais</a></i></p>
+<ul>
+</ul>
+<center> </center>
+<br>
+<div align="center"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3" alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body></html>

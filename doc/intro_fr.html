@@ -1,0 +1,298 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR"
+ content="Mozilla/4.77 [fr] (X11; U; Linux 2.4.3-20mdk i686) [Netscape]">
+  <title>Pr&eacute;sentation de Geomorph</title>
+  <meta name="author" content="Patrice St-Gelais">
+</head>
+
+<link href="main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<p><big><i><a name="Introduction"></a><big><b>Qu'est-ce que Geomorph?</b></big></i><br>
+</big></p>
+<p style="font-weight: bold;"><big style="font-style: italic;"><a
+ href="#Un_aper%E7u">Un aper&ccedil;u</a><br>
+</big><a href="#La_g%E9n%E9ration_dune_image_de_relief"><span
+ style="font-weight: bold;"><big style="font-style: italic;">La
+g&eacute;n&eacute;ration d'une
+image de relief</big></span></a><span style="font-weight: bold;"><big
+ style="font-style: italic;"><br>
+<a href="#Pourquoi_Geomorph">Pourquoi Geomorph?</a></big></span><big
+ style="font-style: italic;"><br>
+<a href="#Une_feuille_de_route">Une feuille de route?</a><br>
+</big><big style="font-style: italic;"><b><a
+ href="#Pour_%EAtre_inform%E9_des_nouvelles">Pour
+&ecirc;tre inform&eacute; des nouvelles versions</a><br>
+</b></big></p>
+<p style="font-weight: bold;"><span style="font-weight: bold;"></span><a
+ name="Un_aper&ccedil;u"></a><big style="font-style: italic;">Un aper&ccedil;u</big></p>
+<p>Geomorph est un g&eacute;n&eacute;rateur et un &eacute;diteur
+d'images de relief ("height fields", "height maps") fonctionnant sous
+Linux. <br>
+</p>
+<p>Une image de relief est une projection en 2 dimensions d'un terrain
+en 3 dimensions, ou en quelque sorte une carte topographique
+artificielle.<br>
+</p>
+<p> </p>
+<p>Geomorph g&eacute;n&egrave;re des images carr&eacute;es et montre un
+aper&ccedil;u en perspective des terrains correspondants. Ces images
+peuvent &ecirc;tre trait&eacute;es &agrave; l'aide d'un logiciel
+d'illumination comme Povray ("renderer") pour cr&eacute;er des paysages
+r&eacute;alistes.</p>
+<p>Exemple:<br>
+</p>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td align="center" valign="top">Image de relief<br>
+      </td>
+      <td align="center" valign="top">Aper&ccedil;u<br>
+      </td>
+      <td align="center" valign="top">Rendu Povray<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top"><img src="hf.jpg"
+ alt="Heightfield" height="257" width="255"> <br>
+      </td>
+      <td align="center" valign="top"><img src="preview.jpg"
+ alt="Preview" height="255" width="256"> <br>
+      </td>
+      <td align="center" valign="top"><img src="final.jpg" alt="Final"
+ height="239" width="319"> <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p><br>
+Voyez aussi la <a
+ href="http://geomorph.sourceforge.net/gallery/index.html">galerie
+Geomorph.</a>
+&nbsp;Les sc&egrave;nes Povray utilis&eacute;es pour cr&eacute;er les
+paysages de la partie de la gallerie faite par l'auteur sont incluses
+dans le logiciel distribu&eacute;.<br>
+</p>
+<p>Geomorph est en version alpha et est localis&eacute; en
+fran&ccedil;ais, en anglais et en allemand. <a
+ href="screenshots/screenshots.html">Voici des captures
+d'&eacute;cran.&nbsp;</a> Le logiciel est
+g&eacute;n&eacute;ralement stable.</p>
+<p> </p>
+<p>Ses principales fonctionnalit&eacute;s sont, pour l'instant: </p>
+<ul>
+  <li> Un environnement permettant d'&eacute;diter plusieurs documents
+simultan&eacute;ment, dans plusieurs fen&ecirc;tres.</li>
+  <li>Des sorties en fichiers PNG de 16 bits par canal, de 128x128
+pixels &agrave; 4096x4096 pixels, offrant 65536 niveaux du noir au
+blanc.<br>
+  </li>
+  <li>Des outils pour g&eacute;n&eacute;rer des images de relief par
+simple subdivision ou par addition progressive de surfaces.</li>
+  <li>Un crayon fractal permettant de dessiner des reliefs
+irr&eacute;guliers.</li>
+  <li>Des crayons pour dessiner des traits continus, des
+crat&egrave;res, des failles, des crevasses et des fissures.</li>
+  <li>Des outils destin&eacute;s &agrave; l'&eacute;dition d'images -
+luminosit&eacute;, contraste et similaires (peu de logiciels de type
+"paint" permettent d'&eacute;diter des images d'une profondeur de 16
+bits).</li>
+  <li><a href="tools/fr/index_outils.html">Des outils d'&eacute;dition </a>et
+de transformation particuliers
+&agrave; l'&eacute;dition des reliefs, tels que de l'&eacute;rosion, de
+la "quantization" (simulation de terrasses), etc.<br>
+  </li>
+  <li> Un bouton d'ex&eacute;cution de Povray, pour tester l'image
+courante avec une sc&egrave;ne de son choix.</li>
+  <li> Une liste annuler
+/ refaire &agrave; plusieurs niveaux, param&eacute;trables (5 par
+d&eacute;faut).<br>
+  </li>
+  <li> Le contr&ocirc;le
+de l'&eacute;chelle d'affichage.<br>
+  </li>
+  <li>Un aper&ccedil;u OpenGL (MesaGL).</li>
+  <li>Un outil de gestion des fichiers de configuration
+(pour d&eacute;finir les r&eacute;pertoires par d&eacute;faut, les
+niveaux d'annulation, etc.).<br>
+  </li>
+</ul>
+<p>La <a href="doc_index_fr.html">documentation</a> de Geomorph est
+constitu&eacute;e des tutoriels et des guides de ce site web.<br>
+<br>
+</p>
+<p><span style="font-weight: bold;"><a
+ name="La_g&eacute;n&eacute;ration_dune_image_de_relief"></a><big
+ style="font-style: italic;">La g&eacute;n&eacute;ration d'une
+image de relief</big></span><br>
+</p>
+<p>Geomorph cr&eacute;e des images de relief en d&eacute;formant une
+surface de fa&ccedil;on al&eacute;atoire, &agrave; des &eacute;chelles
+de plus en plus petites.<br>
+</p>
+<p>Partons par exemple d'une surface uniforme de 512x512 pixels. Dans
+une
+premi&egrave;re &eacute;tape, le centre de la surface est
+d&eacute;plac&eacute; d'une altitude choisie au hasard, un peu comme un
+drap &eacute;tir&eacute; par pincement. Dans une seconde &eacute;tape,
+cette surface est subdivis&eacute;e en 4, et le centre de chacune de
+ses surfaces est d&eacute;plac&eacute; de fa&ccedil;on al&eacute;atoire
+vers le haut ou vers le bas. Dans une troisi&egrave;me &eacute;tape,
+chacune des 4&nbsp; surfaces est subdivis&eacute;e &agrave; nouveau en
+4, pour un total de 16 surfaces, qui sont &agrave; leur tour
+&eacute;tir&eacute;es par le milieu, et ainsi de suite, jusqu'au niveau
+du pixel.<br>
+</p>
+<p>Voici une illustration d'une tranche prise dans une telle surface:<br>
+</p>
+<table style="width: 100%; text-align: left;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;">&Eacute;tape
+1<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;">&Eacute;tape
+2<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;">&Eacute;tape
+3<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;">&Eacute;tape
+4<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="step1.jpg" style="border: 1px solid ; width: 100px; height: 50px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="step2.jpg" style="border: 1px solid ; width: 100px; height: 50px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="step3.jpg" style="border: 1px solid ; width: 100px; height: 50px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="step4.jpg" style="border: 1px solid ; width: 100px; height: 50px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Habituellement, contrairement &agrave; cet exemple, la surface est
+liss&eacute;e &agrave; chaque &eacute;tape (pensez au pincement du
+drap).<br>
+</p>
+<p>Cette approche dite par "subdivision" n'est pas unique &agrave;
+Geomorph, elle est couramment utilis&eacute;e pour
+g&eacute;n&eacute;rer des reliefs artiticiels. L'application du
+m&ecirc;me processus de d&eacute;formation &agrave; diff&eacute;rentes
+&eacute;chelles donne une surface dite "auto-similaire" qui
+pr&eacute;sente une dimension fractionnaire (ou fractale),
+c'est-&agrave;-dire, dans le cas qui nous int&eacute;resse, entre 2 et
+3.<br>
+</p>
+<p>Geomorph propose aussi une variante de cette approche, consistant
+&agrave; additionner des surfaces &agrave; une surface de base &agrave;
+des &eacute;chelles de plus
+en plus petites. Les surfaces ajout&eacute;es sont
+d&eacute;riv&eacute;es d'une surface primitive,
+g&eacute;n&eacute;ralement une cloche gaussienne, ou
+de toute image choisie par l'utilisateur.<br>
+<br>
+</p>
+<p><span style="font-weight: bold;"><a name="Pourquoi_Geomorph"></a><big
+ style="font-style: italic;">Pourquoi Geomorph?</big></span><br
+ style="font-weight: bold;">
+<br>
+Geomorph r&eacute;pond &agrave; mon propre besoin de cr&eacute;ation de
+paysages articiels sous Linux, &agrave; des fins esth&eacute;tiques.
+Les outils disponibles
+au moment o&ugrave; j'ai pris la d&eacute;cision d'entreprendre ce
+projet (fin 2000, je crois),
+n'&eacute;taient pas satisfaisants, soit par manque de
+stabilit&eacute;, soit par manque de fonctionnalit&eacute;s.<br>
+<br>
+La cr&eacute;ation de paysages artificiels est motiv&eacute;e, entre
+autres, par un int&eacute;r&ecirc;t pour la
+biosph&egrave;re et pour les processus qui la font &eacute;voluer.
+C'est un peu pour moi une extension de la photographie.</p>
+<p>Le d&eacute;veloppement d'un logiciel est aussi une activit&eacute;
+cr&eacute;atrice valorisante.<br>
+</p>
+<p>Nous sommes encore dans l'enfance de la cr&eacute;ation artistique
+par des outils num&eacute;riques. Il est encore possible, et parfois
+n&eacute;cessaire, de d&eacute;velopper ses propres outils, un peu
+comme les peintres du Moyen &Acirc;ge ou de la Renaissance qui
+cr&eacute;aient leurs propres
+pigments.<br>
+<br>
+</p>
+<p> </p>
+<p style="font-weight: bold;"><a name="Une_feuille_de_route"></a><big
+ style="font-style: italic;">Une feuille de route?</big></p>
+<p>J'ai d&eacute;j&agrave; plusieurs id&eacute;es en attente de
+r&eacute;alisation, r&eacute;pondant &agrave; des besoins pr&eacute;cis
+de cr&eacute;ation de paysages. En voici quelques-unes en vrac (sans
+promesse de r&eacute;alisation!):<br>
+</p>
+<ul>
+  <li>Des outils d'importation et de mise &agrave; l'&eacute;chelle
+d'images ou de reliefs externes.</li>
+  <li>Un g&eacute;n&eacute;rateur et un &eacute;diteur de structures
+arborescentes, utilisable pour g&eacute;n&eacute;rer des crevasses, des
+reliefs &eacute;rod&eacute;s ou des deltas.</li>
+  <li>Un crayon "route" coupl&eacute; &agrave; une fonction d'animation
+de la cam&eacute;ra.</li>
+  <li>Des masques de s&eacute;lection, ou des outils similaires.</li>
+  <li>De meilleurs outils d'&eacute;rosion (creuser des rivi&egrave;res
+ou des bassins
+versants dans un relief existant, g&eacute;n&eacute;rer des reliefs
+&agrave; cr&ecirc;tes arrondies, etc.).</li>
+  <li>Des outils pour aider &agrave; la cr&eacute;ation de
+sc&egrave;nes Povray, notamment une interface graphique pour choisir
+les principaux &eacute;l&eacute;ments constitutifs d'un paysage (ciel,
+sol, soleil, textures, plans d'eau).</li>
+</ul>
+Certains de ces changements impliquent la cr&eacute;ation d'un nouveau
+format de fichier, ce n'est pas une mince affaire!<br>
+<br>
+Tous les commentaires que je re&ccedil;ois m'aident &agrave; mettre de
+l'ordre dans ces priorit&eacute;s, alors les v&ocirc;tres sont les
+bienvenus!<br>
+<br>
+<i><big><a name="Pour_&ecirc;tre_inform&eacute;_des_nouvelles"></a></big></i><big
+ style="font-style: italic;"><b>Pour
+&ecirc;tre inform&eacute; des nouvelles versions</b></big><br>
+<br>
+Vous pouvez recevoir un courriel qui annonce les nouvelles versions en
+vous abonnant <a href="http://freshmeat.net/projects/geomorph/">sur la
+page
+du projet &agrave; freshmeat.net</a> (<a
+ href="http://freshmeat.net/subscribe/41381/?url=%2Fprojects%2Fgeomorph%2F">Subscribe
+to new releases</a>).<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a></i></p>
+<ul>
+</ul>
+<center> </center>
+<br>
+<div align="center"><a href="http://sourceforge.net"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+<br>
+<br>
+</body>
+</html>

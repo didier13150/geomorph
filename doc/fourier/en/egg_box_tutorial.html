@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html style="direction: ltr;" lang="en"><head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>The Geomorrph "Egg Box" Tutorial</title>
+
+<meta content="Patrice St-Gelais" name="author">
+<meta content="Using the &quot;Progressive sum of surfaces&quot; to build an &quot;Egg Box&quot;" name="description">
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen"></head>
+<body>
+<center>
+<div id="header"></div>
+<big><iframe src="../../navigation_en.html" marginwidth="0" marginheight="0" frameborder="0" height="80" scrolling="no" width="800">
+</iframe></big></center>
+<big><strong style="font-style: italic;">The
+"Egg Box" tutorial</strong></big><br>
+<span style="font-style: italic;"><span style="font-weight: bold;"><br>
+How to use the "Progressive sum of surfaces" of Geomorph to build an
+"Egg Box" height field<br>
+</span></span><span style="font-style: italic; font-weight: bold;"></span><br>
+An "Egg Box" height field is used in the <a href="fourier_explorer_basics.html">Fourier Explorer tutorial</a>.
+We'll see how to create it with&nbsp;the "progressive sum of
+surfaces"
+generation process. This creates a height field by adding up gaussian
+bells of different sizes, moved by a random amount on width, depth and
+height.<br>
+<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;">1. Calling the
+"Progressive sum of surfaces"</span><br>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><img style="width: 343px; height: 725px;" alt="" src="egg_box_creation_1.jpg"></td>
+<td>
+<div style="text-align: center;">
+<div style="text-align: left;">
+<div style="text-align: center;">These are the
+default settings you get when choosing the "progressive sum of surface"
+icon in the "New document" dialog.<br>
+<br>
+Notice
+that the first "shape filter" is global to the image, while the "shape
+filter" related to the "primitive surface" controls the gaussian bell
+used as a building block.<br>
+<br>
+The "Seed" parameter is used to change pseudo-randomly the global
+distribution of the surfaces.<br>
+</div>
+<br>
+</div>
+<br>
+<img style="width: 192px; height: 192px;" alt="" src="../egg_box_creation_2.jpg"><br>
+This is a scaled down version of the 512x512 height field generated.<br>
+</div>
+<div style="text-align: center;"><br>
+<img style="width: 200px; height: 149px;" alt="" src="../egg_box_creation_3.jpg"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold;">2. Removing the random
+parameters</span><br>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><img style="width: 341px; height: 671px;" alt="" src="egg_box_creation_4.jpg"></td>
+<td style="text-align: center;"><br>
+Without the random factor displacing the bells on the plane ("XZ
+Displacement"), or
+the one varying the height of the bells ("H Displacement"), we obtain a
+cracker-looking
+height field.<br>
+We increase the slope from 50 to 70 because the result has a too low altitude. This means using
+higher bells as building blocks.<br>
+<br>
+<img style="width: 192px; height: 192px;" alt="" src="../egg_box_creation_5.jpg"><br>
+<br>
+<img style="width: 200px; height: 149px;" alt="" src="../egg_box_creation_6.jpg"><br>
+<br>
+We unroll the "Wave length control" for the next step...</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<span style="font-weight: bold;">3. Controlling the
+frequencies</span><br>
+<br>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: center;"><img style="width: 320px; height: 553px;" alt="" src="egg_box_creation_7.jpg"></td>
+<td style="text-align: center;">Set all the wave
+lengths to 0, then set the&nbsp;64-pixel to 100, and
+&nbsp;you're done!<br>
+<br>
+<img style="width: 192px; height: 192px;" alt="" src="../egg_box_creation_8.jpg"><br>
+<br>
+<img style="width: 200px; height: 150px;" alt="" src="../egg_box_creation_9.jpg"></td>
+</tr>
+</tbody>
+</table>
+<br>Written in April 2008<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice
+St-Gelais</a></i></p>
+<ul>
+</ul>
+<center> </center>
+<br>
+<div align="center"><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3" alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body></html>

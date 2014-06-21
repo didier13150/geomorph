@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Giant_Causeway_Tutorial</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big style="font-weight: bold; font-style: italic;">How to create
+a "Giant Causeway" landscape with Geomorph</big></big><br>
+<br>
+<span style="font-weight: bold;">Using the "lift edges" tool and a
+"water map"</span><br>
+<br>
+<a href="Terraces_Tutorial.html">The terraces how-to</a> shows that the
+"lift edges" tool <img alt="" src="../lift_edges.jpg"
+ style="width: 22px; height: 22px;"> can be
+used to create irrigated terraces
+by
+superimposing a "water field" with a height field transformed in
+terraces.<br>
+<br>
+The technique can also be used to improve the realism of a "Giant
+Causeway"-style rocky seashore, by wetting the top of the basalt
+pillars.<br>
+<br>
+The scene <a href="../giant_causeway.pov"><span
+ style="font-style: italic;">giant_causeway.pov</span></a>
+is provided for this tutorial. It is a derivative of <a
+ href="../terraces.pov"><span style="font-style: italic;">terraces.pov</span></a>,
+using different
+rock texture, terrain scaling and ligthing.<br>
+<br>
+<div style="text-align: center;"><img alt=""
+ src="../giant_causeway_irregular_45deg.jpg"
+ style="width: 800px; height: 480px;"><br>
+</div>
+<br>
+<span style="font-weight: bold;"><br>
+Step 1</span> - Start with the standard "Subdivision 2" terrain <img
+ alt="" src="../subdiv2.jpg" style="width: 22px; height: 22px;">. The
+example
+shown was done with a 1024x1024 map. A large height field gives more
+natural cells boundaries and more latitude to erode the edges of the
+basalt pillars.<br>
+<br style="font-weight: bold;">
+<div style="text-align: center;"><span style="font-weight: bold;">Step
+1 - The
+standard "Subdivision 2" terrain</span><br>
+</div>
+<br>
+<div style="text-align: center;"><img alt="" src="../default.jpg"
+ style="width: 256px; height: 256px;">&nbsp; <img alt=""
+ src="../default_result.jpg" style="width: 320px; height: 240px;"><br>
+</div>
+<br>
+<span style="font-weight: bold;">Step 2</span> - The original terrain
+almost fills up the
+full altitude range (0-65535). We need some room to raise the edges of
+the higher pillars. Choose the
+"Brightness / Contrast" tool <img alt=""
+ src="../brightness_contrast.jpg" style="width: 22px; height: 22px;">,
+decrease the contrast by -30 or the like. <br>
+<br>
+<span style="font-weight: bold;">Step 3</span> - Stratify the terrain
+with the "Giant Causeway" tool <img alt="" src="../honeycomb.jpg"
+ style="width: 22px; height: 22px;">. Here a
+radius of 30 was used, with a line width of 2 and a smoothing radius of
+2. Be sure to use a smoothing radius less or equal than the line width,
+otherwise the "Lift edges" tool would not be able to use the lines
+between the cells as a "black threshold" - some edges won't be raised.<br>
+<br>
+<span style="font-weight: bold;">Step 4</span> - (Optional) If you want
+irregular puddles, in the "Giant Causeway" dialog, before accepting the
+stratification of the terrain, go into the merge
+subdialog and mix the
+source and the result at approximately 70% of the result (the default
+being 100% of the result). This will add some noise on top the the
+pillars.<br>
+<br>
+<div style="text-align: center;"><span style="font-weight: bold;">Step
+4 - To avoid too regular puddles like in this picture,<br>
+mix source and result in the Giant
+Causeway tool</span><br>
+</div>
+<br>
+<div style="text-align: center;"><img alt=""
+ src="../rendered_section_regular.jpg"
+ style="width: 256px; height: 256px;"><br>
+</div>
+<br>
+<span style="font-weight: bold;">Step 5</span> - Creation of the water
+map: If you skipped step 4, clone the terrain with the clone button
+("Copy under a new name") in the menu bar <img alt=""
+ src="../save_copy_as.jpg" style="width: 22px; height: 22px;">, call
+the clone
+<span style="font-style: italic;">hf_water.png</span>. If you did step
+4, your current map cannot be used as a water map because the top of
+the pillars are not flat anymore. Then, save your current map under the
+name you like,
+create a water map by repeating steps 1 to 3 and save the result as <span
+ style="font-style: italic;">hf_water.png</span>.<br>
+<br>
+<span style="font-weight: bold;">Step 6</span> - Use the "Lift edges"
+tool <img alt="" src="../lift_edges.jpg"
+ style="width: 22px; height: 22px;"> on the main terrain. Use the
+default
+radius of 20. Unlike the terraces tutorial, you should check the "black
+threshold" box, to use the lines as edges boundaries. A raising level
+scale appears after executing the transformation. Try a raising
+level
+between 5 and 10. In the current example, a level of 7 was used.<br>
+<br>
+<span style="font-weight: bold;">Step 7</span> - (Optional) If you want
+slightly irregular edges like in the
+example shown, use the "Rain erosion" <img alt="" src="../rain.jpg"
+ style="width: 22px; height: 22px;"> tool on the main terrain, at its
+defaults settings.<br>
+<br>
+<span style="font-weight: bold;">Step 8</span> - (Optional) If you
+performed step 7, some water map edges could
+be too wide and "stick out". Use the "Crests" tool <img alt=""
+ src="../crests.jpg" style="width: 22px; height: 22px;"> on <span
+ style="font-style: italic;">hf_water.png</span> to
+narrow the water cells. The default of 3 steps
+is probably too much, one step would be sufficient.<br>
+<br>
+<div style="text-align: center;"><span style="font-weight: bold;">A
+section of the main height field, after the edges have been raised and
+eroded</span><br>
+</div>
+<br>
+<div style="text-align: center;"><img alt=""
+ src="../giant_causeway__irregular_section.jpg"
+ style="width: 256px; height: 256px;"><br>
+</div>
+<br>
+<span style="font-weight: bold;">Step 9</span> - Choose the default
+camera 2, render&nbsp;<img alt="" src="../povchoice_icon.jpg"
+ style="width: 28px; height: 28px;"> with <span
+ style="font-style: italic;">giant_causeway.pov</span>.<br>
+<br>
+<span style="font-weight: bold;">Step 10</span> - Fine-tune the
+contrast with the brightness / constrast tool&nbsp;<img alt=""
+ src="../brightness_contrast.jpg" style="width: 22px; height: 22px;">,
+if required: Some pillars may appear higher than the water,
+others lower. If
+the higher pillars are under the water and the lower pillars over it,
+increase the terrain contrast. If the higher pillars are over the water
+and the lower under it, decrease the contrast. A level change of
+&plusmn;1 to &plusmn;5 should be sufficient. You can render the scene
+with different levels before accepting the change. Sometimes you may
+also have to slightly adjust the brightness.<br>
+<br>
+<div style="text-align: center;"><span style="font-weight: bold;">Here
+the contrast of the terrain should be tuned to lower the water on
+higher pillars</span><br>
+</div>
+<br>
+<div style="text-align: center;"><img alt="" src="../wrong_contrast.jpg"
+ style="width: 516px; height: 325px;"><br>
+</div>
+<br>
+<span style="font-weight: bold;">Step 11</span> - In the present case,
+to fill up the rendered image with the terrain, I edited the
+<span style="font-style: italic;">giant_causeway.pov</span> file to
+stretch the
+terrain in the X and Z directions by a factor of 1.7, and decrease the
+height by a factor of 0.7. These changes appear as comments in the file
+distributed with version 0.4. Do not forget to change the scaling of
+both the terrain and the water map. As usual, the relevant lines in <span
+ style="font-style: italic;">giant_causeway.pov</span> appear after the
+/**********/ line:<br>
+<br>
+/*******************************************************************************************/<br>
+<br>
+object {hf scale &lt;1,1,1&gt; translate y*0 texture {rock3 scale 0.6}}<br>
+// object {hf scale &lt;1.7,0.7,1.7&gt; translate y*0 texture {rock3
+scale 0.6}}<br>
+<br>
+#ifdef (water)<br>
+&nbsp;&nbsp;&nbsp; object {water scale &lt;1,1,1&gt;}<br>
+//&nbsp;&nbsp;&nbsp; object {water scale &lt;1.7,0.7,1.7&gt;}<br>
+#end<br>
+<br>
+If you feel happy with the vertical scaling (I mean, scale X = scale Y
+= scale Z), indeed, you don't need to stretch the terrain to fill up
+the image. Decreasing the camera angle in the preview area is
+sufficient.<br>
+<br>
+<span style="font-weight: bold;">Step 12</span> - (Optional) The
+example shown was rotated by 45 degrees with the rotate tool <img
+ alt="" src="../rotate.jpg" style="width: 22px; height: 22px;">, to
+get a less straight result. Do not forget to rotate both the
+main terrain and the water map.<br>
+<br>
+Now the scene can (almost) be used as a building block for a seashore
+landscape.<br>
+<br>
+<span style="font-weight: bold;">Further improvements</span><br>
+<br>
+There are obviously a few things to improve:<br>
+<br>
+(1) Actual basalt pillars are slighly less regular. One way to simulate
+this would be to start from the "crack network" tool and fill "regular
+- perturbated" cells with a stratification of the height field. It is
+not possible with version 0.40 of Geomorph. Some
+work for a future version, maybe.<br>
+<br>
+(2) Actual basalt pillars are more crackled, on the X-Z plane and on
+the Y axis. With version 0.40 of Geomorph, cracks can only be
+created for the whole map. In real life, X-Z cracks are often bounded
+by the cells. Vertical cracks (Y) can probably be simulated by a
+texture applied where the slope is at 90 degrees.<br>
+<br>
+(3) The rock around the puddles does not look wet enough. It is not too
+difficult to render wet rocks when the water is a plane (see granite
+reef in <a href="../../tut_cracks/en/The_Cracks_Tutorial.html">the
+cracks tutorial</a>). But here, puddles are at different levels.&nbsp;
+One
+solution would be to use a wet texture for the whole rock formation to
+simulate a rainy day... More
+seriously, it can maybe be solved by a texture map, generated by
+intersecting the main height field and a water map slightly brighter
+(higher)
+than the original one. All the points under the modified water map
+would have a wet texture. Another solution would be to experiment with
+a slope texture: the wet parts are generally those where the slope is
+lower.<br>
+<br>
+Any feedback or suggestion is welcome.<br>
+____________________<br>
+<br>
+Written in December 2006<br>
+<br>
+<a href="../../doc_index_en.html"><img src="../../preview/GeoMorph.jpg"
+ alt="" style="border: 2px solid ; width: 32px; height: 32px;"
+ align="left"> </a><a href="../../doc_index_en.html">Back to the
+documentation index</a><br>
+<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a><br>
+</i></p>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a></div>
+<br>
+<br>
+</body>
+</html>

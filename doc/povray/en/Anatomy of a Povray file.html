@@ -1,0 +1,958 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Anatomy of a Povray file</title>
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<div style="text-align: center;"><big><big><big><span
+ style="font-weight: bold;"><a name="Anatomy_of_a_Povray_file_for_using"></a>Anatomy
+of a Povray file for
+using Geomorph</span></big></big></big><br>
+</div>
+<span style="font-style: italic;"></span><span
+ style="font-weight: bold;"><br>
+<a href="#Introduction">Introduction</a></span><a
+ href="#How_Geomorph_launches_Povray"><span style="font-weight: bold;"></span></a><br>
+<span style="font-weight: bold;"><a
+ href="#Overall_structure_of_a_Geomorph__Povray">The overall structure
+of a Geomorph /
+Povray scene file</a><br>
+</span><a href="#The_include_files_and_the_declared"><span
+ style="font-weight: bold;">The include files and the declared
+variables</span></a><br>
+<span style="font-weight: bold;"><a href="#The_globals_setting.inc_file">The
+"global_setting.inc" file</a><br>
+</span><span style="font-weight: bold;"><a
+ href="#Basic_objects_required_in_a_Geomorph_">The basic objects
+required in a Geomorph /
+Povray scene file</a><br>
+</span><span style="font-weight: bold;"><a href="#The_camera">The camera</a><br>
+</span><span style="font-weight: bold;"><a href="#The_Sun_and_the_light">The
+Sun and the light</a><br>
+</span><a href="#The_sky"><span style="font-weight: bold;">The sky</span></a><br>
+<span style="font-weight: bold;"><a href="#The_clouds">The clouds</a><br>
+</span><a href="#The_water"><span style="font-weight: bold;">The water</span></a><span
+ style="font-weight: bold;"><br>
+<a href="#The_ground">The ground</a></span><span
+ style="font-weight: bold;"><br>
+<a href="#The_fog_or_haze">The fog or haze</a></span><span
+ style="font-weight: bold;"><br>
+<a href="#The_height_field">The height field</a><br>
+</span><a href="#Adding_other_objects"><span style="font-weight: bold;">Adding
+other objects</span></a><br>
+<span style="font-weight: bold;"></span><br>
+See also the <a
+ href="Texturing%20a%20Geomorph%20height%20field%20with%20Povray.html">texturing
+guide</a>.<br>
+<br>
+<span style="font-weight: bold;"><a name="Introduction"></a>Introduction</span><br>
+<br>
+Geomorph offers a few Povray scene file templates for rendering
+predefined landscapes with a minimum of work. However, Geomorph users
+looking for more freedom to design landscapes would probably want to
+edit their own scene files.<br>
+<br>
+Mastering Povray is not easy, but it is not required to be an expert to
+get interesting results.<br>
+<br>
+Modifying the Geomorph Povray templates is a good starting point. This
+page explains how they are built and what you should look for. <br>
+<br>
+Actually, creating "good enough" landscapes requires only a subset of
+the Povray language. Texturing is probably the most important
+ingredient in achieving realism.<br>
+<br>
+After reading this page, the Geomorph templates and the <a
+ href="Texturing%20a%20Geomorph%20height%20field%20with%20Povray.html">texturing
+guide</a>, if you want to go
+further, I recommend that you glance through the Povray tutorial and
+the
+Povray reference available on <a href="http://www.povray.org">www.povray.org</a>.
+You can also browse the Web
+to pick examples. Some links are mentioned in this page.<br>
+<span style="font-weight: bold;"></span><br>
+<img alt="Hint" src="../light.jpg" style="width: 42px; height: 42px;"
+ align="left">When you modify a Povray file executed from Geomorph,
+start Geomorph from a X console, so that you can read the Povray error
+messages.<br>
+<br>
+<span style="font-weight: bold;"><a
+ name="Overall_structure_of_a_Geomorph__Povray"></a>The overall
+structure of a Geomorph /
+Povray scene file</span><br>
+<br>
+A Povray scene file is a text file with the .pov extension.<br>
+<br>
+We will use the <span style="font-style: italic;"><a
+ href="../scenes/mountains.pov">mountains.pov</a></span>
+file as example in this page, unless stated otherwise.<br>
+<br>
+The file is arbitrarily divided in 3 parts:<br>
+<ol>
+  <li>The first part contains include files and declared variables.</li>
+  <li>The second part contains basic objects declarations</li>
+  <li>The third part, after a row of *, recalls the basic objects in a
+summary manner.<br>
+  </li>
+</ol>
+In the third part, the row of * is not a Povray standard, it is only a
+way to improve legibility of the Geomorph scenes. This part allows the
+user to easily activate
+/ unactivate the objects, or to translate, scale or rotate them,
+without having to browse the whole scene text, which could be quite
+long.<br>
+<br>
+<span style="font-weight: bold;"><a
+ name="The_include_files_and_the_declared"></a>The include files and
+the declared
+variables</span><br>
+<br>
+The "include" files are compliant but incomplete Povray definitions,
+which
+could not be executed stand alone. A scene file usually contains
+standard include files, found where the Povray software is installed
+(something like /usr/local/share/povray/include):<br>
+<br>
+<span style="font-style: italic;">#include
+"colors.inc"&nbsp;&nbsp;&nbsp; // Standard Colour definitions</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#include
+"textures.inc"&nbsp;&nbsp;&nbsp; // Standard Texture definitions</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#include "skies.inc" // Standard
+Povray skies</span><br>
+<br>
+All text preceded by // is considered as a comment.<br>
+<br>
+Geomorph also provides its own textures, copied from the directory
+where Geomorph is installed
+(/usr/local/share/geomorph/&lt;version&gt;/) to the "geomorph" user
+directory when<span style="font-style: italic;"> install-user</span> is
+run or the first
+time the user starts Geomorph:<br>
+<span style="font-style: italic;"><br>
+#include "maprock1.inc"&nbsp;&nbsp;&nbsp; // Generated rockmap<br>
+#include "slope_patterns.inc"<br>
+#include "geomorph_txtr.inc" // This one is not used in mountains.pov<br>
+</span><br>
+<table style="width: 100%; text-align: left;" border="2" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span
+ style="font-weight: bold; font-style: italic;">Version 0.40 and later<br>
+      <br>
+      </span>Now it is sufficient to include <span
+ style="font-style: italic;"><a href="../scenes/geomorph.inc"><span
+ style="font-weight: bold;">geomorph.inc</span></a>,</span> which
+includes the three files. So the sequence is:<br>
+      <br>
+      <span style="font-style: italic;">#declare rock_color =
+0.5*(&lt;0.72,0.66,0.4&gt;) ; </span><br style="font-style: italic;">
+      <span style="font-style: italic;">#declare rock_turbulence=0.2;<br>
+...<br>
+#include "geomorph.inc"<br>
+      </span></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+These files are stored in the user's private geomorph directory, so
+that
+he or she can adapt them.<br>
+<br>
+Povray global variables are also usually declared at the beginning of
+the
+*.pov scene file, although they can be declared anywhere. For instance,
+<span style="font-style: italic;">mountains.pov</span> contains these
+declarations:<br>
+<br>
+<span style="font-style: italic;">#declare rock_color =
+0.5*(&lt;0.72,0.66,0.4&gt;) ; </span><br style="font-style: italic;">
+<span style="font-style: italic;">#declare rock_turbulence=0.2;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare rock_scale=0.05;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare rock_normal=1.5;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare sky_density=0.6;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare forest_color_density=0.8;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare water_density=0.35;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare fog_distance=10;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare fog_transparency=0.1;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare fog_altitude=0.15;</span><br>
+<br>
+"rock_color" is used in "maprock1.inc". "maprock1.inc" provides
+"banded" gradient variations, based on the colour specified by
+"rock_color" (think about sedimentary rock).<br>
+<br>
+The other variables are used in "slope_patterns.inc" or in the current
+*.pov file, as parameters to the definition of the basic objects. <br>
+<br>
+Most variables in Geomorph include files are not mandatory. When they
+are not set by the user, the include file sets a default value (check
+the "#ifndef"
+keyword in these files).<br>
+<br>
+Naturally, a variable used in an include file must be declared before
+including the file, not after!<br>
+<br>
+Let's say a word about Povray variables. There can be scalars (ex. 10,
+0.1...)
+or vectors (&lt;<span style="font-style: italic;">0.72,0.66,0.4&gt;). </span>The
+decimal separator must be a point. A
+vector means, depending on the context, the &lt;x,y,z&gt; coordinates,
+or the &lt;red,green,blue&gt; colours. Any scalar or vector can be
+replaced by a formula. For instance, 0.5*&lt;1.0,1.0,1.0&gt; is equal
+to &lt;0.5,0.5,0.5&gt; - it's useful for decreasing or increasing
+globally the density of
+a colour. The declaration must end with a semi-comma. <br>
+<br>
+About &lt;x,y,z&gt; vectors, remember that X is
+the left - right axis, Y is the down - up axis, Z is the forward -
+backward axis.<br>
+<div style="text-align: center;"><img alt="The Povray axis"
+ src="../../preview/axes.jpg" style="width: 280px; height: 266px;"><br>
+</div>
+<span style="font-weight: bold;"></span><br>
+<span style="font-weight: bold;"><a name="The_globals_setting.inc_file"></a>The
+"global_setting.inc" file</span><br>
+<br>
+If you don't have a <span style="font-style: italic;">Display_gamma</span>
+setting in your <span style="font-style: italic;">povray.ini</span>
+file, and your Povray results are not too light and not too dark, you
+can skip to the <a href="#Basic_objects_required_in_a_Geomorph_">next
+section</a>.<br>
+<br>
+From Geomorph version 0.23 and up, a "global_settings.inc" file is
+shared by all Geomorph templates. The templates check if the file
+exists, and if so, include it.<br>
+<br>
+This file, in version 0.40, contains only the <span
+ style="font-style: italic;">assumed_gamma</span>
+setting with the value of the Display_gamma setting found in the <span
+ style="font-style: italic;">povray.ini</span> file, if there is one.
+If not, <span style="font-style: italic;">global_setting.inc</span>
+contains only comments.<br>
+<br>
+The gamma is an attribute of your display system. The Povray reference
+guide (see <a href="http://www.povray.org/">www.povray.org</a>)
+explains how to evaluate it.<br>
+<br>
+The <span style="font-style: italic;">assumed_gamma</span> variable
+works with
+the <span style="font-style: italic;">Display_gamma</span> parameter
+in your .INI
+file (/home/&lt;you&gt;/.povray/3.6/povray.ini).<br>
+<br>
+Povray adjusts the output density depending on the relationship between
+<span style="font-style: italic;">assumed_gamma</span> and <span
+ style="font-style: italic;">Display_gamma.</span><br>
+<br>
+You don't have to use <span style="font-style: italic;">Dislpay_gamma</span>
+and <span style="font-style: italic;">assumed_gamma</span> if you are
+satisfied with the dentity of your output.<br>
+<br>
+However, after a first install of Geomorph with 0.23, or an upgrade of
+the files in the /home/&lt;you&gt;/geomorph directory, <span
+ style="font-style: italic;">assumed_gamma</span> would be active. If
+you didn't specify <span style="font-style: italic;">Display_gamma</span>
+in your <span style="font-style: italic;">povray.ini</span> file, a
+2.2 gamma is
+assumed by Povray, which is fairly high. Your landscapes would probably
+be too light.<br>
+<br>
+Roughly, here is how to manage this:<br>
+<ul>
+  <li>If you want no density adjustment at all done by Povray, erase
+the file <span style="font-style: italic;">globals_settings.inc</span>
+in your /home/&lt;you&gt;/geomorph directory,
+or comment the directive which sets <span style="font-style: italic;">assumed_gamma</span>
+in this
+file by writing // before.</li>
+  <li>If you want to adjust finely your output density, begin by
+evaluating the gamma of your display, following the instructions in the
+Povray documentation, then write this line in your <span
+ style="font-style: italic;">povray.ini</span> file:
+Display_gamma=?, replacing the ? with the actual gamma value.</li>
+  <li>Then check if you rendering looks fine with an <span
+ style="font-style: italic;">assumed_gamma</span> equal to your actual
+gamma value. Increase <span style="font-style: italic;">assumed_gamma</span>
+to darken your rendered image or decrease it to lighten the image.<br>
+  </li>
+  <li>If you prefer not to evaluate your gamma, or not to modify your
+povray.ini, you can still adjust your output approximately by modifying
+    <span style="font-style: italic;">assumed_gamma</span> as said.<br>
+  </li>
+</ul>
+<span style="font-weight: bold;"><a
+ name="Basic_objects_required_in_a_Geomorph_"></a>The basic objects
+required in a Geomorph /
+Povray scene file</span><br>
+<br>
+Creating a landscape generally requires:<br>
+<ul>
+  <li>A camera, giving the viewpoint.<br>
+  </li>
+  <li>A sun or other(s) light(s).<br>
+  </li>
+  <li>A sky.<br>
+  </li>
+  <li>Clouds.</li>
+  <li>Water.</li>
+  <li>A ground.</li>
+  <li>A fog or haze</li>
+  <li>One or more height fields</li>
+  <li>Any other objects (trees...)<br>
+  </li>
+</ul>
+Apart from the trees and similar objects, the clouds, the water, the
+ground and
+the fog or haze can be considered
+optional, even the sky if you want a black background!<br>
+<br>
+<span style="font-weight: bold;"><a name="The_camera"></a>The camera</span><br>
+<br>
+The camera is declared this way:<br>
+<br style="font-style: italic;">
+<span style="font-style: italic;">#declare maincamera =</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">camera</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;
+location&nbsp;&nbsp;&nbsp; &lt;0,&nbsp; 0, -0.1&gt;&nbsp;&nbsp;&nbsp;
+// &lt;X Y Z&gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; angle
+&nbsp;&nbsp;&nbsp; gl_angle</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;
+up&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; // which way is +up &lt;X Y Z&gt;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;
+right&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+aspect_ratio*x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; // which way is +right &lt;X Y Z&gt; and aspect ratio</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;
+look_at&nbsp;&nbsp;&nbsp; &lt;0, 0, 0&gt; &nbsp;&nbsp;&nbsp; // point
+center of view at this point &lt;X Y Z&gt;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">}</span><br>
+<br>
+It is recalled this way:<br>
+<br>
+<span style="font-style: italic;">camera {maincamera</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+translate &lt;0+tr_x,0.05+tr_y,tr_z&gt;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+rotate &lt;rot_x,0+rot_y,0+rot_z&gt; }</span><br>
+<br>
+The variables <span style="font-style: italic;">gl_angle,
+aspect_ratio, tr_x, tr_y, tr_z, rot_x, rot_y</span>
+and <span style="font-style: italic;">rot_z</span> are declared in the
+<span style="font-style: italic;">camera.inc</span>
+include file. This file is generated from the active camera in the
+preview each time the "Render"
+button is clicked<img alt="" src="../povrender_icon.jpg"
+ style="width: 28px; height: 28px;" align="middle">. A new file
+overwrites the actual one, so there is
+no point to edit it.<br>
+<br>
+Here is an example of the <span style="font-style: italic;">camera.inc</span>
+file:<br>
+<br>
+<span style="font-style: italic;">#declare gl_angle = 28;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare aspect_ratio =&nbsp;
+1.3333300;</span><br style="font-style: italic;">
+<span style="font-style: italic;">#declare tr_x = -0.0000000;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare tr_y =&nbsp; 0.0700000;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare tr_z = -0.9250000;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare rot_x = 11;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare rot_y = 0;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare rot_z = 0;</span><br>
+<br>
+<span style="font-weight: bold;"><a name="The_Sun_and_the_light"></a>The
+Sun and the light</span><br>
+<br>
+A scene usually has at least one light. However, a light has no
+dimension itself. It cannot be seen when the camera is directed towards
+it. We need to give it a shape with an other object. <br>
+<img alt="" src="../sunseta.jpg" style="width: 200px; height: 150px;"
+ align="right"><br>
+In Geomorph Povray templates,
+the main light is given the shape of a sphere to simulate the Sun. So,
+in a
+backlit scene like a sunset, you'll see the sun disk, as seen on the
+example rendered from <span style="font-style: italic;">sunseta.pov</span>
+at right. <br>
+<br>
+Here is how the light is generally produced with Geomorph :<br>
+<br>
+<span style="font-style: italic;">#declare light=&lt;1,0.97,0.94&gt;;
+</span><small>// Light colour (&lt;red, green, blue&gt; components)</small><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare sun= sphere
+{&lt;0,1,0&gt;,100<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pigment{rgb 3*light}
+</span><small>// Usually white, but can be coloured even with such a
+high brightness
+when some rgb components are null</small><span
+ style="font-style: italic;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; finish {ambient 1} </span><small>//
+The sphere colour would be produced by itself instead of by reflecting
+other light sources</small><span style="font-style: italic;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+#declare Sun =</span><br style="font-style: italic;">
+<span style="font-style: italic;">light_source</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; 0*x </span><small>// light's
+position
+(translated below)</small><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; color rgb light&nbsp; </span><small>//
+light's color</small><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; looks_like {sun} </span><small>//
+Gives its
+shape to the sun</small><br style="font-style: italic;">
+<span style="font-style: italic;">}</span><br>
+<br>
+The Sun is translated in its position at the bottom of the file. In <span
+ style="font-style: italic;">mountains.pov,</span> the Sun is in the
+South West part of the sky:<br>
+<br>
+<span style="font-style: italic;">light_source {Sun&nbsp; translate
+&lt;2000,2000,-1000&gt;}</span><br>
+<br>
+If you want the Sun to follow the camera (constant direction,
+independently of the height field rotation in the preview), you can
+rotate it with the camera parameters <span style="font-style: italic;">rot_x,</span>
+<span style="font-style: italic;">rot_y</span> and <span
+ style="font-style: italic;">rot_z:</span> <br>
+<br>
+<span style="font-style: italic;">light_source {Sun&nbsp; translate
+&lt;2000,2000,-1000&gt; rotate &lt;rot_x, rot_y, rot_z&gt; }<br>
+</span><br>
+In <span style="font-style: italic;">sunseta.pov, </span>the pigment
+for the Sun is <span style="font-style: italic;">rgb &lt;1,0.8,0.7&gt;</span>,
+and it is translated at <span style="font-style: italic;">&lt;-6550,
+720, 15000&gt;</span>.<br>
+<span style="font-style: italic;"></span><br>
+<span style="font-weight: bold;"><a name="The_sky"></a>The sky</span><br>
+<br>
+<img alt="" src="../basic_sky.jpg" style="width: 200px; height: 150px;"
+ align="right"><span style="font-style: italic;"></span><span
+ style="font-style: italic;"></span>The sky is basically a colour
+gradient on the Y axis (vertical). Povray provides a <span
+ style="font-style: italic;">sky_sphere</span>
+declaration for
+this purpose. A gradient is a kind of "pigment" in the Povray language.
+The gradient is applied on the <span style="font-style: italic;">sky_sphere</span>
+object. An example coming from <span style="font-style: italic;">mountains.pov</span>
+is shown at right (X rotation=355&deg;, angle of view = 55&deg;). So,
+in
+a Geomorph template, the sky could be declared in 2 steps:<br>
+<br>
+<span style="font-style: italic;">#declare sky_gradient = </span><br
+ style="font-style: italic;">
+<span style="font-style: italic;"></span><span
+ style="font-style: italic;"></span><span style="font-style: italic;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; pigment {</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; gradient y</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; color_map {</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; [0 color rgb
+sky_density*&lt;0.8,0.8,1&gt;] </span><small>// Pale hazy skyline</small><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; [0.15 color
+sky_density*(&lt;0.1,0.3,1&gt;)] </span><small>// Beginning of clear
+blue</small><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; [1.0 color
+sky_density*(&lt;0.1,0.2,1&gt;)] </span><small>// Clear blue</small><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; }</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+}</span><span style="font-style: italic;"></span><br
+ style="font-style: italic;">
+<span style="font-style: italic;"></span><br>
+In the example provided, the blue plane at the bottom is not a plane at
+all. It's simply the top of the gradient (value 1.0), contiguous to the
+beginning (value 0.0, the "pale hazy skyline").<br>
+<br>
+After the * row, the gradient could be recalled like this:<br>
+<br>
+<span style="font-style: italic;">sky_sphere {pigment {sky_gradient
+scale &lt;1.0, 1.0, 1.0&gt; } </span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; pigment {clouds
+scale &lt;1.0,0.4,1.0&gt; rotate &lt;0.0,-10,0.0&gt;}} // The next
+section explains the clouds</span><br>
+<br>
+A "scale" statement with no effect (values set to 1.0) is provided for
+editing convenience. The Y value
+can be increased to widen the hazy band on the skyline (say, &lt;1.0,
+2.0, 1.0&gt;. There is no point
+scaling on the X or Z axis, because this is a gradient on the Y axis.<br>
+<br>
+In most Geomorph templates, the <span style="font-style: italic;">sky_spher</span>e
+is specified directly,
+without a <span style="font-style: italic;">#declare</span> directive.<br>
+<br>
+<span style="font-weight: bold;"><a name="The_clouds"></a>The clouds</span><br>
+<br>
+There are 2 ways to specify basic clouds.<br>
+<br>
+In both ways, the clouds are provided by a pigment with a transparent
+background, superimposed on the sky sphere.<br>
+<br>
+You can add a pigment to the sky sphere, or define the pigment in a
+plane.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;">Plane version<br>
+      <img alt="" src="../plane_clouds.jpg"
+ style="width: 200px; height: 150px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;">Sky sphere
+version<br>
+      <img alt="" src="../sphere_clouds.jpg"
+ style="width: 200px; height: 150px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Frequently the plane gives more convincing results.<br>
+<br>
+In <a href="../scenes/mountains.pov"><span style="font-style: italic;">mountains.pov</span></a>,
+the clouds
+are applied to the sky sphere:<br>
+<br>
+<span style="font-style: italic;">#declare clouds = </span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pigment {</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+granite</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+turbulence 0.2</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+color_map {</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[0.4 rgbt &lt;0,0,0,1&gt;] // The "t" in rgbt refers to "transmit" -
+this colour is transparent and without any tint</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[0.7 rgbt &lt;0,0,0,1&gt;] // Replace the preceding line with this one
+for smaller clouds</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[0.95 rgb &lt;0.7,0.7,0.8&gt;] // Sudbued blueish white</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[1.0 rgb &lt;0.7,0.7,0.8&gt;]</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} </span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span><br>
+<span style="font-style: italic;">sky_sphere {pigment {sky_gradient
+scale y*1.0} </span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; pigment {clouds
+scale &lt;1.0,0.4,1.0&gt; rotate &lt;0.0,-10,0.0&gt;}}</span><br>
+<br>
+The <span style="font-style: italic;">granite</span> keyword refers to
+a pattern showing random noise. On a small scale, it gives a grainy
+structure which can be used to imitate granite. On a large scale, the
+grains make believable clouds.<br>
+<br>
+The clouds are scaled up on the X and Z axis, for more realism.
+Otherwise, they would look like strange cumulus, very close to the
+observer. When using a plane structure, this scaling is generally not
+required.<br>
+<br>
+The <span style="font-style: italic;">rotate</span> command is used to
+place the more interesting area of the sky where
+you want it in the picture.<br>
+<br>
+The plane structure is used in <a href="../scenes/desert.pov"><span
+ style="font-style: italic;">desert.pov</span></a>.<br>
+<br>
+When using the plane structure, expect to scale up the texture by a
+significant amount, for instance 20000, or even 100000. Also, a texture
+on a plane does not react to the light as it does on a sky sphere.
+You'll probably need to increase the <span style="font-style: italic;">ambient</span>
+parameter to emphasize the clouds. Neither structure reacts
+realistically to the light, at least not like real clouds would.<br>
+<br>
+See also <a
+ href="http://www.f-lohmueller.de/pov_tut/backgrnd/p_sky1.htm">the F.
+Lohm&uuml;ller tutorial</a>
+for creating "good enough" clouds. In this <a
+ href="http://www.oyonale.com/ressources/english/sources13.htm">other
+link,</a> Gilles Tran explains how to create incredible clouds, if you
+can afford
+hours and hours of rendering.<br>
+<span style="font-style: italic;"></span><span
+ style="font-style: italic;"><br>
+</span>
+<span style="font-weight: bold;"><a name="The_water"></a>The water</span><br>
+<span style="font-style: italic;"><br>
+</span>The basic water is simply a plane with a transparent and bumpy
+texture.<br>
+<br>
+<span style="font-style: italic;">//&nbsp;&nbsp;&nbsp; Dark water</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare water = plane {y, 0</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; texture {</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pigment {color
+rgbt&lt;0.0,water_density*0.15,water_density*0.35,0.2&gt;}</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+normal {bumps 0.1 translate clock scale 3*&lt;2.5,1,1&gt; rotate
+&lt;0,-30,0&gt;}</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+finish {specular 0.9 roughness 0.05</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+reflection .5 ambient 0.1 diffuse 0.3 }</span><span
+ style="font-style: italic;"></span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; }</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">}</span><br>
+<br>
+Notice the "t" component of the colour, specifying the transparency.
+Notice also the <span style="font-style: italic;">water_density</span>
+variable, specified in the first part of
+the scene file.<br>
+<br>
+There are other ways to render water. See <a
+ href="http://www.f-lohmueller.de/pov_tut/backgrnd/p_wat1.htm">the
+examples provided by Fr. Lohm&uuml;ller</a>.
+Some people also use isosurfaces, Christoph Hormann shows <a
+ href="http://www-public.tu-bs.de:8080/%7Ey0013390/pov/water/water05.html">here</a>
+how this method compares to others.
+Water can even be created from a Geomorph height field, if you can
+choose the point of view and the structure of the image so that the
+finite nature of the height field is not visible.<br>
+<br>
+<span style="font-weight: bold;"><a name="The_ground"></a>The ground</span><br>
+<br>
+A ground plane improves the look of some scenes. For instance, a ground
+plane with a wavy sand textures makes an interesting sea bottom or a
+desert ground. In the desert case, the
+ground plane creates the skyline.<br>
+&nbsp;
+<span style="font-style: italic;"></span><a
+ href="../../tut_desert/final.jpg"><br>
+</a><a href="../../tut_desert/final.jpg"><img alt=""
+ src="../../tut_desert/th_final.jpg"
+ style="border: 0px solid ; width: 150px; height: 113px;" align="right"></a>There
+is no ground plane in <a href="../scenes/mountains.pov"><span
+ style="font-style: italic;">mountains.pov</span></a>,
+but you can find one in <a href="../scenes/desert.pov"><span
+ style="font-style: italic;">desert.pov</span></a>
+(shown) or in <span style="font-style: italic;"><a
+ href="../scenes/sea_and_rocks.pov">sea_and_rocks.pov</a>.</span><br>
+<br>
+The
+syntax is similar to the water plane one:<br>
+<br>
+<div style="text-align: left;"><span style="font-style: italic;">#declare
+sea_bottom = plane {y, 0 }</span><br>
+<br>
+... recalled by this declaration, after the * row:<br>
+<br>
+<span style="font-style: italic;">object {sea_bottom texture
+{shore_granite}}</span><br>
+<br>
+These 2 lines could be replaced by:<br>
+<br>
+<span style="font-style: italic;">plane {y,0 texture</span><span
+ style="font-style: italic;"> {shore_granite}}</span><br>
+</div>
+<br>
+<span style="font-weight: bold;"><a name="The_fog_or_haze"></a>The fog
+or haze</span><br>
+<br>
+Most landscapes benefit from a light fog (haze).<br>
+<br>
+Haze and fog are both rendered with the "fog" command, using the
+"ground
+fog" type. The difference between haze and fog is only a matter of
+height, density and distance from the observer.<br>
+<br>
+In <span style="font-style: italic;"><a href="../scenes/mountains.pov">mountains.pov</a>,</span>
+the haze
+is specified this way:<br>
+<br>
+<span style="font-style: italic;">#declare Haze =</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">fog</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; fog_type&nbsp;&nbsp;
+2&nbsp;&nbsp; // Ground fog, 1 being a uniform fog</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; distance fog_distance</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;
+color&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rgbt
+&lt;0.6,0.6,0.8,fog_transparency &gt; // Blueish haze</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; fog_offset fog_altitude</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; fog_alt fog_altitude</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; turbulence 0.8</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">}</span><br
+ style="font-style: italic;">
+<br>
+Notice the variables <span style="font-style: italic;">fog_distance,</span>
+<span style="font-style: italic;">fog_transparency</span> and <span
+ style="font-style: italic;">fog_altitude,</span>
+declared at the beginning of the file.<br>
+<br>
+This fog is recalled after the * row by this command:<br>
+<br>
+<span style="font-style: italic;">fog {Haze}</span><br>
+<br>
+When debugging a scene, it is convenient to comment this line (// fog
+{Haze}) to speed up the rendering.<br>
+<br>
+<span style="font-weight: bold;"><a name="The_height_field"></a>The
+height field<br>
+<br>
+</span>When you click on the Povray button<img alt=""
+ src="../povrender_icon.jpg" style="width: 28px; height: 28px;"
+ align="middle">, the height field you are editing is written in the
+file <span style="font-style: italic;">test.png. </span>All the
+Povray templates provided with Geomorph call this file. Most of the
+time, you won't have to care about it.<br>
+<br>
+In version 0.23 of Geomorph, only one height field can be
+inserted
+in the scene from the GUI, using <span style="font-style: italic;">test.png</span>.
+However, you can edit the .pov file to
+place additional height fields by hand. Reasons for which you could
+want
+more than one height field include managing contiguous terrains with
+very different shapes and textures, for instance a sandy beach and the
+rocks behind. You could also want to "fill" the skyline in the
+background with another height field (see also <a
+ href="Geomorph%20and%20Povray%20-%20How%20to%20deal%20with%20the%20skyline.html">this
+page</a> for this technique), or superimpose a height field
+with water to simulate ponds (a
+"water field"?).<br>
+<br>
+This is how the main height field is declared in the Povray templates
+provided by Geomorph:<br>
+<br>
+<span style="font-style: italic;">#declare hf =</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">height_field</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; png "test.png"</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+smooth // Nicer!</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; scale &lt; 1.0,
+0.3, 1.0 &gt; // See explanations in the text</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; translate &lt;-.5,
+0.0, -.5&gt; // We center the map in the scene</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">}<br>
+<br>
+</span>
+<table style="width: 100%; text-align: left;" border="2" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span
+ style="font-weight: bold; font-style: italic;">Version 0.40 and later</span><br>
+      <br>
+The height field should now be declared like this:<br>
+      <span style="font-style: italic;"><br>
+#declare hf = <br>
+      </span><span style="font-style: italic;">height_field</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">&nbsp;&nbsp;&nbsp; png <span
+ style="font-weight: bold;">main_terrain</span><br>
+...<br>
+      <br>
+      </span>"main_terrain" is a variable created in <a
+ href="../scenes/geomorph.inc"><span style="font-style: italic;">geomorph.inc</span></a>.
+It contains the name of the current height field file, if it has been
+saved, or test.png, if not. The file also declares variables containing
+secondary height fields, like "water_map", "background_map",
+"ground_map" and "crater_map", for some scripts requiring them.<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Why use a scale of &lt; 1.0, 0.3, 1.0&gt;? A height field is generated
+in a 1 x 1 x 1 box. The <span style="font-style: italic;">scale</span>
+command decreases the height of the box
+to 0.3, otherwise the height field would seem unnaturally high.<br>
+<br>
+The translation is required to center the height field, otherwise the
+"South East" corner of the map would appear in the center.<br>
+<br>
+The "#declare" directive allows to recall the height field by using
+this syntax:<span style="font-style: italic;"> "object {hf
+texture{my_texture}}"</span>, at the end of the pov
+file:<br>
+<br>
+<span style="font-style: italic;">object {hf scale &lt;1.0,1.0,1.0&gt;
+translate y*0 texture {forest_rock_snow translate y*-0.35 scale 0.7 } }</span><br>
+<br>
+Notice that the height field and its texture can be
+scaled and translated separately. Naturally, a scale of 1.0 and a
+translation of
+0 have no effect. These commands are given for convenience, to show
+rapidly what parameters could be modified during the scene tuning.<br>
+<br>
+Texturing the height field, as said, is probably the most important
+step in achieving realism. <a
+ href="Texturing%20a%20Geomorph%20height%20field%20with%20Povray.html">A
+full page</a> is devoted to the textures offered by Geomorph.<br>
+<br>
+<span style="font-weight: bold;">Examples of scenes with more than one
+height field</span><br>
+<br>
+<span style="font-style: italic;">Use of a distant height field to
+"fill" the skyline<br>
+</span>
+<div style="text-align: center;"><span style="font-style: italic;"><img
+ alt="desert_mountains_1.jpg" src="../desert_mountains_1.jpg"
+ style="width: 200px; height: 150px;" align="middle"></span><big><big
+ style="font-weight: bold;"><big>+</big></big></big><span
+ style="font-style: italic;"><img alt="desert_mountains_2.jpg"
+ src="../desert_mountains_2.jpg" style="width: 200px; height: 150px;"
+ align="middle"></span><big><big><big><span style="font-weight: bold;">=</span></big></big></big><img
+ alt="desert_mountains_3.jpg" src="../desert_mountains_3.jpg"
+ style="width: 200px; height: 150px;" align="middle"><span
+ style="font-style: italic;"></span><br>
+<span style="font-style: italic;"></span></div>
+<span style="font-style: italic;"><br>
+</span><span style="font-style: italic;">Use of a "water field"</span><br>
+<div style="text-align: center;"><img src="../hf_terraces1.jpg" alt=""
+ style="width: 200px; height: 150px;" align="middle"><big><big><big><span
+ style="font-weight: bold;">+</span></big></big></big><img alt=""
+ src="../hf_terraces2.jpg" style="width: 200px; height: 150px;"
+ align="middle"><big><big><big><span style="font-weight: bold;">=</span></big></big></big><img
+ alt="" src="../hf_terraces3.jpg" style="width: 200px; height: 150px;"
+ align="middle"></div>
+<br>
+<br>
+<span style="font-weight: bold;"><a name="Adding_other_objects"></a>Adding
+other objects</span><br>
+<br>
+External modellers can be used to add objects to a Geomorph / Povray
+landscape.<br>
+<br>
+<a href="http://propro.ru/go/Wshop/povtree/povtree.html">Povtree</a> is
+a Java interface to the "tomtree" Povray script. It outputs a tree in
+an include file, which can be huge if you include twigs, leaves and
+flowers. For instance, the naked tree used in this Geomorph
+<a
+ href="http://geomorph.sourceforge.net/gallery/Patrice%20St-Gelais/images/12-%20Desert%20and%20tree.jpg">landscape</a>
+required a <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice%20St-Gelais/examples/olivier4.inc">3.8
+MB file</a>. Including the file requires these
+lines in a modified <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice%20St-Gelais/examples/desert_with_tree.pov"><span
+ style="font-style: italic;">desert.pov</span></a>
+file:<br>
+<br>
+<span style="font-style: italic;">#include "olivier4.inc" // The
+output from Povtree<br>
+...<br>
+(pov file body)<br>
+...<br>
+************************************************<br>
+object {TREE translate &lt;0.55,0.3,-1.5&gt; scale &lt;0.2, 0.23,
+0.2&gt;}<br>
+</span><br>
+The resulting tree structure is #declared as TREE in <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice%20St-Gelais/examples/olivier4.inc"><span
+ style="font-style: italic;">olivier4.inc</span></a>.<br>
+<br>
+There is also <a href="http://www.jpatch.com/">Jpatch,</a> which is a
+Java program for designing objects with an arbitrary shape and to
+output them in Povray include files. It seems to be inspired from
+sPatch, a Windows program I found addictive a few years ago.<br>
+<br>
+Both programs require the Sun Java virtual machine, v. 1.4 or more,
+which, not being a "free" environment like in "freedom", must be
+downloaded by users of most Linux distributions.<br>
+<br>
+Placing an external object on the height
+field surface represents a lot of trial-and-error work, but it is a
+nice exercise for mastering the Povray coordinate system ;-).<br>
+<br>
+<a href="#Anatomy_of_a_Povray_file_for_using">Top</a><br>
+<br>
+Written in May 2005, modified in January 2007<br>
+<br>
+<font color="#cccccc"><b><font color="#000000">
+Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a></i><br>
+<br>
+<a href="../../doc_index_en.html"> <img
+ src="../../tut_fault/GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_en.html">Back to the documentation index</a><br>
+<br>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"> </a><br>
+</div>
+</body>
+</html>

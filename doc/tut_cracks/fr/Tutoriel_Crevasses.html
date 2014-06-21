@@ -1,0 +1,544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Tutoriel Geomorph - dessin de fissures</title>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <meta name="author" content="Patrice St-Gelais">
+  <meta name="description"
+ content="Section de la documentation du logiciel Geomorph">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><b><a name="Geomorph"></a><i>Geomorph - La cr&eacute;ation de
+crevasses et de fissures<br>
+</i></b></big></big> <b><i> <br>
+</i></b>Avec la version 0.22, le crayon de
+failles de Geomorph a &eacute;t&eacute; am&eacute;lior&eacute; pour
+"s&eacute;parer" les failles afin de cr&eacute;er des crevasses
+et des fissures.<br>
+<br>
+La s&eacute;paration des murs est enti&egrave;rement interactive.
+L'effet sur l'image 3D est visible imm&eacute;diatement lorsque vous
+d&eacute;placez l'&eacute;chelle de contr&ocirc;le.<br>
+<br>
+<i>Avertissements</i><br>
+<img src="../Snail.png" alt="" height="48" width="48"> La
+s&eacute;paration interactive d'une crevasse est assez
+lourde. Sur un Athlon XP 2600+ &agrave; 2,1 Ghz, avec des images de
+512x512, l'utilisation est confortable, mais avec des images de
+1024x1024,
+le ralentissement est sensible.<br>
+<img src="../bomb.png" alt="" height="32" width="32"> La
+s&eacute;paration est encore assez "alpha" dans la version
+0.22. Sauvegardez r&eacute;guli&egrave;rement vos documents!<br>
+<br>
+<b><i> <big>Les sujets abord&eacute;s</big></i></b>
+<ul>
+  <li><a href="#Failles_crevasses_et_fissures_de_quoi">Failles,
+crevasses et fissures, de quoi parle-t-on exactement?</a><br>
+  </li>
+  <li><a href="#Les_principes">Les principes</a></li>
+  <li><a href="#Cr%E9ation_dun_r%E9seau_de_fissures">Cr&eacute;ation
+d'un r&eacute;seau de fissures</a><br>
+  </li>
+  <li><a href="#Trois_fa%E7ons_de_dessiner_une_crevasse">Trois
+fa&ccedil;ons de dessiner une crevasse</a><br>
+  </li>
+  <li><a href="#Quelques_conseils">Quelques conseils</a><br>
+  </li>
+</ul>
+<b><i> <big>Un r&eacute;sultat</big></i></b><br>
+<br>
+<div align="center"><a name="R&eacute;sultat"></a><img
+ src="../sea_and_rocks2.jpg" alt="" height="480" width="640"> <br>
+</div>
+<br>
+<big><i><b><br>
+<a name="Failles_crevasses_et_fissures_de_quoi"></a> Failles, crevasses
+et fissures, de quoi parle-t-on exactement?</b></i></big><br>
+<br>
+Les failles, crevasses et fissures peuvent &ecirc;tre simul&eacute;es
+dans Geomorph en partant d'une ligne bris&eacute;e ou fractale,
+g&eacute;n&eacute;r&eacute;e &agrave; partir d'une racine
+al&eacute;atoire.<br>
+<br>
+Il ne s'agit toujours que d'imitations g&eacute;om&eacute;triques de
+ph&eacute;nom&egrave;nes g&eacute;omorphologiques, comme tout ce
+qu'offre Geomorph (&agrave; l'exception peut-&ecirc;tre de
+l'&eacute;rosion). Leur seul m&eacute;rite est de ressembler &agrave;
+la r&eacute;alit&eacute;!<br>
+<br>
+Comme vous avez pu le voir dans un pr&eacute;c&eacute;dent <a
+ href="../../tut_fault/fr/Tutoriel_Failles.html">tutoriel</a>, une <b>faille</b>
+est une d&eacute;nivellation s&eacute;par&eacute;e par cette ligne
+factale.<br>
+<br>
+Une <b>crevasse</b> est une faille se s&eacute;parant en
+deux murs. La d&eacute;nivellation peut &ecirc;tre nulle.<br>
+<br>
+Une <b>fissure</b> est une crevasse dont la s&eacute;paration est d'un
+pixel ou deux et la d&eacute;nivellation est nulle.<br>
+<br>
+<br>
+<b><i> <big><a name="Les_principes"></a>Les principes</big><br>
+<br>
+</i></b><i>Aper&ccedil;u</i><br>
+<br>
+Comme les failles, les crevasses et les fissures sont
+cr&eacute;&eacute;es en dessinant une ligne de contr&ocirc;le avec la
+souris. La crevasse ou la fissure est g&eacute;n&eacute;r&eacute;e
+"sous" la ligne de contr&ocirc;le, en suivant sa pente. Elle peut
+&ecirc;tre plac&eacute;e finement en d&eacute;pla&ccedil;ant &agrave;
+l'aide de la souris les extr&eacute;mit&eacute;s de la ligne de
+contr&ocirc;le.<br>
+<br>
+<i>Dialogue</i><br>
+<br>
+Trois &eacute;l&eacute;ments ont &eacute;t&eacute; ajout&eacute;s au
+dialogue du crayon de failles pour faciliter la cr&eacute;ation de
+crevasses et de fissures.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><img src="diff_altitude.jpg" alt="" height="84"
+ width="298"> <br>
+      </td>
+      <td valign="top">Ce bouton remet la d&eacute;nivellation &agrave;
+0 instantan&eacute;ment. La plupart du temps, il n'y a pas de
+d&eacute;nivellation entre les deux c&ocirc;t&eacute;s d'une crevasse
+ou d'une fissure.<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="separation_1.jpg" alt="" height="76"
+ width="306"> <br>
+      </td>
+      <td valign="top">Cette &eacute;chelle contr&ocirc;le la
+s&eacute;paration des murs de la crevasse. Lorsqu'une ligne de
+contr&ocirc;le est active, les murs s'&eacute;largiront devant vos yeux.<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="auto_accept_1.jpg" alt="" height="76"
+ width="304"> <br>
+      </td>
+      <td valign="top">Cette option active l'acceptation automatique de
+la ligne de contr&ocirc;le courante, d&egrave;s que l'on clique
+ailleurs dans l'image pour dessiner une nouvelle ligne de
+contr&ocirc;le. La racine est rafra&icirc;chie, pour que la nouvelle
+ligne bris&eacute;e soit diff&eacute;rente. C'est utile pour dessiner
+efficacement un r&eacute;seau de fissures.<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<i><br>
+Direction de la s&eacute;paration</i><br>
+<br>
+Lorsque la crevasse coupe un coin, la s&eacute;paration est
+appliqu&eacute;e vers l'ext&eacute;rieur et perpendiculairement
+&agrave; la ligne de contr&ocirc;le (fl&egrave;ches rouges
+num&eacute;rot&eacute;es 1 &agrave; 4 sur le sch&eacute;ma plus bas).
+La s&eacute;paration
+est alors faite selon les deux axes (fl&egrave;ches vertes).<br>
+<br>
+Lorsque la crevasse coupe deux c&ocirc;t&eacute;s parall&egrave;les, la
+s&eacute;paration est appliqu&eacute;e vers le bas ou vers la
+droite (fl&egrave;ches 5 et 6). Elle est faite sur un seul axe
+(fl&egrave;ches vertes). Si ce n'&eacute;tait pas le cas, le
+d&eacute;placement d'une bordure de la crevasse laisserait une bande
+noire sur l'un des c&ocirc;t&eacute;s de l'image. <br>
+<br>
+Lorsque la s&eacute;paration est faite sur un seul axe
+et que pente de la ligne de contr&ocirc;le s'approche de 45&deg;, le
+r&eacute;sultat peut &ecirc;tre une ligne de fracture de largeur non
+homog&egrave;ne. Il est alors pr&eacute;f&eacute;rable de
+d&eacute;placer la ligne
+de contr&ocirc;le afin que la crevasse couple un coin, pour obtenir
+l'une des situations 1 &agrave; 4.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top">Direction de la s&eacute;paration<br>
+      <br>
+      <img src="../example.jpg" alt="" border="1" height="256"
+ width="256"> </td>
+      <td valign="top">Lorsque la pente de la ligne est pr&egrave;s de
+45&deg;, il est pr&eacute;f&eacute;rable d'&eacute;viter les cas 5 et
+6, parce que la s&eacute;paration a l'air in&eacute;gale.<br>
+      <br>
+      <div align="center"><img src="../slanted_crack.jpg" alt=""
+ border="1" height="128" width="128"> <br>
+      </div>
+      </td>
+      <td valign="top">En pivotant la ligne de contr&ocirc;le afin
+qu'elle coupe un coin, la s&eacute;paration est plus homog&egrave;ne!<br>
+      <br>
+      <div align="center"><img src="../slanted_crack_corrected.jpg"
+ alt="" border="1" height="128" width="128"> <br>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<b><i> <big><a name="Cr&eacute;ation_dun_r&eacute;seau_de_fissures"></a>Cr&eacute;ation
+d'un r&eacute;seau de fissures</big></i></b><br>
+<br>
+Les fissures viennent rarement seules dans la nature!<br>
+<br>
+Les rochers d&eacute;gag&eacute;s de leur v&eacute;g&eacute;tation et
+de leur mince couche d'humus par la mer apparaissent souvent parcourus
+d'un r&eacute;seau de fissures. <br>
+<br>
+Les roches ign&eacute;es comme le granite craqu&egrave;lent d'une
+fa&ccedil;on moins r&eacute;guli&egrave;re que les roches
+s&eacute;dimentaires. La ligne fractale offerte par le crayon "faille"
+de Geomorph peut
+en donner une imitation acceptable.<br>
+<br>
+Au Qu&eacute;bec, le bouclier canadien rencontre la mer le long de la
+c&ocirc;te nord du Golfe St-Laurent. Les roches granitiques y sont
+tr&egrave;s fr&eacute;quentes. Elles ont &eacute;t&eacute; polies par
+plusieurs glaciations et sont souvent de couleur rose.<br>
+<br>
+Dans cet exemple, nous cr&eacute;erons des r&eacute;cifs
+fissur&eacute;s de granite rose, &eacute;mergeant de la mer &agrave;
+mar&eacute;e basse. Les plus &eacute;lev&eacute;s sont
+&eacute;merg&eacute;s en permanence et portent &agrave; leur sommet une
+couche de v&eacute;g&eacute;tation basse.<br>
+<br>
+Cet exemple utilise la d&eacute;finition de sc&egrave;ne <i>sea_and_rocks.pov</i>
+et le fichier de textures <i>geomorph_txtr.inc </i>fournis avec
+Geomorph 0.22 et ult&eacute;rieur.<br>
+<br>
+Si ces fichiers ne se trouvent pas dans votre r&eacute;pertoire de
+travail apr&egrave;s avoir mis &agrave; jour Geomorph, copiez-les
+&agrave; partir des liens <a href="../sea_and_rocks.pov"><i>sea_and_rocks.pov</i></a>
+et <a href="../geomorph_txtr.inc"><i>geomorph_txtr.inc</i></a>.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b>1. Cr&eacute;ation de l'image de relief</b><br>
+      <br>
+      <div align="left"><img src="tools1.jpg" alt="" align="left"
+ height="417" width="268"> Cr&eacute;ez un nouveau terrain standard.<br>
+      <br>
+Dans cet exemple, la sc&egrave;ne par d&eacute;faut de la subdivision
+#2 a &eacute;t&eacute; utilis&eacute;e.<br>
+      <br>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../doc1.jpg" alt=""
+ height="257" width="257"> <br>
+&nbsp; <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>2. Diminution du contraste pour adoucir le
+terrain</b><br>
+      <br>
+      <div align="center">
+      <div align="left"><img src="tools_step1_contrast.jpg" alt=""
+ align="left" height="489" width="234"> Il s'agit de r&eacute;cifs
+polis. Ici, le contraste a &eacute;t&eacute; diminu&eacute; pour
+limiter la hauteur du terrain.<br>
+      <br>
+La hauteur minimale du terrain devra &ecirc;tre de 0 pour s'ajuster au
+plancher oc&eacute;anique. Pour cela, on d&eacute;sactive "Conserver la
+luminosit&eacute;" avant d'appliquer la variation de contraste.<br>
+      <br>
+Une autre fa&ccedil;on de proc&eacute;der aurait &eacute;t&eacute; de
+diminuer l'&eacute;chelle du terrain dans Povray sur l'axe Y.
+Cependant, l'effet du changement n'aurait pas pu &ecirc;tre vu dans
+l'aper&ccedil;u de Geomorph.<br>
+      <br>
+      </div>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img
+ src="../doc_step1_contrast.jpg" alt="" height="256" width="256"> <br>
+&nbsp; <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3. </b><b>Formation d'une &icirc;le
+(abaissement des c&ocirc;t&eacute;s) </b><br>
+      <br>
+      <div align="left"><img src="tools_step2_shape_filter.jpg" alt=""
+ align="left" height="296" width="267"> </div>
+Utilisez l'option "Filtre de forme" pour abaisser les
+c&ocirc;t&eacute;s du terrain, de fa&ccedil;on &agrave; ce qu'aucun
+d'entre eux n'apparaisse "coup&eacute;".<br>
+      <br>
+      <img src="../light.jpg" alt="Conseil" height="42" width="42">Vous
+pouvez aussi utiliser le crayon fractal, en mode "creuser une
+vall&eacute;e" pour effacer les c&ocirc;t&eacute;s.<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img
+ src="../doc_step2_shape_filter.jpg" alt="" height="256" width="256"> <br>
+&nbsp; <br>
+      <img src="../preview_step2_shape_filter.jpg" alt="" height="191"
+ width="255"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>4. </b><b>Choix de la position de la
+cam&eacute;ra<br>
+      </b>&nbsp; <br>
+C'est le temps de choisir la sc&egrave;ne Povray <i>sea_and_rocks.pov</i>
+afin d'ajuster le terrain au
+plan d'eau, en cliquant sur l'ic&ocirc;ne <img
+ src="../run_pov_with_choice.png" alt="Povray avec choix de sc&egrave;ne"
+ height="22" width="22"> en haut de la bo&icirc;te &agrave; outils.<br>
+      <br>
+La cam&eacute;ra a &eacute;t&eacute; abaiss&eacute;e et pivot&eacute;e
+afin que les r&eacute;cifs couvrent la majeure partie de l'image et que
+la ligne d'horizon se trouve environ au tiers sup&eacute;rieur de
+l'image.<br>
+      <br>
+      <div align="center"><img src="../sea_and_rocks_50.jpg" alt=""
+ height="240" width="320"> <br>
+      </div>
+      <br>
+      <img src="../light.jpg" alt="" height="42" width="42">V&eacute;rifiez
+l'application de la texture. Si les sommets des
+r&eacute;cifs sont trop &eacute;lev&eacute;s, vous pourriez observer un
+cycle, c'est-&agrave;-dire que l'herbe au sommet s'interrompt pour
+laisser place &agrave; la texture rocheuse de la base. Il y a deux
+fa&ccedil;ons de corriger ce ph&eacute;nom&egrave;ne: &nbsp;diminuer le
+contraste &agrave; nouveau, sans conserver la luminosit&eacute;, ou
+bien augmenter l'&eacute;chelle de la texture dans <i>sea_and_rocks.pov</i>.
+La texture est sp&eacute;cifi&eacute;e juste apr&egrave;s la ligne
+d'ast&eacute;riques:<br>
+      <br>
+      <i>object {hf&nbsp; translate y*0 texture {shore_granite
+translate y*0 scale 0.25 } }</i><br>
+      <br>
+Augmentez 0.25 jusqu'&agrave; ce que le cycle disparaisse.<br>
+      <div align="left">&nbsp; <img src="../light.jpg" alt="Suggestion"
+ height="42" width="42"> Si l'angle du soleil ne convient pas dans le
+rendu final, vous pouvez pivoter le terrain avec Geomorph plut&ocirc;t
+que de le faire avec la cam&eacute;ra, en utilisant <img
+ src="../rotate.png" alt="l'ic&ocirc;ne de rotation" height="22" width="22">
+dans la bo&icirc;te &agrave; outils. Un changement de position de la
+cam&eacute;ra ne change pas la position du soleil. Si vous ne faites
+vos rotations qu'avec l'aper&ccedil;u (en bougeant la cam&eacute;ra),
+le terrain peut se retrouver en tout ou en partie en contre-jour et
+appara&icirc;tre trop sombre dans l'image finale, m&ecirc;me s'il est
+acceptable dans l'aper&ccedil;u. La luminosit&eacute; du rendu
+donn&eacute; en exemple a &eacute;t&eacute; augment&eacute;e avec The
+Gimp pour cette raison...<br>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="step3_camera.jpg"
+ alt="" height="512" width="263"> <br>
+      <br>
+&nbsp; <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>5. Cr&eacute;ation de fissures &agrave;
+r&eacute;p&eacute;tition</b><br>
+      <br>
+      <img src="tools_step4_fissures.jpg" alt="" align="left"
+ height="722" width="275"> Avant de commencer cette &eacute;tape,
+sauvegardez votre terrain!<br>
+      <br>
+Ramenez la d&eacute;nivellation &agrave; 0.<br>
+      <br>
+Choisissez une largeur de 1 pixel.<br>
+      <br>
+Assurez-vous que l'option "Acceptation et rafra&icirc;chissement auto"
+est active, autrement vous dessinerez toujours la m&ecirc;me
+fissure.<br>
+      <br>
+Enfin, d&eacute;gainez votre souris et tirez dans tous les sens!<br>
+      <br>
+      <img src="../light.jpg" alt="suggestion" height="42" width="42">Vous
+pouvez changer le lissage de temps &agrave; autre pour donner
+l'impression d'une l&eacute;g&egrave;re variation de la largeur de
+la ligne. Profitez-en pour sauvegarder votre terrain...<br>
+      <br>
+      </td>
+      <td align="center" valign="middle">&nbsp;<img
+ src="../doc_step4_fissures.jpg" alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_step4_fissures.jpg" alt="" height="240"
+ width="320"> <br>
+      <br>
+      <a href="#R%E9sultat"><img src="../sea_and_rocks2_50.jpg" alt=""
+ height="240" width="320"> </a><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<a name="Trois_fa&ccedil;ons_de_dessiner_une_crevasse"></a><br>
+<big><i><b>Trois fa&ccedil;ons de dessiner une crevasse</b></i></big><br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b>1. La fa&ccedil;on "normale": avec
+le param&egrave;tre "s&eacute;paration" du crayon de failles.<br>
+      </b> </td>
+      <td valign="top"><b><img src="../test_crack_1.jpg" alt=""
+ height="256" width="256"> <br>
+      <img src="../preview_crack_1.jpg" alt="" height="193" width="257">
+      <br>
+      </b> </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>2. En cr&eacute;ant deux failles semblables</b>,
+parall&egrave;les mais de d&eacute;nivellations invers&eacute;es.<br>
+      <br>
+Cette technique a pour avantage de permettre la cr&eacute;ation d'une
+crevasse dont les murs ne sont pas parall&egrave;les.<br>
+      <br>
+Cependant, il ne s'agit pas r&eacute;ellement d'une faille
+s&eacute;par&eacute;e en deux, mais plut&ocirc;t d'un affaissement
+brusque et &eacute;troit. Vous remarquerez que la texture du terrain
+est visible dans le fond de la crevasse. Vous pourriez toujours
+l'&eacute;liminer en diminuant la
+luminosit&eacute; de l'image.<br>
+      <br>
+Voici en gros comment proc&eacute;der:<br>
+      <ul>
+        <li>D&eacute;sactivez l'option "Acceptation et
+rafra&icirc;chissement auto", afin de dessiner deux failles semblables
+en s&eacute;quence.</li>
+        <li>Dessinez un premier mur en utilisant une
+d&eacute;nivellation positive.</li>
+        <li>Dessinez le second mur avec une d&eacute;nivellation de
+m&ecirc;me niveau, mais n&eacute;gative. Parce que Geomorph corrige la
+d&eacute;nivellation pour &eacute;viter les d&eacute;bordements, les
+murs peuvent &ecirc;tre in&eacute;gaux. Ajustez alors la
+d&eacute;nivellation &agrave; l'oeil. Dans l'exemple, la
+d&eacute;nivellation de la premi&egrave;re faille &eacute;tait de 50 et
+celle de la seconde de -36.</li>
+        <ul>
+          <li><small>En dessinant le second mur, si votre faille est
+orient&eacute;e &agrave; l'inverse de la premi&egrave;re, basculez la
+ligne de contr&ocirc;le &agrave; l'aide de la souris.</small><br>
+          </li>
+        </ul>
+      </ul>
+Voici les options utilis&eacute;es pour cr&eacute;er le premier mur
+dans l'exemple &agrave; droite:<br>
+      <div align="center"><img src="options_crack_2.jpg" alt=""
+ height="206" width="265"> <br>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../test_crack_2.jpg"
+ alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_crack_2.jpg" alt="" height="192" width="257">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3. En creusant la crevasse avec un
+crayon fractal</b> - version &agrave; pente verticale.<br>
+      <br>
+      <img src="tools_test_crack_3.jpg" alt="" align="left" height="667"
+ width="312"> Ici, la crevasse est simul&eacute;e par une
+"vall&eacute;e" aux murs abrupts. En utilisant le crayon fractal
+plut&ocirc;t que le crayon continu, les bords restent
+irr&eacute;guliers, m&ecirc;me lorsque le mur est vertical.<br>
+      <br>
+Le niveau du crayon est r&eacute;gl&eacute; &agrave; 100% afin
+d'obtenir une d&eacute;nivellation maximale.<br>
+      <br>
+L'option "creuser une vall&eacute;e" doit &ecirc;tre choisie.<br>
+      <br>
+C'est avec le filtre de forme qu'on ajuste la verticalit&eacute; des
+murs. La "cloche gaussienne avec choix de param&egrave;tres" a
+&eacute;t&eacute; choisie pour un meilleur contr&ocirc;le.<br>
+      <br>
+      <img src="../light.jpg" alt="Conseil" height="42" width="42"> Si
+vous d&eacute;sirez ajuster vous-m&ecirc;me les param&egrave;tres du
+filtre de forme, comme dans l'exemple, choisissez le type de crayon
+"uniforme" pour voir l'effet des param&egrave;tres dans l'aper&ccedil;u
+du crayon et revenez au type de crayon fractal "1" ou "2" lorsque la
+pointe est assez "dure" &agrave; votre go&ucirc;t.<br>
+      </td>
+      <td align="center" valign="middle"><img src="../test_crack_3.jpg"
+ alt="" height="256" width="256"> <br>
+      <img src="../preview_crack_3.jpg" alt="" height="193" width="256">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3b. En creusant la crevasse avec un crayon
+fractal</b> - version &agrave; pente moyenne<br>
+      <br>
+      <img src="tools_test_crack_3b.jpg" alt="" align="left"
+ height="551" width="313"> Pour obtenir une pente moins raide, dans cet
+exemple, le niveau
+a &eacute;t&eacute; r&eacute;duit de 100% &agrave; environ 50% et un
+filtre de forme plus &eacute;troit a &eacute;t&eacute; choisi.<br>
+      <br>
+Le relief a &eacute;t&eacute; r&eacute;gl&eacute; &agrave; 1
+plut&ocirc;t que 0 afin d'augmenter l'irr&eacute;gularit&eacute; des
+murs.<br>
+      <br>
+L'espacement a &eacute;t&eacute; r&eacute;duit &agrave; 15%. Autrement,
+le fond de la vall&eacute;e &eacute;tait trop irr&eacute;gulier.<br>
+      </td>
+      <td align="center" valign="middle"><img src="../test_crack_3b.jpg"
+ alt="" height="256" width="256"> <br>
+      <img src="../preview_crack_3b.jpg" alt="" height="194" width="257">
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<big><i><b><a name="Quelques_conseils"></a>Quelques conseils</b></i></big>
+<ul>
+  <li>Les fissures seront plus r&eacute;alistes sur de grands terrains,
+de 512x512 et plus, parce qu'elles auront l'air plus fines. </li>
+  <li> Une autre fa&ccedil;on de simuler des fissures serait d'utiliser
+des r&eacute;seaux de lignes bris&eacute;es comme normales dans Povray,
+mais je n'ai pas explor&eacute; cette possibilit&eacute;. En principe,
+cette technique devrait permettre de cr&eacute;er des fissures plus
+fines.</li>
+  <li>Si le crayon vous semble trop lent, ajustez la ligne de
+contr&ocirc;le avec le param&egrave;tre de s&eacute;paration &agrave;
+0, puis activez la s&eacute;paration lorsque la ligne fractale est
+orient&eacute;e comme d&eacute;sir&eacute;. <br>
+  </li>
+</ul>
+<br>
+<a href="#Geomorph">Retour au d&eacute;but</a><br>
+<br>
+&Eacute;crit en octobre 2004<br>
+<br>
+<a href="../../doc_index_fr.html"> <img src="../GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a>
+<a href="../../doc_index_fr.html">Retour &agrave; l'index de la
+documentation</a><br>
+<br>
+</body>
+</html>

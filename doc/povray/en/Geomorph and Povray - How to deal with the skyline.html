@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Geomorph and Povray - How to deal with the skyline</title>
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<div style="text-align: center;"><big><span
+ style="font-weight: bold; font-style: italic;">Using Povray from
+Geomorph</span></big><br style="font-weight: bold; font-style: italic;">
+<br style="font-weight: bold; font-style: italic;">
+<big><big><span style="font-weight: bold;"><a
+ name="The_Skyline_Challenge"></a><big>The Skyline Challenge</big></span></big><br>
+</big></div>
+<br>
+<br>
+When creating landscapes from height fields, getting a convincing
+skyline is a challenge. A height field is a finite
+surface, so the designer must find a way to "fill" the skyline.<br>
+<br>
+A few techniques are presented here. A basic knowledge of <a
+ href="Anatomy%20of%20a%20Povray%20file.html">Povray in the context of
+Geomorph</a> is recommended.<br>
+<br>
+<a href="#1._Using_an_infinite_plane"><big><span
+ style="font-weight: bold;">1. Using an infinite plane</span></big></a><br>
+<a href="#2._Using_haze_or_fog"><big style="font-weight: bold;">2.
+Using haze or fog</big></a><br>
+<a href="#3._Moving_the_camera_for_hiding_the"><big><span
+ style="font-weight: bold;">3. Moving the camera for hiding
+the skyline</span></big></a><br>
+<a href="#4._Using_other_height_fields_as_a"><big
+ style="font-weight: bold;">4. Using other height field(s) as a
+background</big></a><br>
+<br>
+<big><span style="font-weight: bold;"><a
+ name="1._Using_an_infinite_plane"></a>1. Using an infinite plane</span></big><br>
+<br>
+The simplest way to deal with the skyline is to use a water plane or a
+ground plane to fill the infinite view.<br>
+<br>
+<img alt="" src="../shape1.jpg" style="width: 95px; height: 56px;"
+ align="right">A gaussian "shape filter" can be used to make an
+"island" with
+the height field. The shape filters are available in the creation
+dialog or
+as a tool <img alt="" src="../../tools/buttons/16.jpg"
+ style="width: 22px; height: 22px;">.<br>
+<br>
+When creating the island, fully applying the shape filter with a "+"
+(add) merge function removes a lot of terrain. To keep a more
+significant part of the terrain, your can try to:<br>
+<ul>
+  <li>Apply the filter at 50~70% level, depending on the terrain. The
+pen with a "dig" effect can be used to touch up the edges.</li>
+  <li>Use a "x" (multiply) merge function to get smoothly decreasing
+edges. Then the relief of the "island" center can be emphasized by
+using
+a power transformation with an exponent of 1.5 or 2.0.</li>
+</ul>
+The scene to the left shows the <span style="font-style: italic;">desert.pov
+</span>scene without the fog. The default "subidivision 2" terrain was
+used and filtered with the widest gaussian bell, using a "x" merge
+function.<br>
+<br>
+The scene to the right shows the same height field, with the <span
+ style="font-style: italic;">sea_and_rocks.pov</span> scene, without
+the fog.<br>
+<br>
+<table
+ style="width: 100%; text-align: left; margin-left: auto; margin-right: auto;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../skyline1.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../skyline2.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<big style="font-weight: bold;"><a name="2._Using_haze_or_fog"></a>2.
+Using haze or fog</big><br>
+<br>
+A variation on the infinite plane concept is to add haze or fog.<br>
+<br>
+The scene at left is rendered from <span style="font-style: italic;">desert.pov</span>.
+The <span style="font-style: italic;">distance</span> parameter of the
+<span style="font-style: italic;">fog</span> specification was
+decreased from 10 to 1, the <span style="font-style: italic;">fog_offset</span>
+and <span style="font-style: italic;">fog_alt</span> parameters were
+decreased from 0.3 to 0.1.<br>
+<br>
+The scene at right is rendered from <span style="font-style: italic;">sea_and_rocks.pov</span>.
+The fog parameters were left to their default values, which give a
+light haze.<br>
+<br>
+<table
+ style="width: 100%; text-align: left; margin-left: auto; margin-right: auto;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../skyline3.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../skyline4.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<big><span style="font-weight: bold;"><a
+ name="3._Moving_the_camera_for_hiding_the"></a>3. Moving the camera
+for hiding
+the skyline</span></big><br>
+<br>
+The "Desert with Tree" and "Terraces" examples, in my <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice/index.html">gallery,</a>
+were made with this technique. Naturally, the main drawback of this
+technique is the invisibility of the sky.<br>
+<br>
+<table
+ style="width: 100%; text-align: left; margin-left: auto; margin-right: auto;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../desert_and_tree.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../terraces.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+To overcome this drawback, the height of the camera can be increased
+(or the terrain moved down) while the ground plane is removed. The back
+of the height
+field falls in an empty sky, like the fake buildings in the
+making-of of some movies.<br>
+<br>
+This last technique is not compatible with clouds textures applied
+directly on
+the sky sphere. A strong spherical deformation would then be seen.
+A cloud plane must be used, and it must be rotated on the X and Z axis
+to follow the camera. For instance, this is how the sky is done for the
+scene reproduced at right, taken from the gallery :<br>
+<br>
+<span style="font-style: italic;">sky_sphere {pigment {sky_gradient
+scale &lt;1.0, 1.0, 1.0&gt; } }<br>
+</span><img alt="" src="../mountains2.jpg"
+ style="width: 400px; height: 240px;" align="right"><span
+ style="font-style: italic;"></span><span style="font-style: italic;">//
+And now the cloud plane:</span><br style="font-style: italic;">
+<span style="font-style: italic;">plane { y,1000 </span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; texture {</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pigment {</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+granite</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+turbulence 0.5</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; octaves 6</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; omega 0.1</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+lambda 2</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+color_map {</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[0.3 rgbt &lt;0,0,0,1&gt;]</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[1.0 rgb 1]</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span><span style="font-style: italic;"></span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+finish {ambient 0.8 }</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+scale 11000</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; }</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; no_shadow</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; hollow</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;<span style="font-weight: bold;">&nbsp;&nbsp;
+rotate x*rot_x</span></span><br style="font-style: italic;">
+<span style="font-style: italic;">}</span><br>
+<br>
+Remember that <span style="font-style: italic;">rot_x</span> comes
+from <span style="font-style: italic;">camera.inc</span>, generated
+from the Geomorph preview at render time.<br>
+<br>
+<br>
+<big style="font-weight: bold;"><a
+ name="4._Using_other_height_fields_as_a"></a>4. Using other height
+field(s) as a
+background<br>
+<br>
+</big><img alt="" src="../desert_new.jpg"
+ style="width: 320px; height: 240px;" align="right">A second height
+field was used as a background in this new Desert image, taken from my <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice/index.html">gallery</a>.<br>
+<br>
+Any number of height fields can be used.<br>
+<br>
+Geomorph height fields usually wrap, so they can also be "tiled" to
+fill the X-Z plane, by repeating the Povray height field directive as
+required. Notice however that the tiling never looks entirely seamless.
+The seams can be touched up with an editor like The Gimp.<br>
+<br>
+Only one height field can be placed automatically from
+the Geomorph preview (in version 0.23, at least). For placing the
+others, the .pov scene file must be edited. You have to choose which
+height field would be controlled from the Geomorph preview, the one
+which is called "test.png". For instance, in <span
+ style="font-style: italic;">desert_new.pov, </span>used for the
+landscape shown at right, the dunes foreground is controlled from the
+preview, and a terrain called <span style="font-style: italic;">desert_background.png</span>
+must be created before rendering the scene:<br>
+<br>
+<span style="font-style: italic;">#declare hf_background =</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">height_field</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">png "desert_background.png"</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp; smooth</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; scale &lt; 1.0,
+0.3, 1.0 &gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; translate &lt;-.5,
+0.0, -.5&gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">}</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">// Now declare the foreground:</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare hf =</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">height_field</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">png "test.png"</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp; smooth</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; scale &lt; 1.0,
+0.3, 1.0 &gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; translate &lt;-.5,
+0.0, -.5&gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">}<br>
+(...)<br>
+/**********************************************************************************************/</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">object {hf_background translate
+y*-0.0075 translate z*0.15 rotate &lt;0,rot_y,0&gt; texture {
+rock1&nbsp; } scale 2.2 * &lt;1.0, 1.1, 1.0&gt; }</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">object {hf translate y*-0.0075
+texture {pigment {color 1.2*rock_color } }&nbsp; }<br>
+<br>
+</span>
+<table style="width: 100%; text-align: left;" border="2" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">From <span
+ style="font-weight: bold;">version 0.40</span>, Geomorph put the
+height field names in predefined variables in <a
+ href="../scenes/geomorph.inc"><span style="font-style: italic;">geomorph.inc</span></a>:<br>
+      <div style="margin-left: 40px;">main_terrain = "test.png" ou le
+terrain en cours d'&eacute;dition<br>
+water_map = "hf_water.png"<br>
+ground_map = "ground_map.png"<br>
+background_map = "hf_background.png"<br>
+crater_map = "craters.png"<br>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<a href="#The_Skyline_Challenge">Top</a><br>
+<br>
+Written in June 2005, modified in January 2007<br>
+<br>
+<font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a></i><br>
+<br>
+<a href="../../doc_index_en.html"> <img
+ src="../../tut_fault/GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_en.html">Back to the documentation index</a><br>
+<br>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"> </a><br>
+</div>
+</body>
+</html>

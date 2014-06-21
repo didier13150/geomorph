@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Rivers on an eroded terrain with Geomorph</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><span style="font-style: italic; font-weight: bold;">How to
+create
+rivers on an eroded terrain with Geomorph 0.40</span></big></big><br>
+<br>
+<span style="font-weight: bold;">Using a "water map"</span><br>
+<br>
+This picture was created with the <a href="../mountains_with_water.pov"><span
+ style="font-style: italic;">mountains_with_water.pov</span></a>
+script,
+provided with version 0.40 of Geomorph. It requires the creation of 2
+height fields, the main terrain, plus one "water map", which should be
+called <span style="font-style: italic;">hf_water.png</span>.<br>
+<br>
+<div style="text-align: center;"><img alt=""
+ src="../mountains_with_water.jpg" style="width: 800px; height: 480px;"><br>
+<br>
+<div style="text-align: left;"><br>
+Here is an overview of the process:<br>
+<br>
+<span style="font-weight: bold;">Step 1</span> - (optional) It is
+suggested that you create a new directory
+for storing the main terrain and the water map. If you want to create
+other scenes later, separated directories
+are required to avoid overwriting of the water maps, which have always
+the same name. Notice that the scene script will always use a water map
+which is in the directory where the main terrain is stored. If you
+intend to edit the scene script <span style="font-style: italic;">mountains_with_water.pov</span>
+for this particular terrain, you may also copy it in this directory.<br>
+<br>
+<img alt="" src="../light.jpg" style="width: 42px; height: 42px;">If
+you put scenes in other directories than the default Geomorph one
+(/home/&lt;your_user_name&gt;/geomorph), you have to tell Povray where
+it should look for the include files provided by Geomorph
+(<span style="font-style: italic;">geomorph.inc,</span> <span
+ style="font-style: italic;">slope_patterns.inc</span> and so on).<br>
+<br>
+You may add this line in your <span style="font-style: italic;">povray.ini</span>
+file (probably
+/home/&lt;your_user_name&gt;/.povray/3.6/povray.ini) :<br>
+<span style="font-family: monospace;">Library_Path=/home/&lt;your_user_name&gt;/geomorph</span><br>
+<br>
+You may also add the
+option +L/home/&lt;your_user_name&gt;/geomorph in "Other render
+options" in
+your <span style="font-style: italic;">geomorphrc</span> file, which
+can be modified from the menu bar <img alt="" src="../settings.jpg"
+ style="width: 22px; height: 22px;">.
+Notice that this option is automatically added in fresh installations
+of Geomorph 0.40 and later.<br>
+<br>
+<span style="font-family: monospace;"></span><br>
+<span style="font-weight: bold;">Step 2</span> - Create your main
+terrain. Here a "subdivision 2" terrain <img alt=""
+ src="../subdiv2.jpg" style="width: 22px; height: 22px;"> was
+used. To get a terrain with a lot of small hills, set the roughness
+at 2 or 3 and distribution at 3 or 4. Also set the higher wave lengths
+at 0 in the "Wave length control" subdialog. For instance, set the 256
+and
+512 wave lengths at 0 for a 512x512 map.<br>
+<br>
+<span style="font-weight: bold;">Step 3</span> - Clone the terrain
+using "Copy under a new name" in the menu
+bar <img alt="" src="../save_copy_as.jpg"
+ style="width: 22px; height: 22px;">, name the copy <span
+ style="font-style: italic;">hf_water.png</span>.<br>
+<br>
+<span style="font-weight: bold;">Step 4</span> - Erode your main
+terrain with the rain erosion
+algorithm&nbsp;<img alt="" src="../rain.jpg"
+ style="width: 22px; height: 22px;">. You should use the new algorithm
+provided as the default one
+in Geomorph 0.4. With the older algorithm, the channels would be too
+weak. In the example, the maximum value of 200 000 "drops"
+was used.<br>
+<br>
+<span style="font-weight: bold;">Step 5</span> - For "filling" the
+eroded channels, we smooth the water map <span
+ style="font-style: italic;">hf_water.png</span>. Use the smooth
+tool&nbsp;<img alt="" src="../smooth.jpg"
+ style="width: 22px; height: 22px;"> with a radius like 4 pixels for a
+512x512 map. Save <span style="font-style: italic;">hf_water.png</span>.<br>
+<br>
+<span style="font-weight: bold;">Step 6</span> - Rendering: Activate
+the window of
+your main terrain (I mean click on it), find an adequate
+viewpoint with the preview camera and render <span
+ style="font-style: italic;">mountains_with_water.pov</span> <img
+ alt="" src="../povchoice_icon.jpg" style="width: 28px; height: 28px;">.
+Be sure that you don't
+render the scene when the <span style="font-style: italic;">hf_water.png</span>
+window is active, because it will not render like a water map. Notice
+that you
+don't have to save the main terrain before rendering, but you must save
+the water map (step 5), because it is used "passively".<br>
+<br>
+<span style="font-weight: bold;">Step 7</span> - If the channels seem
+too wide, you have 2 choices. The channels width does not scale with
+the terrain size. So, if you repeat the
+steps 2 to 6 with a larger terrain, channels would look narrower. In
+the
+example
+shown, an alternate solution was used:<br>
+1 - Revert the main terrain with the revert tool <img alt=""
+ src="../revert.jpg" style="width: 22px; height: 22px;">. Erosion
+channels becomes crests.<br>
+2 - Use the crest tool <img alt="" src="../crests.jpg"
+ style="width: 22px; height: 22px;"> to narrow these crests. The
+default value of 3
+steps should be a good choice.<br>
+3 - Revert back the main terrain with the revert tool <img alt=""
+ src="../revert.jpg" style="width: 22px; height: 22px;">. <br>
+<span style="font-style: italic;"></span><br>
+<span style="font-weight: bold;">Step 8</span> - Creation of the lakes:
+There are two techniques to create the lakes. <br>
+1 - The simpler one is to use the "Threshold" tool <img alt=""
+ src="../threshold.jpg" style="width: 22px; height: 22px;"> on the
+water
+map to fill it up to a given level. The texture used in <a
+ href="../mountains_with_water.pov"><span style="font-style: italic;">mountains_with_water.pov</span></a>
+shows a naked rock over the water level. To be consistent with this
+texture, you should set the lower level at 10142 (this is one of the
+values over which the "Minimum" scale fells automatically). You can use
+a different level, but you'll have to edit <a
+ href="../mountains_with_water.pov"><span style="font-style: italic;">mountains_with_water.pov</span></a>
+to set the "waterlevel" variable to a suitable level. This is the line
+to change:<br>
+<br>
+<span style="font-family: monospace;">#declare waterlevel =
+10300.0*0.3/65535.0;</span><br>
+<br>
+Use a level slightly over the threshold level. For instance, here, the
+difference between 10300 and 10142 is the height of the rock band we
+see over the water.<br>
+<img alt="" src="../question.jpg" style="width: 42px; height: 41px;">The
+water level is multiplied by 0.3 because all Geomorph terrains are
+scaled by 0.3 on the Y axis. It is divided by 65535 to scale the water
+level from the "height field world", with a dynamic range of 0 to
+65535, to the "Povray world", with a range of 0 to 1.<br>
+<br>
+2 - An other technique is to use the "Fill bucket" pen <img alt=""
+ src="../paintbucket.jpg" style="width: 22px; height: 22px;"> (it is in
+the
+"draw" dialog <img alt="" src="../pencil.jpg"
+ style="width: 22px; height: 22px;">) to fill depressions up on <span
+ style="font-style: italic;">hf_water.png</span>. This allows to create
+lakes at more than one altitude level. However, it is not possible with
+the provided <a href="../mountains_with_water.pov"><span
+ style="font-style: italic;">mountains_with_water.pov</span></a> to
+produce a naked rock band just over the water surface, when there are
+more than one level. Furthermore, if you have some areas under the
+default
+water level of 10300, they will appear rocky. Maybe you'll want to edit
+the scene to decrease the water level and get vegetation everywhere.<br>
+<br>
+<span style="font-style: italic;">Caution:</span> before and after
+using the "Fill bucket tool", save your work! It seems to have an index
+overflow bug somewhere I was not able to put right until now. This
+creates sometimes a "segmentation fault" (bomb).<br>
+<br>
+<span style="font-weight: bold;">Step 9</span> - Fine-tune the scale of
+the main terrain, if required. In the example shown, the terrain was
+stretched by 200% on the X and the Z axis (the "ground plane"). The
+scale instruction
+appears
+like comments in <a href="../mountains_with_water.pov"><span
+ style="font-style: italic;">mountains_with_water.pov</span></a>.
+Playing with the scale can give more natural results. The drawback is
+that it is not shown and thus not controlled in the preview dialog (not
+yet).<br>
+___________________<br>
+<br>
+Written in January 2007
+<br>
+<br>
+<a href="../../doc_index_en.html"><img src="../../preview/GeoMorph.jpg"
+ alt="" style="border: 2px solid ; width: 32px; height: 32px;"
+ align="left"> </a><a href="../../doc_index_en.html">Back to the
+documentation index</a><br>
+<br>
+<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a><br>
+</i></p>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a></div>
+<br>
+</div>
+</div>
+</body>
+</html>

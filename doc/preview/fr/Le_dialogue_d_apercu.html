@@ -1,0 +1,650 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Le dialogue d'aper&ccedil;u de Geomorph</title>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <meta name="author" content="Patrice St-Gelais">
+  <meta name="description"
+ content="Section de la documentation du logiciel Geomorph">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><b><a name="Geomorph"></a><span style="font-style: italic;">Geomorph</span><i>
+- Le dialogue d'aper&ccedil;u</i></b></big></big><b><i><big><br>
+</big></i></b>
+<ul>
+  <li><img src="preview.jpg" alt="Exemple d'aper&ccedil;u" align="right"
+ height="518" width="269"> <a href="#%C0_quoi_sert_laper%E7u">&Agrave;
+quoi sert l'aper&ccedil;u</a></li>
+  <li><a href="#Le_syst%E8me_de_coordonn%E9es_utilis%E9">Le
+syst&egrave;me de coordonn&eacute;es utilis&eacute;</a><br>
+  </li>
+  <li><a href="#Les_principales_caract%E9ristiques_de">Les principales
+caract&eacute;ristiques de l'aper&ccedil;u</a><br>
+  </li>
+  <li><a href="#Comment_utiliser_laper%E7u">Comment utiliser
+l'aper&ccedil;u</a></li>
+  <li><a href="#La_structure_dune_d%E9finition_de_sc%E8ne">La structure
+d'une sc&egrave;ne Povray coupl&eacute;e avec l'aper&ccedil;u</a><br>
+  </li>
+  <li><a href="#Quelques_conseils">Quelques conseils</a><br>
+  </li>
+</ul>
+<big><i><b><a name="&Agrave;_quoi_sert_laper&ccedil;u"></a>&Agrave; quoi sert
+l'aper&ccedil;u</b></i></big><br>
+<br>
+L'aper&ccedil;u a d'abord &eacute;t&eacute; con&ccedil;u pour donner
+une image en temps r&eacute;el des documents &eacute;dit&eacute;s.<br>
+<br>
+Cependant, lorsque votre objectif est de cr&eacute;er vos sc&egrave;nes
+finales &agrave; l'aide de Povray, l'aper&ccedil;u est d'une
+utilit&eacute; limit&eacute;e s'il ne refl&egrave;te pas la
+cam&eacute;ra de Povray.<br>
+<br>
+Le positionnement et le choix de l'angle d'une cam&eacute;ra est une
+t&acirc;che difficile &agrave; r&eacute;aliser &agrave; l'aide du
+langage de Povray, sans interface graphique. M&ecirc;me avec une vraie
+cam&eacute;ra, ce n'est pas toujours facile! Pourtant, tout comme en
+photographie, cette t&acirc;che est essentielle &agrave; l'obtention
+d'un r&eacute;sultat esth&eacute;tique.<br>
+<br>
+L'aper&ccedil;u et les sc&egrave;nes Povray fournies avec Geomorph 0.12
+ont &eacute;t&eacute; modifi&eacute;s pour acc&eacute;l&eacute;rer
+cette partie du travail. &Agrave; partir de la version 0.12, le point
+de vue de l'aper&ccedil;u se traduit en instructions qui
+d&eacute;placent la cam&eacute;ra de Povray et en modifient l'angle
+&agrave; toutes les fois qu'une image Povray est calcul&eacute;e.<br>
+<br>
+En s'inspirant des sc&egrave;nes fournies, l'utilisateur peut
+cr&eacute;er ses propres sc&egrave;nes Povray qui reproduiront aussi
+l'aper&ccedil;u.<br>
+<i><b><br>
+<big><a name="Le_syst&egrave;me_de_coordonn&eacute;es_utilis&eacute;"></a>Le syst&egrave;me
+de coordonn&eacute;es utilis&eacute;</big></b></i><br>
+<br>
+<div align="left"><img src="../axes.jpg" alt="Axes" align="right"
+ height="266" width="280"> L'aper&ccedil;u de Geomorph utilise la
+convention d'axes de Povray. Comme le montre l'image de droite, l'axe Y
+va du bas vers le haut, l'axe X de gauche &agrave; droite, et l'axe Z
+de l'observateur vers l'arri&egrave;re-plan. </div>
+<br>
+<big><i><b><a name="Les_principales_caract&eacute;ristiques_de"></a>Les
+principales caract&eacute;ristiques de l'aper&ccedil;u</b></i></big><br>
+<br>
+L'aper&ccedil;u permet des rotations, des translations
+(d&eacute;placements) et des variations de l'angle de vue.<br>
+<br>
+Les changements se font &agrave; l'aide des contr&ocirc;les
+affich&eacute;s ou en d&eacute;pla&ccedil;ant la souris dans l'image.<br>
+<br>
+Lorsque vous dessinez avec le "crayon relief", le calcul de
+l'aper&ccedil;u se fait lors du rel&acirc;chement du bouton de la
+souris.<br>
+<br>
+Les param&egrave;tres peuvent &ecirc;tre d&eacute;finis pour 5
+cam&eacute;ras distinctes.<br>
+<br>
+Les cam&eacute;ras sont sauvegard&eacute;es dans le fichier PNG
+contenant l'image de relief. Elles sont r&eacute;cup&eacute;r&eacute;es
+lorsque vous rouvrez le fichier.<br>
+<br>
+Lorsqu'un nouveau document est cr&eacute;&eacute;, ou lorsqu'un fichier
+est lu et qu'il ne contient aucune cam&eacute;ra (par exemple, un
+fichier cr&eacute;&eacute; avec Gimp), les derni&egrave;res
+cam&eacute;ras affich&eacute;es au cours de la session sont
+utilis&eacute;es. S'il
+s'agit du premier document d'une session, les r&eacute;glages par
+d&eacute;faut de Geomorph sont utilis&eacute;s. Les 5 cam&eacute;ras
+sont alors identiques.<br>
+<br>
+Enfin, lors d'un calcul de sc&egrave;ne Povray, les donn&eacute;es de
+la cam&eacute;ra courante sont sauvegard&eacute;es dans le fichier <i>camera.inc</i>,
+qui fait l'objet d'un <i>#include</i> dans les sc&egrave;nes fournies
+avec Geomorph.<br>
+<br>
+Parmi les am&eacute;liorations possibles &agrave; l'aper&ccedil;u,
+l'affichage optionnel d'un plan d'eau et d'un plan de sol serait un
+atout, la hauteur &eacute;tant coupl&eacute;e au d&eacute;placement sur
+l'axe Y dans les sc&egrave;nes Povray.<br>
+<br>
+<a name="Comment_utiliser_laper&ccedil;u"></a><big><i><b>Comment utiliser
+l'aper&ccedil;u<br>
+</b></i></big><br>
+<b><i>1 - Les fonctions de la souris</i></b><br>
+<br>
+Les d&eacute;placements et les rotations peuvent &ecirc;tre
+contr&ocirc;l&eacute;s en d&eacute;pla&ccedil;ant la souris dans
+l'image.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><img src="../mouse1.jpg" alt="" align="left"
+ height="18" width="30"> Bouton de gauche<br>
+      </td>
+      <td valign="top"><img src="../rotate_x.jpg" alt="" align="left"
+ height="22" width="22"> <img src="../rotate_y.jpg" alt="" align="left"
+ height="22" width="22"> Rotations<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="../mouse2.jpg" alt="" align="left"
+ height="18" width="30"> Bouton du centre<br>
+      </td>
+      <td valign="top"><img src="../horizontal.jpg" alt="" align="left"
+ height="22" width="22"> <img src="../vertical.jpg" alt="" align="left"
+ height="22" width="22"> D&eacute;placements gauche/droite (X),
+haut/bas (Y)<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="../mouse3.jpg" alt="" align="left"
+ height="18" width="30"> Bouton de droite<br>
+      </td>
+      <td valign="top"><img src="../depth.jpg" alt="" align="left"
+ height="22" width="22"> Rapprochement / &eacute;loignement (Z)<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<b><i>2 - Les boutons et les &eacute;chelles de contr&ocirc;le</i></b><br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg1.jpg"
+ alt="MAJ Auto" height="22" width="78"> <br>
+      </td>
+      <td valign="top"><i>Actif: </i>l'aper&ccedil;u est mis &agrave;
+jour lors de chaque modification du relief.<br>
+      <i> Inactif: </i>Il faut cliquer "Rafra&icirc;chir" pour mettre
+&agrave; jour l'aper&ccedil;u<br>
+D&eacute;sactivez cette case lorsque l'interface r&eacute;agit
+trop lentement. Par exemple:<br>
+(1) Vous &eacute;ditez une image plus grande que ce que la puissance de
+votre ordinateur peut supporter, en assurant la fluidit&eacute; des
+traitements.<br>
+(2) Vous avez trop augment&eacute; le niveau de d&eacute;tail de
+l'aper&ccedil;u<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg2.jpg"
+ alt="Rafra&icirc;chir" height="24" width="59"> <br>
+      </td>
+      <td valign="top">Cliquez pour rafra&icirc;chir l'aper&ccedil;u,
+soit lorsque la case "MAJ Auto" est d&eacute;sactiv&eacute;e, soit
+lorsque l'aper&ccedil;u n'appara&icirc;t pas, lorsque vous naviguez
+entre plusieurs documents (voir la FAQ).<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg3.jpg"
+ alt="Grandeur" height="26" width="101"> <br>
+      </td>
+      <td valign="top">Modifie la grandeur de la zone d'aper&ccedil;u,
+par incr&eacute;ment de 32 pixels. La largeur de la zone va de 64
+&agrave; 512 pixels. La largeur par d&eacute;faut est de 128 ou 256
+pixels. Elle est calcul&eacute;e au d&eacute;marrage de Geomorph selon
+la grandeur de votre bureau. La hauteur est de 0,75 fois la largeur (le
+format de l'image est de 4/3, comme les rendus des sc&egrave;nes Povray
+fournies avec Geomorph).<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg4.jpg"
+ alt="D&eacute;tail" height="24" width="117"> <br>
+      </td>
+      <td valign="top">Indique le nombre de sommets (vertices)
+consid&eacute;r&eacute;s dans la transformation de l'image en
+triangles,
+relativement au nombre de pixels. Ainsi, avec la valeur par
+d&eacute;faut
+de 25%, une image de 512x512 pixels sera repr&eacute;sent&eacute;e par
+128x128 sommets. Les valeurs varient du simple au double &agrave;
+chaque
+clic: 6,25%, 12,5%, 25%, 50%, 100%.<br>
+La valeur par d&eacute;faut de 25% assure une utilisation fluide avec
+le mat&eacute;riel recommand&eacute; (un processeur de ~1000 Mhz pour
+une image de 512x512, sans acc&eacute;l&eacute;ration mat&eacute;rielle
+OpenGL).<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg5.jpg"
+ alt="Cam&eacute;ra" height="21" width="242"> <br>
+      </td>
+      <td valign="top">Gestion des cam&eacute;ras.<br>
+Cliquez sur le bouton radio appropri&eacute; pour remplacer la
+cam&eacute;ra active.<br>
+Une cam&eacute;ra regroupe les param&egrave;tres de rotation, de
+d&eacute;placement et d'angle.<br>
+Les 5 cam&eacute;ras sont sauvegard&eacute;es avec l'image de relief,
+dans la zone de commentaires du fichier PNG. L'&eacute;dition de
+l'image de relief avec un autre outil risque de les effacer. &nbsp;Voir
+la section des <a href="#Quelques_conseils">conseils</a> pour ne pas
+perdre les cam&eacute;ras dans ce cas.<br>
+L'initialisation des cam&eacute;ras se fait &agrave; partir du dernier
+document affich&eacute;, ou si ce n'est pas possible &agrave; partir
+des valeurs par d&eacute;faut de Geomorph. Apr&egrave;s
+l'initialisation, chaque document conserve ses propres cam&eacute;ras.
+Une modification du
+point de vue dans un document n'a pas d'effet sur les autres.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg6.jpg"
+ alt="Rotation Y" height="30" width="255"> <br>
+      </td>
+      <td valign="top">Angle de rotation autour de l'axe vertical (Y),
+de 0&deg; &agrave; 360&deg;.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg7.jpg"
+ alt="Rotation X" height="30" width="255"> <br>
+      </td>
+      <td valign="top">Angle de rotation autour de l'axe Ouest-Est (X),
+ou inclinaison avant-arri&egrave;re, de 0&deg; &agrave; 360&deg;.<br>
+Lorsque l'ange de la prise de vue est &agrave; 60&deg;, la ligne
+d'horizon appara&icirc;t &agrave; 22&deg; ou moins, et une inclinaison
+de 6&deg; donne un horizon aux 2/3 de l'image.<br>
+Note: l'aper&ccedil;u n'offre pas de rotation autour de l'axe Z. Cela
+donnerait une ligne d'horizon pench&eacute;e.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg8.jpg"
+ alt="D&eacute;placement Z" height="30" width="255"> <br>
+      </td>
+      <td valign="top">Distance relative entre l'observateur et le
+relief. &Agrave; 0, l'observateur se trouve au centre du relief.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg9.jpg"
+ alt="D&eacute;placement Y" height="30" width="255"> <br>
+      </td>
+      <td valign="top">D&eacute;placement vertical du relief, de -Y
+&agrave; +Y.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg10.jpg"
+ alt="D&eacute;placement X" height="30" width="255"> <br>
+      </td>
+      <td valign="top">D&eacute;placement lat&eacute;ral du relief, de
+-X &agrave; +X.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg11.jpg"
+ alt="Angle" height="32" width="253"> <br>
+      </td>
+      <td valign="top">Angle de vision horizontal, de 5&deg; &agrave;
+100&deg;, correspondant &agrave; la convention Povray. En photographie,
+l'angle de vision donn&eacute; d'apr&egrave;s la longueur focale de
+l'objectif est g&eacute;n&eacute;ralement diagonal. Voici une table
+d'&eacute;quivalences pour quelques longueurs focales courantes:<br>
+      <table border="1" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td align="center" valign="middle">Focale 35 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>Angle horizontal<br>
+(Geomorph/Povray)<br>
+            </i></td>
+            <td align="center" valign="middle">Angle diagonal<br>
+format 24x36<br>
+(ratio 3/2)<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">15 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>100<br>
+            </i></td>
+            <td align="center" valign="middle">111<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">20 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>84<br>
+            </i></td>
+            <td align="center" valign="middle">94<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">24 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>74<br>
+            </i></td>
+            <td align="center" valign="middle">84<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">28 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>65<br>
+            </i></td>
+            <td align="center" valign="middle">75<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">35 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>54<br>
+            </i></td>
+            <td align="center" valign="middle">64<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">50 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>40<br>
+            </i></td>
+            <td align="center" valign="middle">47<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">80 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>25<br>
+            </i></td>
+            <td align="center" valign="middle">30<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">100 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>20<br>
+            </i></td>
+            <td align="center" valign="middle">24<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">200 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>10<br>
+            </i></td>
+            <td align="center" valign="middle">12<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">400 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>5<br>
+            </i></td>
+            <td align="center" valign="middle">6<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+L'angle consid&eacute;r&eacute; "normal" en photographie 35mm est celui
+d'un objectif de 50mm, soit 40&deg;. L'angle par d&eacute;faut de
+Geomorph est de 55&deg;, dans la version 0.12. L'angle diagonal de
+Geomorph/Povray serait un peu sup&eacute;rieur &agrave; celui du
+tableau, compte tenu que le ratio d'image est de 4/3 plut&ocirc;t que
+3/2.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg12.jpg"
+ alt="Remetre &agrave; 0" height="24" width="79"> <br>
+      </td>
+      <td valign="top">Ce bouton r&eacute;affiche les r&eacute;glages
+de cam&eacute;ra par d&eacute;faut de Geomorph, pour la cam&eacute;ra
+courante seulement.<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<big><i><b><a name="La_structure_dune_d&eacute;finition_de_sc&egrave;ne"></a>La
+structure d'une d&eacute;finition de sc&egrave;ne Povray coupl&eacute;e
+avec l'aper&ccedil;u</b></i></big><br>
+<br>
+Le lien entre l'aper&ccedil;u et une sc&egrave;ne Povray se fait
+&agrave; l'aide du fichier <i>camera.inc</i>, qui est
+g&eacute;n&eacute;r&eacute; dans le r&eacute;pertoire Geomorph courant
+lors de chaque calcul de sc&egrave;ne. Ce fichier cr&eacute;e des
+variables qui servent &agrave; corriger les param&egrave;tres Povray.
+En voici un exemple, qui reproduit les param&egrave;tres par
+d&eacute;faut:<br>
+<br>
+<tt>#declare gl_angle = 55;<br>
+#declare aspect_ratio =&nbsp; 1.3333334;<br>
+#declare tr_x = -0.0000000;<br>
+#declare tr_y = -0.0000000;<br>
+#declare tr_z = -1.3500000;&nbsp;&nbsp;&nbsp; // La conversion OpenGL
+-&gt; Povray exige cette correction<br>
+#declare rot_x = 50;<br>
+#declare rot_y = 0;<br>
+#declare rot_z = 0;</tt>
+<ul>
+  <li><b>gl_angle</b> est l'angle horizontal de prise de vues</li>
+  <li><b>aspect_ratio</b> est le rapport entre la largeur et la hauteur
+de l'image calcul&eacute;e. Pour les gens non familiers avec Povray, il
+ne suffit pas de donner la hauteur et la largeur en pixels de l'image
+g&eacute;n&eacute;r&eacute;e (ex. 640x480), il faut aussi que le ratio
+de la cam&eacute;ra corresponde, autrement le r&eacute;sultat
+para&icirc;tra comprim&eacute; sur l'une des dimensions. Pour
+l'instant, ce param&egrave;tre n'est pas contr&ocirc;lable par le
+dialogue d'aper&ccedil;u.</li>
+  <li><b>tr_*</b> sont les variables indiquant le d&eacute;placement
+(translation)</li>
+  <li><b>rot_*</b> sont les variables indiquant la rotation. "rot_z"
+est inutilis&eacute;, pour l'instant.<br>
+  </li>
+</ul>
+Voici l'allure g&eacute;n&eacute;rale d'une sc&egrave;ne Povray
+coupl&eacute;e avec l'aper&ccedil;u (les variables provenant de <i>camera.inc</i>
+sont en gras):<br>
+<br>
+<tt>#include "colors.inc"<br>
+#include "textures.inc"<br>
+#include "<b>camera.inc</b>"<br>
+<br>
+#declare maincamera = {<br>
+&nbsp;&nbsp;&nbsp; location&nbsp; &lt;0,&nbsp; 0, -0.1&gt; <br>
+&nbsp;&nbsp;&nbsp; angle &nbsp;&nbsp;&nbsp; <b>gl_angle</b><br>
+&nbsp;&nbsp;&nbsp; up&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; right&nbsp;&nbsp;&nbsp; &nbsp;<b>aspect_ratio
+</b>* x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; look_at&nbsp;&nbsp; &lt;0, 0, 0&gt;
+&nbsp;&nbsp;&nbsp; <br>
+}<br>
+</tt><tt>#declare sun = light_source { &lt;-300, 300, -10&gt; color
+White }</tt><br>
+<tt> #declare water = plane {y,0 texture (...) }<br>
+#declare ground =</tt><tt> plane {y,0 texture (...) }<br>
+#declare Sky = [plane / sphere] {...}&nbsp;&nbsp;&nbsp; // "sky"
+sans majuscule est un mot r&eacute;serv&eacute;<br>
+#declare hf = height_field {<br>
+&nbsp;&nbsp;&nbsp; png "test.png"&nbsp;&nbsp;&nbsp; // Nom standard du
+fichier cr&eacute;&eacute; par Geomorph, lors du calcul Povray<br>
+&nbsp;&nbsp;&nbsp; smooth<br>
+&nbsp;&nbsp;&nbsp; scale &lt;1.0, 0.3, 1.0&gt;&nbsp;&nbsp;&nbsp;
+// Y = 0.3x, autrement le relief est aussi haut que large (peu naturel!)<br>
+&nbsp;&nbsp;&nbsp; translate &lt;-0.5, 0.0, -0.5&gt;&nbsp;&nbsp;&nbsp;
+// Sans cette translation, c'est un coin du relief qui est au centre<br>
+&nbsp;&nbsp;&nbsp; texture (...)<br>
+}</tt><br>
+<br>
+<tt>/********************************************************************/<br>
+object {hf translate &lt;...&gt; rotate &lt;...&gt; scale &lt;...&gt;<br>
+<br>
+// Pour "water" et "ground": </tt><tt><br>
+//&nbsp;&nbsp;&nbsp; (1) dans un plan infini, l'&eacute;chelle n'a
+d'effet que sur la texture</tt><tt><br>
+//&nbsp;&nbsp;&nbsp; (2) le d&eacute;placement sur "y" doit parfois
+&ecirc;tre tr&egrave;s fin, de l'ordre de 0.01,<br>
+//&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; pour permettre un ajustement
+ad&eacute;quat au relief</tt><br>
+<tt>object {water translate y*0.0005 scale &lt;...&gt; } // l'eau doit
+&ecirc;tre l&eacute;g&egrave;rement au-dessus du sol!</tt><br>
+<tt>object {ground translate y*0.0 scale &lt;...&gt; }<br>
+<br>
+light_source {sun rotate &lt;0, <b>rot_y</b>, 0&gt;&nbsp;&nbsp;&nbsp;
+// La lumi&egrave;re Povray suit, malgr&eacute; le changement de point
+de vue<br>
+// Il peut aussi faire du sens d'appliquer "rot_x" &agrave; "sun"<br>
+<br>
+object {Sky rotate &lt;</tt><tt>??, ??+<b>rot_y</b>, ??</tt><tt>&gt;}<br>
+// La rotation permet d'aligner la zone du ciel d&eacute;sir&eacute;e
+(certains nuages) sur la cam&eacute;ra<br>
+//&nbsp;&nbsp; &nbsp;(si vous avez une zone
+pr&eacute;f&eacute;r&eacute;e!)</tt><br>
+<tt><br>
+camera {maincamera<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; translate &lt;0+<b>tr_x</b>,0.05+<b>tr_y</b>,<b>tr_z</b>&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; rotate &lt;<b>rot_x</b>,0+<b>rot_y</b>,0+<b>rot_z</b>&gt;
+}</tt><br>
+<br>
+Si vous d&eacute;sirez fixer un param&egrave;tre, remplacez la variable
+par la valeur d&eacute;sir&eacute;e. Cela peut faire du sens, par
+exemple, si vous d&eacute;sirez cr&eacute;er une image d'un format
+diff&eacute;rent de 4/3 ("aspect ratio"), puisque l'interface n'offre
+aucun contr&ocirc;le sur ce param&egrave;tre pour l'instant.<br>
+<br>
+<big><i><b><a name="Quelques_conseils"></a>Quelques conseils</b></i></big>
+<ol>
+  <li>Comment r&eacute;gler finement les &eacute;chelles de valeurs</li>
+</ol>
+<blockquote>Il est parfois difficile de r&eacute;gler de fa&ccedil;on
+fine les &eacute;chelles de distance ou de rotation. Par exemple,
+l'inclinaison avant-arri&egrave;re s'exprime souvent en angles de
+l'ordre de 0&deg;
+&agrave; 10&deg;. En cliquant sur le curseur de l'&eacute;chelle, puis
+en d&eacute;pla&ccedil;ant le curseur &agrave; l'aide des
+fl&egrave;ches
+gauche - droite du clavier, vous obtiendrez un contr&ocirc;le fin par
+sauts de 1&deg;.</blockquote>
+<ol start="2">
+  <li>Comment obtenir une ligne d'horizon au tiers de l'image</li>
+</ol>
+<blockquote>Une inclinaison de la cam&eacute;ra de 6&deg; donne une
+ligne d'horizon aux deux tiers de l'image (1/3 de ciel, 2/3 de sol).
+Vous voudrez parfois montrer deux tiers de ciel, par exemple lorsque
+les nuages sont un centre d'int&eacute;r&ecirc;t. Utilisez alors une
+inclinaison situ&eacute;e entre 350 et 355&deg;, et d&eacute;placez la
+cam&eacute;ra vers le haut (le relief vers le bas). Un exemple: une
+rotation X de 352&deg;, un d&eacute;placement Y de -0,31.<br>
+</blockquote>
+<ol start="3">
+  <li>Rafra&icirc;chissement trop lent</li>
+</ol>
+<blockquote>Si le calcul de l'aper&ccedil;u ralentit trop l'interface,
+diminuez le niveau de d&eacute;tail, ou bien d&eacute;sactivez la mise
+&agrave; jour automatique. <br>
+</blockquote>
+<ol start="4">
+  <li>Comment copier et r&eacute;utiliser les param&egrave;tres de
+cam&eacute;ra</li>
+</ol>
+<blockquote>Geomorph n'offre pas encore, avec la version 0.12, une
+sauvegarde des param&egrave;tres de cam&eacute;ra au niveau de la
+session. Cependant, s'il y a des cam&eacute;ras que vous aimeriez
+toujours utiliser pour
+vos nouveaux documents, sauvegardez-les dans un document que vous
+ouvrirez
+toujours au d&eacute;but d'une session Geomorph. Les cam&eacute;ras du
+dernier fichier ouvert sont r&eacute;utilis&eacute;es lors de la
+cr&eacute;ation
+des nouveaux documents.<br>
+</blockquote>
+<ol start="5">
+  <li>Comment restaurer les param&egrave;tres de cam&eacute;ra
+apr&egrave;s &eacute;dition avec un logiciel externe</li>
+</ol>
+<blockquote>Vous voudrez peut-&ecirc;tre &eacute;diter vos fichiers PNG
+avec Gimp, ou mieux, pour conserver le d&eacute;tail des altitudes sur
+16
+bits, avec Filmgimp/Cinepaint. Les cam&eacute;ras sont
+sauvegard&eacute;es
+dans la zone de commentaires du fichier PNG. Cette zone n'est pas
+conserv&eacute;e par les autres logiciels. Pour &eacute;diter le
+fichier avec un logiciel externe et conserver malgr&eacute; tout ces
+cam&eacute;ras, vous pouvez proc&eacute;der ainsi:<br>
+  <ol type="i">
+    <li>Copier le fichier sous un autre nom</li>
+    <li>&Eacute;diter le fichier d'origine avec l'autre logiciel.</li>
+    <li>Au retour dans Geomorph, ouvrir d'abord la copie non
+&eacute;dit&eacute;e. Geomorph initialisera les 5 cam&eacute;ras de
+l'aper&ccedil;u avec les d&eacute;finitions trouv&eacute;es dans le
+fichier.</li>
+    <li>Ouvrir le document modifi&eacute;. Comme Geomorph n'y trouvera
+aucune d&eacute;finition de cam&eacute;ra, il r&eacute;utilisera celles
+qu'il a trouv&eacute;es dans la copie.</li>
+  </ol>
+</blockquote>
+<ol start="6">
+  <li> Jouer avec les angles de prise de vue</li>
+</ol>
+<blockquote>On peut se demander pourquoi offrir une &eacute;chelle de
+variation de l'angle de vision, alors qu'il est possible de
+s'&eacute;loigner ou de s'approcher du relief si on veut en diminuer ou
+en augmenter la grandeur relative. <br>
+  <br>
+C'est une question de perspective. Supposons que vous d&eacute;finissez
+deux cam&eacute;ras, braqu&eacute;es sur une colline &agrave;
+l'avant-plan. Une cam&eacute;ra a un angle r&eacute;duit (c'est un
+t&eacute;l&eacute;objectif), l'autre un grand angle. Vous approchez la
+cam&eacute;ra &agrave; l'angle &eacute;lev&eacute; et &eacute;loignez
+le t&eacute;l&eacute;objectif pour que la colline &agrave; l'avant-plan
+soit de la m&ecirc;me grandeur apparente. Les collines &agrave;
+l'arri&egrave;re-plan para&icirc;tront alors beacoup plus petites avec
+la cam&eacute;ra grand angle qu'avec la cam&eacute;ra
+t&eacute;l&eacute;objectif.<br>
+  <br>
+Le grand angle donne un effet de profondeur, d'&eacute;loignement,
+tandis que le t&eacute;l&eacute;objectif donne un effet
+d'&eacute;crasement des diff&eacute;rents plans.<br>
+  <br>
+D'une fa&ccedil;on g&eacute;n&eacute;rale, les montagnes semblent plus
+&eacute;lev&eacute;e lorsque vues &agrave; l'aide d'un
+t&eacute;l&eacute;objectif, parce qu'elles occupent une plus grande
+surface de l'image.<br>
+  <br>
+L'utilisation du grand angle pour obtenir un effet de profondeur
+requiert habituellement de s'approcher consid&eacute;rablement des
+objets.
+Cette proximit&eacute; peut donner l'impression d'un manque de
+d&eacute;tail
+de l'image de relief, ou pire, on peut &agrave; la limite voir les
+triangles qui composent la surface. Une fa&ccedil;on de minimiser cet
+effet est
+d'utiliser une texture Povray riche, qui, en particulier, modifie les
+normales.<br>
+</blockquote>
+<a href="#Geomorph">Retour au d&eacute;but</a><br>
+<br>
+&Eacute;crit en novembre 2003<br>
+<br>
+<a href="../../doc_index_fr.html"><img src="../GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_fr.html">Retour &agrave; l'index de la
+documentation</a><br>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body>
+</html>

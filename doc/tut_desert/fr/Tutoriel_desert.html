@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Le tutoriel "D&eacute;sert"</title>
+  <meta http-equiv="" content="text/html; charset=ISO-8859-1">
+  <meta name="author" content="Patrice St-Gelais">
+  <meta name="description"
+ content="Tutoriel destin&eacute;s aux utilisateurs de Geomorph">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><b><i>Geomorph - Le tutoriel "D&eacute;sert"<br>
+</i></b></big></big> <b><i> <br>
+<big>Les sujets abord&eacute;s</big></i></b>
+<ul>
+  <li>L'algorithme de subdivision #2 et son param&egrave;tre de
+distribution<br>
+  </li>
+  <li>La transformation de puissance pour cr&eacute;er une plaine
+autour d'un pic<br>
+  </li>
+  <li>La translation<br>
+  </li>
+  <li>La stratification (terrasses) pour cr&eacute;er des m&eacute;sas<br>
+  </li>
+  <li>L'&eacute;rosion par la pluie<br>
+  </li>
+</ul>
+<big><i><b>La composition de la sc&egrave;ne</b></i></big><br>
+<br>
+Le r&eacute;sultat vis&eacute; est une plaine avec des m&eacute;sas
+&agrave; l'arri&egrave;re-plan. La cam&eacute;ra se trouve pr&egrave;s
+du sol. L'avant-plan est profond et plat, pour amplifier l'effet de
+plaine.<br>
+<br>
+Une image de relief et un plan de sol avec une texture de sable
+sont suffisants, en plus d'un ciel bleu avec quelques nuages. La
+poussi&egrave;re est simul&eacute;e &agrave; l'aide d'un l&eacute;ger
+brouillard, de la couleur du sable.<br>
+<i><b><br>
+<big>Le r&eacute;sultat</big></b></i><br>
+<br>
+<div align="center"><a name="Rendu_final"></a><img src="../final.jpg"
+ alt="Desert scene" height="480" width="640"> <br>
+</div>
+<br>
+<big><i><b>Les &eacute;tapes<br>
+</b></i></big><br>
+Ce tutoriel utilise la d&eacute;finition de sc&egrave;ne <i>desert.pov</i>
+fournie avec Geomorph 0.12 et ult&eacute;rieur. &Agrave; titre de
+rappel, cliquez sur <img alt="" src="../povchoice_icon.jpg"
+ style="width: 28px; height: 28px;" align="top"> pour choisir une
+sc&egrave;ne
+Povray autre que celle par d&eacute;faut.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b>1. Cr&eacute;ation de l'image de relief</b><br>
+      <br>
+Cr&eacute;ez un nouveau document de type subdivision #2.<br>
+      <br>
+      <div align="left"><img src="tools_step1.jpg" alt="" align="left"
+ height="417" width="239"> R&eacute;glez la distribution &agrave; une
+valeur &eacute;lev&eacute;e. Cela vous donnera des sommets
+&eacute;parpill&eacute;s.<br>
+      <br>
+Cliquez sur le bouton "Rafra&icirc;chir" jusqu'&agrave; ce que vous
+obteniez quelques sommets regroup&eacute;s. Vous pouvez aussi recopier
+la racine donn&eacute;e en exemple.<br>
+      <br>
+Il n'est pas important que les sommets se trouvent au bon endroit pour
+l'instant, nous les d&eacute;placerons plus tard. Ils est
+pr&eacute;f&eacute;rable cependant qu'ils soient group&eacute;s dans un
+espace assez restreint, afin de transformer le reste de l'image en
+plaine, notre avant-plan.<br>
+      </div>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">Quand
+la distribution est r&eacute;gl&eacute;e &agrave; 1, toute
+d&eacute;formation de la surface (sommet ou d&eacute;pression) a la
+m&ecirc;me probabilit&eacute;. Quand la distribution est plus
+&eacute;lev&eacute;e, les d&eacute;formations les plus importantes sont
+moins fr&eacute;quentes, ce qui fait que les sommets et les
+d&eacute;pressions semblent &eacute;parpill&eacute;s.<br>
+      <br>
+      <img src="../question.jpg" alt="" align="left" height="41"
+ width="42"> La distribution est un exposant, utilis&eacute; dans la
+formule suivante:<br>
+(DA est la d&eacute;formation al&eacute;atoire, qui varie entre
+0 et MAX): <br>
+      <blockquote>&nbsp;<big><tt><small>D&Eacute;FORMATION_R&Eacute;ELLE
+=
+puissance (DA/MAX ; DISTRIBUTION) x MAX</small></tt></big>;</blockquote>
+Notez que MAX d&eacute;pend de l'&eacute;chelle, qui d&eacute;pend de
+l'&eacute;tape de subdivision. Dans l'algorithme "subdivision 2", MAX
+est divis&eacute; par 2 &agrave; chaque &eacute;tape de subdivision.<br>
+      </td>
+      <td align="center" valign="middle"><img src="../doc_step1.jpg"
+ alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_step1.jpg" alt="" height="256" width="255"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>2. Utilisation de la transformation de
+puissance pour cr&eacute;er une plaine</b><br>
+      <br>
+L'objectif est de diminuer l'altitude des parties les plus basses du
+terrain, sans affecter les sommets.<br>
+      <br>
+      <div align="center">
+      <div align="left"><img src="tools_step2.jpg" alt="" align="left"
+ height="419" width="277"> Ici, vous pouvez utiliser les
+param&egrave;tres par d&eacute;faut de la transformation de puissance.
+L'altitude de chaque pixel est &eacute;lev&eacute;e au carr&eacute; (le
+"Param&egrave;tre" est l'exposant), puis le r&eacute;sultat est
+normalis&eacute; pour tenir dans l'intervalle 0-65535.<br>
+      <br>
+Si les alentours des sommets vous semblent assez sombres, acceptez le
+r&eacute;sultat. Autrement, faites "Remettre &agrave; 0" et essayez une
+valeur plus &eacute;lev&eacute;e. Avec un exposant &eacute;lev&eacute;,
+le sol s'aplatit et perd tout d&eacute;tail, si c'est ce que vous
+d&eacute;sirez.</div>
+      <div align="left"><br>
+      <img src="../../tut_moon/question.jpg" alt="" align="left"
+ height="41" width="42"> Cliquer sur "Appliquer" puis
+"R&eacute;p&eacute;ter" avec un exposant de 2 est l'&eacute;quivalent
+de cliquer sur "Appliquer" avec un exposant de 4. Cliquer sur
+"R&eacute;p&eacute;ter" deux fois (apr&egrave;s "Appliquer") avec un
+exposant de 2 &eacute;quivant &agrave; un exposant de 8. C'est
+multiplicatif, pas additif. Cliquer sur "Appliquer" deux fois ne fait
+que
+r&eacute;appliquer le m&ecirc;me exposant sur l'image d'origine, sans
+le
+multiplier, sauf si vous avez cliqu&eacute; sur "Accepter" entre les
+deux
+applications.<br>
+      </div>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../doc_step2.jpg"
+ alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_step2.jpg" alt="" height="255" width="256"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3. Translation du terrain</b><br>
+      <br>
+Nous voulons placer la cam&eacute;ra au centre-Sud, tourn&eacute;e vers
+le centre-Nord. Les montagnes seront centr&eacute;es Est-Ouest, pour se
+trouver dans l'axe de la cam&eacute;ra, et d&eacute;plac&eacute;es au
+Nord, &agrave; l'arri&egrave;re-plan, pour voir la plaine.<br>
+      <br>
+      <div align="left"><img src="tools_step3.jpg" alt="" align="left"
+ height="289" width="215"> </div>
+      <img src="../../tut_moon/question.jpg" alt="" align="left"
+ height="41" width="42"> L'outil "Translation" est bas&eacute; sur une
+propri&eacute;t&eacute; int&eacute;ressante de tous les reliefs
+cr&eacute;&eacute;s &agrave; l'aide des algorithmes de subdivision et
+d'addition de surfaces de Geomorph: ils "s'enroulent". Il est ainsi
+possible de les "paver" comme des tuiles sur une plus grande surface.
+Il est aussi possible des les appliquer comme normale ("bump map") sur
+un cylindre ou un beigne, si vous trouvez un usage pour cela. Le
+c&ocirc;t&eacute; Ouest s'ajuste au c&ocirc;t&eacute; Est, et
+le c&ocirc;t&eacute; Nord s'ajuste au c&ocirc;t&eacute; Sud.<br>
+      <br>
+D&eacute;placer l'image de 15% Est centre les sommets, et la
+d&eacute;placer 15% Nord place les sommets &agrave;
+l'arri&egrave;re-plan.<br>
+      <br>
+Dans la version 0.12 de Geomorph, l'affichage du document clignote
+lorsque la translation est accept&eacute;e. C'est ennuyant mais le
+r&eacute;sultat n'est pas affect&eacute;.<br>
+      </td>
+      <td align="center" valign="middle"><img src="../doc_step3.jpg"
+ alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_step3.jpg" alt="" height="255" width="256"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>4a. Stratification des montagnes</b><br>
+      <br>
+L'outil "Terrasses" permettra de stratifier les montagnes
+pour en faire des m&eacute;sas.<br>
+      <br>
+La stratification est un processus en trois &eacute;tapes, bien que le
+r&eacute;sultat soit utilisable d&egrave;s la premi&egrave;re
+&eacute;tape:<br>
+(1) Stratifier les altitudes.<br>
+(2) Lisser et retirer le bruit ind&eacute;sir&eacute;.<br>
+(3) Fusionner le r&eacute;sultat avec l'image originale.<br>
+      <br>
+La fusion sera discut&eacute;e au point 4b.<br>
+      <br>
+      <img src="tools_step4a.jpg" alt="" align="left" height="674"
+ width="250"> Une m&eacute;sa a un nombre limit&eacute; de niveaux
+d'altitude, contrairement aux terrasses utilis&eacute;es pour
+l'agriculture. Choisissons 4 niveaux.<br>
+      <br>
+      <img src="../../tut_moon/question.jpg" alt="" align="left"
+ height="41" width="42"> La transformation ram&egrave;ne l'intervalle
+d'altitudes de l'image courante, au maximum 65536 niveaux, &agrave; 4
+niveaux dans ce cas-ci. Si l'intervalle d'altitudes allait de 10000
+&agrave; 50000, la transformation porterait sur l'&eacute;cart de 40000
+niveaux. Chaque strate serait alors d'une hauteur de 10000. La
+premi&egrave;re (0) contiendrait les valeurs de 0 &agrave; 9999, la
+seconde (10000) les valeurs de 10000 &agrave; 19999, et ainsi de suite.<br>
+      <br>
+Le processus de base cr&eacute;e des strates d'&eacute;gale hauteur.
+C'est assez ennuyant. Le param&egrave;tre de variation al&eacute;atoire
+vise &agrave; corriger cette situation. Par d&eacute;faut, il est
+fix&eacute; &agrave; 50% de la hauteur moyenne des strates. On peut
+l'interpr&eacute;ter comme ceci: "d&eacute;placer l'altitude de la
+strate courante d'une valeur al&eacute;atoire situ&eacute;e entre 0% et
+50% de la hauteur calcul&eacute;e d'une strate".<br>
+      <br>
+Si vous n'&ecirc;tes pas satisfait de l'altitude de certaines strates,
+par exemple s'il y a trop d'"aiguilles" ou de pics &eacute;troits,
+cliquez sur "Rafra&icirc;chir" &agrave; volont&eacute;. La hauteur de
+chaque strate variera, de m&ecirc;me que son &eacute;tendue, pourvu que
+la variation al&eacute;atoire ne soit pas &agrave; 0%.<br>
+      <br>
+Cliquez sur la fl&egrave;che de gauche sous "Post-traitement du
+r&eacute;sultat" pour obtenir le dialogue de lissage et de suppression
+des art&eacute;facts.<br>
+      <br>
+Le lissage donne un r&eacute;sultat plus naturel. Un rayon de 2 est
+suffisant pour notre image de 512x512, &eacute;tant donn&eacute; que
+nous
+fusionnerons le r&eacute;sultat avec l'original pour augmenter le
+d&eacute;tail
+visible dans les parties plates.<br>
+      <br>
+Utilisez la "suppression d'artefacts" si votre image contient des
+taches non d&eacute;sir&eacute;es, qui se traduisent par des aiguilles
+sur le rendu final, et si vous ne pouvez pas vous en d&eacute;barrasser
+en rafraichissant la racine al&eacute;atoire. Le rayon est en pixels.
+Pour un effet donn&eacute;, le rayon doit &ecirc;tre proportionnel
+&agrave; la grandeur de l'image (10 pour 512x512 &eacute;quivaut
+&agrave; 20 pour 1024x1024).<br>
+      <br>
+Le post-traitement est co&ucirc;teux, aussi il n'est pas
+imm&eacute;diat. Cliquez "Appliquer" pour voir le r&eacute;sultat, puis
+attendez.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">Si
+vous changez le nombre de strates, la variation al&eacute;atoire ou
+la racine apr&egrave;s le post-traitement, vous devez
+r&eacute;appliquer le post-traitement.<br>
+      </td>
+      <td align="center" valign="middle"><img src="../doc_step4a.jpg"
+ alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_step4a.jpg" alt="" height="255" width="254">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>4b. Fusion du r&eacute;sultat avec l'image
+source</b><br>
+      <br>
+      <img src="tools_step4b.jpg" alt="" align="left" height="705"
+ width="277"> L'aper&ccedil;u montre une plaine tr&egrave;s plate et
+ennuyante autour des sommets. Le rendu calcul&eacute; &agrave; l'aide
+de <i>desert.pov</i> est encore pire (la plaine se retrouvera
+probablement sous le plan du sol).<br>
+      <br>
+Le dernier sous-dialogue de l'outil "Terrasses" permet de fusionner
+l'image d'origine et le r&eacute;sultat dans des proportions variables.<br>
+      <br>
+La fusion r&eacute;introduit un certain d&eacute;tail sur le sol, tout
+en adoucissant les ar&ecirc;tes des terrasses.<br>
+      <br>
+Cliquez sur la fl&egrave;che de gauche pour afficher le dialogue. Si
+votre bureau n'est pas &eacute;norme, vous voudrez probablement ferme
+le dialogue de post-traitement en cliquant sur sa fl&egrave;che de
+droite.<br>
+      <br>
+Le "Mode" = "+" par d&eacute;faut convient &agrave; nos besoins. Le
+m&eacute;lange par d&eacute;faut est 100% r&eacute;sultat + 0% source.
+Cliquez sur le bouton "0" button &agrave; la droite pour fusionner la
+source et le r&eacute;sultat en proportions &eacute;gales. C'est le
+ratio utilis&eacute; pour ce tutoriel. Vous pouvez exp&eacute;rimenter
+avec d'autres proportions.<br>
+      <br>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img src="../doc_step4b.jpg"
+ alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_step4b.jpg" alt="" height="256" width="257">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>5. &Eacute;rosion des m&eacute;sas avec la
+pluie</b><br>
+Vous pouvez calculer la sc&egrave;ne maintenant en cliquant <img
+ src="../../tut_moon/povchoice_icon.jpg"
+ alt="l'ic&ocirc;ne &quot;Choisir une sc&egrave;ne (.pov) et l'ex&eacute;cuter&quot;" height="28"
+ width="28"> et en choisissant <i>desert.pov. </i>Si vous
+d&eacute;sirez comparer
+avec le r&eacute;sultat montr&eacute; <a href="#Rendu_final">ci-haut</a>,
+r&eacute;glez les param&egrave;tres de cam&eacute;ra comme
+montr&eacute;
+&agrave; l'&eacute;tape 6. C'est d&eacute;j&agrave; assez
+int&eacute;ressant,
+mais on peut obtenir une apparence plus naturelle en appliquant de
+l'&eacute;rosion
+par l'eau.<br>
+      <br>
+      <img src="tools_step5.jpg" alt="" align="left" height="335"
+ width="216"> L'&eacute;rosion doit &ecirc;tre l&eacute;g&egrave;re.
+Nous ne voulons pas d&eacute;truire totalement les ar&ecirc;tes des
+terrasses. Pour une image de 512x512, essayez environ 25000 gouttes.<br>
+      <br>
+Calculez la sc&egrave;ne, et si vous n'&ecirc;tes pas satisfait,
+changez la nombre de gouttes et faites "Appliquer". Si vous n'avez pas
+cliqu&eacute; "Accepter", les gouttes vont &ecirc;tre
+r&eacute;appliqu&eacute;es au relief non &eacute;rod&eacute;.<br>
+      <br>
+Si vous d&eacute;sirez seulement ajouter des gouttes, choississez la
+quantit&eacute; &agrave; ajouter et cliquez "R&eacute;p&eacute;ter".
+Vous &eacute;vitez le recalcul de 25000 gouttes!<br>
+      <br>
+      <img alt="" src="../light.jpg" align="left" height="42" width="42">25000
+gouttes dans un relief de 512x512 sont &eacute;quivalentes
+&agrave; 6250 gouttes dans un relief de 256x256, ou 100000 gouttes dans
+un relief de 1024x1024. C'est proportionnel &agrave; la surface, qui
+s'accro&icirc;t comme le carr&eacute; de la grandeur lin&eacute;aire.<br>
+      </td>
+      <td valign="top"><img src="../doc_step5.jpg" alt="" height="256"
+ width="256"> <br>
+      <br>
+      <img src="../preview_step5.jpg" alt="" height="255" width="255"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>6. Calcul de la sc&egrave;ne finale avec
+Povray</b><br>
+      <br>
+La d&eacute;finition de sc&egrave;ne <i>desert.pov</i> fournie avec
+Geomorph 0.12 et ult&eacute;rieur est coupl&eacute;e avec la
+cam&eacute;ra d'aper&ccedil;u.<br>
+      <br>
+Le r&eacute;sultat final <a href="#Rendu_final">montr&eacute; plus haut</a>
+est obtenu avec les param&egrave;tres donn&eacute;s &agrave; droite.<br>
+      <br>
+Souvenez-vous que les param&egrave;tres de cam&eacute;ra sont
+sauvegard&eacute;s &agrave; l'int&eacute;rieur du fichier PNG. Ici, la
+premi&egrave;re cam&eacute;ra est utilis&eacute;e. Les autres
+cam&eacute;ra conservent les param&egrave;tres par d&eacute;faut, comme
+ceux utilis&eacute;s dans les &eacute;tapes 1 &agrave; 5 de ce tutoriel.<br>
+      <br>
+Peut-&ecirc;tre trouverez-vous que le r&eacute;sultat a besoin de
+certains ajustements. Regardez le fichier <i>desert.pov</i> dans votre
+&eacute;diteur de fichiers textes pr&eacute;f&eacute;r&eacute;. Les
+param&egrave;tres que vous d&eacute;sirerez probablement modifier sont
+group&eacute;s &agrave; la fin du fichier, apr&egrave;s la ligne
+d'ast&eacute;risques.<br>
+      <br>
+Pour cette sc&egrave;ne:<br>
+      <ol>
+        <li> J'ai diminu&eacute; l&eacute;g&egrave;rement
+l'&eacute;chelle verticale de l'image de relief (axe Y). J'aurais pu le
+faire aussi en jouant avec la luminosit&eacute; et le contraste dans
+Geomorph.</li>
+        <li> J'ai ajust&eacute; la position relative du relief et du
+plan de sol (sable), de telle sorte que le plan ne soit pas
+compl&egrave;tement cach&eacute; par le relief &agrave; l'avant, ni
+l'inverse. Le r&eacute;sultat est plus int&eacute;ressant quand des
+plaques de sables s'entrem&ecirc;lent avec des plaques de roc. Un
+d&eacute;placement tr&egrave;s faible du relief ou du plan am&egrave;ne
+un grand changement dans l'apparence finale.</li>
+        <li> J'ai diminu&eacute; l'&eacute;chelle de la texture du
+sable en diminuant l'&eacute;chelle du plan. Comme c'est un plan
+infini, seule sa texture r&eacute;agit &agrave; un changement
+d'&eacute;chelle.</li>
+        <li> J'ai beaucoup jou&eacute; avec les param&egrave;tres de
+brouillard, juste au-dessus de la ligne d'ast&eacute;risques. Le
+brouillard est de la poussi&egrave;re ici, aussi doit-il &ecirc;tre
+tr&egrave;s l&eacute;ger.</li>
+      </ol>
+      </td>
+      <td align="center" valign="middle"><img src="preview_step6.jpg"
+ alt="" height="418" width="261"> <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+&Eacute;crit en octobre 2003<br>
+<br>
+<a href="../../doc_index_fr.html"><img src="../GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_fr.html">Retour &agrave; la page
+d'accueil de Geomorph</a><br>
+<br>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>A Geomorph Tutorial - Drawing cracks and fissures</title>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <meta name="author" content="Patrice St-Gelais">
+  <meta name="description"
+ content="Part of the documentation of the Geomorph software">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><b><a name="Geomorph"></a><i>Geomorph - How to draw cracks
+and fissures<br>
+</i></b></big></big> <b><i> <br>
+</i></b>Geomorph version 0.22 provides an enhanced "fault pen", which
+can "separate" the fault in two walls, for creating
+cracks and fissures. <br>
+<br>
+The fault walls separation is immediate. You see it in the 3D preview
+when you move the control scale.<br>
+<br>
+<i>Warnings...</i><br>
+<img src="../Snail.png" alt="" height="48" width="48"> Interactively
+separating two crack walls is a rather heavy process. With 512x512
+height fields on an Athlon XP 2600+ (2,1 Ghz), it's comfortable, but if
+your increase the image size to 1024x1024, it slows down sensibly.<br>
+<img src="../bomb.png" alt="" height="32" width="32"> The separation is
+in "alpha" stage in version 0.22. Save your work
+frequently! <br>
+<br>
+<b><i> <big>Topics</big></i></b>
+<ul>
+  <li><a href="#Failles_crevasses_et_fissures_de_quoi">Faults, cracks
+and fissures, what are we speaking about exactly?</a><br>
+  </li>
+  <li><a href="#Les_principes">Some principles</a></li>
+  <li><a href="#Cr%E9ation_dun_r%E9seau_de_fissures">How to create a
+network of fissures</a><br>
+  </li>
+  <li><a href="#Trois_fa%E7ons_de_dessiner_une_crevasse">Three methods
+for drawing a crack</a><br>
+  </li>
+  <li><a href="#Quelques_conseils">Other hints</a><br>
+  </li>
+</ul>
+<b><i> <big>A result</big></i></b><br>
+<br>
+<div align="center"><a name="R&eacute;sultat"></a><img
+ src="../sea_and_rocks2.jpg" alt="" height="480" width="640"> <br>
+</div>
+<br>
+<big><i><b><br>
+<a name="Failles_crevasses_et_fissures_de_quoi"></a> Faults, cracks and
+fissures, what are we speaking about exactly?</b></i></big><br>
+<br>
+Faults, cracks and fissures can be approximated with Geomorph by using
+an irregular or a fractal line, generated from a random seed.<br>
+<br>
+These are only geometrical imitations of geomorphological phenomenons,
+like most things that can be created with Geomorph. They are valuable
+as far as they "look like" reality to some extent!<br>
+<br>
+Like seen in a previous <a
+ href="../../tut_fault/en/The_Fault_Tutorial.html">tutorial</a>, a <b>fault</b>
+is a difference of altitude separated by a fractal line. <br>
+<br>
+A&nbsp;<b>crack</b> is a fault dividing itself in two walls. The
+difference of altitude could be zero.<br>
+<br>
+A <b>fissure</b> is a crack with a one-pixel or maybe two-pixel
+separation, with no difference of altitude.<br>
+<br>
+<br>
+<b><i> <big><a name="Les_principes"></a>Some principles</big><br>
+<br>
+</i></b><i>Overview</i><br>
+<br>
+Cracks and fissures are created like faults, by drawing a control line
+with the mouse. The crack or the fissure is generated "under" the
+control line, following its slope. It can be adjusted precisely by
+moving the ends of the control line.<br>
+<br>
+<i>Dialog</i><br>
+<br>
+Three components have been added to the pen fault dialog, for making
+cracks and fissures creation easier.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><img src="diff_altitude.jpg" alt="" height="87"
+ width="270"> <br>
+      </td>
+      <td valign="top">This button sets the difference
+in altitude to 0 instantly. In most cases, in a crack or a fissure,
+there are no difference between the height of the two walls.<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="separation_1.jpg" alt="" height="76"
+ width="306"> <br>
+      </td>
+      <td valign="top">This scale controls how wide is the separation.
+If a control line is currently active, moving this scale would widen
+the underlying crack instantly.<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="auto_accept_1.jpg" alt="" height="82"
+ width="224"> <br>
+      </td>
+      <td valign="top">With this option, the currently active control
+line is automatically accepted when you click elsewhere in
+the height field to begin a new control line. The random seed is
+refreshed, so that the new fractal line is different. This is useful
+for drawing rapidly a network of fissures.<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<i><br>
+Direction of the separation</i><br>
+<br>
+When the crack cuts a corner, the separation is done from the center to
+the outside, perpendicularly to the control line (red arrows, numbered
+from 1 to 4, in the following schemas). Then, the separation is done on
+both
+axis (green arrows).<br>
+<br>
+When the crack cuts two parallel edges, the separation is done towards
+the bottom or towards the right (arrows 5 and 6). It is done on one
+axis (green arrows). If it were moving on two axis, there would be a
+black band on one of the edges.<br>
+<br>
+When the separation is done on one axis and the slope of the control
+line is close to 45&deg;, the crack line could be uneven. Then, it
+could
+look better if the control line is rotated sligthly so that the crack
+cuts
+a corner, like in situations 1 to 4.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top">Direction of the separation<br>
+      <br>
+      <img src="../example.jpg" alt="" border="1" height="256"
+ width="256"> </td>
+      <td valign="top">When the slope of the line is close to 45&deg;,
+it is better to avoid situations 5 and 6, because the width
+of the crack would look uneven.<br>
+      <br>
+      <div align="center"><img src="../slanted_crack.jpg" alt=""
+ border="1" height="128" width="128"> <br>
+      </div>
+      </td>
+      <td valign="top">You can get a nicer crack by rotating it so that
+it cuts a corner!.<br>
+      <br>
+      <div align="center"><img src="../slanted_crack_corrected.jpg"
+ alt="" border="1" height="128" width="128"> <br>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<b><i> <big><a name="Cr&eacute;ation_dun_r&eacute;seau_de_fissures"></a>How to
+create a network of fissures</big></i></b><br>
+<br>
+Nature rarely shows us isolated fissures!<br>
+<br>
+Rocks on which sea has removed plants and earth frequently exhibit a
+network of fissures. <br>
+<br>
+Igneous rocks like granite crack in a less regular way than sedimentary
+rocks. The fractal line of the "fault pen" provides a reasonable
+imitation of these cracks. <br>
+<br>
+In my country, the Canadian Shield meets the sea along the North Shore
+of the St Lawrence Gulf. Granite is very common. It has been polished
+by many glaciations and frequently shows a pinkish color. <br>
+<br>
+In this example, we will create a crackled reef of pink granite, rising
+up from the sea when the tide is low. The higher part is permanently
+out of the water and shows some low grassy plants. <br>
+<br>
+This example uses the <i>sea_and_rocks.pov</i> scene and the <i>geomorph_txtr.inc
+</i>textures file provided with Geomorph 0.22 or later.<br>
+<br>
+If these files are not in your working directory after upgrading
+Geomorph, copy them from&nbsp; <a href="../sea_and_rocks.pov"><i>sea_and_rocks.pov</i></a>
+and <a href="../geomorph_txtr.inc"><i>geomorph_txtr.inc</i></a>.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b>1. Creating the height field</b><br>
+      <br>
+      <div align="left"><img src="tools1.jpg" alt="" align="left"
+ height="416" width="250"> Create a new standard terrain.<br>
+      <br>
+We'll use here the default terrain of subdivision #2.<br>
+      <br>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../doc1.jpg" alt=""
+ height="257" width="257"> <br>
+&nbsp; <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>2. Decreasing the contrast for softening the
+terrain</b><br>
+      <br>
+      <div align="center">
+      <div align="left"><img src="tools_step1_contrast.jpg" alt=""
+ align="left" height="489" width="226"> We should decrease the contrast
+without keeping luminosity to get a
+low reef with a rather polished look.<br>
+      <br>
+Not keeping luminosity also allows to decrease the minimal height of
+the terrain to 0, which is the height of the oceanic floor.<br>
+      <br>
+We could also decrease the scale of the height field on the Y axis in
+the <i>.pov</i> scene definition. However, this effect couldn't be
+seen in the Geomorph preview.<br>
+      <br>
+      </div>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img
+ src="../doc_step1_contrast.jpg" alt="" height="256" width="256"> <br>
+&nbsp; <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3. </b><b>Creating an Island (lowering the
+edges) </b><br>
+      <br>
+      <div align="left"><img src="tools_step2_shape_filter.jpg" alt=""
+ align="left" height="294" width="250"> </div>
+Use the "Shape Filter" option to lower the edges, so that no edge looks
+"cuit".<br>
+      <br>
+      <img src="../light.jpg" alt="Advice" height="42" width="42"> You
+can also use the factal pen, in the "Dig a valley"mode, for erasing the
+edges.<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img
+ src="../doc_step2_shape_filter.jpg" alt="" height="256" width="256"> <br>
+&nbsp; <br>
+      <img src="../preview_step2_shape_filter.jpg" alt="" height="191"
+ width="255"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>4. </b><b>Setting the camera position<br>
+      </b>&nbsp; <br>
+Now you should select the Povray scene <i>sea_and_rocks.pov</i> for
+adjusting the terrain with the water. Click the <img
+ src="../run_pov_with_choice.png" alt="Povray avec choix de sc&egrave;ne"
+ height="22" width="22"> icon at the top of the tools window.<br>
+      <br>
+The camera has been lowered and rotated so that the reef occupies the
+most part of the picture and so that the skyline divides the picture at
+approximately one third of its height, from the top.<br>
+      <br>
+      <div align="center"><img src="../sea_and_rocks_50.jpg" alt=""
+ height="240" width="320"> <br>
+      </div>
+      <br>
+      <img src="../light.jpg" alt="Advice" height="42" width="42">Check
+how the texture is applied. There could be a cycle if the top of
+the reef is too high, meaning that the dark rocky texture of the base
+would follow the grass at the very top. There are two ways to overcome
+this: decrease the contrast once more, without keeping the luminosity,
+or increase the scale of the texture in&nbsp; <i>sea_and_rocks.pov</i>
+until the cycle disappears. The texture follows the line of "*" in the
+file:<br>
+      <br>
+      <i>object {hf&nbsp; translate y*0 texture {shore_granite
+translate y*0 scale 0.25 } }</i><br>
+      <br>
+      <div align="left">&nbsp; <img src="../light.jpg" alt="Advice"
+ height="42" width="42"> If the position of the sun in the rendered
+scene does not suit your taste, you can rotate the terrain with
+Geomorph instead of using the camera, with <img src="../rotate.png"
+ alt="l'ic&ocirc;ne de rotation" height="22" width="22"> in the tools window.
+Moving the camera position does not change the
+sun position. If you rotate the terrain only in the preview (with the
+camera), the result could be a backlighted scene, acceptable in the
+preview but
+too dark in the rendered scene. The brightness of the rendered scene of
+this example has been increased with The Gimp for this reason...<br>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="step3_camera.jpg"
+ alt="" height="517" width="267"> <br>
+      <br>
+&nbsp; <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>5. Creating fissures repeatedly</b><br>
+      <br>
+      <img src="tools_step4_fissures.jpg" alt="" align="left"
+ height="724" width="261"> Before beginning this step, save you height
+field!<br>
+      <br>
+Set the altitude difference to 0.<br>
+      <br>
+Choose a 1 pixel width.<br>
+      <br>
+Check if the "Auto Accept &amp; Refresh" option is active (it is
+supposed to be the new default!). If not, you will draw the same
+fissure repeatedly.<br>
+      <br>
+Then, draw you mouse and shoot in all directions!<br>
+      <br>
+      <img src="../light.jpg" alt="Suggestion" height="42" width="42">Modifying
+the smoothing parameter would slightly change the apparent
+width of the fissures. Use this break to save your work...<br>
+      <br>
+      </td>
+      <td align="center" valign="middle">&nbsp;<img
+ src="../doc_step4_fissures.jpg" alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_step4_fissures.jpg" alt="" height="240"
+ width="320"> <br>
+      <br>
+      <a href="#R%E9sultat"><img src="../sea_and_rocks2_50.jpg" alt=""
+ height="240" width="320"> </a><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<a name="Trois_fa&ccedil;ons_de_dessiner_une_crevasse"></a><br>
+<big><i><b>Three methods for creating a crack</b></i></big><br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b>1. The "standard" way, by using the
+"separation" parameter of the fault pen.<br>
+      </b> </td>
+      <td valign="top"><b><img src="../test_crack_1.jpg" alt=""
+ height="256" width="256"> <br>
+      <img src="../preview_crack_1.jpg" alt="" height="193" width="257">
+      <br>
+      </b> </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>2. By creating 2 identical faults</b>,
+parallel but with inverted altitude difference.<br>
+      <br>
+A benefit of this technique is to allow the creation of a crack with
+walls which are not parallel.<br>
+      <br>
+However, this is not a true fault divided in two walls, but rather a
+sudden and narrow drop in altitude. The texture of the terrain surface
+is still visible at the bottom of the crack. You can remove it by
+decreasing the brigthness of the image, if you want.<br>
+      <br>
+Roughly, you can do it this way:<br>
+      <ul>
+        <li>Unactivate the "Auto Accept &amp; Refresh" option,
+for drawing two consecutive identical cracks.</li>
+        <li>Draw the first wall using a positive altitude difference.</li>
+        <li>Draw the second wall using the same altitude difference,
+but negative. Because Geomorph adjusts the altitude difference for
+avoiding overflow, the walls could be unequal. Correct the altitude
+approximately. In this example, the altitude for the first fault was
+50, and it was corrected to -36 for the second one.</li>
+        <ul>
+          <li><small>When drawing the second wall, if the fault
+is inverted comparatively to the first one, flip over the control line
+with the mouse.</small><br>
+          </li>
+        </ul>
+      </ul>
+These options were used for creating the first wall in the example at
+right:<br>
+      <div align="center"><img src="options_crack_2.jpg" alt=""
+ height="200" width="250"> <br>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../test_crack_2.jpg"
+ alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_crack_2.jpg" alt="" height="192" width="257">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3. By digging the crack with a fractal pen</b>
+- a vertical slope version.<br>
+      <br>
+      <img src="tools_test_crack_3.jpg" alt="" align="left" height="668"
+ width="291"> Here, we simulate the crack with a "valley" featuring
+steep walls.
+When the fractal pen is used instead of the continuous pen, the edges
+are
+kept irregular, even when the wall is vertical.<br>
+      <br>
+The pen level is set to 100%, because we want the highest altitude
+difference we can. <br>
+      <br>
+The "Dig a valley" option should be chosen.<br>
+      <br>
+The shape filter is used to adjust the slope of the pen edges. The
+"Gaussian Bell with parameters choice" has been chosen for better
+control. <br>
+      <br>
+      <img src="../light.jpg" alt="Suggestion" height="42" width="42">If
+you prefer to adjust yourself the shape filter paremeters, as done
+this example, you can choose the "uniform" pen tip to get a better
+preview of the parameters effect. When you find the pen tip "hard"
+enough, revert to the fractal pen 1 or 2.<br>
+      </td>
+      <td align="center" valign="middle"><img src="../test_crack_3.jpg"
+ alt="" height="256" width="256"> <br>
+      <img src="../preview_crack_3.jpg" alt="" height="193" width="256">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3b. By digging the crack with a fractal pen</b>
+- an average slope version.<br>
+      <br>
+      <img src="tools_test_crack_3b.jpg" alt="" align="left"
+ height="552" width="291"> To get a lower and irregular slope, the pen
+level has been reduced by half. Also, a narrower shape filter has been
+selected.<br>
+      <br>
+The roughness had been increased from 0 to 1 to get more irregular
+walls.<br>
+      <br>
+The spacing has been reduced to 15%. otherwise the valley ground was
+too irregular. </td>
+      <td align="center" valign="middle"><img src="../test_crack_3b.jpg"
+ alt="" height="256" width="256"> <br>
+      <img src="../preview_crack_3b.jpg" alt="" height="194" width="257">
+      <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<big><i><b><a name="Quelques_conseils"></a>Other hints</b></i></big>
+<ul>
+  <li>Fissures are more realistic on larger height fields, of 512x512
+pixels and over, because they look thinner.<br>
+  </li>
+  <li> Another way to simulate fissures would be to use networks of
+irregular lines as Povray normals, though I didn't explore it. This
+should
+give thinner fissures.</li>
+  <li>If the crack pen is too slow, set the separation to 0 move the
+control line to your taste, and when it's done, adjust the separation.<br>
+  </li>
+</ul>
+<br>
+<a href="#Geomorph">Top</a><br>
+<br>
+Written in October, 2004<br>
+<br>
+<a href="../../geomorph_fr.html"> </a><a href="../../doc_index_en.html"><img
+ src="../GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"></a>
+&nbsp;<a href="../../doc_index_en.html">Back to the Geomorph Home
+Page</a><br>
+<br>
+</body>
+</html>

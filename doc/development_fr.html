@@ -1,0 +1,316 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR"
+ content="Mozilla/4.77 [fr] (X11; U; Linux 2.4.3-20mdk i686) [Netscape]">
+  <title>Le d&eacute;veloppement de Geomorph</title>
+  <meta name="author" content="Patrice St-Gelais">
+</head>
+
+<link href="main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<p><big><i><a name="Introduction"></a><big><b>Le d&eacute;veloppement
+de Geomorph</b></big></i><br>
+</big></p>
+<a href="#Les_principes"><span
+ style="font-weight: bold; font-style: italic;">La philosophie</span></a><br
+ style="font-weight: bold; font-style: italic;">
+<a href="#Les_possibilit%E9s_de_contribution"><span
+ style="font-weight: bold; font-style: italic;">Les possibilit&eacute;s
+de contribution</span></a><br>
+<br>
+<big><span style="font-weight: bold; font-style: italic;"><a
+ name="Les_principes"></a>La philosophie<br>
+<br>
+</span></big>Comme mentionn&eacute; <a href="intro_fr.html">en
+introduction</a>,
+Geomorph est une r&eacute;ponse &agrave; mes propres besoins de
+cr&eacute;ation de paysages. Il est con&ccedil;u et
+d&eacute;velopp&eacute; au fur et
+&agrave; mesure que de nouvelles id&eacute;es de paysages demandent de
+nouveaux outils.<br>
+<br>
+La plupart des sc&egrave;nes con&ccedil;ues avec Geomorph sont
+d&eacute;riv&eacute;es d'exp&eacute;riences personnelles
+associ&eacute;es &agrave; une &eacute;motion esth&eacute;tique. Parfois
+des lectures peuvent &ecirc;tre une source d'inspiration, comme les
+articles de chercheurs sur la
+formation des dunes qui ont
+men&eacute; &agrave; la
+cr&eacute;ation des outils de dunes et de vaguelettes de la version
+0.3. Des sc&egrave;nes de d&eacute;sert ont &eacute;t&eacute;
+imagin&eacute;es et cr&eacute;&eacute;es pour mettre au point ces
+outils (et les outils ont &eacute;t&eacute; mis au point pour
+cr&eacute;er ces sc&egrave;nes...).<br>
+<p>Pour ceux qui connaissent l'essai d'Eric S. Raymond, <a
+ href="http://www.catb.org/%7Eesr/writings/cathedral-bazaar/cathedral-bazaar/index.html">The
+Cathedral and the Bazaar</a>, Geomorph n'est ni une cath&eacute;drale
+ni un bazar, ou plut&ocirc;t c'est &agrave; la fois une
+cath&eacute;drale et un bazar! J'avais un plan au point de
+d&eacute;part, mais comportant de grandes zones d'impr&eacute;cision.
+Il a &eacute;t&eacute; compl&eacute;t&eacute; et ajust&eacute; en
+r&eacute;ponse aux essais des premi&egrave;res versions, aux
+d&eacute;couvertes d'opportunit&eacute;s ou de nouveaux besoins et aux
+commentaires des utilisateurs. Ce plan n'est pas
+document&eacute;, sinon dans les commentaires du code C.<br>
+</p>
+<p>Au travers de ce cheminement mi-planifi&eacute; mi-opportuniste, le
+d&eacute;veloppement de Geomorph respecte quelques principes, que je
+r&eacute;sumerais ainsi:<br>
+</p>
+<ul>
+  <li>Offrir des fonctionnalit&eacute;s pour lesquelles
+des r&eacute;sultats ou des t&acirc;ches pr&eacute;cises sont
+envisag&eacute;es. La fa&ccedil;on d'utiliser l'outil est
+pr&eacute;visualis&eacute;e avant de concevoir l'outil. Ou en d'autres
+termes, Geomorph n'est pas seulement la traduction d'un concept ou d'un
+devis de
+logiciel, c'est d'abord et avant tout la
+traduction d'un mod&egrave;le d'utilisation.</li>
+  <li>Livrer les nouvelles fonctionnalit&eacute;s lorsqu'elles sont
+utilisables pour les t&acirc;ches envisag&eacute;es. &Eacute;viter les
+&eacute;l&eacute;ments de dialogue superflus ou non &eacute;vidents,
+ainsi que les plantages, et ce, m&ecirc;me si par d&eacute;finition, le
+logiciel est en version alpha parce qu'il n'est pas complet.<br>
+  </li>
+  <li>Documenter l'utilisation dans des tutoriels ou des guides. C'est
+une
+n&eacute;cessit&eacute; pour transmettre les principes d'utilisation.
+Geomorph n'est pas un type de logiciel dont la plupart des utilisateurs
+ont une compr&eacute;hension intuitive, au contraire d'un traitement de
+texte.
+Le traitement de texte reproduit le paradigme de la feuille de papier
+dans la machine &agrave; &eacute;crire, un logiciel comme Geomorph ne
+reproduit aucun paradigme courant. Documenter des sc&eacute;narios
+d'utilisation (des tutoriels) est aussi une excellente
+fa&ccedil;on de mettre &agrave; l'&eacute;preuve la robustesse du
+logiciel et l'&agrave;-propos de son mod&egrave;le d'utilisation.</li>
+</ul>
+Ces principes ont notamment pour cons&eacute;quence que les livraisons
+sont assez espac&eacute;es. Je mets un b&eacute;mol sur l'adage
+"Release early, release often". Je teste beaucoup les nouvelles
+fonctionnalit&eacute;s, d'abord pour les bogues, puis pour m'assurer
+qu'elles permettent de faire les t&acirc;ches
+attendues d'une fa&ccedil;on raisonnablement confortable. Un logiciel
+qui plante et qui fait mal ce qu'il doit faire n'entra&icirc;ne pas
+l'adh&eacute;sion des gens.<br>
+<br>
+En ce qui concerne le d&eacute;lai entre les livraisons, je dois
+ajouter que le d&eacute;veloppement et la documentation de Geomorph
+constituent un passe-temps, entre la famille et un emploi &agrave;
+plein temps qui n'a aucun rapport avec la cr&eacute;ation de paysages
+virtuels.<br>
+<br>
+En utilisant le logiciel pour le tester et le documenter, il se
+cr&eacute;e une sorte de dialogue entre le mod&egrave;le
+d'utilisation et le devis du logiciel. L'un et
+l'autre s'enrichissent mutuellement: l'utilisation montre les limites
+de l'outil, j'am&eacute;liore l'outil, je d&eacute;couvre des
+fa&ccedil;ons inattendues de l'utiliser, j'am&eacute;liore le
+mod&egrave;le d'utilisation, et ainsi de suite. C'est une boucle de
+feedback, une alternance entre une approche d&eacute;ductive (du
+mod&egrave;le vers la r&eacute;alisation) et inductive (de la
+r&eacute;alisation vers le mod&egrave;le). Ou pour utiliser
+le langage des mod&eacute;lisateurs de syst&egrave;mes d'information,
+une alternance entre l'approche "top-down" et "bottom-up". Au passage,
+c'est ainsi que les th&eacute;ories scientifiques se constituent, et je
+ne pense pas que les logiciels puissent se constituer
+diff&eacute;remment. C'est la fa&ccedil;on qu'ont les &ecirc;tres
+humains d'apprendre.<br>
+<br>
+D&eacute;velopper un logiciel n'est pas une entreprise de pure
+ing&eacute;nierie, mais ce n'est pas non plus une entreprise de pure
+cr&eacute;ativit&eacute; ni de pure expression. Un logiciel est un
+artefact construit qui a des propri&eacute;t&eacute;s formelles, et
+&agrave; cet &eacute;gard il int&eacute;resse l'ing&eacute;nieur, le
+math&eacute;maticien, le logicien. Mais c'est aussi un texte qui
+v&eacute;hicule des significations et des
+proc&eacute;d&eacute;s intellectuels (un programme est lu et compris
+par des humains - m&ecirc;me lorsqu'il est trop encore trop
+bogu&eacute; pour &ecirc;tre ex&eacute;cutable), et
+&agrave; cet &eacute;gard c'est un objet d'expression et de
+cr&eacute;ativit&eacute;, qui peut int&eacute;resser le
+linguiste, le philosophe, l'artiste, le psychologue. Enfin, et surtout,
+lorsqu'il est au point, un logiciel est un syst&egrave;me, ou un tout
+qui poss&egrave;de des propri&eacute;t&eacute;s qu'on ne peut pas
+expliquer en analysant l'ensemble de ses parties. L'une de ces
+propri&eacute;t&eacute;s est la coh&eacute;sion ou la
+compl&eacute;tude. Je n'utilise &eacute;videmment pas ces termes dans
+leur sens formel,
+mais une interpr&eacute;tation formelle n'est pas &agrave; exclure
+lorsque la situation s'y pr&ecirc;te. On "sent" la pr&eacute;sence de
+cette propri&eacute;t&eacute; devant une construction qui tout en
+&eacute;tant
+"complexe" reste "&eacute;quilibr&eacute;e" et "simple". Cette
+propri&eacute;t&eacute; peut &ecirc;tre partag&eacute;e par &agrave;
+peu pr&egrave;s tous les produits de l'esprit humain, dont les oeuvres
+d'art et les th&eacute;ories scientifiques. Le "sens" qui nous permet
+de l'identifier intuitivement est &agrave; mon avis de nature
+esth&eacute;tique.<br>
+<br>
+<br>
+<big><span style="font-weight: bold; font-style: italic;"><a
+ name="Les_possibilit&eacute;s_de_contribution"></a>Les possibilit&eacute;s de
+contribution</span></big><br>
+<br>
+Je travaille actuellement seul &agrave; la conception et &agrave; la
+r&eacute;alisation de Geomorph. J'en suis aussi le principal testeur.<br>
+<br>
+J'ai obtenu des commentaires constructifs de quelques utilisateurs, qui
+m'ont aid&eacute; &agrave; faire &eacute;voluer le produit.<br>
+<br>
+Dans ce sens, tous vos commentaires seront tr&egrave;s
+appr&eacute;ci&eacute;s: &agrave; quoi vous utilisez le logiciel, les
+difficult&eacute;s que vous avez rencontr&eacute;es, vos suggestions,
+etc.<br>
+<br>
+J'ai aussi obtenu des contributions appr&eacute;ci&eacute;es de deux
+utilisateurs allemands, Tim Sch&uuml;rmann, qui a traduit la version
+0.22, et Simon Donike, qui a pris la rel&egrave;ve pour la version
+0.3. Simon a aussi beaucoup test&eacute; la version 0.3 avant son
+lancement et comment&eacute; la documentation html.<br>
+<br>
+Je n'ai pas de mod&egrave;le de d&eacute;veloppement tr&egrave;s
+pr&eacute;cis. Je n'ai pas de "postes" &agrave; proposer pour
+l'instant. Cependant, je suis heureux
+d'accepter des offres, comme celles de Tim et Simon. La condition
+fondamentale &agrave; respecter est que le d&eacute;veloppement de
+Geomorph reste un plaisir. Cela implique, entre autres, les conditions
+suivantes:<br>
+<ul>
+  <li>Le travail pris en charge par le contributeur (-trice) doit
+&ecirc;tre assez facile &agrave; d&eacute;finir.</li>
+  <li>Le contributeur doit &ecirc;tre
+autonome, sinon expert, dans son domaine d'intervention.</li>
+  <li>Nous devons nous entendre sur des principes de base.</li>
+</ul>
+Personnellement, je ne veux pas me
+transformer en manager au sens traditionnel du terme. Cela
+deviendrait un travail et je pr&eacute;f&egrave;re r&eacute;server de
+tels efforts &agrave; ma vie professsionnelle, non &agrave; mes
+passe-temps.<br>
+<br>
+Dans ce cadre, certaines contributions sont plus faciles &agrave;
+int&eacute;grer au projet que d'autres. Voici des possibilit&eacute;s,
+dans un ordre croissant de difficult&eacute;:<br>
+<ol>
+  <li><span style="font-style: italic;">Les traductions</span> sont
+probablement les contributions les plus simples. Les pr&eacute;requis
+sont de comprendre la langue de d&eacute;part (le fran&ccedil;ais ou
+l'anglais, dans ce cas - j'ai l'intention de continuer &agrave; publier
+dans les deux langues), de comprendre le fonctionnement du logiciel, et
+de ma&icirc;triser la langue cible &eacute;crite, habituellement la
+langue maternelle du traducteur. Il faut distinguer la traduction du
+logiciel de celle du site Web. La traduction du logiciel consiste
+&agrave; convertir 400 &agrave; 500 mots ou expressions utilis&eacute;s
+dans les dialogues, sauvegard&eacute;s dans un fichier texte. La mise
+en contexte des messages, dans leur dialogue d'origine, est
+n&eacute;cessaire, c'est pourquoi il faut conna&icirc;tre le logiciel.
+La traduction du site Web est plus hasardeuse: elle repr&eacute;sente
+beaucoup de travail et les documents source sont ap<span
+ style="font-style: italic;"></span>pel&eacute;s
+&agrave; changer souvent.</li>
+  <li><span style="font-style: italic;">Les r&eacute;visions</span>
+sont une autre contribution simple. On peut r&eacute;viser le texte du
+site Web ou les mots et expressions des dialogues de Geomorph, pour la
+clart&eacute; des expressions et la qualit&eacute; de l'orthographe ou
+de la syntaxe. En particulier, un ou des r&eacute;viseurs anglophones
+seraient les bienvenus.</li>
+  <li><span style="font-style: italic;">Le test</span> des
+pr&eacute;-versions sous diff&eacute;rentes distributions serait une
+contribution appr&eacute;ci&eacute;e. La compilation, l'installation et
+le fonctionnement sont les trois aspects &agrave; tester. Les
+pr&eacute;requis sont de la d&eacute;brouillardise, de la
+pers&eacute;v&eacute;rance, et une bonne capacit&eacute; &agrave;
+d&eacute;crire les probl&egrave;mes rencontr&eacute;s. Tester la
+compilation requiert de plus certaines connaissances techniques de base.</li>
+  <li><span style="font-style: italic;">La conception de textures</span>
+et le cas &eacute;ch&eacute;ant de sc&egrave;nes Povray
+pr&eacute;d&eacute;finies. Les pr&eacute;requis sont de bien
+conna&icirc;tre Povray et d'avoir le sens de l'observation, afin
+d'imiter des textures naturelles de fa&ccedil;on convaincante.</li>
+  <li><span style="font-style: italic;">L'am&eacute;lioration des
+scripts d'installation</span> et la constitution de paquetages pour
+diff&eacute;rentes distributions (ex. .RPM, .DEB) sont un autre domaine
+de contribution, dont je ne ma&icirc;trise pas tous les aspects et pour
+lequel votre expertise pourrait &ecirc;tre appr&eacute;ci&eacute;e. Un
+pr&eacute;requis est la connaissance des langages de script (ex. bash,
+les "specs" RPM, etc.), des distributions concern&eacute;es et du
+processus de compilation. <br>
+  </li>
+  <li><span style="font-style: italic;">L'interface avec d'autres
+moteurs de rendus</span>. Geomorph fonctionne avec Povray parce que
+c'est l'outil que je connaissais quand j'ai commenc&eacute; le projet.
+La version actuelle de Povray (3.6) n'est pas libre au sens de la GPL.
+Des moteurs de rendu libres pourraient &ecirc;tre utilis&eacute;s,
+comme Aqsis et YafRay. Une contribution serait de d&eacute;velopper une
+interface et des
+sc&egrave;nes pr&eacute;d&eacute;finies avec ces
+moteurs de rendus, ou d'autres dont j'ignore l'existence. Une
+&eacute;valuation de la faisabilit&eacute; et de l'opportunit&eacute;
+serait requise au point de d&eacute;part. Si un moteur de rendu n'est
+pas en mesure de prendre comme input un fichier PNG ou similaire, et
+qu'il faille transformer chaque image en treillis (mesh) avant le
+rendu, il n'y a peut-&ecirc;tre pas d'int&eacute;r&ecirc;t &agrave;
+investir dans ce moteur.<br>
+  </li>
+  <li><span style="font-style: italic;">Le d&eacute;veloppement</span>
+(conception et programmation) constitue probablement la contribution la
+plus difficile, pour le contributeur et pour moi. C'est sur ce point
+que l'autonomie et mon d&eacute;sir de ne pas me transformer en manager
+au sens traditionnel du terme prennent toute leur importance. En ce qui
+a trait &agrave; la programmation, des pr&eacute;requis sont de
+conna&icirc;tre le langage C et la biblioth&egrave;que GTK, ainsi que
+d'&ecirc;tre &agrave; l'aise avec la structure du code et mon style de
+programmation. Un mot l&agrave;-dessus: je suis pr&eacute;occup&eacute;
+de bien structurer mes donn&eacute;es et mes programmes, mais n'ayant
+pas travaill&eacute; comme d&eacute;veloppeur depuis une quinzaine
+d'ann&eacute;es, j'ai probablement &eacute;labor&eacute; un style qui
+ne ressemble &agrave; celui d'aucune communaut&eacute; de
+d&eacute;veloppement. Je ne connais pas,
+non plus, tous les standards applicables (par exemple, les standards
+GNU - trop long &agrave; lire...). Mais je ne demande pas mieux que
+d'&ecirc;tre relu et critiqu&eacute;. En tout &eacute;tat de cause, si
+vous d&eacute;sirez explorer cette possibilit&eacute;, la
+premi&egrave;re &eacute;tape est de lire le code! En ce qui a trait
+&agrave; la conception, elle peut concerner l'interface, l'outil, mais
+aussi les processus particuliers &agrave; la g&eacute;n&eacute;ration
+et &agrave; la transformation d'images de relief. Peut-&ecirc;tre
+m&ecirc;me pourriez-vous me faire profiter de votre expertise en
+g&eacute;omorphologie pour faciliter le d&eacute;veloppement
+d'algorithmes, si nous arrivons &agrave; trouver un langage commun pour
+en discuter.<br>
+  </li>
+</ol>
+D'autres opportunit&eacute;s de contributions sont &agrave; envisager
+dans le futur, selon l'accueil que recevra Geomorph et l'orientation
+que son d&eacute;veloppement prendra. Je pense, par exemple, &agrave;
+la gestion et &agrave; la mod&eacute;ration d'un forum, ou encore
+&agrave; la gestion d'une base de donn&eacute;e en ligne qui pourrait
+contenir les textures ou les objets Povray fournis par les utilisateurs.<br>
+<br>
+R&eacute;dig&eacute; en septembre 2005<br>
+<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a></i></p>
+<ul>
+</ul>
+<center> </center>
+<br>
+<div align="center"><a href="http://sourceforge.net"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body>
+</html>

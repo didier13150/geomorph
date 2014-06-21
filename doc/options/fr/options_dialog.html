@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"><title>Le fichier d'options de Geomorph</title>
+
+<meta content="Patrice St-Gelais" name="author">
+<meta content="Un survol du dialogue de Geomorph pour mettre à jour le fichier d'options" name="description">
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen"></head>
+<body>
+<center>
+<div id="header"></div>
+<big><iframe src="../../navigation_fr.html" marginwidth="0" marginheight="0" frameborder="0" height="80" scrolling="no" width="800">
+</iframe></big></center>
+<big><span style="font-weight: bold; font-style: italic;">Le fichier d'options de Geomorph: geomorphrc</span></big><br>
+<br>
+<a href="#Introduction">Introduction</a><br>
+<span style="text-decoration: underline;"><a href="#An_update_checklist">Une liste de contrôle pour les mises à jour</a></span><br>
+<a href="#Some_interesting_options">Principales options</a><br>
+<div style="margin-left: 40px;"><a href="#files">[files] ; Répertoires et fichiers</a><br>
+<a href="#interface">[interface]</a><br>
+<a href="#application">[application]</a><br>
+<a href="#rendering">[rendering] ; Rendu d'illumination 3D</a><br>
+<a href="#3d_preview">[3d_preview] ; Aperçu 3D</a><br>
+<a href="#Camera_1_to_Camera_5">[Camera_1] à [Camera_5]</a></div>
+<br>
+<span style="font-weight: bold;"><span style="font-style: italic;"><a name="Introduction"></a>Introduction<br>
+<br>
+</span></span>Au démarrage, Geomorph lit des paramètres dans le fichier <span style="font-style: italic;">geomorphrc</span>, tels que le répertoire où enregistrer les fichiers temporaires, le style d'interface, et ainsi de suite.<br>
+<br>Ce fichier est habituellement sauvegardé dans le répertoire <span style="font-style: italic;">/home/&lt;votre_id&gt;/geomorph.</span> Cependant, vous pouvez avoir plus d'un fichier <span style="font-style: italic;">geomorphrc</span>, dans des répertoires différents. Geomorph vérifie d'abord s'il peut trouver un fichier <span style="font-style: italic;">geomorphrc</span> dans le répertoire où il démarre. Vous pouvez aussi spécifier sur la ligne de commande un fichier <span style="font-style: italic;">geomorphrc</span> particulier, avec son chemin: <span style="font-style: italic;">geomorph monrepertoire/geomorphrc.</span> Geomorph saura qu'il s'agit d'un fichier d'options, et non d'un terrain, pourvu qu'il s'appelle <span style="font-style: italic;">geomorphrc</span>.<br>
+<br>Le fichier <span style="font-style: italic;">geomorphrc</span> contient une ligne pour chaque paramètre. Les paramètres sont groupés par blocs. La syntaxe est la suivante: <br>
+<br>
+[bloc1]<br>
+option1 = valeur1 ; commentaires<br>
+option2 = valeur2 ; commentaires<br>
+...<br>
+<br>
+[bloc2]<br>
+option3 = valeur3 ; commentaires<br>
+...<br>
+<br>
+À titre d'exemple, voici le début de mon propre fichier:<br>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td><span style="font-family: monospace;">[files]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; Répertoires et fichiers<br>def_dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= geomorph&nbsp;&nbsp; ; Répertoire par défaut<br>hf_dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= /home/patrice/geomorph ; Répertoire par défaut (images de relief)<br>pov_dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= /home/patrice/geomorph ; Répertoire par défaut (scènes Povray)<br>tmp_dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= /home/patrice/geomorph/tmp/ ; Répertoire par défaut (fichiers
+temporaires)<br>doc_dir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= geomorph.sourceforge.net ; Répertoire par défaut (documentation)<br>doc_reader&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = firefox&nbsp;&nbsp;&nbsp; ; Lecteur HTML par défaut<br><br>[interface]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; Interface<br>interface_style&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = Integrated ; Style d'interface<br>menu_in_doc_window&nbsp;&nbsp;
+= TRUE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; Menu principal répété dans
+chaque fenêtre de document<br>icons_in_doc_window&nbsp; =
+TRUE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; Icônes du menu principal
+répétés dans chaque fenêtre de document<br>pad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+= 6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; Espacement
+des dialogues (pixels)</span><br>
+...</td>
+</tr>
+</tbody>
+</table>
+<br>Le fichier peut être modifié avec un éditeur de texte, mais il est
+plus facile d'utiliser la fenêtre de dialogue offerte par Geomorph.
+C'est aussi plus sécuritaire parce que les choix sont validés en ayant
+recours à des menus déroulants et à des échelles prédéfinies. Le
+dialogue est appelé en cliquant l'icône "Options au démarrage de
+l'application"&nbsp; <img style="width: 35px; height: 35px;" alt="" src="../settings.png"> dans le menu principal.<br>
+<br>Chaque bloc est présenté dans un onglet. Les contrôles permettent de lire et de sauvegarder un fichier <span style="font-style: italic;">geomorphrc</span> à partir de n'importe quel répertoire:<br>
+<br>
+<div style="text-align: center;"><img style="width: 821px; height: 163px;" alt="" src="application.png"><br>
+<img style="width: 814px; height: 73px;" alt="" src="controls.png"><br>
+</div>
+<br><span style="font-style: italic;">Les modifications ne prennent effet qu'au redémarrage de Geomorph.<br><br></span>Le titre de chaque option est écrit sous forme de commentaires dans le fichier <span style="font-style: italic;">geomorphrc</span> généré.<br>
+<br>Notez que lors d'une mise à jour de Geomorph vers une version
+comportant plus d'options, par exemple de 0.4 à 0.5, le fait de
+sauvegarder le fichier d'options à partir du dialogue ajoute
+automatiquement les variables manquantes. <br>
+<a name="An_update_checklist"></a><br>
+<span style="font-weight: bold;"><span style="font-style: italic;">Une liste de contrôle pour les mises à jour</span></span><br>
+<br>À titre de référence, voici les principaux changements introduits dans <span style="font-style: italic;">geomorphrc </span>en passant de la version 0.4 à 0.5. Si vous réutilisez votre fichier <span style="font-style: italic;">geomorphrc</span> en faisant la mise à jour, vous voudrez peut-être vérifier ces options et les ajuster manuellement.<br>
+<br>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="font-weight: bold;">Onglet</td>
+<td style="font-weight: bold;">Option</td>
+<td style="font-weight: bold;">Valeur dans la&nbsp;version 0.5x</td>
+<td style="font-weight: bold;">Commentaires</td>
+</tr>
+<tr>
+<td>[Répertoires et fichiers]</td>
+<td>Répertoire par défaut (fichiers temporaires)</td>
+<td>/home/&lt;votre_id&gt;/geomorph/tmp</td>
+<td>Lors d'une mise à jour, ce répertoire n'est pas créé automatiquement. Il est recommandé de le créer.</td>
+</tr>
+<tr>
+<td>[Interface]</td>
+<td>Style d'interface</td>
+<td>"Integrated"</td>
+<td>Au moins essayez le nouveau style!</td>
+</tr>
+<tr>
+<td>[Application]</td>
+<td>Grandeur par défaut de l'historique (défaire / refaire)</td>
+<td>10 plutôt que 5</td>
+<td>Recommandé</td>
+</tr>
+<tr>
+<td>[Application]</td>
+<td>Terrain par défaut</td>
+<td>"Subdiv2" au lieu de "Uniform"</td>
+<td>Subdiv2, avec la racine aléatoire par défaut, produit le "terrain
+Geomorph standard". Le canevas uniforme utilisé précédemment est plus
+adéquat pour dessiner des vallées et des montagnes avec la plume.</td>
+</tr>
+</tbody>
+</table>
+<span style="font-style: italic;"></span><br>
+<br>
+<span style="font-style: italic; font-weight: bold;"><a name="Some_interesting_options"></a>Principales options</span><br>
+<br>La plupart des options sont assez évidentes d'après leur titre. Certains paramètres ou détails plus importants sont décrits ici.<br><br>
+RAPPEL: les changements ne sont effectifs qu'après un redémarrage de Geomorph.<br>
+<br>
+<span style="font-weight: bold;"><a name="files"></a><a name="files__Répertoires_et_fichiers"></a>[files] ; Répertoires et fichiers</span><br>
+<br>Cet onglet contient les noms des fichiers et des répertoires
+utilisés pour sauvegarder et traiter les données. Les valeurs par
+défaut devraient convenir à la plupart des situations.<br>
+<br>Il y a deux points à souligner:<br>
+<ul>
+<li>La variable <span style="font-style: italic;">"tmp_dir
+; Répertoire par défaut (fichiers temporaires)"</span>
+est nouvelle dans la version 0.50. Si vous mettez à jour Geomorph à
+partir d'une version plus ancienne, vous devriez créer ce répertoire.
+Vous pouvez simplement utilier votre répertoire <span style="font-style: italic;">/home/.../geomorph</span> existant.</li>
+<li>Vous pouvez initialiser&nbsp;<span style="font-style: italic;">"doc_dir ; Répertoire par défaut
+(documentation)"</span> à
+<span style="font-style: italic;">geomorph.sourceforge.net</span>,
+si vous ne désirez pas télécharger la documentation. Important: n'inscrivez pas le préfixe http://.<span style="font-style: italic;"></span>
+</li>
+</ul>
+<span style="font-weight: bold;"><a name="interface"></a>[interface]</span><br>
+<br>Les 3 premères options sont nouvelles dans la version 0.50:<br>
+<ol>
+<li><span style="font-style: italic;">Style d'interface</span>:
+détermine si l'interface est intégrée ou divisée en plusieurs fenêtres,
+dans le style de Gimp, qui était l'interface originale de Geomorph. Le
+défaut&nbsp;pour une nouvelle installation est "integrated".</li>
+<li><span style="font-style: italic;">Menu principal répété dans chaque fenêtre de document: </span>cette
+option est pertinente seulement si le "style Gimp" est choisi. Elle
+affiche la barre de menu principale d'une façon redondante, dans chaque
+fenêtre de document.</li>
+<li><span style="font-style: italic;">Icônes du menu principal répétés dans chaque fenêtre de document: </span>même principe que la précédente option<span style="font-style: italic;"></span>, pour les icônes de menu.</li>
+</ol>D'autres options d'intérêt sont la <span style="font-style: italic;">"Grandeur par défaut de l'image de relief"</span>,
+que je suggère de spécifier en pixels plutôt qu'en pourcentage de
+l'affichage du bureau (la valeur en pourcentage est utilisée si "aucune
+valeur" est choisie pour la variable en pixels), et l' "<span style="font-style: italic;">Affichage par défaut des images (pixels)"</span>,
+qui décrit la grandeur du terrain dans l'interface. Par exemple, avec
+une grandeur par défaut de terrain de 512 et un affichage de 1024, le
+terrain sera sauvegardé avec une grandeur de 512x512 et affiché agrandi
+de 200%.<br>
+<a name="application"></a><br>
+<span style="font-weight: bold;">[application]</span><br>
+<br>
+<span style="font-style: italic;">Grandeur par défaut de l'historique (défaire / refaire):</span>&nbsp;&nbsp;&nbsp;
+était défini à 5 avant Geomorph 0.50, maintenant défini à 10. Une
+grandeur supérieure implique plus de mémoire, mais la mémoire est moins
+une préoccupation maintenant. Si vous mettez à jour Geomorph à partir
+d'une version plus ancienne, vous voudrez peut-être augmenter ce
+paramètre manuellement. Attention, toutefois, au problème de fuite de
+mémoire causé <a href="../../faq_fr.html">par certains systèmes avec l'accélération matérielle OpenGL</a>.<br>
+<br>
+<span style="font-style: italic;">Terrain par défaut:</span>
+Cette option est introduite avec la version 0.50. Le terrain par défaut
+était précédemment une surface uniformément grise, destinée à servir de
+canevas pour dessiner des montagnes et des vallées à l'aide de la
+plume.&nbsp; Maintenant, c'est le terrain "standard" des tutoriels de
+Geomorph, de type "Subdivision 2", mais vous pouvez le changer si vous
+désirez.<br>
+<br>
+<span style="font-style: italic;">Racine par défaut pour le générateur aléatoire:</span>
+Si vous désirez reproduire les tutoriels avec le terrain par défaut,
+conservez la valeur de départ de 0x6b8b4567. Le préfixe 0x indique que
+c'est une valeur hexadécimale, mais vous pouvez aussi donner un nombre
+décimal.<br>
+<br style="font-weight: bold;">
+<span style="font-weight: bold;"><a name="rendering"></a>[rendering] ; Rendu d'illumination 3D</span><br>
+<br>Le rendu est fait avec POV-Ray. Pour l'instant, l'utilisation d'autres moteurs de rendu n'est pas prévue.<br>
+<br><span style="font-style: italic;">Outil de rendu 3D:&nbsp;</span>&nbsp;Devrait
+être fixé à&nbsp;"povray". Avec des versions précédentes de POV-Ray,
+d'autres noms étaient parfois utilisés, comme "povray35", "x-povray",
+et ainsi de suite. Vous pouvez aussi donner un chemin complet, si
+POV-Ray n'est pas dans un répertoire de votre variable $PATH.<br>
+<br>
+<span style="font-style: italic;">Largeur par défaut du rendu 3D, Hauteur par défaut du rendu 3D :</span> grandeur par défaut de la sortie&nbsp;POV-Ray, ayant priorité sur les valeurs inscrites dans le fichier <span style="font-style: italic;">povray.ini </span>général.<br>
+<br>
+<span style="font-style: italic;">Scène de rendu par défaut (.pov...) : </span>Le
+script POV-Ray utilisé par défaut pour le rendu 3D de vos terrains. Il
+peut s'agit de n'importe quel script POV-Ray respectant le <a href="../../povray/fr/Process.html">standard Geomorph</a>
+pour spécifier le nom du terrain et les autres options.<br>
+<br>
+<span style="font-style: italic;">Fichier PNG de sortie pour la scène POV par défaut:
+</span>le nom du fichier temporaire où le terrain est écrit, pour servir d'entrée au script POV-Ray, dans le répertoire temporaire <a href="#files__R%C3%A9pertoires_et_fichiers"><span style="font-style: italic;">tmp_dir</span></a>, habituellement test.png.<span style="font-style: italic;"></span><br>
+<br>
+<span style="font-style: italic;">Préfixe du fichier de sortie POV-Ray:</span>
+Le préfixe du fichier contenant l'image résultant de l'exécution
+de&nbsp;POV-Ray. L'image est écrite dans un fichier PNG, comme le
+terrain. Si le terrain est enregistré dans <span style="font-style: italic;">document0.png</span>, le paysage POV-Ray sera écrit dans <span style="font-style: italic;">&lt;préfixe&gt;document0.png</span>, peu importe le script utilisé. Le préfixe par défaut est le caractère de soulignement (<span style="font-style: italic;">_document0.png</span>). Cette variable ne peut pas être vide, autrement l'exécution de POV-Ray écrasera le terrain source...<br>
+<br>
+<span style="font-style: italic;">Autres options de rendu sur la ligne de commande:</span>
+Il s'agit des options passées sur la ligne de commande du programme
+"povray", autres que celles déjà mentionnées (largeur, hauteur...).
+Cette variable est initialisée à: <span style="font-style: italic;">+D +P
++L/home/&lt;votre_id&gt;/geomorph</span>,
+respectivement: afficher l'image en sortie ([D]isplay), faire une
+[P]ause après l'affichage jusqu'à ce que vous cliquiez sur l'image
+(important!), et utiliser le répertoire "geomorph" comme une source
+pour les fichiers "include" de POV-Ray (.inc).<br>
+<br>
+<span style="font-weight: bold;"><a name="3d_preview"></a>[3d_preview] ; Aperçu 3D</span><br>
+<br>Ces options contrôlent l'aperçu dans la partie droite de la fenêtre
+de document, sauf les caméras, qui sont contrôlées par les blocs
+d'options suivants.<br>
+<br>
+<span style="font-style: italic;">Grandeur du treillis ("mesh_size" - en noeuds comptés sur le côté du terrain):</span> Indique le nombre de noeuds utilisés pour afficher le terrain, par
+défaut à 128x128. Un noeud se traduit par 2 polygones. Avec davantage de polygones, des détails plus fins
+sont visibles, mais le rafraîchissement de l'affichage est plus lent.
+Il faut garder à l'esprit qu'un treillis de 256x256 requiert 4 fois le
+traitement d'un treillis de 128x128. Ce paramètre est l'équivalent du
+bouton "détail" dans l'aperçu, calibré en pourcentage de la grandeur du
+terrain en puissance de 2 (100%, 50%, 25%...).<br>
+<br>
+<span style="font-style: italic;">Grandeur du treillis lors du dessin (en noeuds):</span>
+Garder l'aperçu à jour requiert beaucoup de traitement lorsqu'on
+dessine ou ajuste des paramètres avec des échelles graduées. Une
+technique utilisée dans Geomorph pour éviter des ralentissements est de
+diminuer la grandeur du treillis pendant que le bouton de la souris est
+abaissé. Cette option contrôle le niveau de diminution de la résolution
+du treillis. Le défaut est 64x64, ou 50% de la grandeur du treillis par
+défaut. Vous pouvez tester d'autres valeurs en dessinant avec la plume.<br>
+<br>
+<span style="font-style: italic;">Largeur de l'aperçu (en pixels):</span> Largeur de l'espace utilisé par l'image d'aperçu dans la fenêtre de document.<br>
+<br>
+<span style="font-style: italic;">Rafraîchissement automatique:</span>
+TRUE ou FALSE: contrôle si l'aperçu est rafraîchi quand le terrain est
+modifié. Si FALSE est choisi, vous devrez cliquer sur le bouton "Rafraîchir". Il peut
+être utile de le mettre à FALSE si votre aperçu est très détaillé ou
+votre ordinateur trop lent.<br>
+<br>
+<span style="font-style: italic;">Montrer les contrôles de caméra au démarrage:</span>
+TRUE par défaut, FALSE pour un aperçu plus "zen". Sans le dialogue, les
+caméras se contrôlent aussi en tenant enfoncé l'un ou l'autre des trois
+boutons de souris dans l'aperçu, à l'exception de l'angle de champ.<br>
+<br>
+<span style="font-style: italic;">Accélération matérielle pour OpenGL (DRI):</span>
+TRUE or FALSE: contrôle si l'accélération matérielle de votre carte
+vidéo est utilisée pour afficher les polygones de l'aperçu. Dans l'état
+actuel de Geomorph (version 0.50), cette option n'introduit qu'un petit
+gain de performance, parce que l'aperçu ne montre que des scènes
+statiques ne comportant que des textures simples. De plus, certains
+pilotes X-Windows causent des fuites de mémoire importantes lorsque
+cette option est réglée à TRUE. C'était le cas il y a quelques années
+avec les pilotes propriétaires ATI et Nvidia, qui semblent corrects
+maintenant (2008), mais le problème a été aussi observé sur un portable
+récent doté d'une puce graphique Intel X3100, avec le pilote libre.
+Pour cette raison, la valeur par défaut est FALSE. Vous pouvez essayer
+de l'activer et comparer l'usage de la mémoire avec le moniteur de
+système, en ouvrant et en fermant des documents.<br>
+<a name="Camera_1_to_Camera_5"></a><br style="font-weight: bold;">
+<span style="font-weight: bold;">[Camera_1]</span> à <span style="font-weight: bold;">[Camera_5]</span><br>
+<br>Ce sont les réglages par défaut des 5 caméras d'aperçu, qui se
+traduisent en caméra POV-Ray lors de l'exécution d'un script de rendu.<br>
+<br>Toutes les options correspondent à des paramètres spécifiques qui
+peuvent être réglés dans l'interface d'aperçu, à l'exception du <span style="font-style: italic;">Ratio d'aspect largeur / hauteur</span>.
+Cette variable affecte le résultat POV-Ray mais pas directement
+l'aperçu. Le défaut est 4:3, cohérent avec une image de rendu, à titre
+d'exemple, de 800x600.<br>
+<br>Malheureusement, il n'existe pas de fonction d'enregistrement de
+l'état courant&nbsp;des caméras dans la fenêtre de document. Vous devez
+les enregistrer manuellement, pour l'instant.<br>
+<br>
+<br>Écrit en juin 2008.<br>
+<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice
+St-Gelais</a></i></p>
+<br>
+<a href="../../doc_index_en.html"> <img src="../../tut_fault/GeoMorph.jpg" alt="" align="left" height="32" width="32"></a><a href="../../doc_index_fr.html">Retour à l'index de la documentation</a><br>
+<br>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3" alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body></html>

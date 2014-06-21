@@ -1,0 +1,586 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>The Geomorph Preview Dialog</title>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <meta name="author" content="Patrice St-Gelais">
+  <meta name="description"
+ content="Part of the Geomorph software documentation">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><b><a name="Geomorph"></a><i>Geomorph - The preview dialog<br>
+</i></b></big></big> <br>
+<ul>
+  <li><img src="preview.jpg" alt="Exemple d'aper&ccedil;u" align="right"
+ height="518" width="269"> <a href="#%C0_quoi_sert_laper%E7u">The
+purpose of the preview dialog</a></li>
+  <li><a href="#Le_syst%E8me_de_coordonn%E9es_utilis%E9">The coordinate
+system</a><br>
+  </li>
+  <li><a href="#Les_principales_caract%E9ristiques_de">The main
+features of the preview</a><br>
+  </li>
+  <li><a href="#Comment_utiliser_laper%E7u">How to use the preview</a></li>
+  <li><a href="#La_structure_dune_d%E9finition_de_sc%E8ne">The
+structure of a Povray scene working with the preview</a><br>
+  </li>
+  <li><a href="#Quelques_conseils">Some hints</a><br>
+  </li>
+</ul>
+<big><i><b><a name="&Agrave;_quoi_sert_laper&ccedil;u"></a>The
+purpose of the preview dialog</b></i></big><br>
+<br>
+The preview was first intended as a way to see the result of the height
+field edition in real time.<br>
+<br>
+However, when your goal is to create scenes with Povray, the preview is
+of limited use if it cannot reflects the Povray camera.<br>
+<br>
+Placing a camera and finding the right angle of view is a difficult
+task with the Povray language, without a GUI. Even with a real camera,
+it's sometimes difficult! But as in photography, performing this task
+adequately is essential for an aesthetic result.<br>
+<br>
+The preview dialog and the Povray scenes provided with Geomorph 0.12
+were modified for accelerating this task. The preview viewpoint now
+translates as Povray parameters which move the Povray camera and change
+the view angle, each time a scene is rendered.<br>
+<br>
+Drawing inspiration from the provided scenes, you can create your
+own scenes working with the Geomorph preview.<br>
+<i><b><br>
+<big><a name="Le_syst&egrave;me_de_coordonn&eacute;es_utilis&eacute;"></a>The coordinate
+system</big></b></i><br>
+<br>
+<div align="left"><img src="../axes.jpg" alt="Axes" align="right"
+ height="266" width="280"> The Geomorph preview uses the Povray
+coordinate system. As seen at right, the Y axis goes from bottom to
+top, the X axis from left to right and the Z axis from the viewer to
+the background. </div>
+<br>
+<big><i><b><a name="Les_principales_caract&eacute;ristiques_de"></a>The main
+features of the preview</b></i></big><br>
+<br>
+The preview dialog features rotations, translations and a view angle
+control.<br>
+<br>
+Parameters can be changed not only with the GUI controls, but also by
+moving the mouse into the image.<br>
+<br>
+When you draw with the height field pen, the preview area is refreshed
+as soon as you release the mouse button.<br>
+<br>
+The parameters can be defined for 5 distinct cameras.<br>
+<br>
+The cameras are saved in the height field PNG file. They are restored
+when you open the file.<br>
+<br>
+When a new document is created, or when a file is read and does not
+contain any camera (for instance, a file created with The Gimp), the
+last cameras displayed during the session are reused. If the document
+created or read is the first in the current session, the Geomorph
+defaults are
+used. Then, the 5 cameras are identical.<br>
+<br>
+Lastly, when a Povray scene is rendered, the parameters of the active
+camera are recorded in the file <i>camera.inc, </i>which is called
+with a <i>#include</i> directive in the scenes provided with Geomorph.<br>
+<br>
+Among the possible enhancements, the optional display of a ground
+plane and a water plane could be a nice feature. Height of these planes
+should also be made available to the Povray scenes.<br>
+<br>
+<a name="Comment_utiliser_laper&ccedil;u"></a><big><i><b>How to use the preview<br>
+</b></i></big><br>
+<b><i>1 - What can be done with the mouse</i></b><br>
+<br>
+It is possible to control the translations and the rotations by
+dragging the mouse into the preview image.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><img src="../mouse1.jpg" alt="" align="left"
+ height="18" width="30"> Left button<br>
+      </td>
+      <td valign="top"><img src="../rotate_x.jpg" alt="" align="left"
+ height="22" width="22"> <img src="../rotate_y.jpg" alt="" align="left"
+ height="22" width="22"> Rotations<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="../mouse2.jpg" alt="" align="left"
+ height="18" width="30"> Center button<br>
+      </td>
+      <td valign="top"><img src="../horizontal.jpg" alt="" align="left"
+ height="22" width="22"> <img src="../vertical.jpg" alt="" align="left"
+ height="22" width="22"> Left / right (X), bottom / top (Y) translations<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><img src="../mouse3.jpg" alt="" align="left"
+ height="18" width="30"> Right button<br>
+      </td>
+      <td valign="top"><img src="../depth.jpg" alt="" align="left"
+ height="22" width="22"> Nearer / farther (Z)<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<b><i>2 - Buttons and scales</i></b><br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg1.jpg"
+ alt="MAJ Auto" height="23" width="89"> <br>
+      </td>
+      <td valign="top"><i>Active: </i>the preview is updated when the
+height field is modified.<br>
+      <i> Inactive: </i>the preview is updated when the user clicks
+"Refresh".<br>
+Uncheck this box when Geomorph reacts too slowly. For instance: <br>
+(1) The height field being edited is larger than what the computer can
+support with a smooth interaction. <br>
+(2) The level of detail of the preview was increased by a too
+high percentage. <br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg2.jpg"
+ alt="Rafra&icirc;chir" height="25" width="49"> <br>
+      </td>
+      <td valign="top">Refreshes the preview area when "Auto update" is
+activated, or when the area blackens while switching back and forth
+between many documents (see the FAQ for the last point).<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg3.jpg"
+ alt="Grandeur" height="25" width="73"> <br>
+      </td>
+      <td valign="top">Increases or decreases the preview area size by
+32 pixels steps.<br>
+The area width ranges from 64 to 512 pixels. The default width is
+128 or 256 pixels. It is deducted from the desktop size when Geomorph
+starts. The preview area height is 0,75 time the width (the image ratio
+is 4/3,
+the same as Povray scenes provided with Geomorph).<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg4.jpg"
+ alt="D&eacute;tail" height="22" width="113"> <br>
+      </td>
+      <td valign="top">Controls the number of vertices created when the
+height field is converted to triangles, relatively to the number of
+pixels. For instance, the default value of 25% gives 128x128 vertices
+for a 512x512 pixels height field. The percentage is divided or
+multiplied by 2 at each click: &nbsp;6,25%, 12,5%, 25%, 50%, 100%. The
+default value of 25% should provide a smooth interaction with the
+suggested hardware (a ~1000 Mhz CPU for a 512x512 height field, without
+OpenGL hardware acceleration).<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg5.jpg"
+ alt="Cam&eacute;ra" height="22" width="238"> <br>
+      </td>
+      <td valign="top">Camera management.<br>
+Click on the radio button for the camera you want to activate.<br>
+A camera is defined by the rotation, translation and angle parameters.<br>
+The 5 cameras are recorded with the height field, in the comments area
+of the PNG file. Editing the height field with an other tool would
+probably erase them. &nbsp;A workaround is proposed for this in the <a
+ href="#Quelques_conseils">hints</a> section. <br>
+The cameras are initialized with the values from the last active
+document, or if not possible, from the Geomorph default values.<br>
+After the initialization, each document keeps its own cameras. A view
+change in one document does not affect the views of the other documents.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg6.jpg"
+ alt="Rotation Y" height="30" width="255"> <br>
+      </td>
+      <td valign="top">Rotation angle around the vertical axis (Y),
+from 0&deg; to 360&deg;.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg7.jpg"
+ alt="Rotation X" height="30" width="255"> <br>
+      </td>
+      <td valign="top">Rotation angle around the West-East axis (X), or
+slant forward - backward, from 0&deg; to 360&deg;.<br>
+When the view angle is set at 60&deg;, the skyline appears from 22&deg;
+downwards. A slant of 6&deg; gives a skyline at roughly 2/3 of the
+image.<br>
+Note: the preview doesn't provide a rotation around the Z axis. This
+would give a slanted skyline.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg8.jpg"
+ alt="D&eacute;placement Z" height="30" width="255"> <br>
+      </td>
+      <td valign="top">Relative distance between the observer
+and the terrain. 0 means the center of the height field.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg9.jpg"
+ alt="D&eacute;placement Y" height="30" width="255"> <br>
+      </td>
+      <td valign="top">Vertical translation of the height field, from
+-Y to +Y.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg10.jpg"
+ alt="D&eacute;placement X" height="30" width="255"> <br>
+      </td>
+      <td valign="top">Lateral translation of the height field, from -X
+to +X.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg11.jpg"
+ alt="Angle" height="32" width="253"> <br>
+      </td>
+      <td valign="top">Hozontal angle of view, from 5&deg; to 100&deg;,
+respecting the Povray standard. With photographic cameras, the view
+angle given for the focal length of the lens is most often diagonal.
+Here is a correspondance table for common focal lengths: <br>
+      <table border="1" cellpadding="2" cellspacing="2" width="100%">
+        <tbody>
+          <tr>
+            <td align="center" valign="middle">35 mm Focal<br>
+Length<br>
+            </td>
+            <td align="center" valign="middle"><i>Horizontal Angle<br>
+(Geomorph/Povray)<br>
+            </i></td>
+            <td align="center" valign="middle">Diagonal Angle<br>
+24x36 Format<br>
+(Ratio 3/2)<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">15 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>100<br>
+            </i></td>
+            <td align="center" valign="middle">111<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">20 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>84<br>
+            </i></td>
+            <td align="center" valign="middle">94<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">24 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>74<br>
+            </i></td>
+            <td align="center" valign="middle">84<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">28 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>65<br>
+            </i></td>
+            <td align="center" valign="middle">75<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">35 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>54<br>
+            </i></td>
+            <td align="center" valign="middle">64<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">50 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>40<br>
+            </i></td>
+            <td align="center" valign="middle">47<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">80 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>25<br>
+            </i></td>
+            <td align="center" valign="middle">30<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">100 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>20<br>
+            </i></td>
+            <td align="center" valign="middle">24<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">200 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>10<br>
+            </i></td>
+            <td align="center" valign="middle">12<br>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">400 mm<br>
+            </td>
+            <td align="center" valign="middle"><i>5<br>
+            </i></td>
+            <td align="center" valign="middle">6<br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+The "normal" lens for 35 mm photography has a 50 mm focal length,
+corresponding to 40&deg; in Geomorph. The default angle in version 0.12
+of Geomorph is 55&deg;.<br>
+The diagonal angle of Geomorph/Povray would be slightly more than the
+one given in the table, because the image ratio is 4/3 instead of 3/2.<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle"><img src="wdg12.jpg"
+ alt="Remetre &agrave; 0" height="25" width="41"> <br>
+      </td>
+      <td valign="top">This button resets the active camera to the
+Geomorph defaults.<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<big><i><b><a name="La_structure_dune_d&eacute;finition_de_sc&egrave;ne"></a>The
+structure of a Povray scene working with the preview</b></i></big><br>
+<br>
+The link between the preview and a Povray scene is done with the <i>camera.inc</i>
+file, generated in the current Geomorph directory when a scene is
+rendered. This file creates the variables used for adjusting the Povray
+parameters. Here is the <i>camera.inc</i> related to the default
+Geomorph camera:<br>
+<br>
+<tt>#declare gl_angle = 55;<br>
+#declare aspect_ratio =&nbsp; 1.3333334;<br>
+#declare tr_x = -0.0000000;<br>
+#declare tr_y = -0.0000000;<br>
+#declare tr_z = -1.3500000;&nbsp;&nbsp;&nbsp; // The OpenGL -&gt;
+Povray conversion requires this adjustment<br>
+#declare rot_x = 50;<br>
+#declare rot_y = 0;<br>
+#declare rot_z = 0;</tt>
+<ul>
+  <li><b>gl_angle</b> is the horizontal view angle.</li>
+  <li><b>aspect_ratio</b> is the ratio between the height and the width
+of the rendered image. For people unfamilar with Povray, giving the
+width and the height of the rendered image (ex. 640x480) is not
+sufficient to get a picture with suitable proportions. Povray also
+needs a camera
+ratio parameter, otherwise the result would seem compressed on one of
+the
+dimensions. Note that this parameter cannot be set in the preview
+dialog,
+for now.</li>
+  <li><b>tr_*</b> are the variables used for translation.</li>
+  <li><b>rot_*</b> are the variables used for rotation. "rot_z"
+is not used, for now.<br>
+  </li>
+</ul>
+Here is an the general look of a Povray scene matched with the Geomorph
+preview (variables coming from camera.inc appear in bold):<br>
+<br>
+<tt>#include "colors.inc"<br>
+#include "textures.inc"<br>
+#include "<b>camera.inc</b>"<br>
+<br>
+#declare maincamera = {<br>
+&nbsp;&nbsp;&nbsp; location&nbsp; &lt;0,&nbsp; 0, -0.1&gt; <br>
+&nbsp;&nbsp;&nbsp; angle &nbsp;&nbsp;&nbsp; <b>gl_angle</b><br>
+&nbsp;&nbsp;&nbsp; up&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp; right&nbsp;&nbsp;&nbsp; &nbsp;<b>aspect_ratio </b>*
+x<br>
+&nbsp;&nbsp;&nbsp; look_at&nbsp;&nbsp; &lt;0, 0, 0&gt;
+&nbsp;&nbsp;&nbsp; <br>
+}<br>
+</tt><tt>#declare sun = light_source { &lt;-300, 300, -10&gt; color
+White }</tt><br>
+<tt> #declare water = plane {y,0 texture (...) }<br>
+#declare ground =</tt><tt> plane {y,0 texture (...) }<br>
+#declare Sky = [plane / sphere] {...}&nbsp;&nbsp;&nbsp; // "sky"
+without a capital is a reserved word<br>
+#declare hf = height_field {<br>
+&nbsp;&nbsp;&nbsp; png "test.png"&nbsp; // Standard output file
+when rendering from Geomorph<br>
+&nbsp;&nbsp;&nbsp; smooth<br>
+&nbsp;&nbsp;&nbsp; scale &lt;1.0, 0.3, 1.0&gt;&nbsp;&nbsp;&nbsp; // Y =
+0.3x, otherwise the terrain is as hight as wide (unnatural!)<br>
+&nbsp;&nbsp;&nbsp; translate &lt;-0.5, 0.0, -0.5&gt;&nbsp;&nbsp;&nbsp;
+// Without this translation, a corner of the HF appears at the center<br>
+&nbsp;&nbsp;&nbsp; texture (...)<br>
+}</tt><br>
+<br>
+<tt>/********************************************************************/<br>
+object {hf translate &lt;...&gt; rotate &lt;...&gt; scale &lt;...&gt;<br>
+<br>
+// For "water" and "ground": </tt><tt><br>
+//&nbsp;&nbsp;&nbsp; (1) for an infinite plane, the scaling acts only
+on the texture.</tt><tt><br>
+//&nbsp;&nbsp;&nbsp; (2) the "y" translation must sometimes be
+very slight, around 0.01,<br>
+//&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if we want the plane to
+adjust smoothly with the HF</tt><br>
+<tt>object {water translate y*0.0005 scale &lt;...&gt; } // preferably
+the water should be over the ground!</tt><br>
+<tt>object {ground translate y*0.0 scale &lt;...&gt; }<br>
+<br>
+light_source {sun rotate &lt;0, <b>rot_y</b>, 0&gt;&nbsp;&nbsp;&nbsp;
+// The Povray light follows the point of view change<br>
+// It could also make some sense to apply "rot_x" to "sun"<br>
+<br>
+object {Sky rotate &lt;??, ??+<b>rot_y</b>, ??&gt;}<br>
+// The rotation aligns the preferred area of the sky (clouds) with the
+camera<br>
+</tt><tt>// (if you have a preferred area!)<br>
+<br>
+camera {maincamera<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; translate &lt;0+<b>tr_x</b>,0.05+<b>tr_y</b>,<b>tr_z</b>&gt;<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; rotate &lt;<b>rot_x</b>,0+<b>rot_y</b>,0+<b>rot_z</b>&gt;
+}</tt><br>
+<br>
+To override a parameter, simply replace the variable name with the
+desired value. This could make sense, for instance, if you want another
+aspect ratio than 4/3, because it cannot be set in the dialog.<br>
+<br>
+<big><i><b><a name="Quelques_conseils"></a>Some hints</b></i></big>
+<ol>
+  <li>How to make small changes to the scale values</li>
+</ol>
+<blockquote>It is sometimes difficult to set the distance or rotation
+scales. For instance, the forward - backward slant requires often
+angles between 0&deg; and 10&deg;. You get a fine control by 1&deg;
+steps by clicking on the scale cursor with the mouse, then moving the
+cursor with the left -
+right arrows of the keyboard.</blockquote>
+<ol start="2">
+  <li>How to obtain a skyline at the third of the image</li>
+</ol>
+<blockquote>A 6&deg; forward - backward slant with a 60&deg; camera
+gives a skyline at 2/3 of the image (1/3 sky, 2/3 ground). Sometimes,
+you'll
+want to show 2/3 sky, for intance when the clouds are interesting. Then
+use a slant between 350 and 355&deg;, and moves the camera towards the
+bottom
+(the HF towards the top). An example: a X rotation of 352&deg;, a Y
+translation of -0,31.<br>
+</blockquote>
+<ol start="3">
+  <li>The refreshment is too slow</li>
+</ol>
+<blockquote>If the preview computation slows down the interface too
+much, decrease the detail level, or uncheck the "Auto update" box.<br>
+</blockquote>
+<ol start="4">
+  <li>How to copy and reuse the camera parameters</li>
+</ol>
+<blockquote>Geomorph doesn't provide, with version 0.12, a camera
+parameters saving at the session level. However, if you want to reuse
+your preferred points of view over and over, save them in a document
+that you'll open
+each time you'll start Geomorph. The cameras of the file most recently
+open are reused when new documents are created.<br>
+</blockquote>
+<ol start="5">
+  <li>How to restore the camera parameters after editing with an
+external software</li>
+</ol>
+<blockquote>Maybe you'll want to edit your PNG HF files with The Gimp,
+or better, for keeping the fine detail of the relief on 16 bits, with
+Filmgimp/Cinepaint. The cameras are kept inside the comments field of
+the PNG file. This information is not kept by the other software tools.
+However you can proceed like this to save and restore it: <br>
+  <ol type="i">
+    <li>Copy the file under a new name.</li>
+    <li>Edit the original file with the external software.</li>
+    <li>When coming back into Geomorph, open the unedited copy.
+Geomorph would initialize the 5 cameras with the parameters found in
+the
+file.&nbsp;</li>
+    <li>Open the modified document. Because Geomorph wouldn't find any
+camera definition in it, it would reuse the parameters found in the
+copy.</li>
+  </ol>
+</blockquote>
+<ol start="6">
+  <li>Playing with the angle of view</li>
+</ol>
+<blockquote>It may sound unnecessary to provide a view angle scale,
+when it
+is possible to get nearer or farther to the heigth field if we want to
+increase
+or decrease its relative size.<br>
+  <br>
+This is a matter of perspective. For instance, define two cameras,
+pointed on a hill a the foreground. One has a small angle (it's a
+telephoto lens), the other has a wide angle. Draw the nearest one
+farther, and the farthest one nearer, until the hill has the same size
+in both views. You'll see that the background hills are a lot smaller
+with the wide angle view than with the tele view.<br>
+  <br>
+The wide angle gives a depth effect, while the tele lens gives a
+flattening effect.<br>
+  <br>
+Most often, mountains seem higher when seen through a tele lens,
+because they take up a larger area of the image.<br>
+  <br>
+Use of a wide angle to get a depth effect usually involves translating
+the camera very close to the object. It can give the feeling that
+details are lacking, or worst, triangles making up the surface can be
+seen. A way to minimize this effect is to use a rich Povray texture,
+specially one with a normal component.<br>
+</blockquote>
+<a href="#Geomorph">Back to top</a><br>
+<br>
+Written in November, 2003<br>
+<br>
+<a href="../../doc_index_en.html"><img src="../GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_en.html">Back to the documentation index</a><br>
+<br>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body>
+</html>

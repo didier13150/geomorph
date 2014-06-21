@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>The Desert Tutorial</title>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_en.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><b><i>Geomorph - The Desert Tutorial<br>
+<br>
+</i></b></big></big><b><i> <big>Topics</big></i></b>
+<ul>
+  <li>The subdivision #2 algorithm and its distribution parameter<br>
+  </li>
+  <li>The power transformation for flattening the ground around a peak</li>
+  <li>The translation</li>
+  <li>The stratification (terraces)<br>
+  </li>
+  <li>The rain erosion<br>
+  </li>
+</ul>
+<big><i><b>The scene layout</b></i></big><br>
+<br>
+The intended result is a plain with a few mesa-style hills
+in the background. The camera is near the ground level. The foreground
+is deep and flat, to enhance the plain effect.<br>
+<br>
+One height field and one ground plane with a sand texture are
+sufficient, apart from the sky with a very few clouds. We simulate dust
+with a very light fog, the same color as the sand.<br>
+<i><b><br>
+<big>The result</big></b></i><br>
+<br>
+<div align="center"><a name="Desert_scene"></a><img src="../final.jpg"
+ alt="Desert scene" height="480" width="640"> <br>
+</div>
+<br>
+<big><i><b>Steps<br>
+</b></i></big><br>
+This tutorial uses the <i>desert.pov</i> scene provided with Geomorph
+0.12 and higher. As a reminder, you click on <img alt=""
+ src="../povchoice_icon.jpg" style="width: 28px; height: 28px;"
+ align="middle">
+to choose a Povray scene other
+than the default one.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top"><b>1. Height field creation</b><br>
+      <br>
+Create a new subdivision 2 document.<br>
+      <br>
+      <div align="left"><img src="tools_step1.jpg" alt="" align="left"
+ height="417" width="223"> Set the distribution to a high value. This
+would give "sparse" peaks.<br>
+      <br>
+Hit the refresh button until you get a few peaks grouped somewhere, or
+simply copy the seed given in the example.<br>
+      <br>
+It's not important if the peaks are not at the right place for now,
+we'll translate them later. What's important is that they are
+grouped in a relatively small part of the image, so that we can
+transform
+the rest of the HF in a wide plain - our foreground.<br>
+      </div>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">When
+"distribution" is set to 1, any surface displacement (peak or
+hole) has the same probability. When "distribution" is higher,
+important displacements become less frequent, so "holes" or "peaks"
+seem "sparse". <br>
+      <br>
+      <img src="../question.jpg" alt="" align="left" height="41"
+ width="42"> The distribution is an exponent, as seen in this formula,
+given that RD is the calculated random displacement and varies between
+0 and MAX :<br>
+      <blockquote>&nbsp;<big><tt><small>ACTUAL_DISPLACEMENT = power
+(RD/MAX ; DISTRIBUTION) x MAX</small></tt></big>;</blockquote>
+Note that MAX depends on the scale, which depends on the subdivision
+step. Actually MAX is divided by 2 at each step.<br>
+      </td>
+      <td align="center" valign="middle"><img src="../doc_step1.jpg"
+ alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_step1.jpg" alt="" height="256" width="255"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>2. Using the power transformation to flatten
+the terrain</b> <br>
+      <br>
+The purpose is to decrease the lower parts of the terrain, so that we
+get peaks on a plain.
+      <div align="center">
+      <div align="left"><img src="tools_step2.jpg" alt="" align="left"
+ height="421" width="255"> <br>
+You can use the default parameters of the power transformation here. It
+raises each pixel height to its square (the "Parameter" is the
+exponent), then "clamp" the values so that they fit in the height field
+range (0-65535).&nbsp; If the surroundings of the peaks seem dark
+enough, accept the result. Otherwise, click "Reset" and try with 3 or a
+higher value. With a high exponent, the ground flattens and looses all
+details, if it is what you want.</div>
+      <div align="left"><br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">Hitting
+"Apply", then "Repeat" with an exponent of 2 is the
+same as "Apply" with an exponent of 4. Hitting "Repeat" twice with
+an exponent of 2 (after "Apply") an exponent of 8. It's multiplicative,
+not additive. Hitting "Apply" twice only reapply the same exponent to
+the original image, unless you accept the result after the first click.<br>
+      </div>
+      </div>
+      </td>
+      <td align="center" valign="middle"><img src="../doc_step2.jpg"
+ alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_step2.jpg" alt="" height="255" width="256"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>3. Translating the terrain</b><br>
+      <br>
+We want to put the camera at the bottom center (South), looking towards
+the top center (North). It would be nicer with peaks centered West-East
+and moved North, in the background, so that the plain can be seen.<br>
+      <br>
+      <div align="left"><img src="tools_step3.jpg" alt="" align="left"
+ height="290" width="215"> </div>
+      <img src="../../tut_moon/light.jpg" alt="" align="left"
+ height="42" width="42"> The "Translate" transformation is based on an
+interesting property of all height fields created with the subdivision
+and the surface addition algorithms of Geomorph: terrains "wrap", so
+that it is possible to tile them on a greater surface. It is also
+possible to apply them as a normal on a cylinder or on a torus
+seamlessly, if your can find a purpose for this. The West side "fits"
+with the East side, and so does the North one with the South one.<br>
+      <br>
+So, translating our image 15% East centers the peaks, and translating
+it 15% North put the peaks in the background.<br>
+      <br>
+In version 0.12, the document display "flickers" when you accept the
+translation. Although this could be annoying, it doesn't affect
+the result.<br>
+      </td>
+      <td align="center" valign="middle"><img src="../doc_step3.jpg"
+ alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_step3.jpg" alt="" height="255" width="256"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>4a. Stratifying the peaks</b><br>
+      <br>
+We want mesa-style hills, so we'll use the "Terraces" transformation to
+stratify the peaks.<br>
+      <br>
+The stratification is a 3-step process, although the result
+is usable after the first step:<br>
+(1) Quantizing.<br>
+(2) Smoothing and removing unwanted noise<br>
+(3) Merging with the original image.<br>
+      <br>
+We'll discuss merging in point 4b.<br>
+      <br>
+      <img src="tools_step4a.jpg" alt="" align="left" height="676"
+ width="234"> A mesa has a very few altitude levels, unlike terraces
+used
+for agriculture. Let's choose 4 levels.<br>
+      <br>
+      <img src="../../tut_moon/question.jpg" alt="" align="left"
+ height="41" width="42"> The stratification groups the 65536 possible
+altitude levels into the number of levels given by the user. Suppose
+that the height field values range from 10000 to 50000, here there
+would be 4 levels of 10000, the first one with resulting value 0,
+grouping all values between 0 and 9999, the
+second one with resulting value 10000, grouping values between 10000
+and
+19999, and so on.<br>
+      <br>
+The basic process creates levels of equal height. This could be boring.
+The random variation parameter alleviates this. The default value is
+50% of the height of each level. Let's keep the default parameter. It
+can be read as "displace the altitude of the current level by a random
+value between 0% and 50% of the calculated difference between levels".<br>
+      <br>
+If you are not satisfied with the altitude of some levels, for instance
+if there are too many "needles" or narrow peaks, hit "Refesh" at will.
+The height of each level would vary, and so their surface, as long as
+your random variation parameter is not null.<br>
+      <br>
+Click on the left arrow under "post-processing" to get the "smoothing"
+and "artifact removal' controls.<br>
+      <br>
+Smoothing gives a more natural look. A radius of 2 here is enough,
+because we'll want to mix the result with the orginal, and to erode
+it with rain.<br>
+      <br>
+Use "Artifact removal" if your image contains annoying spots ("needles"
+when rendered), and if you cannot get rid of them by refreshing the
+random seed. It is in pixels. For a given effect, the radius should be
+proportional to the size of the image, so that 10 for a 512x512 image
+is equal to 20 for a 1024x1024 image.<br>
+      <br>
+Post-processing is expensive, so it is not immediate. To see the
+result, you must click "Apply", and wait.<br>
+      <br>
+      <img src="../light.jpg" alt="" align="left" height="42" width="42">Note
+that if you change the quantization levels, the random
+variation or the random seed, after post-processing the image, you
+must reapply the post-process.<br>
+      </td>
+      <td align="center" valign="middle"><img src="../doc_step4a.jpg"
+ alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_step4a.jpg" alt="" height="255" width="254">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>4b. Merging the resulting terraces with the
+source</b><br>
+      <br>
+      <img src="tools_step4b.jpg" alt="" align="left" height="703"
+ width="238"> The preview shows a pretty boring flat plain around the
+hills. Rendering the <i>desert.pov </i>scene is worse (actually, the
+height field ground would probably disappear under the sand plane).<br>
+      <br>
+The last subdialog of the terraces options allows you to mix the source
+and the result in variable proportions.<br>
+      <br>
+It will restore some detail on the ground, while smoothing the edges of
+the terraces.<br>
+      <br>
+Click on the left arrow to display the dialog (if you don't
+have a huge desktop, you would probably hide the post-processing dialog
+by clicking on its right arrow).<br>
+      <br>
+The default "Mode" = "+" is correct for our purpose. The default "Mix"
+is 100% result, 0% source. Click on the "0" button at the right for
+mixing the source and the result in equal proportions. This is the
+ratio used for this tutorial. You can try different proportions.<br>
+      <br>
+      <br>
+      </td>
+      <td align="center" valign="middle"><img src="../doc_step4b.jpg"
+ alt="" height="256" width="256"> <br>
+      <br>
+      <img src="../preview_step4b.jpg" alt="" height="256" width="257">
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>5. Eroding the mesas with rain</b><br>
+      <br>
+You can render the scene now by clicking <img
+ src="../../tut_moon/povchoice_icon.jpg"
+ alt="the &quot;Povray with file choice&quot; icon" height="28" width="28"> and
+choosing <i>desert.pov</i>. If you want to compare with the final
+result <a href="#Desert_scene">showed above</a>, set the camera
+parameters as shown in step 6. It's already interesting, but we can
+give it a more natural look with water erosion.<br>
+      <br>
+      <img src="tools_step5.jpg" alt="" align="left" height="336"
+ width="216"> The erosion must be light. We don't want to totally
+destroy the terraces edges. For a 512x512 image, you could try 25000
+drops.<br>
+      <br>
+Render it, and if you are not satisfied, change the number of drops and
+hit "Apply". If you haven't clicked "Accept", it would reapply the
+drops to the uneroded height field.<br>
+      <br>
+If you only want to add drops, set the quantity to add and hit
+"Repeat". You avoid recomputing 25000 drops!<br>
+      <br>
+      <img alt="" src="../light.jpg" align="left" height="42" width="42">25000
+drops in a 512x512 image are equivalent to 6250 drops in a
+256x256 image, or 100000 drops in a 1024x1024 image. It is proportional
+to the surface, which increases like the square of the linear size.<br>
+      </td>
+      <td valign="top"><img src="../doc_step5.jpg" alt="" height="256"
+ width="256"> <br>
+      <br>
+      <img src="../preview_step5.jpg" alt="" height="255" width="255"> <br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>6. Rendering the scene with Povray</b><br>
+      <br>
+The <i>desert.pov</i> scene from Geomorph 0.12 and higher is
+coupled with the preview camera.<br>
+      <br>
+The final result <a href="#Desert_scene">shown above</a> is obtained
+with the parameters given at right.<br>
+      <br>
+Remember than the parameters are saved with the PNG height field. Here,
+the first camera is used. The other cameras keep the default settings,
+as used in steps 1 to 5 of this tutorial.<br>
+      <br>
+Maybe you'll find that your rendered image needs some tuning. Look at <i>desert.pov</i>
+in your prefered editor. The parameters that you are likely to change
+are grouped at the bottom of the file, under a line of "*".<br>
+      <br>
+For this scene:<br>
+      <ol>
+        <li> I decreased slightly the height field vertical scale (Y
+axis). You can also get it by using the brightness / contrast tool
+in Geomorph.</li>
+        <li> I adjusted the relative position of the height field and
+the sand plane, so that the sand plane is not totally hidden by the
+height field in the foreground, and the height field is not totally
+hidden by the plane. It's more interesting when spots of sand are seen
+among
+spot of rocks. Very small move of the height field or the sand plane
+modify
+a lot the final look.</li>
+        <li> I scaled down the sand texture a lot, by scaling down the
+plane. It's an infinite plane, only its texture reacts to scaling.</li>
+        <li> I played a lot with the fog parameters, just above
+the line of "*". Fog is dust here, so it should be light.</li>
+      </ol>
+      </td>
+      <td align="center" valign="middle"><img src="preview_step6.jpg"
+ alt="" height="418" width="261"> <br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Written in October, 2003<br>
+<br>
+<a href="../../doc_index_en.html"><img src="../GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_en.html">Back to the documentation index</a><br>
+<br>
+</body>
+</html>

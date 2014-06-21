@@ -1,0 +1,1316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Texturer un relief Povray &agrave; partir de Geomorph</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<div style="text-align: center;"><big><big><big><span
+ style="font-weight: bold;"><a name="Texturing_a_Geomorph_height_field"></a>Texturer
+un paysage Geomorph<br>
+avec Povray</span></big></big></big><br>
+</div>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><a
+ href="#Examples_of_maprock1.inc_use"><img alt="maprock1.inc"
+ src="../th_maprock.jpg"
+ style="border: 0px solid ; width: 200px; height: 150px;"></a><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><a
+ href="#Textures_from_geomorph_txtr.inc_"><img alt="geomorph_txtr.inc"
+ src="../th_geomorph_txtr.jpg"
+ style="border: 0px solid ; width: 200px; height: 150px;"></a><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><a
+ href="#Textures_from_slope_patterns.inc"><img alt="slope_patterns.inc"
+ src="../th_slope_patterns.jpg"
+ style="border: 0px solid ; width: 200px; height: 150px;"></a><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img
+ alt="painted_desert_map2.inc" src="../th_painted_desert.jpg"
+ style="width: 200px; height: 150px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Les textures d'un terrain sont d'une grande importance pour
+cr&eacute;er une impression de r&eacute;alisme. Elles sont presque
+aussi importantes que son relief.<br>
+<br>
+Cette section pr&eacute;sente les textures disponibles dans les
+fichiers "include" Povray livr&eacute;es avec la version 0.23 de
+Geomorph.<br>
+<br>
+Le contenu est destin&eacute; &agrave; des non-experts, qui ont lu au
+minimum une introduction &agrave; Povray et l'<a
+ href="Anatomie%20-%20fichier%20Povray.html">Anatomie d'un fichier
+Povray pour utiliser Geomorph</a>. Les exemples propos&eacute;s ne
+montrent que les parties des fichiers Povray n&eacute;cessaires
+&agrave; l'ajout de textures. L'utilisateur doit au minimum
+d&eacute;finir une cam&eacute;ra et une source lumineuse, par exemple
+en utilisant l'une des sc&egrave;nes pr&eacute;d&eacute;finies fournies
+avec Geomorph. La sc&egrave;ne de test est fournie <a
+ href="../scenes/test_terrain_texture.pov">ici</a> - vous n'avez
+qu'&agrave; v&eacute;rifier la valeur des param&egrave;tres et quelles
+lignes ont &eacute;t&eacute; d&eacute;sactiv&eacute;es en utilisant des
+marques de commentaires (// ou /*...*/). Les fichiers "include"
+mentionn&eacute;s, distribu&eacute;s avec Geomorph 0.23, peuvent aussi
+&ecirc;tre trouv&eacute;s <a href="../scenes/">ici</a>.<br>
+<br>
+Tous les exemples de cette page font usage de variables dont les
+valeurs peuvent &ecirc;tre initialis&eacute;es par l'utilisateur.
+L'usage de certaines textures peut sembler complexe au premier abord en
+raison du grand nombre de param&egrave;tres impliqu&eacute;s.
+Cependant, presque tous sont optionnels et peuvent &ecirc;tre omis.<br>
+<br>
+Il s'agit d'un travail non termin&eacute;. Ces textures sont toujours
+perfectibles et pourraient &eacute;voluer dans les prochaines versions
+de Geomorph.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="2" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-style: italic;"><span
+ style="font-weight: bold;">Version 0.40 et ult&eacute;rieure</span></span><br>
+- <a href="../scenes/geomorph.inc"><span style="font-style: italic;">geomorph.inc</span></a>
+peut &ecirc;tre utilis&eacute; &agrave; la place de <span
+ style="font-style: italic;">maprock1.inc, geomorph_txtr.inc</span> et <span
+ style="font-style: italic;">slope_patterns.inc. </span>Ce fichier
+inclut les 3 autres.<br>
+- Quand <span style="font-style: italic;">geomorph.inc</span> est
+utilis&eacute;, toutes les d&eacute;clarations <span
+ style="font-style: italic;">png "test.png"</span> dans cette page
+doivent &ecirc;tre remplac&eacute;es par <span
+ style="font-style: italic;">png main_terrain</span><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<span style="font-weight: bold;">Les pigments et les normales</span><br>
+<br>
+L'apparence d'une texture d&eacute;pend essentiellement de sa couleur,
+donn&eacute;e par le mot-cl&eacute; <span style="font-style: italic;">pigment</span>,
+et de sa normale, ou le "toucher" de sa surface, donn&eacute;e par le
+mot-cl&eacute; <span style="font-style: italic;">normal.</span><br>
+<br>
+La plupart des textures Povray fournies avec Geomorph ont une
+composante <span style="font-style: italic;">pigment</span> et une
+composante<span style="font-style: italic;"> normal. </span>L'intensit&eacute;
+des deux composantes peut &ecirc;tre ajust&eacute;e par l'utilisateur.<br>
+<br>
+Pour comprendre de fa&ccedil;on intuitive ce qu'est une normale,
+regardez le tutoriel <a
+ href="../../tut_moon/fr/Tutoriel_mer_et_lune.html">"Mer et Lune"</a>.
+Les crat&egrave;res de la Lune sont cr&eacute;&eacute;s comme une
+normale, qui simule la d&eacute;formation de la surface. Il n'y a
+aucune d&eacute;formation effective de la sph&egrave;re lunaire: vous
+ne verrez aucune d&eacute;pression ni aucune montagne sur son bord.<br>
+<br>
+<span style="font-weight: bold;">Un index des fichiers "include"<br>
+<br>
+</span>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><a
+ href="#Examples_of_maprock1.inc_use"><span style="font-weight: bold;">maprock1.inc</span></a><br>
+      <a href="#Examples_of_maprock1.inc_use"><img alt=""
+ src="../th_maprock.jpg"
+ style="border: 0px solid ; width: 200px; height: 150px;"></a><br>
+      </td>
+      <td style="vertical-align: top;">Fournit une carte de couleurs,
+g&eacute;n&eacute;ralement utilis&eacute;e avec un motif de gradient
+pour simuler une roche s&eacute;dimentaire. La carte de couleur peut
+aussi &ecirc;tre utilis&eacute;e pour simuler des bandes de nuages sur
+une plan&egrave;te gazeuse g&eacute;ante. La couleur de base est
+param&eacute;trable par l'utilisateur. Les bandes ne
+repr&eacute;sentent qu'une variation de densit&eacute; &agrave; partir
+de cette couleur.<br>
+Vous pouvez g&eacute;n&eacute;rer votre propre carte de couleurs
+&agrave; l'aide du programme "colmap" (expliqu&eacute; plus bas).<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><a
+ href="#Textures_from_geomorph_txtr.inc_"><span
+ style="font-weight: bold;">geomorph_txtr.inc</span></a><br>
+      <a href="#Textures_from_geomorph_txtr.inc_"><img alt=""
+ src="../th_geomorph_txtr.jpg"
+ style="border: 0px solid ; width: 200px; height: 150px;"></a><br>
+      </td>
+      <td style="vertical-align: top;">Fournit des textures de sable,
+d'herbe et de granite, dont le granite humide du<a
+ href="../../tut_cracks/fr/Tutoriel_Crevasses.html"> tutoriel sur les
+crevasses</a>.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><a
+ href="#Textures_from_slope_patterns.inc"><span
+ style="font-weight: bold;">slope_patterns.inc</span></a><br>
+      <a href="#Textures_from_slope_patterns.inc"><img alt=""
+ src="../th_slope_patterns.jpg"
+ style="border: 0px solid ; width: 200px; height: 150px;"></a><br>
+      </td>
+      <td style="vertical-align: top;">Fournit des textures de roches,
+de for&ecirc;t, d'arbustes et de neige variant selon la pente. La neige
+appara&icirc;t aux altitudes plus &eacute;lev&eacute;es. La
+for&ecirc;t, les arbutes ou la neige sont remplac&eacute;s par le roc
+nu lorsque la pente est trop raide.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><a
+ href="#Textures_from_painted_desert_mapN.inc"><span
+ style="font-weight: bold;">painted_desert_map1.inc</span><br
+ style="font-weight: bold;">
+      <span style="font-weight: bold;">painted_desert_map2.inc</span><br
+ style="font-weight: bold;">
+      <span style="font-weight: bold;">painted_desert_map3.inc</span></a><br>
+      <a href="#Textures_from_painted_desert_mapN.inc"><img alt=""
+ src="../th_painted_desert.jpg"
+ style="border: 0px solid ; width: 200px; height: 150px;"></a>&nbsp;<br>
+      </td>
+      <td style="vertical-align: top;">Ces fichiers d&eacute;finissent
+des cartes de couleurs dans des teintes pastel tirant sur le rouge,
+sous le nom de <span style="font-style: italic;">ground_map, </span>pour
+&ecirc;tre utilis&eacute;es comme gradients simulant les couleurs du
+D&eacute;sert Paint de l'Arizona. Il s'agit de couleurs r&eacute;elles,
+&eacute;chantillonn&eacute;es sur des diapositives Kodachrome prises 2
+&agrave; 3 heures apr&egrave;s le lever du soleil. La variable <span
+ style="font-style: italic;">col_density</span> peut &ecirc;tre
+utilis&eacute;e pour ajuster la densit&eacute; globale de ces couleurs.<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Geomorph fournit aussi les fichiers <span style="font-style: italic;">uranus.inc,</span>
+qui cr&eacute;e une g&eacute;ante gazeuse ressemblant &agrave; Uranus
+et ses anneaux (les couleurs sont exag&eacute;r&eacute;ment
+satur&eacute;es!), ainsi que <span style="font-style: italic;">stars.inc</span>,
+qui donne une simple texture &eacute;toil&eacute;e utilisable sur un
+objet <span style="font-style: italic;">sky_sphere.</span><span
+ style="font-weight: bold;"></span><br>
+<br>
+<span style="font-weight: bold;"><a name="Examples_of_maprock1.inc_use"></a>Exemples
+d'utilisation de <a href="../scenes/maprock1.inc"><span
+ style="font-style: italic;">maprock1.inc</span></a></span><br>
+<br>
+Le fichier <span style="font-style: italic;">maprock1.inc</span> ne
+contient qu'une carte de couleurs, utilisable pour construire un <span
+ style="font-style: italic;">pigment.</span><br>
+<br>
+Des couleurs sombres ont &eacute;t&eacute; utilis&eacute;es dans ces
+exemples afin d'obtenir une apparence terreuse.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Utilisation</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><span
+ style="font-weight: bold;">R&eacute;sultat</span><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">De base:<br>
+      <span style="font-style: italic;">#declare
+rock_color=&lt;0.55,0.45,0.3&gt;</span>; <small>// Obligatoire</small><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">#include "maprock1.inc"</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">height_field {</span><br
+ style="font-style: italic;">
+      <div style="margin-left: 40px; font-style: italic;">png "test.png"<br>
+smooth<br>
+texture {pigment {gradient y color_map{rock_map} scale 0.5} }<br>
+scale &lt; 1.0, 0.3, 1.0 &gt;<br>
+translate &lt;-.5, 0.0, -.5&gt;<br>
+      </div>
+      <span style="font-style: italic;">}<br>
+      </span><br>
+Ici nous r&eacute;duisons la texture de moiti&eacute; (0.5), afin de
+r&eacute;p&eacute;ter les bandes une fois (2 cycles), autrement elles
+sont difficiles &agrave; voir. <br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../maprock_1_t.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">De base, sur une sph&egrave;re:<br>
+      <span style="font-style: italic;">#declare
+rock_color=&lt;0.55,0.45,0.3&gt; ;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">#include "maprock1.inc"</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">sphere { &lt;0,0,0&gt; 1</span>
+      <div style="margin-left: 40px; font-style: italic;">texture
+{pigment {gradient y color_map{rock_map}} }<br>
+      </div>
+      <span style="font-style: italic;">}<br>
+      <br>
+      </span>Voyez comment la texture est r&eacute;p&eacute;t&eacute;e.
+On distingue une coupure nette &agrave; l'&eacute;quateur. Pour obtenir
+le gradient complet sans r&eacute;p&eacute;tition, il faut le
+d&eacute;placer de 50% sur l'axe Y et l'&eacute;tirer de 200% sur ce
+m&ecirc;me axe:<br>
+      <span style="font-style: italic;">texture {pigment {gradient y
+color_map{rock_map}} translate 0.5 scale 2 }</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../maprock_2_s.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Ajoutons de la turbulence,
+utilisons une autre couleur:<br>
+      <span style="font-style: italic;">#declare
+rock_color=&lt;0.5,0.5,0.2&gt;</span><span style="font-style: italic;">
+;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">#include "maprock1.inc"</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">sphere { &lt;0,0,0&gt; 1</span>
+      <div style="margin-left: 40px; font-style: italic;">texture {<br>
+&nbsp;&nbsp;&nbsp; pigment {gradient y color_map{rock_map}<br>
+&nbsp;&nbsp;&nbsp; warp {turbulence 0.1}<br>
+&nbsp;&nbsp;&nbsp; } // end of pigment<br>
+}<br>
+      </div>
+      <span style="font-style: italic;">}</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../maprock_3_s.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Ici le gradient est
+r&eacute;utilis&eacute; comme une normale. Nous #d&eacute;clarons le
+pigment dans une variable pour en faciliter la r&eacute;utilisation:<br>
+      <span style="font-style: italic;">#declare strata = pigment
+{gradient y color_map{rock_map} warp {turbulence 0.1}}</span><br>
+      <span style="font-style: italic;">sphere { &lt;0,0,0&gt; 1</span>
+      <div style="margin-left: 40px; font-style: italic;">texture {<br>
+&nbsp;&nbsp;&nbsp; pigment { strata } <br>
+&nbsp;&nbsp;&nbsp; normal { pigment_pattern {strata} 1.5 } // 1.5 est
+l'intensit&eacute; ("hauteur") de la d&eacute;formation normale<br>
+}<br>
+      </div>
+      <span style="font-style: italic;">}</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../maprock_4_s.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Maintenant nous
+r&eacute;utilisons le pigment comme une normale sur un terrain, pour
+accentuer les couches s&eacute;dimentaires:<span
+ style="font-style: italic;"><br>
+#declare rock_color=&lt;0.55,0.45,0.3&gt;</span><span
+ style="font-style: italic;"> ;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">#include "maprock1.inc"</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br>
+      <span style="font-style: italic;">#declare strata = pigment
+{gradient y color_map{rock_map} warp {turbulence 0.1}}</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">height_field {</span><br
+ style="font-style: italic;">
+      <div style="margin-left: 40px; font-style: italic;">png "test.png"<br>
+smooth<br>
+texture {pigment {strata} normal {pigment_pattern{strata} 1.0} scale
+0.3}<br>
+scale &lt; 1.0, 0.3, 1.0 &gt;<br>
+translate &lt;-.5, 0.0, -.5&gt;<br>
+      </div>
+      <span style="font-style: italic;">}<br>
+      </span>Nous avons choisi une intensit&eacute; de 1.0. Celle
+utilis&eacute;e sur la sph&egrave;re &eacute;tait un peu trop forte,
+&agrave; 1.5.<br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../maprock_5_t.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">La carte de couleurs peut aussi
+&ecirc;tre utilis&eacute;e avec d'autres motifs qu'un gradient. <br>
+      <span style="font-style: italic;"></span><span
+ style="font-style: italic;">...<br>
+#declare strata = pigment{granite color_map {rock_map} }<br>
+sphere { &lt;0,0,0&gt; 1</span>
+      <div style="margin-left: 40px; font-style: italic;">texture
+{pigment
+{strata} normal{pigment_pattern{strata} 1.0 }}<br>
+      </div>
+      <span style="font-style: italic;">}</span></td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../maprock_6_s.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<span style="font-weight: bold;">La cr&eacute;ation de nouvelles cartes
+de couleurs avec <a href="../scenes/colmap"><span
+ style="font-style: italic;">colmap</span></a></span><br>
+<br>
+Vous pouvez g&eacute;n&eacute;rer de nouvelles cartes de couleurs
+al&eacute;atoires avec le programme <span style="font-style: italic;">colmap</span>.
+Ce programme peut &ecirc;tre trouv&eacute; dans le r&eacute;pertoire
+racine des sc&egrave;nes Geomorph
+(/usr/local/share/geomorph/0.23/scenes for version 0.23) ou
+t&eacute;l&eacute;charg&eacute; <a href="../scenes/colmap">ici</a> (<a
+ href="../scenes/colmap.c">source</a>).<br>
+<br>
+Supposons que vous avez copi&eacute; <span style="font-style: italic;">colmap</span>
+dans votre r&eacute;pertoire courant (ou que vous allez pr&eacute;fixer
+son nom avec son chemin complet lorsque vous l'ex&eacute;cuterez).
+L'usage de base est:<br>
+<span style="font-style: italic;">./colmap 35 50 75</span><br>
+... o&ugrave; 35 est le nombre de valeurs (bandes)
+d&eacute;sir&eacute;, 50 est la variation al&eacute;atoire en % de la
+largeur de chaque bande, et 33 est la variation al&eacute;atoire en %
+de leur densit&eacute;.<br>
+<br>
+Si <span style="font-style: italic;">colmap</span> existe mais refuse
+de s'ex&eacute;cuter, v&eacute;rifiez s'il a les permissions pour
+&ecirc;tre ex&eacute;cutable. Sinon, changez-les:<br>
+<span style="font-style: italic;">chmod u+x colmap</span><br>
+<br>
+La sortie appara&icirc;tra sur la console. Redirigez-la dans le fichier
+de votre choix:<br>
+<br>
+<span style="font-style: italic;">./colmap 35 50 75 &gt; mon_fichier.inc</span><br>
+<br>
+<span style="font-weight: bold;"><a
+ name="Textures_from_geomorph_txtr.inc_"></a>Les textures de </span><span
+ style="font-style: italic;"><a href="../scenes/geomorph_txtr.inc"><span
+ style="font-weight: bold;">geomorph_txtr.inc</span><br>
+</a><br>
+geomorph_txtr.inc</span> contient les textures con&ccedil;ues lors de
+la r&eacute;daction des tutoriels, sauf celles qui d&eacute;pendent de
+la pente, qui se trouvent dans <span style="font-style: italic;">slope_patterns.inc.
+</span>Ces exemples montrent les textures disponibles dans Geomorph
+0.23.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">Texture
+et utilisation</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><span
+ style="font-weight: bold;">Result</span><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">sand1:</span>
+Sable du d&eacute;sert ou d'un fond marin pr&eacute;sentant une normale
+ondulante, &agrave; utiliser de pr&eacute;f&eacute;rence sur un plan de
+sol ou un terrain tr&egrave;s lisse. Ici le terrain a &eacute;t&eacute;
+liss&eacute; avec un rayon de 30, puis le contraste a &eacute;t&eacute;
+abaiss&eacute; &agrave; -35.<br>
+      <br>
+      <span style="font-style: italic;">#declare
+sand_color=&lt;0.75,0.55,0.35&gt;; </span><small>//
+Sp&eacute;cification optionnelle; lorsque absente, cette couleur est
+utilis&eacute;e</small><br>
+      <span style="font-style: italic;">#include "geomorph_txtr.inc"</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">...<br>
+#declare hf=<br>
+height_field {<br>
+&nbsp;&nbsp;&nbsp; png "test.png"<br>
+&nbsp;&nbsp;&nbsp; smooth<br>
+&nbsp;&nbsp;&nbsp; scale &lt; 1.0, 0.3, 1.0 &gt;<br>
+&nbsp;&nbsp;&nbsp; translate &lt;-.5, 0.0, -.5&gt;</span><span
+ style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">}<br>
+...<br>
+object&nbsp; {hf&nbsp;</span><span style="font-style: italic;"> texture
+{sand1 scale 0.01 rotate y*45} }<br>
+      <br>
+      </span>Notez comment la texture est r&eacute;duite (scale 0.01)
+pour montrer les ondulations.<span style="font-style: italic;"><span
+ style="font-style: italic;"></span><br>
+      </span></td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../2_sand1_t.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">shore_granite:</span>
+Une texture complexe utilis&eacute;e dans le tutoriel sur les <a
+ href="../../tut_cracks/fr/Tutoriel_Crevasses.html">crevasses.</a> Le
+bas imite un granite humide. Au niveau des vagues croissent des algues
+allant du jaune au vert. Enfin, les sommets peuvent &ecirc;tre couverts
+d'herbe, selon l'&eacute;chelle donn&eacute;e &agrave; la texture.<br>
+      <br>
+      <span style="font-style: italic;">#declare granite_density=1.5; </span><small>//
+Optionnel. D&eacute;clarer seulement si vous d&eacute;sirez une valeur
+diff&eacute;rente de 1.2 (ex. 1.5 pour une texture plus claire, 1.0
+pour une texture plus fonc&eacute;e).</small><br>
+      <span style="font-style: italic;">#declare granite_ambient_finish
+= 0.0; </span><small>// Optionel. Augmenter pour obtenir des ombres
+plus douces. La valeur par d&eacute;faut est 0.2.</small><br>
+      <span style="font-style: italic;">#include "geomorph_txtr.inc"<br>
+...<br>
+#declare hf=... </span><small>// Voir l'exemple pr&eacute;c&eacute;dent</small><span
+ style="font-style: italic;"><br>
+...<br>
+      </span><span style="font-style: italic;">object&nbsp; {hf&nbsp;</span><span
+ style="font-style: italic;"> texture {shore_granite} }</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../3_shore_granite_t.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">granite_1:</span>&nbsp;
+Un granite qui simule des crevasses &agrave; l'aide d'une normale. La
+densit&eacute; peut &ecirc;tre r&eacute;gl&eacute;e. Remarquez le nom
+de la variable: <span style="font-style: italic;">granite1_density</span>
+plut&ocirc;t que <span style="font-style: italic;">granite_density.</span>
+Le
+terrain de 512x512 a &eacute;t&eacute; liss&eacute; avec un rayon de
+30 pixels.<br>
+      <br>
+      <span style="font-style: italic;">#declare
+granite1_density=1.0;&nbsp;
+// Optionel; le d&eacute;faut est 1.0<br>
+#declare granite1_grain_scale=1.0; // Optionel; le d&eacute;faut est
+1.0; donner une valeur </span><span style="font-style: italic;">&gt; 2
+pour voir une diff&eacute;rence r&eacute;elle</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">#include "geomorph_txtr.inc"</span><br>
+...<br>
+      <span style="font-style: italic;">#declare hf=... <br>
+...<br>
+      </span><span style="font-style: italic;">object&nbsp; {hf&nbsp;</span><span
+ style="font-style: italic;"> texture {granite_1 scale 0.5} }</span> </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../5_granite_1_t.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">granite_2:</span>&nbsp;
+Une composante de la texture <span style="font-style: italic;">shore_granite</span>.
+&Agrave; grande &eacute;chelle, l'apparence est celle d'un roc
+raboteux. La densit&eacute; peut &ecirc;tre r&eacute;gl&eacute;e
+&agrave; l'aide de la variable <span style="font-style: italic;">granite_density.<br>
+#declare granite_density=1.5;&nbsp;
+// Optionel; le d&eacute;faut est 1.5</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">#include "geomorph_txtr.inc"</span><br>
+...<br>
+      <span style="font-style: italic;">#declare hf=... <br>
+...<br>
+      </span><span style="font-style: italic;">object&nbsp; {hf&nbsp;</span><span
+ style="font-style: italic;"> texture {granite_2 scale 0.5} }</span><span
+ style="font-style: italic;"><br>
+      </span> </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../6_granite_2_large_scale.jpg"
+ style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">granite_2:</span>
+Maintenant avec une petite &eacute;chelle.<br>
+      <span style="font-style: italic;">#declare
+granite_density=1.5; </span><br style="font-style: italic;">
+      <span style="font-style: italic;">#include "geomorph_txtr.inc"</span><br>
+...<br>
+      <span style="font-style: italic;">#declare hf=... <br>
+...<br>
+      </span><span style="font-style: italic;">object&nbsp; {hf&nbsp;</span><span
+ style="font-style: italic;"> texture {granite_2 scale 0.02} }</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../7_granite_2_small_scale.jpg"
+ style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">t_grass:</span>
+Une texture herbeuse compos&eacute;e du pigment <span
+ style="font-style: italic;">p_grass</span> r&eacute;utilis&eacute;
+comme une normale.<br>
+      <span style="font-style: italic;">#declare grass_density=1.0; //
+Optionel; le d&eacute;faut est 1.0</span><br style="font-style: italic;">
+      <span style="font-style: italic;">#declare grass_scale=1.0; //
+Optionel; le d&eacute;faut est 1.0; vous pouvez sp&eacute;cifier cette
+&eacute;chelle directement dans la texture</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">#include "geomorph_txtr.inc"</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br>
+      <span style="font-style: italic;">#declare hf=... <br>
+...<br>
+      </span><span style="font-style: italic;">object&nbsp; {hf&nbsp;</span><span
+ style="font-style: italic;"> texture {t_grass scale 0.5} }<br>
+      <span style="font-style: italic;"></span></span>Ou encore:<br>
+      <span style="font-style: italic;">object&nbsp; {hf&nbsp;</span><span
+ style="font-style: italic;"> texture {pigment {p_grass} normal
+{pigment_pattern{p_grass} 1.0} scale 0.5} }</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../8_t_grass_t.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+&nbsp;<br>
+<span style="font-style: italic;"></span><span
+ style="font-weight: bold;"><a name="Textures_from_slope_patterns.inc"></a>Les
+textures de </span><a href="../scenes/slope_patterns.inc"><span
+ style="font-style: italic; font-weight: bold;">slope_patterns.inc</span></a><br>
+<br>
+La version 3.5 de Povray et les versions ult&eacute;rieures offrent un<span
+ style="font-style: italic;"> pattern</span> ("motif") <span
+ style="font-style: italic;">slope</span> (pente), permettant de
+colorer ou de texturer une surface selon sa pente.<br>
+<br>
+Par exemple, il est maintenant possible de remplacer l'herbe, les
+arbustes ou la for&ecirc;t avec un roc nu quand la pente du relief
+devient trop forte.<br>
+<br>
+Cette fonctionnalit&eacute; peut aussi &ecirc;tre utilis&eacute;e pour
+simuler l'adh&eacute;rence de la neige sur un terrain.<br>
+<br>
+Cette section pr&eacute;sente les textures d&eacute;velopp&eacute;es
+pour exploiter cette fonctionnalit&eacute;. Les premi&egrave;res
+textures comme "forest" et "snow" sont des textures simples qui servent
+de blocs de composantes pour construire des textures plus complexes
+d&eacute;pendant de la pente.<br>
+<br>
+Remarquez que <span style="font-style: italic;">slope_patterns.inc</span>
+r&eacute;utilise <span style="font-style: italic;">maprock1.inc</span>,
+d&eacute;j&agrave; vu. C'est pour cette raison que la variable <span
+ style="font-style: italic;">rock_color </span>est pr&eacute;sente.<br>
+<br>
+Le relief lisse utilis&eacute; est la "subdivision 2" standard
+g&eacute;n&eacute;r&eacute;e au d&eacute;marrage de Geomorph,
+liss&eacute;e avec un rayon de 30 pixels. Le contraste a aussi
+&eacute;t&eacute; diminu&eacute; &agrave; -35. Le relief est disponible
+<a href="../smooth_terrain.png">ici</a>. La cam&eacute;ra 2 est
+exploit&eacute;e.<br>
+<br>
+Le relief &eacute;rod&eacute; provient aussi de la "subdivision 2"
+standard, &eacute;rod&eacute;e avec l'outil d'&eacute;rosion par la
+pluie, "cr&ecirc;tel&eacute;e" avec 3 r&eacute;p&eacute;titions puis
+tourn&eacute;e. Ce relief est disponible <a href="../eroded.png">ici</a>.
+La cam&eacute;ra 5 est utilis&eacute;e.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">1.
+forest</span><br>
+      <br>
+Une texture fonc&eacute;e avec des bosses qui ressemblent &agrave; des
+arbres vus de loin. La couleur est &eacute;chantillonn&eacute;e
+&agrave; partir d'une photographie de la ta&iuml;ga d'&eacute;pinettes
+noires du Qu&eacute;bec. Vous voudrez probablement accro&icirc;tre sa
+luminosit&eacute; pour simuler des feuillus.<br>
+      <br>
+Une apparence plus fine peut &ecirc;tre produite en initialisant
+&agrave; 1.0 la variable optionnelle <span style="font-style: italic;">UseGranite</span>
+(c&ocirc;t&eacute; droit de l'image).<br>
+      <br>
+      <span style="font-style: italic;">#declare
+forest_color_density=1.2;</span><small> // Optionel. D&eacute;faut de
+1.0, ad&eacute;quat pour un gradient, mais para&icirc;t trop sombre
+lorsque la texture est utilis&eacute;e seule comme ici<br>
+// Augmentez encore pour simuler des feuillus</small><span
+ style="font-style: italic;"><br>
+#declare forest_normal=1.0; </span><small>// Optionel. Augmentez pour
+accentuer la profondeur les bosses, diminuez pour les r&eacute;duire.</small><span
+ style="font-style: italic;"><br style="font-style: italic;">
+      </span><span style="font-style: italic;">#declare
+forest_normal_scale=1.0;&nbsp; </span><small>// Optionel. Grandeur
+relative des bosses.</small><br>
+      <span style="font-style: italic;">#declare UseGranite=0 ;</span> <small>//
+R&eacute;gler &agrave; 1.0 pour utiliser un motif de granite
+plut&ocirc;t que des bosses, pour obtenir une texture plus "fine".</small><br>
+      <span style="font-style: italic;">#include
+"slope_patterns.inc"</span><br style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">#declare hf=</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">height_field {</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">&nbsp;&nbsp;&nbsp; png
+"test.png"</span><br style="font-style: italic;">
+      <span style="font-style: italic;">&nbsp;&nbsp;&nbsp; smooth</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">&nbsp;&nbsp;&nbsp; scale &lt;
+1.0, 0.3, 1.0 &gt;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">&nbsp;&nbsp;&nbsp; translate
+&lt;-.5, 0.0, -.5&gt;</span><br style="font-style: italic;">
+      <span style="font-style: italic;">}</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">object {hf texture {forest}} </span><br
+ style="font-style: italic;">
+      <small>// Vous voudrez probablement mettre &agrave;
+l'&eacute;chelle la texture selon la nature du terrain ( ex. {forest
+scale 1.5}, ou utilisez la variable <span style="font-style: italic;">forest_normal_scale</span>).</small><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../1-forest.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">2.
+bushes</span><br>
+      <br>
+Quand l'altitude ou la pente augmente, les arbres se font plus rares.
+Ils sont remplac&eacute;s par des arbustes, qui ont souvent l'air plus
+p&acirc;le que les arbres.<br>
+      <br>
+      <span style="font-style: italic;">UseGranite</span> fonctionne
+aussi pour cette texture.<br>
+      <br>
+      <span style="font-style: italic;">#declare
+bushes_color_density=1.2;</span><small> //
+Optionel. La valeur par d&eacute;faut est h&eacute;rit&eacute;e de <span
+ style="font-style: italic;">forest_color_density.</span></small><span
+ style="font-style: italic;"><br>
+#declare bushes_normal=1.0;</span><small> // Optionel. Accentuation du
+motif.</small><br>
+      <span style="font-style: italic;">#declare UseGranite=0 ;</span><span
+ style="font-style: italic;"><br style="font-style: italic;">
+      </span><span style="font-style: italic;">#include
+"slope_patterns.inc"</span><br style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">#declare hf=... </span><small>//
+Voir l'exemple pr&eacute;c&eacute;dent</small><span
+ style="font-style: italic;"></span><br style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">object {hf texture {bushes}} </span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../2-bushes.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">3.
+snow</span><br>
+      <br>
+Une texture de neige standard, avec un l&eacute;ger motif. Une
+suggestion: essayez d'augmenter l'&eacute;chelle du motif <span
+ style="font-style: italic;">bumps</span> pour voir la
+diff&eacute;rence. L'&eacute;chelle par d&eacute;faut est
+appropri&eacute;e pour un point de vue distant, c'est pourquoi le motif
+a plut&ocirc;t l'air granuleux.<br>
+      <br>
+      <span style="font-style: italic;">#declare snow_density=0.8; </span><small>//
+Optionel. Vaut 1.0 par d&eacute;faut. En l'absence de nuages ou d'une
+l&eacute;g&egrave;re brume, avec une valeur de 1.0, les hautes
+lumi&egrave;res sembleront "brul&eacute;es".</small><span
+ style="font-style: italic;"><br>
+#declare snow_color=&lt;0.95,0.95,1.0&gt;; </span><small>// Optionel.
+La valeur par d&eacute;faut est montr&eacute;e - un blanc bleut&eacute;.</small><span
+ style="font-style: italic;"><br style="font-style: italic;">
+      </span><span style="font-style: italic;">#include
+"slope_patterns.inc"</span><br style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">#declare hf=... </span><small>//
+Comme ci-haut.</small><span style="font-style: italic;"></span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">object {hf texture {snow}} </span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../3-snow.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">4.
+gradient_rock_snow</span><br>
+      <br>
+Cette texture donne un terrain rocheux avec de la neige au sommet,
+ind&eacute;pendamment de la pente. La couleur du roc, sa normale, son
+&eacute;chelle et sa turbulence, de m&ecirc;me que la couleur de la
+neige, sa densit&eacute; et son altitude de d&eacute;part peuvent
+&ecirc;tre contr&ocirc;l&eacute;es. Toutes les variables sont
+optionnelles.<br>
+      <span style="font-style: italic;"></span><br>
+Un conseil: si vous ne d&eacute;sirez pas les bandes
+s&eacute;dimentaires, augmentez l'&eacute;chelle du pigment du roc <span
+ style="font-style: italic;">(rock_pigment_scale)</span> &agrave; une
+grande valeur comme 10. Augmentez <span style="font-style: italic;">rock_normal</span>
+&agrave; 1.5 ou 2.0 pour accentuer le caract&egrave;re granuleux du roc.<br>
+      <br>
+La partie gauche de l'image montre le r&eacute;sultat obtenu avec
+toutes les variables laiss&eacute;es &agrave; leur valeur par
+d&eacute;faut, tandis que le c&ocirc;t&eacute; droit pr&eacute;sente le
+r&eacute;sultat obtenu lorsque l'&eacute;chelle des bandes
+s&eacute;dimentaires est augment&eacute;e &agrave; 10, pour ne plus les
+voir, et lorsque le caract&egrave;re granuleux est accentu&eacute; en
+augmentant <span style="font-style: italic;">rock_normal</span>
+&agrave; 1.5.<br>
+      <br>
+// Contr&ocirc;le de la neige<span style="font-style: italic;"><br>
+#declare snow_density=1.0;</span><span style="font-style: italic;"><br>
+#declare snow_color=&lt;0.95, 0.95, 1.0&gt;;<br>
+#declare snow_height=0.5;</span><small> // Altitude relative de
+l'enneigement. La valeur par d&eacute;faut est 0.5.</small><span
+ style="font-style: italic;"><br>
+      </span>// Contr&ocirc;le du roc<span style="font-style: italic;"><br>
+#declare rock_normal=1.0; </span><small>// Amplitude des bandes et de
+la granulation</small><span style="font-style: italic;"><br>
+#declare rock_color=&lt;0.7,0.6,0.3&gt;;&nbsp; <br>
+#declare rock_scale=1.0;</span><span style="font-style: italic;"> </span><small>//
+&Eacute;chelle globale</small><br>
+      <span style="font-style: italic;">#declare
+rock_pigment_scale=1.0; </span><small>// Pour mettre &agrave;
+l'&eacute;chelle les bandes seulement, sans la granulation</small><span
+ style="font-style: italic;"><br style="font-style: italic;">
+      </span><span style="font-style: italic;"></span><span
+ style="font-style: italic;">#include "slope_patterns.inc"</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">#declare hf=... </span><small>//
+Comme ci-haut</small><span style="font-style: italic;"></span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">object {hf texture
+{gradient_rock_snow}} </span> </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../4-gradient_rock_snow.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">5.
+gradient_forest_snow</span><br>
+      <br>
+Un autre gradient simple, avec la neige et la for&ecirc;t
+s&eacute;par&eacute;s par une l&eacute;g&egrave;re couche d'arbustes.<br>
+      <br>
+toutes les variables d&eacute;j&agrave; vues pour <span
+ style="font-style: italic;">forest</span> et <span
+ style="font-style: italic;">snow</span> peuvent &ecirc;tre
+contr&ocirc;l&eacute;es.<br>
+      <br>
+// Contr&ocirc;le de la neige<span style="font-style: italic;"><br>
+#declare snow_density=1.0;</span><span style="font-style: italic;"><br>
+#declare snow_color=&lt;0.95, 0.95, 1.0&gt;;<br>
+#declare snow_height=0.5;<br>
+      </span>// Contr&ocirc;le de la for&ecirc;t<span
+ style="font-style: italic;"><br>
+      </span><span style="font-style: italic;">declare
+forest_color_density=1.0;<br>
+#declare forest_normal=1.0; </span><span style="font-style: italic;"><br>
+#declare forest_normal_scale=1.0; </span><span
+ style="font-style: italic;"><br>
+      </span>// Contr&ocirc;le des arbustes<span
+ style="font-style: italic;"><br>
+#declare bushes_color_density=1.0; <br>
+#declare bushes_normal=1.0;</span><span style="font-style: italic;"><br>
+#declare bushes_normal_scale=1.0;</span><br>
+      <span style="font-style: italic;">#declare UseGranite=0 ;</span><br>
+      <span style="font-style: italic;"></span><span
+ style="font-style: italic;"><br style="font-style: italic;">
+      </span><span style="font-style: italic;"> </span><span
+ style="font-style: italic;">#include
+"slope_patterns.inc"</span><br style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">#declare hf=... </span><small>//
+Comme ci-haut</small><span style="font-style: italic;"></span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">object {hf texture
+{gradient_forest_snow}}</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../5-gradient_forest_snow.jpg"
+ style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">6.
+gradient_forest_bushes</span><br>
+      <br>
+Variante du gradient (5), sans la neige.<br>
+      <br>
+Ici la densit&eacute; de la couleur des arbustes a &eacute;t&eacute;
+augment&eacute;e &agrave; 1.1 et celle de la couleur de la for&ecirc;t
+diminu&eacute;e &agrave; 0.9, pour accentuer le contraste etnre les
+deux couches.<br>
+      <br>
+La variable <span style="font-style: italic;">UseGranite</span> peut
+aussi &ecirc;tre utilis&eacute;e pour cette texture, afin de remplacer
+les bosses <span style="font-style: italic;">(bumps)</span> par un
+motif de granite, plus "fin".<br>
+      <br>
+Un conseil: pour augmenter l'altitude &agrave; laquelle les arbustes
+commencent, augmentez l'&eacute;chelle de la texture (comme
+montr&eacute;). Pour diminuer cette altitude, augmentez
+l'&eacute;chelle de la texture et d&eacute;placez-la vers le bas sur
+l'axe Y. Dans ce dernier cas, l'augmentation de l'&eacute;chelle est
+requise pour &eacute;viter un "cycle", c'est-&agrave;-dire la
+r&eacute;p&eacute;tition de la couche d'arbustes au pied des montagnes
+ou de couche foresti&egrave;re au sommet.<br>
+      <br>
+L'augmentation de l'&eacute;chelle de la texture augmente aussi
+l'&eacute;chelle de la normale, c'est-&agrave;-dire le grain de la
+for&ecirc;t et des arbustes. Pour obtenir un grain constant, diminuez
+l'&eacute;chelle des variables <span style="font-style: italic;">&lt;...&gt;_normal_scale</span>
+par le m&ecirc;me ratio, comme montr&eacute;.<br>
+      <span style="font-style: italic;"><br>
+      </span>// Contr&ocirc;le de la for&ecirc;t<span
+ style="font-style: italic;"><br>
+      </span><span style="font-style: italic;">declare
+forest_color_density=0.9;<br>
+#declare forest_normal=1.0; </span><span style="font-style: italic;"><br>
+#declare forest_normal_scale=1.0/1.5; </span><span
+ style="font-style: italic;"><br>
+      </span>// Contr&ocirc;le des arbustes<span
+ style="font-style: italic;"><br>
+#declare bushes_color_density=1.1; <br>
+#declare bushes_normal=1.0;</span><span style="font-style: italic;"><br>
+#declare bushes_normal_scale=1.0/1.5;</span><br>
+      <span style="font-style: italic;"> #declare UseGranite=0;</span><br>
+      <br style="font-style: italic;">
+      <span style="font-style: italic;"> </span><span
+ style="font-style: italic;">#include
+"slope_patterns.inc"</span><br style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">#declare hf=... </span><small>//
+Comme ci-haut</small><span style="font-style: italic;"></span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">object {hf texture
+{gradient_forest_bushes scale 1.5}}</span></td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../6-gradient_forest_bushes.jpg"
+ style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">7.
+slope_snow_rock</span><br>
+      <br>
+Notre premi&egrave;re texture d&eacute;pendant de la pente. Les parties
+les plus &agrave; pic sont au roc nu, les autres parties sont couvertes
+de neige. La variable <span style="font-style: italic;">adhesion</span>
+contr&ocirc;le le degr&eacute; de couverture de la neige (0.0 -&gt; pas
+de neige; 1.0 -&gt; de la neige partout).<br>
+      <br>
+// Contr&ocirc;le de la neige<span style="font-style: italic;"><br>
+#declare snow_density=1.0;</span><span style="font-style: italic;"><br>
+#declare snow_color=&lt;0.95, 0.95, 1.0&gt;;</span><br>
+// Contr&ocirc;le du roc<span style="font-style: italic;"><br>
+#declare rock_normal=1.0;</span><span style="font-style: italic;">/ / </span><small>Amplitude
+des bandes et de la granulation</small><br>
+      <span style="font-style: italic;">#declare
+rock_color=&lt;0.7,0.6,0.3&gt;;&nbsp; <br>
+#declare rock_scale=1.0; // &Eacute;chelle globale<br>
+#declare rock_pigment_scale=1.0; /</span><span
+ style="font-style: italic;">/ <small>Utilisez pour mettre &agrave;
+l'&eacute;chelle les bandes seulement, sans le grain</small></span><br>
+// Adh&eacute;rence de la neige<span style="font-style: italic;"><br>
+      <span style="font-weight: bold;">#declare adhesion=0.6; </span></span><small><span
+ style="font-weight: bold;"></span>// Le d&eacute;faut est 0.5</small><span
+ style="font-style: italic;"><br style="font-style: italic;">
+      </span><span style="font-style: italic;"> </span><span
+ style="font-style: italic;">#include
+"slope_patterns.inc"</span><span style="font-style: italic;"><br>
+..</span><br style="font-style: italic;">
+      <span style="font-style: italic;">#declare hf=... </span><span
+ style="font-style: italic;"></span><br style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">object {hf texture
+{slope_snow_rock}}</span> </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../7-slope_snow_rock.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">8.
+slope_forest_rock</span><br>
+      <span style="font-style: italic;"></span><span
+ style="font-style: italic;"></span><br>
+Un concept similaire &agrave; <span style="font-style: italic;">slope_snow_rock,</span>
+avec des arbustes et une for&ecirc;t plut&ocirc;t que de la neige. La
+variable <span style="font-style: italic;">adhesion</span> est
+exploitable de la m&ecirc;me fa&ccedil;on.<br>
+      <br>
+Habituellement, les arbres ne croissent pas sur les parties les plus
+abruptes des montagnes. Ils sont progressivement remplac&eacute;s par
+des arbustes ou de l'herbe, eux-m&ecirc;mes remplac&eacute;s par du roc
+nu lorsque la pente cro&icirc;t davantage. En cons&eacute;quence,
+l'"adh&eacute;rence" de la composante <span style="font-style: italic;">forest</span>
+est inf&eacute;rieure &agrave; celle de la composante <span
+ style="font-style: italic;">bushes</span>, m&ecirc;me si une seule
+variable contr&ocirc;le ces deux composantes.<br>
+      <br>
+// Contr&ocirc;le du roc<span style="font-style: italic;"><br>
+#declare rock_normal=1.0;</span><small> / / Amplitude des bandes et de
+la granulation</small><br>
+      <span style="font-style: italic;">#declare
+rock_color=&lt;0.7,0.6,0.3&gt;;&nbsp; <br>
+#declare rock_scale=1.0; </span><small>// &Eacute;chelle globale</small><span
+ style="font-style: italic;"><br>
+#declare rock_pigment_scale=1.0;</span><small> /</small><small>/
+Utilisez pour mettre &agrave; l'&eacute;chelle les bandes seulement,
+sans le grain</small><span style="font-style: italic;"></span><span
+ style="font-style: italic;"><br>
+      </span>// Contr&ocirc;le des arbustes<span
+ style="font-style: italic;"><br>
+#declare bushes_color_density=1.0; <br>
+#declare bushes_normal=1.0;</span><br>
+// Adh&eacute;rence des arbustes et de la for&ecirc;t <span
+ style="font-style: italic;"><br>
+      <span style="font-weight: bold;">#declare adhesion=0.5; </span></span><small>//
+D&eacute;faut de 0.5</small> <br>
+      <span style="font-style: italic;">#declare UseGranite=0;<br
+ style="font-style: italic;">
+      </span><span style="font-style: italic;"> </span><span
+ style="font-style: italic;">#include
+"slope_patterns.inc"</span><span style="font-style: italic;"><br>
+..</span><br style="font-style: italic;">
+      <span style="font-style: italic;">#declare hf=... </span><span
+ style="font-style: italic;"></span><br style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">object {hf texture
+{slope_forest_rock}}</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../8-slope_forest_rock.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">9.
+slope_rock_bushes</span><br>
+      <span style="font-style: italic;"></span><span
+ style="font-style: italic;"></span><span style="font-style: italic;"></span><span
+ style="font-style: italic;"><br>
+      </span>// Contr&ocirc;le des arbustes<span
+ style="font-style: italic;"><br>
+#declare bushes_color_density=1.0; <br>
+#declare bushes_normal=1.0;</span><br>
+// Adh&eacute;rence des arbustes<span style="font-style: italic;"><br>
+      <span style="font-weight: bold;">#declare adhesion=0.5;</span></span><small><span
+ style="font-weight: bold;"> </span>// D&eacute;faut de 0.5</small><br>
+      <span style="font-style: italic;">#declare UseGranite=0;<br
+ style="font-style: italic;">
+      </span><span style="font-style: italic;"> </span><span
+ style="font-style: italic;">#include
+"slope_patterns.inc"</span><span style="font-style: italic;"><br>
+..</span><br style="font-style: italic;">
+      <span style="font-style: italic;">#declare hf=... </span><span
+ style="font-style: italic;"></span><br style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">object {hf texture
+{slope_rock_bushes}}</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../9-slope_rock_bushes.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">10.
+rock_top_snow</span><br>
+      <br>
+Cette texture varie &agrave; la fois selon l'altitude et selon la
+pente. Elle combine (4) <span style="font-style: italic;">gradient_rock_snow</span>
+et (7) <span style="font-style: italic;">slope_rock_snow.<br>
+      <br>
+      </span> <span style="font-style: italic;">// Contr&ocirc;le de
+la neige<br>
+#declare snow_density=1.0;</span><span style="font-style: italic;"><br>
+#declare snow_color=&lt;0.95, 0.95, 1.0&gt;;<br
+ style="font-weight: bold;">
+      <span style="font-weight: bold;">#declare snow_height=0.4;</span><br>
+      </span> <span style="font-style: italic;">// Contr&ocirc;le du
+roc<br>
+#declare rock_normal=1.0;</span><span style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">#declare
+rock_color=&lt;0.7,0.6,0.3&gt;;&nbsp; <br>
+#declare rock_scale=1.0;<br>
+#declare rock_pigment_scale=1.0; </span><span
+ style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">// Adh&eacute;rence de la neige<br>
+      <span style="font-weight: bold;">#declare adhesion=0.5; </span>//
+D&eacute;faut de 0.5<br style="font-style: italic;">
+      </span><span style="font-style: italic;"> </span><span
+ style="font-style: italic;">#include
+"slope_patterns.inc"</span><span style="font-style: italic;"><br>
+..</span><br style="font-style: italic;">
+      <span style="font-style: italic;">#declare hf=... </span><span
+ style="font-style: italic;"></span><br style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">object {hf texture
+{rock_top_snow}}</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../10-rock_top_snow.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">11.
+forest_rock_snow</span><br>
+      <br>
+Cette texture correspond en gros &agrave; (8) <span
+ style="font-style: italic;">slope_forest_rock</span>, &agrave;
+laquelle on a superpos&eacute; un gradient qui ajoute de la neige au
+sommet. La neige ne d&eacute;pend que de l'altitude, pas de la pente.<span
+ style="font-style: italic;"><br>
+      <br>
+      </span> <span style="font-style: italic;">// Contr&ocirc;le de
+la neige<br>
+#declare snow_density=1.0;</span><span style="font-style: italic;"><br>
+#declare snow_color=&lt;0.95, 0.95, 1.0&gt;;<br>
+#declare snow_height=0.5;<br>
+      </span> <span style="font-style: italic;">// Contr&ocirc;le du
+roc<br>
+#declare rock_normal=1.0;</span><span style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">#declare
+rock_color=&lt;0.7,0.6,0.3&gt;;&nbsp; <br>
+#declare rock_scale=1.0; <br>
+#declare rock_pigment_scale=1.0; </span><span
+ style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">// Adh&eacute;rence de la
+neige, des arbustes et de la for&ecirc;t<br>
+      <span style="font-weight: bold;">#declare adhesion=0.7; </span>//
+D&eacute;faut de 0.5</span><br>
+      <span style="font-style: italic;">#declare UseGranite=0;</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;"> </span><span
+ style="font-style: italic;">#include
+"slope_patterns.inc"</span><span style="font-style: italic;"><br>
+..</span><br style="font-style: italic;">
+      <span style="font-style: italic;">#declare hf=... </span><span
+ style="font-style: italic;"></span><br style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">object {hf texture
+{forest_rock_snow}}</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../11-forest_rock_snow.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">12.
+forest_rock_snow_bushes</span><br>
+      <br>
+Ici on reprend (11) <span style="font-style: italic;">forest_rock_snow
+      </span>en faisant aussi d&eacute;pendre la neige de la pente.<br>
+      <br>
+      <span style="font-style: italic;">// Contr&ocirc;le de la neige<br>
+#declare snow_density=1.0;</span><span style="font-style: italic;"><br>
+#declare snow_color=&lt;0.95, 0.95, 1.0&gt;;<br>
+#declare snow_height=0.5;<br>
+      </span> <span style="font-style: italic;">// Contr&ocirc;le du
+roc<br>
+#declare rock_normal=1.0;</span><span style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">#declare
+rock_color=&lt;0.7,0.6,0.3&gt;;&nbsp; <br>
+#declare rock_scale=1.0;<br>
+#declare rock_pigment_scale=1.0; </span><span
+ style="font-style: italic;"></span><br>
+      <span style="font-style: italic;">// Adh&eacute;rence de la
+neige, de la for&ecirc;t et des arbustes<br>
+      <span style="font-weight: bold;">#declare adhesion=0.7; </span>//
+D&eacute;faut de 0.5</span><br>
+      <span style="font-style: italic;">#declare UseGranite=0;</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;"> </span><span
+ style="font-style: italic;">#include
+"slope_patterns.inc"</span><span style="font-style: italic;"><br>
+..</span><br style="font-style: italic;">
+      <span style="font-style: italic;">#declare hf=... </span><span
+ style="font-style: italic;"></span><br style="font-style: italic;">
+      <span style="font-style: italic;">...</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">object {hf texture
+{forest_rock_snow_bushes}}</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../12-forest_rock_snow_bushes.jpg"
+ style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<span style="font-weight: bold;"><a
+ name="Textures_from_painted_desert_mapN.inc"></a>Les textures des
+fichiers </span><span style="font-style: italic;"><span
+ style="font-weight: bold;">painted_desert_mapN.inc</span><br>
+</span><br>
+Geomorph 0.23 propose 3 cartes de couleurs, provenant d'un
+&eacute;chantillonnage de photographies du D&eacute;sert Peint
+d'Arizona. Ces cartes sont destin&eacute;es &agrave; &ecirc;tre
+int&eacute;gr&eacute;es dans un pigment en utilisant l'identifiant <span
+ style="font-style: italic;">ground_map</span>.<br>
+<br>
+Les exemples propos&eacute;s sont produits &agrave; partir du <a
+ href="../eroded.png">relief &eacute;rod&eacute;</a> utilis&eacute;
+pour <span style="font-style: italic;">slope_patterns.inc</span>, avec
+la m&ecirc;me sc&egrave;ne Povray.<br>
+<br>
+Le relief a &eacute;t&eacute; &eacute;dit&eacute; afin d'&eacute;largir
+le sommet des montagnes. Le relief a d'abord &eacute;t&eacute;
+invers&eacute;, l'outil "cr&ecirc;tes" a &eacute;t&eacute;
+utilis&eacute; avec 3 ou 4 r&eacute;p&eacute;titions sur le relief
+invers&eacute;, puis le r&eacute;sultat a &eacute;t&eacute;
+invers&eacute; &agrave; nouveau.<br>
+<br>
+Vous pouvez aussi utiliser la sc&egrave;ne pr&eacute;d&eacute;finie <span
+ style="font-style: italic;">painted_desert.pov</span>, incluse dans la
+distribution. Cette sc&egrave;ne appelle le second fichier "include".
+Pour accentuer la rondeur des sommets &eacute;rod&eacute;s, le terrain
+est &eacute;tir&eacute; sur les axes X et Z ("scale &lt;2,1,2&gt;").<br>
+<br>
+<table style="width: 100%; text-align: left;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">1.
+      <a href="../scenes/painted_desert_map1.inc">painted_desert_map1.inc<span
+ style="font-weight: bold;"></span></a></span><a
+ href="../scenes/painted_desert_map1.inc"><br>
+      </a><br>
+La texture a &eacute;t&eacute; mise &agrave; l'&eacute;chelle &agrave;
+0.35 pour l'adapter &agrave; l'axe Y du
+relief, r&eacute;duit comme &agrave; l'habitude &agrave; 0.3. La
+texture doit &ecirc;tre
+l&eacute;g&egrave;rement plus grande que le relief pour &eacute;viter
+un cycle (la
+couche du haut &eacute;tant r&eacute;p&eacute;t&eacute;e au bas, ou
+l'inverse). L'altitude des couches s&eacute;dimentaires n'est pas
+uniforme en raison du facteur de turbulence de 0.1. Cela augmente le
+risque d'entrem&ecirc;lement de la couche du sommet et de celle de la
+base, lorsque la mise &agrave; l'&eacute;chelle de la texture est
+insuffisante.<br>
+      <br>
+      <span style="font-style: italic;">#include
+"painted_desert_map1.inc"<br>
+...<br>
+#declare hf=<br>
+height_field {<br>
+&nbsp;&nbsp;&nbsp; png "test.png"<br>
+&nbsp;&nbsp;&nbsp; smooth<br>
+&nbsp;&nbsp;&nbsp; scale &lt; 1.0, 0.3, 1.0 &gt;<br>
+&nbsp;&nbsp;&nbsp; translate &lt;-.5, 0.0, -.5&gt;<br>
+}<br>
+...<br>
+object {hf <br>
+texture {<br>
+&nbsp;&nbsp;&nbsp; pigment {gradient y<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; color_map {ground_map}<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; translate y*-0.1<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; turbulence 0.1<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; scale 0.35<br>
+&nbsp;&nbsp;&nbsp; } }<br>
+}<br>
+      </span> </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../1-painted_desert.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">2.
+      <a href="../scenes/painted_desert_map2.inc">painted_desert_map2.inc</a></span><a
+ href="../scenes/painted_desert_map2.inc"><br>
+      </a><br>
+      <span style="font-style: italic;">#include
+"painted_desert_map2.inc"<br>
+...<br>
+// Le reste du fichier est toujours le m&ecirc;me, peu importe le
+fichier "include" utilis&eacute; dans cette s&eacute;rie.<br>
+      </span> </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../2-painted_desert.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;"></span>
+      <span style="font-weight: bold;">3. <a
+ href="../scenes/painted_desert_map3.inc">painted_desert_map3.inc</a><br>
+      <br>
+      </span><span style="font-style: italic;">#include
+"painted_desert_map3.inc"<br>
+...</span><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../3-painted_desert.jpg" style="width: 480px; height: 360px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<a href="#Texturing_a_Geomorph_height_field">Haut</a><br>
+<br>
+&Eacute;crit en ao&ucirc;t 2005<br>
+<br>
+<font color="#cccccc"><b><font color="#000000">
+Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a></i><br>
+<br>
+<a href="../../doc_index_fr.html"> <img
+ src="../../tut_fault/GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_fr.html">Retour &agrave; l'index de la
+documentation</a><br>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body>
+</html>

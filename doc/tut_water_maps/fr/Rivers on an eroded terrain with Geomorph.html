@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Rivers on an eroded terrain with Geomorph</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<big><big><span style="font-style: italic; font-weight: bold;">Cr&eacute;ation
+de rivi&egrave;res sur un terrain &eacute;rod&eacute; avec Geomorph 0.40</span></big></big><br>
+<br>
+<span style="font-weight: bold;">Utilisation d'une "carte des eaux"</span><br>
+<br>
+Cette image a &eacute;t&eacute; cr&eacute;&eacute;e avec le script <a
+ href="../mountains_with_water.pov"><span style="font-style: italic;">mountains_with_water.pov</span></a>,
+inclus dans la version 0.40 de Geomorph. Il exige de cr&eacute;er deux
+images de relief, un terrain principal plus une "carte des eaux", qui
+doit &ecirc;tre appel&eacute;e <span style="font-style: italic;">hf_water.png</span>.<br>
+<br>
+<div style="text-align: center;"><img alt=""
+ src="../mountains_with_water.jpg" style="width: 800px; height: 480px;"><br>
+<br>
+<div style="text-align: left;">Voici un aper&ccedil;u de la
+d&eacute;marche:<br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 1</span> - (optionnelle)
+Il est sugg&eacute;r&eacute; de cr&eacute;er un nouveau
+r&eacute;pertoire pour enregistrer le terrain principal et la carte des
+eaux. Si vous d&eacute;sirez cr&eacute;er d'autres sc&egrave;nes
+ult&eacute;rieurement, des r&eacute;pertoires distincts sont requis
+pour &eacute;viter d'&eacute;craser les cartes des eaux, qui portent
+toujours le m&ecirc;me nom. Notez que le script Povray utilisera
+toujours la carte des eaux qui se trouve dans le r&eacute;pertoire
+contenant le terrain principal. Si vous avez l'intention
+d'&eacute;diter le script <span style="font-style: italic;">mountains_with_water.pov</span>
+pour ce terrain en particulier, vous pouvez aussi le copier dans ce
+r&eacute;pertoire.<br>
+<br>
+<img alt="" src="../light.jpg" style="width: 42px; height: 42px;">Si
+vous enregistrez des scripts Povray dans des r&eacute;pertoires autres
+que celui par d&eacute;faut de Geomorph (habituellement
+/home/&lt;vous-m&ecirc;mes&gt;/geomorph), vous devez indiquer &agrave;
+Povray o&ugrave; se trouvent les fichiers "include" fournis par
+Geomorph&nbsp;
+(<span style="font-style: italic;">geomorph.inc</span>, <span
+ style="font-style: italic;">slope_patterns.inc</span> et ainsi de
+suite).<br>
+<br>
+Vous pouvez ajouter cette ligne dans votre fichier<span
+ style="font-style: italic;"> povray.ini</span> (probablement
+/home/&lt;vous-m&ecirc;mes&gt;/.povray/3.6/povray.ini) :<br>
+<span style="font-family: monospace;">Library_Path=/home/&lt;vous-m&ecirc;mes&gt;/geomorph</span><br>
+<br>
+Vous pouvez aussi ajouter l'option <span
+ style="font-family: monospace;">+L/home/&lt;vous-m&ecirc;mes&gt;/geomorph</span>
+dans "Autres options de rendu sur la ligne de commande" dans votre
+fichier <span style="font-style: italic;">geomorphrc</span>, qui peut
+&ecirc;tre modifi&eacute; &agrave; partir de la barre de menus <img
+ alt="" src="../settings.jpg" style="width: 22px; height: 22px;">.
+Notez que cette option est automatiquement ajout&eacute;e lors d'une
+nouvelle installation de Geomoprh 0.40 ou ult&eacute;rieure.<br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 2</span> - Cr&eacute;ez
+votre terrain principal. Ici une "subdivision 2" <img alt=""
+ src="../subdiv2.jpg" style="width: 22px; height: 22px;"> a
+&eacute;t&eacute; utilis&eacute;e. Pour obtenir un terrain avec
+plusieurs petites collines, r&eacute;glez l'&eacute;chelle "Relief"
+&agrave; 2 ou 3 et l'&eacute;chelle "Distribution" &agrave; 3 ou
+4.&nbsp; R&eacute;glez aussi les longueurs d'onde les plus
+&eacute;lev&eacute;es &agrave; 0 dans le "Contr&ocirc;le des longueurs
+d'onde". &Agrave; titre d'exemple, dans le cas d'un terrain de 512x512,
+r&eacute;gl&eacute;z les longueurs d'onde de 256 et 512 pixels &agrave;
+0.<br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 3</span> - Clonez le
+terrain &agrave; l'aide de "Copier sous un autre nom" dans la barre de
+menus <img alt="" src="../save_copy_as.jpg"
+ style="width: 22px; height: 22px;">. Nommez la copie <span
+ style="font-style: italic;">hf_water.png</span>.<br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 4</span> - &Eacute;rodez
+votre terrain avec l'&eacute;rosion par la pluie <img alt=""
+ src="../rain.jpg" style="width: 22px; height: 22px;">, dans la
+bo&icirc;te &agrave; outils. Vous devriez utiliser le nouvel algorithme
+fourni comme option par d&eacute;faut dans Geomorph 0.4. Avec l'ancien
+algorithem, les canaux appara&icirc;tront trop peu profonds. Dans notre
+exemple, la valeur maximale de 200 000 "gouttes" a &eacute;t&eacute;
+utilis&eacute;e.<br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 5</span> - Afin de
+"remplir" les canaux &eacute;rod&eacute;s pour en faire des
+rivi&egrave;res, on lisse la carte des eaux <span
+ style="font-style: italic;">hf_water.png</span>. Utilisez l'outil de
+lissage <img alt="" src="../smooth.jpg"
+ style="width: 22px; height: 22px;"> avec un rayon de l'ordre de 4
+pixels pour un terrain de
+512x512. Enregistrez <span style="font-style: italic;">hf_water.png</span>.<br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 6</span> - Le rendu:
+Activez la fen&ecirc;tre de votre terrain principal (cliquez dessus),
+trouvez un point de vue ad&eacute;quat avec l'aper&ccedil;u et
+ex&eacute;cutez le script <span style="font-style: italic;">mountains_with_water.pov</span>
+<img alt="" src="../povchoice_icon.jpg"
+ style="width: 28px; height: 28px;">. Assurez-vous de ne pas
+ex&eacute;cuter le script quand la fen&ecirc;tre de <span
+ style="font-style: italic;">hf_water.png</span>
+window est active, parce que l'image n'appara&icirc;tra pas comme une
+carte des eaux. Notez que vous n'avez pas besoin d'enregistrer le
+terrain principal avant l'ex&eacute;cution, mais que vous devez
+enregistrer la carte des eaux (&eacute;tape 5), parce que celle-ci est
+utilis&eacute;e "passivement".<br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 7</span> - Si les canaux
+semblent trop larges, vous avez deux choix. Les canaux ne suivent pas
+l'&eacute;chelle du terrain. Ainsi, si vous r&eacute;p&eacute;tez les
+&eacute;tapes 2 &agrave; 6 avec un terrain plus large, les canaux
+auront l'air plus &eacute;troit. Dans notre exemple, une solution
+alternative a &eacute;t&eacute; utilis&eacute;e: <br>
+1 - Inversez le terrain principal avec l'outil d'inversion <img alt=""
+ src="../revert.jpg" style="width: 22px; height: 22px;">. Les canaux
+&eacute;rod&eacute;s deviennent des cr&ecirc;tes.<br>
+2 - Utilisez l'outil de cr&ecirc;tes <img alt="" src="../crests.jpg"
+ style="width: 22px; height: 22px;"> pour rendre ces cr&ecirc;tes plus
+&eacute;troites. La valeur par d&eacute;faut de 3 &eacute;tapes devrait
+&ecirc;tre un bon choix.<br>
+3 - Inversez &agrave; nouveau le terrain principal <img alt=""
+ src="../revert.jpg" style="width: 22px; height: 22px;">. <br>
+<span style="font-style: italic;"></span><br>
+<span style="font-weight: bold;">&Eacute;tape 8</span> -
+Cr&eacute;ation des lacs: Deux techniques peuvent &ecirc;tre
+utilis&eacute;es. <br>
+1 - La technique la plus simple est d'utiliser l'outil de "Seuil" <img
+ alt="" src="../threshold.jpg" style="width: 22px; height: 22px;"> sur
+la carte des eaux pour la remplir jusqu'&agrave; un niveau choisi. La
+texture utilis&eacute;e dans <a href="../mountains_with_water.pov"><span
+ style="font-style: italic;">mountains_with_water.pov</span></a>
+montre de la roche nue au-dessus de la ligne des eaux. Pour &ecirc;tre
+coh&eacute;rent avec cette texture, vous devez r&eacute;gler le seuil
+minimum &agrave; 10142 (c'est l'une des valeurs sur lequelles
+l'&eacute;chelle "Minimum" tombe automatiquement). Vous pouvez utiliser
+un niveau diff&eacute;rent, mais vous aurez &agrave; &eacute;diter <a
+ href="../mountains_with_water.pov"><span style="font-style: italic;">mountains_with_water.pov</span></a>
+pour initialiser la variable "waterlevel" &agrave; un niveau
+correspondant. Voici la ligne &agrave; changer:<br>
+<br>
+<span style="font-family: monospace;">#declare waterlevel =
+10300.0*0.3/65535.0;</span><br>
+<br>
+Sp&eacute;cifiez un niveau l&eacute;g&egrave;rement au-dessus du seuil
+minimum. Par exemple, ici, la diff&eacute;rence entre 10300 et 10142
+correspond &agrave; la hauteur de la bande de roc nu au-dessus de l'eau.<br>
+<img alt="" src="../question.jpg" style="width: 42px; height: 41px;">Le
+niveau d'eau est multipli&eacute; par 0.3 parce que tous les terrains
+utilis&eacute;s dans Povray par Geomorph sont r&eacute;duits &agrave;
+une &eacute;chelle de 0.3 sur l'axe vertical (Y). Le niveau est
+divis&eacute; par 65535 pour transformer le niveau d'eau d'une
+&eacute;chelle de 0 &agrave; 65535, dans l'"univers des cartes de
+relief" PNG, &agrave; une &eacute;chelle de 0.0 &agrave; 1.0, dans
+l'"univers Povray".<br>
+<br>
+2 - Une autre technique est d'utiliser l'outil de remplissage <img
+ alt="" src="../paintbucket.jpg" style="width: 22px; height: 22px;">
+(il se trouve dans le dialogue des outils de dessin <img alt=""
+ src="../pencil.jpg" style="width: 22px; height: 22px;">) pour remplir
+les d&eacute;pressions de <span style="font-style: italic;">hf_water.png</span>.
+Cela permet de cr&eacute;er des lacs &agrave; plus d'une altitude.
+Cependant, il n'est alors pas possible avec le script fourni <a
+ href="../mountains_with_water.pov"><span style="font-style: italic;">mountains_with_water.pov</span></a>
+de produire une bande de rocher nu juste au-dessus de la surface des
+eaux, quand cette surface se trouve &agrave; plus d'un niveau.&nbsp; De
+plus, si certaines zones se trouvent sous le niveau par d&eacute;faut
+de 10300, elles vont appara&icirc;tre rocheuses. Peut-&ecirc;tre
+voudrez-vous &eacute;diter la sc&egrave;ne pour r&eacute;duire le
+niveau de l'eau et ainsi obtenir de la v&eacute;g&eacute;tation
+&agrave; toutes les altitudes.<br>
+<br>
+<span style="font-style: italic;">Attention: </span>Avant d'utiliser
+l'outil de remplisage, et apr&egrave;s l'avoir fait, enregistrez votre
+travail! Il semble y avoir un bogue de d&eacute;passement d'index que
+je n'ai pas &eacute;t&eacute; en mesure d'identifier jusqu'&agrave;
+pr&eacute;sent. Cela cr&eacute;e une "erreur de segmentation" (fatale).<br>
+<br>
+<span style="font-weight: bold;">&Eacute;tape 9</span> - Ajustez
+l'&eacute;chelle du terrain principal, si requis. Dans l'exemple
+montr&eacute;, le terrain a &eacute;t&eacute; &eacute;tir&eacute; de
+200% sur les axes X et Z (le plan de sol). L'instruction de mise
+&agrave; l'&eacute;chelle appara&icirc;t en commentaires dans <a
+ href="../mountains_with_water.pov"><span style="font-style: italic;">mountains_with_water.pov</span></a>.
+La modification de l'&eacute;chelle peut donner un r&eacute;sultat plus
+naturel et plus plaisant. L'inconv&eacute;nient est que cette
+modification ne peut pas &ecirc;tre command&eacute;e par le dialogue
+d'aper&ccedil;u (pas encore)<br>
+___________________<br>
+<br>
+&Eacute;crit en janvier 2007
+<br>
+<br>
+<a href="../../doc_index_fr.html"><img src="../../preview/GeoMorph.jpg"
+ alt="" style="border: 2px solid ; width: 32px; height: 32px;"
+ align="left"> </a><a href="../../doc_index_fr.html">Retour &agrave;
+l'index de la documentation</a><br>
+<br>
+<br>
+<p><font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a><br>
+</i></p>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a></div>
+<br>
+</div>
+</div>
+</body>
+</html>

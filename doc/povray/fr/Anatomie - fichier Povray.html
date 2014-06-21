@@ -1,0 +1,1033 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Anatomie d'une sc&egrave;ne Povray</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<div style="text-align: center;"><big><big><big><span
+ style="font-weight: bold;"><a name="Anatomy_of_a_Povray_file_for_using"></a>Anatomie
+d'un fichier Povray<br>
+pour utiliser Geomorph</span></big></big></big><br>
+</div>
+<span style="font-style: italic;"></span><span
+ style="font-weight: bold;"><br>
+<a href="#Introduction">Introduction</a></span><br>
+<span style="font-weight: bold;"><a
+ href="#Overall_structure_of_a_Geomorph__Povray">La structure
+d'ensemble du fichier d'une sc&egrave;ne Povray / Geomorph</a><br>
+</span><a href="#The_include_files_and_the_declared"><span
+ style="font-weight: bold;">Les inclusions de fichiers et les
+d&eacute;clarations de variables</span></a><br>
+<span style="font-weight: bold;"><a href="#The_globals_setting.inc_file">Le
+fichier
+"global_setting.inc"</a><br>
+</span><span style="font-weight: bold;"><a
+ href="#Basic_objects_required_in_a_Geomorph_">Les objets de base
+&agrave; d&eacute;finir dans un fichier Geomorph /
+Povray</a><br>
+</span><span style="font-weight: bold;"><a href="#The_camera">La
+cam&eacute;ra</a><br>
+</span><span style="font-weight: bold;"><a href="#The_Sun_and_the_light">Le
+Soleil et la lumi&egrave;re</a><br>
+</span><a href="#The_sky"><span style="font-weight: bold;">Le ciel</span></a><br>
+<span style="font-weight: bold;"><a href="#The_clouds">Les nuages</a><br>
+</span><a href="#The_water"><span style="font-weight: bold;">L'eau</span></a><span
+ style="font-weight: bold;"><br>
+<a href="#The_ground">Le sol</a></span><span style="font-weight: bold;"><br>
+<a href="#The_fog_or_haze">Le brouillard</a></span><span
+ style="font-weight: bold;"><br>
+<a href="#The_height_field">Le terrain</a><br>
+</span><a href="#Adding_other_objects"><span style="font-weight: bold;">L'ajout
+d'autres objets</span></a><br>
+<span style="font-weight: bold;"></span><br>
+Voyez aussi le <a
+ href="Texturer%20un%20relief%20Geomorph%20avec%20Povray.html">guide
+des textures</a>.<br>
+<br>
+<span style="font-weight: bold;"><a name="Introduction"></a>Introduction</span><br>
+<br>
+Geomorph offre quelques sc&egrave;nes Povray pr&eacute;d&eacute;finies
+permettant de produire des paysages avec un minimum de travail.
+Cependant, pour profiter d'une plus grande libert&eacute; dans la
+conception des paysages, il est n&eacute;cessaire d'apprendre &agrave;
+&eacute;diter ses propres sc&egrave;nes Povray. <br>
+<br>
+Ma&icirc;triser Povray n'est pas facile, mais il n'est pas
+n&eacute;cessaire d'&ecirc;tre un expert pour obtenir des
+r&eacute;sultats int&eacute;ressants.<br>
+<br>
+Modifier les sc&egrave;nes pr&eacute;d&eacute;finies Geomorph est un
+bon point de d&eacute;part. Cette page explique comment elles sont
+construites et &agrave; quoi vous devez porter attention.<br>
+<br>
+Dans les faits, la cr&eacute;ation de paysages acceptables ne requiert
+qu'un sous-ensemble du langage Povray. Les textures sont probablement
+les &eacute;l&eacute;ments les plus importants dans la recherche du
+r&eacute;alisme.<br>
+<br>
+Apr&egrave;s avoir lu cette page, les sc&egrave;nes
+pr&eacute;d&eacute;finies de Povray et le <a
+ href="Texturer%20un%20relief%20Geomorph%20avec%20Povray.html">guide
+des textures</a>, si vous d&eacute;sirez allez plus loin, Ije
+recommande que vous preniez connaissance du tutoriel et de la
+r&eacute;f&eacute;rence Povray sur <a href="http://www.povray.org">www.povray.org</a>.
+Vous pouvez aussi rechercher des exemples sur la Toile. Quelques liens
+sont mentionn&eacute;s sur cette page.<br>
+<span style="font-weight: bold;"></span><br>
+<img alt="Hint" src="../light.jpg" style="width: 42px; height: 42px;"
+ align="left">Quand vous modifiez un fichier Povray
+ex&eacute;cut&eacute; &agrave; partir de Geomorph, d&eacute;marrez
+Geomorph &agrave; partir d'une console X, afin de lire les messages
+d'erreur Povray.<br>
+<br>
+<span style="font-weight: bold;"><a
+ name="Overall_structure_of_a_Geomorph__Povray"></a>La structure
+d'ensemble du fichier d'une sc&egrave;ne Povray / Geomorph</span><br>
+<br>
+Un fichier de sc&egrave;ne Povray est un fichier en format texte avec
+l'extension .pov.<br>
+<br>
+Les exemples de cette page r&eacute;f&egrave;rent au fichier <span
+ style="font-style: italic;"><a href="../scenes/mountains.pov">mountains.pov</a></span>,
+&agrave; moins d'avis contraire.<br>
+<br>
+Le fichier est arbitrairement divis&eacute; en 3 parties:<br>
+<ol>
+  <li>La premi&egrave;re partie contient les fichiers "include" et les
+d&eacute;clarations de variables. <br>
+  </li>
+  <li>La seconde partie contient les d&eacute;clarations des objets de
+base.<br>
+  </li>
+  <li>La troisi&egrave;me partie, apr&egrave;s une ligne de *, rappelle
+les objets de base d'une mani&egrave;re sommaire.<br>
+  </li>
+</ol>
+Dans la troisi&egrave;me partie, la ligne de * n'est pas un standard
+Povray, ce n'est qu'une fa&ccedil;on d'am&eacute;liorer la
+lisibilit&eacute; des sc&egrave;nes Geomorph. Cette partie vous permet
+d'activer / d&eacute;sactiver rapidement les objets, ou des les
+d&eacute;placer, les mettre &agrave; l'&eacute;chelle ou les tourner,
+sans avoir &agrave; parcourir l'ensemble du texte de la sc&egrave;ne,
+qui peut &ecirc;tre parfois long.<br>
+<br>
+<span style="font-weight: bold;"><a
+ name="The_include_files_and_the_declared"></a>Les fichiers "include"
+et les d&eacute;clarations de variables</span><br>
+<br>
+Les fichiers "include" sont des d&eacute;finitions Povray conformes
+mais incompl&egrave;tes, qui ne peuvent pas &ecirc;tre
+ex&eacute;cut&eacute;es seules. Le fichier d'une sc&egrave;ne contient
+habituellement des fichiers "include" standard, trouv&eacute;s
+l&agrave; o&ugrave; le logiciel Povray est install&eacute; (quelque
+chose comme /usr/local/share/povray/include):<br>
+<br>
+<span style="font-style: italic;">#include
+"colors.inc"&nbsp;&nbsp;&nbsp; // Couleurs standard</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#include
+"textures.inc"&nbsp;&nbsp;&nbsp; // Textures standard</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#include "skies.inc" // Ciels Povray
+standard</span><br>
+<br>
+Le texte pr&eacute;c&eacute;d&eacute; de // est consid&eacute;r&eacute;
+comme un commentaire.<br>
+<br>
+Geomorph fournit aussi ses propres textures, copi&eacute;es &agrave;
+partir du r&eacute;pertoire o&ugrave; Geomorph est install&eacute;
+(/usr/local/share/geomorph/&lt;version&gt;/) vers le r&eacute;pertoire
+priv&eacute; "geomorph" de l'utilisateur quand<span
+ style="font-style: italic;"> install-user</span> est
+ex&eacute;cut&eacute; ou la premi&egrave;re fois que Geomorph est
+d&eacute;marr&eacute;:<br>
+<span style="font-style: italic;"><br>
+#include "maprock1.inc"&nbsp;&nbsp;&nbsp; // Carte de textures rocheuses<br>
+#include "slope_patterns.inc"<br>
+#include "geomorph_txtr.inc" // Ce fichier n'est pas utlis&eacute; dans
+mountains.pov<br>
+</span><br>
+Ces fichiers &eacute;tant copi&eacute;s dans votre
+r&eacute;pertoire "geomorph", vous pouvez en &eacute;diter les textures
+&agrave; votre guise.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="2" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span
+ style="font-weight: bold; font-style: italic;">Version 0.40 et
+ult&eacute;rieures<br>
+      <br>
+      </span>Maintenant il suffit d'inclure <span
+ style="font-style: italic;"><a href="../scenes/geomorph.inc"><span
+ style="font-weight: bold;">geomorph.inc</span></a>, </span>qui inclut
+les trois fichiers. Ainsi la s&eacute;quence d'appel sera:<br>
+      <br>
+      <span style="font-style: italic;">#declare rock_color =
+0.5*(&lt;0.72,0.66,0.4&gt;) ; </span><br style="font-style: italic;">
+      <span style="font-style: italic;">#declare rock_turbulence=0.2;<br>
+...<br>
+#include "geomorph.inc"<br>
+      </span></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Les variables globales de Povray sont aussi habituellement
+d&eacute;clar&eacute;es au d&eacute;but du fichier de d&eacute;finition
+de sc&egrave;ne *.pov, mais elles peuvent l'&ecirc;tre &agrave;
+n'importe quel endroit. Par exemple, <span style="font-style: italic;">mountains.pov</span>
+contient ces d&eacute;clarations:<br>
+<br>
+<span style="font-style: italic;">#declare rock_color =
+0.5*(&lt;0.72,0.66,0.4&gt;) ; </span><br style="font-style: italic;">
+<span style="font-style: italic;">#declare rock_turbulence=0.2;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare rock_scale=0.05;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare rock_normal=1.5;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare sky_density=0.6;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare forest_color_density=0.8;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare water_density=0.35;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare fog_distance=10;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare fog_transparency=0.1;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare fog_altitude=0.15;</span><br>
+<br>
+"rock_color" est utilis&eacute; dans "maprock1.inc". "maprock1.inc"
+fournit des variations de gradient par bandes, &agrave; partir de la
+couleur de r&eacute;f&eacute;rence
+donn&eacute;e par "rock_color" (pensez &agrave; des roches
+s&eacute;dimentaires).<br>
+<br>
+Les autres variables sont utilis&eacute;es dans "slope_pattern.inc" ou
+dans le fichier *.pov courant, comme param&egrave;tres &agrave; la
+d&eacute;finition des objets de base.<br>
+<br>
+La plupart des variables dans les fichiers "include" de Geomorph ne
+sont pas obligatoires. Lorsqu'elles ne sont pas d&eacute;finies par
+l'utilisateur, le fichier "include" les initialise &agrave; une valeur
+par d&eacute;faut. Cette initialisation est introduite par le
+mot-cl&eacute; "#ifndef".<br>
+<br>
+Naturellement, une variable utilis&eacute;e dans un fichier "include"
+doit &ecirc;tre d&eacute;clar&eacute;e avant l'instruction "#include",
+pas apr&egrave;s!<br>
+<br>
+Les variables Povray requi&egrave;rent quelques pr&eacute;cisions. Il
+peut
+s'agir de scalaires (ex. 10, 0.1,...) ou de vecteurs (&lt;0.72, 0.66,
+0.4&gt;). Le s&eacute;parateur d&eacute;cimal est obligatoirement le
+point. Un vecteur signifie, selon le contexte, les coordonn&eacute;es
+&lt;x,y,z&gt;, ou les couleurs &lt;rouge,vert,bleu&gt;. Tout scalaire
+ou vecteur peut &ecirc;tre remplac&eacute; par une formule. Par
+exemple, 0.5*&lt;1.0,1.0,1.0&gt; &eacute;quivaut &agrave;
+&lt;0.5,0.5,0.5&gt;; cette syntaxe est utile pour r&eacute;duire ou
+augmenter globalement la densit&eacute; d'une couleur. la
+d&eacute;claration doit se terminer par un point-virgule.<br>
+<br>
+En ce qui a trait aux vecteurs &lt;x,y,z&gt;, souvenez-vous que X est
+l'axe gauche - droit, Y est l'axe bas - haut, et Z l'axe avant -
+arri&egrave;re.<br>
+<div style="text-align: center;"><img alt="The Povray axis"
+ src="../../preview/axes.jpg" style="width: 280px; height: 266px;"><br>
+</div>
+<span style="font-weight: bold;"></span><br>
+<span style="font-weight: bold;"><a name="The_globals_setting.inc_file"></a>Le
+fichier
+"global_setting.inc"</span><br>
+<br>
+Si vous n'initialisez pas la variable <span style="font-style: italic;">Display_gamma</span>
+dans votre fichier <span style="font-style: italic;">povray.ini</span>,
+et si vos r&eacute;sultats ne sont ni trop sombres ni trop clairs, vous
+pouvez passer &agrave; la <a
+ href="#Basic_objects_required_in_a_Geomorph_">prochaine section</a>.<br>
+<br>
+&Agrave; partir de la version 0.23 de Geomorph, un fichier
+"global_settings.inc" est partag&eacute; par toutes les sc&egrave;nes
+Povray pr&eacute;d&eacute;finies dans Geomorph. Les sc&egrave;nes
+pr&eacute;d&eacute;finies v&eacute;rifient si le fichier existe, et si
+c'est le cas, ex&eacute;cutent la directive "#include".<br>
+<br>
+Ce fichier, dans la version 0.40, ne contient que la variable <span
+ style="font-style: italic;">assumed_gamma</span> initialis&eacute;e
+&agrave; la valeur de la variable <span style="font-style: italic;">Display_gamma</span>
+trouv&eacute;e dans <span style="font-style: italic;">povray.ini</span>,
+si cette variable existe. Autrement, <span style="font-style: italic;">global_settings.inc</span>
+ne contient que des commentaires.<br>
+<br>
+Le gamma est une propri&eacute;t&eacute; de votre syst&egrave;me
+d'affichage. Le guide de r&eacute;f&eacute;rence Povray (voir <a
+ href="http://www.povray.org">www.povray.org</a>) explique comment
+l'&eacute;valuer.<br>
+<br>
+La variable <span style="font-style: italic;">assumed_gamma</span>
+fonctionne avec le param&egrave;tre <span style="font-style: italic;">Display_gamma</span>
+de votre fichier .INI (/home/&lt;you&gt;/.povray/3.6/povray.ini).<br>
+<br>
+Povray ajuste la densit&eacute; de l'image de sortie selon la relation
+entre <span style="font-style: italic;">assumed_gamma</span> et <span
+ style="font-style: italic;">Display_gamma.<span
+ style="font-style: italic;"></span></span><br>
+<br>
+Vous n'avez pas &agrave; utiliser <span style="font-style: italic;">Display_gamma</span>
+et <span style="font-style: italic;">assumed_gamma</span> si vous
+&ecirc;tes satisfait de la densit&eacute; des images que vous produisez.<br>
+<br>
+Cependant, apr&egrave;s une premi&egrave;re installation de Geomorph
+0.23, ou une mise &agrave; jour des fichiers dans le r&eacute;petoire
+/home/&lt;vous&gt;/geomorph, <span style="font-style: italic;">assumed_gamma</span>
+sera actif. Si vous n'initialisez pas <span style="font-style: italic;">Display_gamma</span>
+dans votre fichier <span style="font-style: italic;">povray.ini</span>,
+un gamma de 2.2 est assum&eacute; par Povray. Cette valeur est assez
+&eacute;lev&eacute;e et vos paysages risquent d'&ecirc;tre trop clairs.<br>
+<br>
+Voici en gros ce que vous pouvez faire:<br>
+<ul>
+  <li>Si vous ne d&eacute;sirez pas que Povray g&egrave;re la
+densit&eacute; des r&eacute;sultats, effacez le fichier <span
+ style="font-style: italic;">globals_settings.inc</span> dans votre
+r&eacute;pertoire /home/&lt;vous&gt;/geomorph, ou mettez en
+commentaires la directive qui initialise <span
+ style="font-style: italic;">assumed_gamma</span> dans ce fichier, en
+&eacute;crivant // au d&eacute;but de la ligne.</li>
+  <li>Si vous d&eacute;sirez ajuster avec exactitude la densit&eacute;
+de vos r&eacute;sulats, commencez par &eacute;valuer le gamma de votre
+moniteur, en suivant les instructions de la documentation Povray, puis
+&eacute;crivez cette ligne dans votre fichier <span
+ style="font-style: italic;">povray.ini</span>: Display_gamma=?, en
+rempla&ccedil;ant ? par la valeur mesur&eacute;e.<br>
+  </li>
+  <li>V&eacute;rifiez ensuite si vos r&eacute;sultats sont
+satisfaisants avec une valeur <span style="font-style: italic;">assumed_gamma</span>
+&eacute;gale &agrave; votre v&eacute;ritable gamma. Augmentez <span
+ style="font-style: italic;">assumed_gamma</span> pour assombrir les
+r&eacute;sultats et diminuez-le pour les &eacute;claircir.<span
+ style="font-style: italic;"></span><span style="font-style: italic;"></span><span
+ style="font-style: italic;"></span><br>
+  </li>
+  <li>Si vous pr&eacute;f&eacute;rez ne pas &eacute;valuer votre gamma
+ou ne pas modifier votre fichier <span style="font-style: italic;">povray.ini</span>,
+vous pouvez vous contenter d'ajuster vos r&eacute;sultats &agrave;
+l'oeil en modifiant <span style="font-style: italic;">assumed_gamma</span>.<br>
+  </li>
+</ul>
+<span style="font-weight: bold;"><a
+ name="Basic_objects_required_in_a_Geomorph_"></a>Les objets de base
+requis dans une sc&egrave;ne Geomorph / Povray</span><br>
+<br>
+La cr&eacute;ation d'un paysage requiert g&eacute;n&eacute;ralement:<br>
+<ul>
+  <li>Une cam&eacute;ra, qui donne le point de vue.<br>
+  </li>
+  <li>Un soleil ou d'autres sources lumineuses.<br>
+  </li>
+  <li>Un ciel.<br>
+  </li>
+  <li>Des nuages.</li>
+  <li>De l'eau.</li>
+  <li>Un sol.</li>
+  <li>Une l&eacute;g&egrave;re brume &agrave; l'horizon, ou du
+brouillard.</li>
+  <li>Un ou plusieurs terrains.</li>
+  <li>Tout autre objet (des arbres...)<br>
+  </li>
+</ul>
+&Agrave; part les arbres et les objets similaires, les nuages, l'eau,
+le sol et la brume ou le brouillard peuvent &ecirc;tre
+consid&eacute;r&eacute;s optionnels, et m&ecirc;me le ciel si vous
+d&eacute;sirez un arri&egrave;re-plan noir!<br>
+<br>
+<span style="font-weight: bold;"><a name="The_camera"></a>La
+cam&eacute;ra</span><br>
+<br>
+La cam&eacute;ra est d&eacute;clar&eacute;e de cette fa&ccedil;on:<br>
+<br style="font-style: italic;">
+<span style="font-style: italic;">#declare maincamera =</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">camera</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;
+location&nbsp;&nbsp;&nbsp; &lt;0,&nbsp; 0, -0.1&gt;&nbsp;&nbsp;&nbsp;
+// &lt;X Y Z&gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; angle
+&nbsp;&nbsp;&nbsp; gl_angle</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;
+up&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; // which way is +up &lt;X Y Z&gt;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;
+right&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+aspect_ratio*x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; // which way is +right &lt;X Y Z&gt; and aspect ratio</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;
+look_at&nbsp;&nbsp;&nbsp; &lt;0, 0, 0&gt; &nbsp;&nbsp;&nbsp; // point
+center of view at this point &lt;X Y Z&gt;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">}</span><br>
+<br>
+Elle est rappel&eacute;e ainsi:<br>
+<br>
+<span style="font-style: italic;">camera {maincamera</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+translate &lt;0+tr_x,0.05+tr_y,tr_z&gt;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+rotate &lt;rot_x,0+rot_y,0+rot_z&gt; }</span><br>
+<br>
+Les variables <span style="font-style: italic;">gl_angle,
+aspect_ratio, tr_x, tr_y, tr_z, rot_x, rot_y</span> et <span
+ style="font-style: italic;">rot_z</span> sont d&eacute;clar&eacute;es
+dans le fichier
+<span style="font-style: italic;">camera.inc</span>. Ce fichier est
+r&eacute;g&eacute;n&eacute;r&eacute; &agrave; partir de la
+cam&eacute;ra active dans l'aper&ccedil;u Geomorph &agrave; chaque fois
+que le bouton Povray est cliqu&eacute; <img alt=""
+ src="../povrender_icon.jpg" style="width: 28px; height: 28px;"
+ align="middle">. Un nouveau fichier &eacute;crase le fichier
+courant, alors il est inutile de l'&eacute;diter.<br>
+<br>
+Voici un exemple de <span style="font-style: italic;">camera.inc</span>:<br>
+<br>
+<span style="font-style: italic;">#declare gl_angle = 28;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare aspect_ratio =&nbsp;
+1.3333300;</span><br style="font-style: italic;">
+<span style="font-style: italic;">#declare tr_x = -0.0000000;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare tr_y =&nbsp; 0.0700000;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare tr_z = -0.9250000;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare rot_x = 11;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare rot_y = 0;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare rot_z = 0;</span><br>
+<br>
+<span style="font-weight: bold;"><a name="The_Sun_and_the_light"></a>Le
+Soleil et la lumi&egrave;re</span><br>
+<br>
+Une sc&egrave;ne poss&egrave;de habituellement au moins une source
+lumineuse. Cependant, une source lumineuse n'a pas de dimension par
+elle-m&ecirc;me. Elle est invisible lorsque la cam&eacute;ra est
+point&eacute;e vers elle. Nous devons lui donner une forme &agrave;
+partir d'un autre objet.<br>
+<img alt="" src="../sunseta.jpg" style="width: 200px; height: 150px;"
+ align="right"><br>
+Dans les sc&egrave;nes Povray fournies par Geomorph, la source
+lumineuse principale se voit attribuer une forme de sph&egrave;re afin
+de simuler le Soleil. Ainsi, lors d'une sc&egrave;ne en contrejour
+comme un coucher de soleil, vous verrez le disque solaire, comme dans
+l'exemple de droite, provenant de <span style="font-style: italic;">sunseta.pov.</span><br>
+<br>
+Voici comment la lumi&egrave;re est g&eacute;n&eacute;ralement produite
+dans une sc&egrave;ne Povray de Geomorph:<br>
+<br>
+<span style="font-style: italic;">#declare light=&lt;1,0.97,0.94&gt;;
+</span><small>// Couleur de la lumi&egrave;re (&lt;rouge, vert,
+bleu&gt;)</small><br style="font-style: italic;">
+<span style="font-style: italic;">#declare sun= sphere
+{&lt;0,1,0&gt;,100<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pigment{rgb 3*light}
+</span><small>// Habituellement blanc, mais peut &ecirc;tre
+color&eacute; m&ecirc;me avec un tel niveau de luminosit&eacute;
+lorsque certaines composantes sont nulles ou presque</small><span
+ style="font-style: italic;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; finish {ambient 1} </span><small>//
+La couleur de la sph&egrave;re sera produite d'elle-m&ecirc;me
+plut&ocirc;t que par r&eacute;flexion des autres sources lumineuses</small><span
+ style="font-style: italic;"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+#declare Sun =</span><br style="font-style: italic;">
+<span style="font-style: italic;">light_source</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; 0*x </span><small>// Position
+de la source lumineuse
+(d&eacute;plac&eacute;e plus bas)</small><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; color rgb light&nbsp; </span><small>//
+Couleur</small><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; looks_like {sun} </span><small>//
+Donne au Soleil la forme de "sun" (sph&egrave;re)</small><br
+ style="font-style: italic;">
+<span style="font-style: italic;">}</span><br>
+<br>
+Le Soleil est d&eacute;plac&eacute; &agrave; sa position finale
+&agrave; la fin du fichier. Dans <span style="font-style: italic;">mountains.pov</span>,
+il est plac&eacute; dans la partie sud-ouest du ciel:<br>
+<br>
+<span style="font-style: italic;">light_source {Sun&nbsp; translate
+&lt;2000,2000,-1000&gt;}</span><br>
+<br>
+Si vous d&eacute;sirez que le Soleil suive la cam&eacute;ra, afin que
+ses rayons pointent dans une direction constante par rapport &agrave;
+la cam&eacute;ra, ind&eacute;pendamment de la rotation du terrain, vous
+pouvez le tourner en utilisant les param&egrave;tres de la
+cam&eacute;ra <span style="font-style: italic;">rot_x,</span>
+<span style="font-style: italic;">rot_y</span> and <span
+ style="font-style: italic;">rot_z:</span> <br>
+<br>
+<span style="font-style: italic;">light_source {Sun&nbsp; translate
+&lt;2000,2000,-1000&gt; rotate &lt;rot_x, rot_y, rot_z&gt; }<br>
+</span><br>
+Dans <span style="font-style: italic;">sunseta.pov, </span>le pigment
+du Soleil est <span style="font-style: italic;">rgb &lt;1,0.8,0.7&gt;</span>,
+et il est d&eacute;plac&eacute; &agrave; <span
+ style="font-style: italic;">&lt;-6550,
+720, 15000&gt;</span>.<br>
+<span style="font-style: italic;"></span><br>
+<span style="font-weight: bold;"><a name="The_sky"></a>Le ciel</span><br>
+<br>
+<img alt="" src="../basic_sky.jpg" style="width: 200px; height: 150px;"
+ align="right"><span style="font-style: italic;"></span><span
+ style="font-style: italic;"></span>Le ciel est essentiellement un
+gradient de couleur sur l'axe Y (vertical). Povray pr&eacute;voit une
+d&eacute;claraton <span style="font-style: italic;">sky_sphere</span>
+&agrave; cette fin. Un gradient est une sorte de "pigment" dans le
+langage Povray. Le gradient est appliqu&eacute; sur l'objet <span
+ style="font-style: italic;">sky_sphere. </span>Un exemple provenant
+de <span style="font-style: italic;">mountains.pov</span> est
+montr&eacute; &agrave; droite (rotation X=355&deg;, angle de
+vue=55&deg;). Ainsi, dans une sc&egrave;ne Geomorph, le ciel peut
+&ecirc;tre d&eacute;clar&eacute; en 2 &eacute;tapes:<br>
+<br>
+<span style="font-style: italic;">#declare sky_gradient = </span><br
+ style="font-style: italic;">
+<span style="font-style: italic;"></span><span
+ style="font-style: italic;"></span><span style="font-style: italic;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; pigment {</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; gradient y</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; color_map {</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; [0 color rgb
+sky_density*&lt;0.8,0.8,1&gt;] </span><small>// Ligne d'horizon
+brumeuse</small><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; [0.15 color
+sky_density*(&lt;0.1,0.3,1&gt;)] </span><small>// D&eacute;but du bleu
+pur</small><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; [1.0 color
+sky_density*(&lt;0.1,0.2,1&gt;)] </span><small>// Bleu pur</small><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; }</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+}</span><span style="font-style: italic;"></span><br
+ style="font-style: italic;">
+<span style="font-style: italic;"></span><br>
+Dans cet exemple, le plan bleu au bas de l'image n'est pas un plan.
+C'est le haut du gradient (valeur 1.0), contigu &agrave; son
+d&eacute;but (valeur 0.0, la "ligne d'horizon brumeuse").<br>
+<br>
+Apr&egrave;s la ligne de *, le gradient peut &ecirc;tre rappel&eacute;
+de cette fa&ccedil;on:<br>
+After the * row, the gradient could be recalled like this:<br>
+<br>
+<span style="font-style: italic;">sky_sphere {pigment {sky_gradient
+scale &lt;1.0, 1.0, 1.0&gt; } </span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; pigment {clouds
+scale &lt;1.0,0.4,1.0&gt; rotate &lt;0.0,-10,0.0&gt;}} // La prochaine
+section explique les nuages</span><br>
+<br>
+Une instruction "scale" sans effet (valeurs &agrave; 1.0) est
+propos&eacute;e pour faciliter l'ajustement du ciel. La valeur Y peut
+&ecirc;tre augment&eacute;e pour &eacute;largir la bande brumeuse
+&agrave; l'horizon (par exemple, &lt;1.0, 2.0, 1.0&gt;). Il n'y a pas
+d'int&eacute;r&ecirc;t &agrave; changer l'&eacute;chelle des axes X ou
+Z, parce que ce gradient est d&eacute;fini sur l'axe Y.<br>
+<br>
+Dans la plupart des sc&egrave;nes pr&eacute;d&eacute;finies de
+Geomorph, l'objet <span style="font-style: italic;">sky_sphere</span>
+est sp&eacute;cifi&eacute; directement, sans directive <span
+ style="font-style: italic;">#declare.</span><br>
+<br>
+<span style="font-weight: bold;"><a name="The_clouds"></a>Les nuages</span><br>
+<br>
+Il y a deux fa&ccedil;ons de d&eacute;finir des nuages de base.<br>
+<br>
+Dans les deux cas, les nuages sont produits par un pigment avec un
+arri&egrave;re-plan transparent, superpos&eacute; &agrave; l'objet <span
+ style="font-style: italic;">sky_sphere. </span><br>
+<br>
+Vous pouvez ajouter le pigment l'objet <span
+ style="font-style: italic;">sky_sphere,</span> ou le d&eacute;finir
+sur un plan.<br>
+<br>
+<table style="width: 100%; text-align: left;" border="0" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;">Version
+"plan"<br>
+      <img alt="" src="../plane_clouds.jpg"
+ style="width: 200px; height: 150px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;">Version
+"sky_sphere"<br>
+      <img alt="" src="../sphere_clouds.jpg"
+ style="width: 200px; height: 150px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Souvent la version "plan" est plus convaincante.<br>
+<br>
+Dans <a href="../scenes/mountains.pov"><span
+ style="font-style: italic;">mountains.pov</span></a>,
+les nuages sont appliqu&eacute;s &agrave; l'objet <span
+ style="font-style: italic;">sky_sphere:</span><br>
+<br>
+<span style="font-style: italic;">#declare clouds = </span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pigment {</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+granite</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+turbulence 0.2</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+color_map {</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[0.4 rgbt &lt;0,0,0,1&gt;] // Le "t" dans rgbt r&eacute;f&egrave;re
+&agrave; "transmettre" - cette couleur est totalement transparente et
+sans aucune teinte</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[0.7 rgbt &lt;0,0,0,1&gt;] // Remplacez la ligne
+pr&eacute;c&eacute;dente par celle-ci pour des nuages plus petits</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[0.95 rgb &lt;0.7,0.7,0.8&gt;] // Un blanc cass&eacute;
+l&eacute;g&egrave;rement bleut&eacute;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[1.0 rgb &lt;0.7,0.7,0.8&gt;]</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} </span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span><br>
+<span style="font-style: italic;">sky_sphere {pigment {sky_gradient
+scale y*1.0} </span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; pigment {clouds
+scale &lt;1.0,0.4,1.0&gt; rotate &lt;0.0,-10,0.0&gt;}}</span><br>
+<br>
+Le mot-cl&eacute; "granite" r&eacute;f&egrave;re &agrave; un motif de
+bruit al&eacute;atoire. &Agrave; tr&egrave;s faible &eacute;chelle, il
+en r&eacute;sulte une structure granuleuse qui peut simuler le granite.
+&Agrave; grande &eacute;chelle, les grains sont comparables &agrave;
+des nuages.<br>
+<br>
+Les nuages sont agrandis sur les dimensions X et Z pour plus de
+r&eacute;alisme. Autrement, ils auraient l'air d'&eacute;tranges
+cumulus, tr&egrave;s rapproch&eacute;s de l'observateur. Lorsque les
+nuages sont appliqu&eacute;s sur un plan, cette mise &agrave;
+l'&eacute;chelle n'est g&eacute;n&eacute;ralement pas n&eacute;cessaire.<br>
+<br>
+L'instruction <span style="font-style: italic;">rotate</span> est
+utilis&eacute;e pour placer la partie la plus int&eacute;ressante du
+ciel o&ugrave; vous la d&eacute;sirez dans l'image.<br>
+<br>
+La technique du plan est utilis&eacute;e dans <a
+ href="../scenes/desert.pov"><span style="font-style: italic;">desert.pov</span></a>.<br>
+<br>
+Quand vous utilisez la technique du plan, attendez-vous &agrave;
+augmenter l'&eacute;chelle de la texture d'une fa&ccedil;on importante,
+par exemple 20000, ou m&ecirc;me 100000. De plus, une texture sur un
+plan ne r&eacute;agit pas de la m&ecirc;me fa&ccedil;on aux sources
+lumineuses qu'elle ne le fait sur un objet <span
+ style="font-style: italic;">sky_sphere</span>. Vous aurez probablement
+besoin d'augmenter le param&egrave;tre "ambient" pour accentuer les
+nuages. Aucune structure ne r&eacute;agit de fa&ccedil;on
+r&eacute;aliste aux sources lumineuses, du moins pas comme des nuages.<br>
+<br>
+Voyez aussi <a
+ href="http://www.f-lohmueller.de/pov_tut/backgrnd/p_sky1.htm">le
+tutoriel de F.
+Lohm&uuml;ller</a> pour cr&eacute;er des nuages "assez bons". Dans
+cette <a
+ href="http://www.oyonale.com/ressources/francais/sources13.htm">autre
+r&eacute;f&eacute;rence</a> (en fran&ccedil;ais!), Gilles Tran explique
+comment cr&eacute;er des nuages d'un r&eacute;alisme surprenant, si
+vous &ecirc;tes pr&ecirc;t &agrave; y consacrer des heures et des
+heures de traitement.<br>
+<span style="font-style: italic;"></span><span
+ style="font-style: italic;"><br>
+</span>
+<span style="font-weight: bold;"><a name="The_water"></a>L'eau</span><br>
+<span style="font-style: italic;"><br>
+</span>L'&eacute;tendue d'eau la plus simple est un plan avec une
+texture transparente et "bossue", c'est-&agrave;-dire donn&eacute;e par
+le motif "bump".<br>
+<br>
+<span style="font-style: italic;">//&nbsp;&nbsp;&nbsp; Eau sombre</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare water = plane {y, 0</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; texture {</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pigment {color
+rgbt&lt;0.0,water_density*0.15,water_density*0.35,0.2&gt;}</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+normal {bumps 0.1 translate clock scale 3*&lt;2.5,1,1&gt; rotate
+&lt;0,-30,0&gt;}</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+finish {specular 0.9 roughness 0.05</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+reflection .5 ambient 0.1 diffuse 0.3 }</span><span
+ style="font-style: italic;"></span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; }</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">}</span><br>
+<br>
+Notez la composante "t" dans la couleur, sp&eacute;cifiant le
+degr&eacute; de transparence. Notez aussi la variable <span
+ style="font-style: italic;">water_density</span>, initialis&eacute;e
+dans la premi&egrave;re partie du fichier.<br>
+<br>
+Il y a d'autres fa&ccedil;on d'imiter l'eau. Voyez <a
+ href="http://www.f-lohmueller.de/pov_tut/backgrnd/p_wat1.htm">les
+exemples de Fr. Lohm&uuml;ller</a>.
+Certains utilisent aussi des isosurfaces. Christoph Hormann montre <a
+ href="http://www-public.tu-bs.de:8080/%7Ey0013390/pov/water/water05.html">ici</a>
+comment cette m&eacute;thode se compare &agrave; d'autres.
+L'eau peut aussi &ecirc;tre cr&eacute;&eacute;e &agrave; partir d'un
+terrain Geomorph, si vous pouvez choisir un point de vue et une
+organisation de sc&egrave;ne qui masque la nature finie du terrain.<br>
+<br>
+<span style="font-weight: bold;"><a name="The_ground"></a>Le sol</span><br>
+<br>
+Un plan de sol am&eacute;liore l'apparence de certaines sc&egrave;nes.
+Par exemple, un tel plan avec une texture sablonneuse et ondul&eacute;e
+imite assez bien un plancher oc&eacute;anique ou un sol de
+d&eacute;sert. Dans le cas du d&eacute;ser, le plan cr&eacute;e la
+ligne d'horizon.<br>
+&nbsp;
+<span style="font-style: italic;"></span><a
+ href="../../tut_desert/final.jpg"><br>
+</a><a href="../../tut_desert/final.jpg"><img alt=""
+ src="../../tut_desert/th_final.jpg"
+ style="border: 0px solid ; width: 150px; height: 113px;" align="right"></a>Il
+n'y a pas de plan de sol dans <a href="../scenes/mountains.pov"><span
+ style="font-style: italic;">mountains.pov</span></a>, mais vous pouvez
+en trouver un dans <a href="../scenes/desert.pov"><span
+ style="font-style: italic;">desert.pov</span></a>
+(ci-contre) ou dans <span style="font-style: italic;"><a
+ href="../scenes/sea_and_rocks.pov">sea_and_rocks.pov</a>.</span><br>
+<br>
+La syntaxe est similaire &agrave; celle du plan d'eau:<br>
+<br>
+<div style="text-align: left;"><span style="font-style: italic;">#declare
+sea_bottom = plane {y, 0 }</span><br>
+<br>
+... rappel&eacute; par cette d&eacute;claration, apr&egrave;s la ligne
+de *:<br>
+<br>
+<span style="font-style: italic;">object {sea_bottom texture
+{shore_granite}}</span><br>
+<br>
+Ces deux lignes peuvent &ecirc;tre remplac&eacute;es par:<br>
+<br>
+<span style="font-style: italic;">plane {y,0 texture</span><span
+ style="font-style: italic;"> {shore_granite}}</span><br>
+</div>
+<br>
+<span style="font-weight: bold;"><a name="The_fog_or_haze"></a>Le
+brouillard</span><br>
+<br>
+Un l&eacute;ger brouillard au niveau de la ligne d'horizon
+am&eacute;liorera l'apparence de plusieurs paysages. <br>
+<br>
+Ce type de brume l&eacute;g&egrave;re ainsi que le brouillard
+&eacute;pais r&eacute;sultant d'une m&eacute;t&eacute;o
+d&eacute;favorable sont tous les deux produits par l'instruction Povray
+"fog", en utilisant le type de brouillard "ground fog". La
+diff&eacute;rence entre les deux n'est qu'une question de hauteur, de
+densit&eacute; et de distance de l'observateur.<br>
+<br>
+Dans <span style="font-style: italic;"><a
+ href="../scenes/mountains.pov">mountains.pov</a>,</span> la
+l&eacute;g&egrave;re brume &agrave; l'horizon est :<br>
+<br>
+<span style="font-style: italic;">#declare Haze =</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">fog</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; fog_type&nbsp;&nbsp;
+2&nbsp;&nbsp; // 1 est un brouillard uniforme, 2 est un brouillard de
+sol (ground fog)</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; distance fog_distance</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;
+color&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rgbt
+&lt;0.6,0.6,0.8,fog_transparency &gt; // Voile bleut&eacute;</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; fog_offset fog_altitude</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; fog_alt fog_altitude</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp; turbulence 0.8</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">}</span><br
+ style="font-style: italic;">
+<br>
+Notez les variables <span style="font-style: italic;">fog_distance,</span>
+<span style="font-style: italic;">fog_transparency</span> et <span
+ style="font-style: italic;">fog_altitude,</span>
+d&eacute;clar&eacute;es au d&eacute;but du fichier.<br>
+<br>
+Ce voile est rappel&eacute; apr&egrave;s la ligne de * &agrave; l'aide
+de cette commande:<br>
+<br>
+<span style="font-style: italic;">fog {Haze}</span><br>
+<br>
+Lors de la mise au point d'une sc&egrave;ne, vous
+pr&eacute;f&eacute;rerez probablement mettre en commentaires cette
+instruction (// fog {Haze}) pour raccourcir le temps de rendu.<br>
+<br>
+<span style="font-weight: bold;"><a name="The_height_field"></a>Le
+terrain<br>
+<br>
+</span>Lorsque le bouton Povray est cliqu&eacute;<img alt=""
+ src="../povrender_icon.jpg" style="width: 28px; height: 28px;"
+ align="middle">, l'image en cours d'&eacute;dition est &eacute;crite
+dans le fichier <span style="font-style: italic;">test.png.</span>
+Toutes les sc&egrave;nes Povray pr&eacute;d&eacute;finies offertes avec
+Geomorph appellent ce fichier. Vous n'aurez g&eacute;n&eacute;ralement
+pas &agrave; vous en pr&eacute;occuper.<br>
+<br>
+Dans la version 0.23 de Geomorph, un seul terrain peut &ecirc;tre
+ins&eacute;r&eacute; dans une sc&egrave;ne Povray &agrave; partir de
+l'interface graphique, en passant par <span style="font-style: italic;">test.png</span>.
+Cependant, vous pouvez &eacute;diter le fichier .pov pour placer des
+terrains additionnels &agrave; la main. Cela peut &ecirc;tre utile, par
+exemple, pour juxtaposer des sols tr&egrave;s diff&eacute;rents en
+termes de formes et de textures, comme une plage sablonneuse avec des
+rochers &agrave; l'arri&egrave;re-plan. Vous pourriez aussi avoir
+besoin de "remplir" l'horizon &agrave; l'arri&egrave;re-plan avec des
+montagnes. (cette technique est discut&eacute;e <a
+ href="Geomorph%20et%20Povray%20-%20le%20d%E9fi%20de%20la%20ligne%20d_horizon.html">ici</a>),
+ou simuler des &eacute;tendues d'eau en superposant une image de relief
+transparente au relief en cours d'&eacute;dition (un "water field"...).<br>
+<br>
+Voici comment le relief principal est d&eacute;clar&eacute; dans les
+sc&egrave;nes Povray fournies avec Geomorph:<br>
+<br>
+<span style="font-style: italic;">#declare hf =</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">height_field</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; png "test.png"</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+smooth // Nicer!</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; scale &lt; 1.0,
+0.3, 1.0 &gt; // Voir les explications plus bas</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; translate &lt;-.5,
+0.0, -.5&gt; // Le relief est centr&eacute; dans la sc&egrave;ne</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">}<br>
+<br>
+</span>
+<table style="width: 100%; text-align: left;" border="2" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><span
+ style="font-weight: bold; font-style: italic;">Version 0.40 et
+ult&eacute;rieures</span><br>
+      <br>
+Le terrain doit maintenant &ecirc;tre d&eacute;clar&eacute; de la
+fa&ccedil;on suivante:<br>
+      <span style="font-style: italic;"><br>
+#declare hf = <br>
+      </span><span style="font-style: italic;">height_field</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+      <span style="font-style: italic;">&nbsp;&nbsp;&nbsp; png <span
+ style="font-weight: bold;">main_terrain</span><br>
+...<br>
+      <br>
+      </span>"main_terrain" est une variable cr&eacute;&eacute;e dans <a
+ href="../scenes/geomorph.inc"><span style="font-style: italic;">geomorph.inc</span></a>.
+Elle contient le nom du terrain en cours d'&eacute;dition, si celui-ci
+a &eacute;t&eacute; enregistr&eacute;, ou <span
+ style="font-style: italic;">test.png</span>, sinon. Le fichier
+d&eacute;clare aussi des variables contenant des cartes secondaires,
+comme "water_map", "background_map",
+"ground_map" et "crater_map", pour certaines sc&egrave;nes les
+requ&eacute;rant.<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Pourquoi une &eacute;chelle de &lt; 1.0, 0.3, 1.0&gt;? Une image de
+relief est g&eacute;n&eacute;r&eacute;e dans une bo&icirc;te de 1 x 1 x
+1. La commande <span style="font-style: italic;">scale</span> diminue
+la hauteur de la bo&icirc;te &agrave; 0,3, autrement le relief aurait
+l'air trop &eacute;lev&eacute; et non naturel.<br>
+<br>
+La translation est requise pour centrer le relief dans l'image,
+autrement le coin Sud-Ouest de l'image appara&icirc;trait au centre.<br>
+<br>
+La directive "#declare" permet de rappeler le terrain en utilisant
+cette syntaxe:<span style="font-style: italic;"> "object {hf
+texture{my_texture}}"</span> &agrave; la fin du fichier .pov:<br>
+<br>
+<span style="font-style: italic;">object {hf scale &lt;1.0,1.0,1.0&gt;
+translate y*0 texture {forest_rock_snow translate y*-0.35 scale 0.7 } }</span><br>
+<br>
+Notez que le relief et sa texture peuvent &ecirc;tre mis &agrave;
+l'&eacute;chelle et d&eacute;plac&eacute;s s&eacute;par&eacute;ment.
+Naturellement, une &eacute;chelle de 1.0 et une translation de 0 comme
+celles indiqu&eacute;es ici sont sans effet. Ces instructions sont
+propos&eacute;es pour montrer rapidement quels param&egrave;tres
+peuvent &ecirc;tre &eacute;dit&eacute;s pendant la mise au point de la
+sc&egrave;ne.<br>
+<br>
+La texture du relief, comme mentionn&eacute;
+pr&eacute;c&eacute;demment, est probablement le facteur de
+r&eacute;alisme le plus important. <a
+ href="Texturer%20un%20relief%20Geomorph%20avec%20Povray.html">Une page
+enti&egrave;re</a> est consacr&eacute;e aux textures offertes par
+Geomorph.<br>
+<br>
+<span style="font-weight: bold;">Exemples de sc&egrave;nes avec plus
+d'un terrain</span><br>
+<br>
+<span style="font-style: italic;">Utilisation d'un terrain distant pour
+"remplir" la ligne d'horizon<br>
+</span>
+<div style="text-align: center;"><span style="font-style: italic;"><img
+ alt="desert_mountains_1.jpg" src="../desert_mountains_1.jpg"
+ style="width: 200px; height: 150px;" align="middle"></span><big><big
+ style="font-weight: bold;"><big>+</big></big></big><span
+ style="font-style: italic;"><img alt="desert_mountains_2.jpg"
+ src="../desert_mountains_2.jpg" style="width: 200px; height: 150px;"
+ align="middle"></span><big><big><big><span style="font-weight: bold;">=</span></big></big></big><img
+ alt="desert_mountains_3.jpg" src="../desert_mountains_3.jpg"
+ style="width: 200px; height: 150px;" align="middle"><span
+ style="font-style: italic;"></span><br>
+<span style="font-style: italic;"></span></div>
+<span style="font-style: italic;"><br>
+</span><span style="font-style: italic;">Utilisation d'une "carte des
+eaux"</span><br>
+<div style="text-align: center;"><img src="../hf_terraces1.jpg" alt=""
+ style="width: 200px; height: 150px;" align="middle"><big><big><big><span
+ style="font-weight: bold;">+</span></big></big></big><img alt=""
+ src="../hf_terraces2.jpg" style="width: 200px; height: 150px;"
+ align="middle"><big><big><big><span style="font-weight: bold;">=</span></big></big></big><img
+ alt="" src="../hf_terraces3.jpg" style="width: 200px; height: 150px;"
+ align="middle"></div>
+<br>
+<br>
+<span style="font-weight: bold;"><a name="Adding_other_objects"></a>L'ajout
+d'autres objets</span><br>
+<br>
+Des outils de mod&eacute;lisation externes peuvent &ecirc;tre
+utilis&eacute;s pour ajouter des objets &agrave; un paysage Geomorph /
+Povray.<br>
+<br>
+<a href="http://propro.ru/go/Wshop/povtree/povtree.html">Povtree</a>
+est une interface Java au script Povray "tomtree". Il produit des
+arbres dans des fichiers "include", qui peuvent &ecirc;tre
+&eacute;normes si vous g&eacute;n&eacute;rez des ramilles, des feuilles
+et des fleurs. Par exemple, l'arbre nu utilis&eacute; dans ce <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice%20St-Gelais/images/12-%20Desert%20and%20tree.jpg">paysage
+Geomorph</a>
+a requis un <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice%20St-Gelais/examples/olivier4.inc">fichier
+de 3.8
+MB </a>. L'inclusion du fichier se fait de la fa&ccedil;on suivante
+dans la sc&egrave;ne modifi&eacute;e <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice%20St-Gelais/examples/desert_with_tree.pov"><span
+ style="font-style: italic;">desert.pov</span></a>:<br>
+<br>
+<span style="font-style: italic;">#include "olivier4.inc" // La sortie
+de Povtree<br>
+...<br>
+(corps du fichier .pov)<br>
+...<br>
+************************************************<br>
+object {TREE translate &lt;0.55,0.3,-1.5&gt; scale &lt;0.2, 0.23,
+0.2&gt;}<br>
+</span><br>
+La structure d'arbre r&eacute;sultante est #d&eacute;clar&eacute;e
+comme TREE dans <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice%20St-Gelais/examples/olivier4.inc"><span
+ style="font-style: italic;">olivier4.inc</span></a>.<br>
+<br>
+Il y a aussi <a href="http://www.jpatch.com/">Jpatch,</a> un programme
+Java pour concevoir des objets avec une forme arbitraire et les
+exporter dans des fichiers "include" Povray. Il semble inspir&eacute;
+de sPatch, un programme Windows dont j'ai eu de la
+difficult&eacute; &agrave; me passer il y a quelques ann&eacute;es.<br>
+<br>
+Les deux programmes requi&egrave;rent la machine virtuelle Java de Sun
+v. 1.4 ou plus r&eacute;cente, qui, n'&eacute;tant pas un environnement
+libre, doit &ecirc;tre t&eacute;l&eacute;charg&eacute;e par les
+utilisateurs de la plupart des distributions Linux.<br>
+<br>
+Positionner un objet externe sur un relief exige un bon travail
+d'essais et erreurs, mais constitue un bon exercice pour se
+familiariser avec le syst&egrave;me de coordonn&eacute;es Povray ;-).<br>
+<br>
+<a href="#Anatomy_of_a_Povray_file_for_using">Haut</a><br>
+<br>
+&Eacute;crit en ao&ucirc;t 2005, modifi&eacute; en janvier 2007<br>
+<br>
+<font color="#cccccc"><b><font color="#000000">
+Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a></i><br>
+<br>
+<a href="../../doc_index_fr.html"> <img
+ src="../../tut_fault/GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_fr.html">Retour &agrave;
+l'index de la documentation</a><br>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body>
+</html>
