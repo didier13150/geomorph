@@ -15,6 +15,7 @@ AC_PROG_CPP
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 AC_PROG_RANLIB
+AM_PROG_CC_C_O
 
 geomorphdatadir=$datadir/geomorph/$VERSION
 AC_SUBST(geomorphdatadir)
@@ -60,7 +61,7 @@ dnl Checks for library functions.
 AC_CHECK_FUNCS(strerror)
 
 AC_OUTPUT([src/app/Makefile src/utils/Makefile Makefile src/hf/Makefile src/Makefile
-	src/fourier/Makefile scenes/Makefile po/Makefile.in])
+	src/fourier/Makefile src/colmap/Makefile scenes/Makefile po/Makefile.in])
 	
 dnl	scenes/Makefile doc/Makefile po/Makefile.in])
 
