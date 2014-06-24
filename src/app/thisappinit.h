@@ -47,7 +47,11 @@
 #define RENDER_H 240
 #define DEFAULT_RENDERER "povray"
 #define DEFAULT_SCENE "geomorph/simple_terrain.pov"
+#ifdef GEOMORPHDATADIR
+#define DEFAULT_RENDER_OPTIONS "+P +D -F +L"GEOMORPHDATADIR"/scenes"
+#else
 #define DEFAULT_RENDER_OPTIONS "+P +D -F +L/usr/local/share/geomorph/"VERSION"/scenes"
+#endif
 
 // OpenGL preview
 #define GL_DEFAULT_ANGLE 55

@@ -1015,9 +1015,14 @@ void about_callb(GtkWidget *wdg, gpointer app) {
 	static gchar *f2 = "splash.jpg";
 	static gchar *msg = "\nGEOMORPH 0.6.1\nhttp://geomorph.sourceforge.net\n\n(c) Patrice St-Gelais 2003-2009 (GPL)\npatrstg@users.sourceforge.net\n\nGerman translation by\nSimon Donike (2005-2008) and Tim Schuermann (2004)";
 	if (!f1) {
+#ifdef GEOMORPHDATADIR
+		f1 = x_malloc(2+strlen(GEOMORPHDATADIR)+strlen(f2), "Splash image");
+		strcpy(f1,GEOMORPHDATADIR);
+#else
 		f1 = x_malloc(2+strlen("/usr/local/share/geomorph/")+strlen(VERSION)+strlen(f2), "Splash image");
 		strcpy(f1,"/usr/local/share/geomorph/");
 		strcat(f1,VERSION);
+#endif
 		strcat(f1,"/");
 		strcat(f1,f2);
 	}
