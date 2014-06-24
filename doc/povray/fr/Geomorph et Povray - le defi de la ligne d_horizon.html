@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>Geomorph et Povray - Comment traiter la ligne d'horizon</title>
+  <meta content="Patrice St-Gelais" name="author">
+</head>
+
+<link href="../../main_header.css" rel="stylesheet" type="text/css" media="screen" />
+
+<body>
+
+<center>
+<div id="header">
+</div>
+<iframe src="../../navigation_fr.html" scrolling=no width=800px height=80px marginwidth=0 marginheight=0 frameborder=0>
+</iframe>
+</center>
+
+<div style="text-align: center;"><big><big><small><span
+ style="font-weight: bold; font-style: italic;">Exploitation de Povray
+&agrave; partir de
+Geomorph</span></small></big></big><br
+ style="font-weight: bold; font-style: italic;">
+<br style="font-weight: bold; font-style: italic;">
+<big><big><span style="font-weight: bold;"><a
+ name="The_Skyline_Challenge"></a><big>Le d&eacute;fi de la ligne
+d'horizon</big></span></big><br>
+</big></div>
+<br>
+<br>
+Lors de la cr&eacute;ation de paysages &agrave; partir d'images de
+relief, une t&acirc;che difficile est d'obtenir une ligne d'horizon
+convaincante. Une image de relief est une surface finie, aussi le
+concepteur doit-il trouver un moyen de "remplir" l'horizon.<br>
+<br>
+Quelques techniques sont pr&eacute;sent&eacute;es ici. Une connaissance
+de base de <a href="Anatomie%20-%20fichier%20Povray.html">Povray dans
+le contexte de
+Geomorph</a> est recommand&eacute;e.<br>
+<br>
+<a href="#1._Using_an_infinite_plane"><big><span
+ style="font-weight: bold;">1. Le recours &agrave; un plan infini</span></big></a><br>
+<a href="#2._Using_haze_or_fog"><big style="font-weight: bold;">2.
+L'exploitation du brouillard</big></a><br>
+<a href="#3._Moving_the_camera_for_hiding_the"><big><span
+ style="font-weight: bold;">3. Le d&eacute;placement de la
+cam&eacute;ra pour dissimuler l'horizon</span></big></a><br>
+<a href="#4._Using_other_height_fields_as_a"><big
+ style="font-weight: bold;">4. L'utilisation d'un second relief comme
+arri&egrave;re-plan</big></a><br>
+<br>
+<big><span style="font-weight: bold;"><a
+ name="1._Using_an_infinite_plane"></a>1. Le recours &agrave; un plan
+inifini</span></big><br>
+<br>
+La fa&ccedil;on la plus simple de cr&eacute;er une ligne d'horizon est
+de cr&eacute;er un plan d'eau ou un plan de sol s'&eacute;tendant
+&agrave; l'infini.<br>
+<br>
+<img alt="" src="../shape1.jpg" style="width: 95px; height: 56px;"
+ align="right">Un "filtre de forme" gaussien peut &ecirc;tre
+utilis&eacute; pour cr&eacute;er une "&icirc;le" avec l'image de
+relief. Les filtres de forme sont disponibles dans le dialogue de
+cr&eacute;ation ou comme outil <img alt=""
+ src="../../tools/buttons/16.jpg" style="width: 22px; height: 22px;">.<br>
+<br>
+Lors de la cr&eacute;ation de l'&icirc;le, l'application &agrave; 100%
+du filtre de forme avec une fusion additive ("+") fait
+dispara&icirc;tre une grande partie du terrain. Pour en conserver une
+plus grande partie, vous pouvez:<br>
+<ul>
+  <li>Appliquer le filtre &agrave; 50~70%, selon le terrain. Le crayon
+avec un effet de "vall&eacute;e" peut &ecirc;tre utilis&eacute; pour
+retoucher les bords.</li>
+  <li>Utiliser une fusion multiplicative ("x") pour obtenir des bords
+dont l'altitude d&eacute;cro&icirc;t doucement. Par apr&egrave;s le
+relief du centre de l'&icirc;le peut &ecirc;tre accentu&eacute; en
+appliquant une transformation de puissance <img alt="" src="../04.jpg"
+ style="width: 22px; height: 22px;">avec un exposant de 1.5 ou 2.0.<br>
+  </li>
+</ul>
+La sc&egrave;ne de gauche montre le r&eacute;sultat de <span
+ style="font-style: italic;">desert.pov</span> sans le brouillard. Le
+relief par d&eacute;faut de l'option "subdivision 2" a servi de point
+de d&eacute;part. Il a &eacute;t&eacute; filtr&eacute; avec la cloche
+gaussienne la plus large, en utilisant la fusion multiplicative.<br>
+<br>
+La sc&egrave;ne de droite montre le m&ecirc;me relief avec la
+sc&egrave;ne <span style="font-style: italic;">sea_and_rocks.pov</span>,
+sans le brouillard.<br>
+<br>
+<table
+ style="width: 100%; text-align: left; margin-left: auto; margin-right: auto;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../skyline1.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../skyline2.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<big style="font-weight: bold;"><a name="2._Using_haze_or_fog"></a>2.
+L'exploitation du brouillard</big><br>
+<br>
+Une variante du plan infini consiste &agrave; employer l'instruction <span
+ style="font-style: italic;">fog</span> pour cr&eacute;er une
+l&eacute;g&egrave;re brume atmosph&eacute;rique.<br>
+<br>
+La sc&egrave;ne de gauche provient de <span style="font-style: italic;">desert.pov</span>.
+Le param&egrave;tre <span style="font-style: italic;">distance</span>
+de l'instruction <span style="font-style: italic;">fog </span>a
+&eacute;t&eacute; diminu&eacute; de 10 &agrave; 1, les
+param&egrave;tres <span style="font-style: italic;">fog_offset</span>
+et <span style="font-style: italic;">fog_alt</span> ont
+&eacute;t&eacute; ramen&eacute;s de 0.3 &agrave; 0.1.<br>
+<br>
+La sc&egrave;ne de droite provient de <span style="font-style: italic;">sea_and_rocks.pov</span>.
+Les param&egrave;tres de l'instruction <span
+ style="font-style: italic;">fog</span> ont &eacute;t&eacute;
+laiss&eacute;s &agrave; leurs valeurs par d&eacute;faut, qui donnent
+une l&eacute;g&egrave;re brume.<br>
+<br>
+<table
+ style="width: 100%; text-align: left; margin-left: auto; margin-right: auto;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../skyline3.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../skyline4.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<big><span style="font-weight: bold;"><a
+ name="3._Moving_the_camera_for_hiding_the"></a>3. Le
+d&eacute;placement de la cam&eacute;ra pour dissimuler l'horizon</span></big><br>
+<br>
+Les exemples du "D&eacute;sert avec arbre" et des terraces de ma <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice/index.html">gallerie</a>
+ont &eacute;t&eacute; cr&eacute;&eacute;s avec cette technique.
+Naturellement, le principal d&eacute;savantage de cette technique est
+l'invisibilit&eacute; du ciel.<br>
+<br>
+<table
+ style="width: 100%; text-align: left; margin-left: auto; margin-right: auto;"
+ border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../desert_and_tree.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+      <td style="vertical-align: top; text-align: center;"><img alt=""
+ src="../terraces.jpg" style="width: 320px; height: 240px;"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+Pour composer avec cet inconv&eacute;nient, la hauteur de la
+cam&eacute;ra peut &ecirc;tre augment&eacute;e (ou le terrain descendu)
+alors que le plan de sol ou d'eau est retir&eacute;. L'arri&egrave;re
+du relief tombe alors dans un ciel vide, comme les faux &eacute;difices
+dans le "making-of" d'un vieux western.<br>
+<br>
+Cette derni&egrave;re technique n'est pas compatible avec des textures
+de nuages appliqu&eacute;e directement sur l'objet <span
+ style="font-style: italic;">sky_sphere</span>. Une d&eacute;formation
+sph&eacute;rique tr&egrave;s prononc&eacute;e des nuages en
+r&eacute;sulterait. Un plan de nuages doit &ecirc;tre utilis&eacute;,
+et il doit subir une rotation sur les axes X et Z de fa&ccedil;on
+&agrave; suivre la cam&eacute;ra. &Agrave; titre d'exemple, voici
+comment le ciel de l'image de droite, extraite de ma gallery, est
+constitu&eacute;:<br>
+<br>
+<span style="font-style: italic;">sky_sphere {pigment {sky_gradient
+scale &lt;1.0, 1.0, 1.0&gt; } }<br>
+</span><img alt="" src="../mountains2.jpg"
+ style="width: 400px; height: 240px;" align="right"><span
+ style="font-style: italic;"></span><span style="font-style: italic;">//
+Le plan de nuages:</span><br style="font-style: italic;">
+<span style="font-style: italic;">plane { y,1000 </span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; texture {</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+pigment {</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+granite</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+turbulence 0.5</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; octaves 6</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; omega 0.1</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+lambda 2</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+color_map {</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[0.3 rgbt &lt;0,0,0,1&gt;]</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[1.0 rgb 1]</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</span><span style="font-style: italic;"></span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+finish {ambient 0.8 }</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+scale 11000</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; }</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; no_shadow</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; hollow</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;<span style="font-weight: bold;">&nbsp;&nbsp;
+rotate x*rot_x</span></span><br style="font-style: italic;">
+<span style="font-style: italic;">}</span><br>
+<br>
+Souvenez-vous que <span style="font-style: italic;">rot_x</span>
+provient de <span style="font-style: italic;">camera.inc,</span>
+g&eacute;n&eacute;r&eacute; &agrave; partir de l'aper&ccedil;u Geomorph
+au moment de l'appel de Povray.<br>
+<br>
+<br>
+<big style="font-weight: bold;"><a
+ name="4._Using_other_height_fields_as_a"></a>4. L'utilisation d'un
+second relief comme arri&egrave;re-plan<br>
+<br>
+</big><img alt="" src="../desert_new.jpg"
+ style="width: 320px; height: 240px;" align="right">Un second relief a
+&eacute;t&eacute; utilis&eacute; comme arri&egrave;re-plan dans cette
+nouvelle version du d&eacute;sert, prise de ma <a
+ href="http://geomorph.sourceforge.net/gallery/Patrice/index.html">gallerie</a>.<br>
+<br>
+D'autres images de relief pourraient &ecirc;tre utilis&eacute;es
+simultan&eacute;ment, pas seulement deux.<br>
+<br>
+Les reliefs de Geomorph sont g&eacute;n&eacute;ralement pavables, de
+telle sorte qu'ils peuvent remplir par r&eacute;p&eacute;tition le plan
+X-Z. Cependant, le pavage pr&eacute;sente g&eacute;n&eacute;ralement
+des discontinuit&eacute;s dans Povray. Ces discontinuit&eacute;s
+peuvent &ecirc;tre retouch&eacute;es avec un &eacute;diteur comme The
+Gimp.<br>
+<br>
+Un seul relief peut &ecirc;tre plac&eacute; automatiquement &agrave;
+partir de l'aper&ccedil;u de Geomorph (&agrave; tout le moins dans la
+version 0.23). Pour placer les autres, la sc&egrave;ne *.pov doit
+&ecirc;tre &eacute;dit&eacute;e &agrave; la main. Vous devez alors
+choisir quel relief sera contr&ocirc;l&eacute; &agrave; partir de
+l'aper&ccedil;u, celui qui est appel&eacute; "test.png". Par exemple,
+dans <span style="font-style: italic;">desert_new.pov</span>, dont le
+r&eacute;sultat est montr&eacute; &agrave; droite, l'avant-plan de
+dunes est contr&ocirc;l&eacute; &agrave; partir de l'aper&ccedil;u, et
+un terrain appel&eacute; <span style="font-style: italic;">desert_background.png</span>
+doit &ecirc;tre cr&eacute;&eacute; avant d'ex&eacute;cuter la
+sc&egrave;ne:&nbsp; <br>
+<br>
+<span style="font-style: italic;">#declare hf_background =</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">height_field</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">png "desert_background.png"</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp; smooth</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; scale &lt; 1.0,
+0.3, 1.0 &gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; translate &lt;-.5,
+0.0, -.5&gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">}</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">// Now declare the foreground:</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">#declare hf =</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">height_field</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">{</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">png "test.png"</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp; smooth</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; scale &lt; 1.0,
+0.3, 1.0 &gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">&nbsp;&nbsp;&nbsp; translate &lt;-.5,
+0.0, -.5&gt;</span><br style="font-style: italic;">
+<span style="font-style: italic;">}<br>
+(...)<br>
+/**********************************************************************************************/</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">object {hf_background translate
+y*-0.0075 translate z*0.15 rotate &lt;0,rot_y,0&gt; texture {
+rock1&nbsp; } scale 2.2 * &lt;1.0, 1.1, 1.0&gt; }</span><br
+ style="font-style: italic;">
+<span style="font-style: italic;">object {hf translate y*-0.0075
+texture {pigment {color 1.2*rock_color } }&nbsp; }<br>
+<br>
+</span>
+<table style="width: 100%; text-align: left;" border="2" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">&Agrave; partir de la <span
+ style="font-weight: bold;">version 0.40</span>, Geomorph inscrit les
+noms des terrains dans des variables pr&eacute;d&eacute;finies dans <a
+ href="../scenes/geomorph.inc"><span style="font-style: italic;">geomorph.inc</span></a>:<br>
+      <div style="margin-left: 40px;">main_terrain = "test.png" ou le
+terrain en cours d'&eacute;dition<br>
+water_map = "hf_water.png"<br>
+ground_map = "ground_map.png"<br>
+background_map = "hf_background.png"<br>
+crater_map = "craters.png"<br>
+      </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<a href="#The_Skyline_Challenge">Haut</a><br>
+<br>
+&Eacute;crit en ao&ucirc;t 2005, modifi&eacute; en janvier 2007<br>
+<br>
+<font color="#cccccc"><b><font color="#000000">Contact:</font></b>&nbsp;</font>&nbsp;&nbsp;
+<i><a href="mailto:patrstg@users.sourceforge.net">Patrice St-Gelais</a></i><br>
+<br>
+<a href="../../doc_index_fr.html"> <img
+ src="../../tut_fault/GeoMorph.jpg" alt=""
+ style="border: 2px solid ; width: 32px; height: 32px;" align="left"> </a><a
+ href="../../doc_index_fr.html">Retour &agrave; l'index de la
+documentation</a><br>
+<br>
+<div style="text-align: center;"><a href="http://sourceforge.net/"><img
+ src="http://sourceforge.net/sflogo.php?group_id=103254E&amp;type=3"
+ alt="SourceForge.net Logo" border="0" height="37" width="125"></a><br>
+</div>
+</body>
+</html>
