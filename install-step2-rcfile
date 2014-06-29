@@ -2,7 +2,8 @@
 
 # Installing a Geomorph user, part 2:  defaults for the options file
 
-VERSION=0.60
+VERSION=0.60.1
+DATADIR=/usr/local/share/geomorph/$VERSION
 
 GEORC=$HOME/geomorph/geomorphrc
 
@@ -15,7 +16,7 @@ echo "def_dir = $HOME/geomorph" >> $GEORC;
 echo "hf_dir = $HOME/geomorph" >> $GEORC;
 echo "pov_dir = $HOME/geomorph" >> $GEORC;
 echo "tmp_dir = $HOME/geomorph/tmp" >> $GEORC;
-echo "doc_dir = /usr/local/share/geomorph/doc/index.html " >> $GEORC;
+echo "doc_dir = $DATADIR/doc/index.html " >> $GEORC;
 
 # Look for a HTML reader 
 
@@ -83,8 +84,8 @@ echo "other_render_options = +P +D -F +L$HOME/geomorph" >> $GEORC;
 
 echo " " >> $GEORC;
 
-if type /usr/local/share/geomorph/$VERSION/v0_30_new_sections > /dev/null 2>&1 ; then 
-	/usr/local/share/geomorph/$VERSION/v0_30_new_sections >> $GEORC
+if type $DATADIR/v0_30_new_sections > /dev/null 2>&1 ; then 
+	$DATADIR/v0_30_new_sections >> $GEORC
 elif type ./v0_30_new_sections > /dev/null ; then
 	./v0_30_new_sections >> $GEORC
 fi

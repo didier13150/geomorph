@@ -6,18 +6,19 @@
 # otherwise Geomorph will try to execute the parts
 # automatically if the directory or the RC file are not found
 
-VERSION=0.60
+VERSION=0.60.1
+DATADIR=/usr/local/share/geomorph/$VERSION
 
 if [ -d $HOME/geomorph ]
 then
-	/usr/local/share/geomorph/$VERSION/install-step1-dir
+	$DATADIR/install-step1-dir
 	exit
 fi
 
-/usr/local/share/geomorph/$VERSION/install-step1-dir
-/usr/local/share/geomorph/$VERSION/install-step2-rcfile
-/usr/local/share/geomorph/$VERSION/install-step3-menu
-/usr/local/share/geomorph/$VERSION/install-step4-desktop
+$DATADIR/install-step1-dir
+$DATADIR/install-step2-rcfile
+$DATADIR/install-step3-menu
+$DATADIR/install-step4-desktop
 
 # Check Pov-Ray
 

@@ -2,8 +2,9 @@
 
 # Installing a Geomorph user, part 1:  the directory with default POV scenes
 
-VERSION=0.60
-SOURCE_DIR=/usr/local/share/geomorph/$VERSION/scenes
+VERSION=0.60.1
+DATADIR=/usr/local/share/geomorph/$VERSION
+SOURCE_DIR=$DATADIR/scenes
 CURDIR=`pwd`
 
 cd ${SOURCE_DIR}
@@ -66,7 +67,7 @@ else
 # Directory does not exist
 
 	mkdir -v $HOME/geomorph
-	cp -fv /usr/local/share/geomorph/$VERSION/scenes/* $HOME/geomorph
+	cp -fv $SOURCE_DIR/* $HOME/geomorph
 	
 	if [ -f $HOME/.povray/3.6/povray.ini ]
 	then
