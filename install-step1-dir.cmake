@@ -2,8 +2,8 @@
 
 # Installing a Geomorph user, part 1:  the directory with default POV scenes
 
-VERSION=0.60.1
-DATADIR=/usr/local/share/geomorph/$VERSION
+VERSION=@GEOMORPH_VERSION@
+DATADIR=@DATADIR@
 SOURCE_DIR=$DATADIR/scenes
 CURDIR=`pwd`
 

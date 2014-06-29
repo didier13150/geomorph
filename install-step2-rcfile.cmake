@@ -2,8 +2,8 @@
 
 # Installing a Geomorph user, part 2:  defaults for the options file
 
-VERSION=0.60.1
-DATADIR=/usr/local/share/geomorph/$VERSION
+VERSION=@GEOMORPH_VERSION@
+DATADIR=@DATADIR@
 
 GEORC=$HOME/geomorph/geomorphrc
 

@@ -52,6 +52,32 @@ configure_file(${GeoMorph_SOURCE_DIR}/config.h.cmake
 configure_file(${GeoMorph_SOURCE_DIR}/install-step1-dir.cmake
                ${GeoMorph_BINARY_DIR}/install-step1-dir
                @ONLY)
+               
+configure_file(${GeoMorph_SOURCE_DIR}/install-step2-rcfile.cmake
+               ${GeoMorph_BINARY_DIR}/install-step2-rcfile
+               @ONLY)
+               
+configure_file(${GeoMorph_SOURCE_DIR}/install-step3-menu.cmake
+               ${GeoMorph_BINARY_DIR}/install-step3-menu
+               @ONLY)
+               
+configure_file(${GeoMorph_SOURCE_DIR}/install-step4-desktop.cmake
+               ${GeoMorph_BINARY_DIR}/install-step4-desktop
+               @ONLY)
+               
+configure_file(${GeoMorph_SOURCE_DIR}/install-user.cmake
+               ${GeoMorph_BINARY_DIR}/install-user
+               @ONLY)
+               
+configure_file(${GeoMorph_SOURCE_DIR}/update-rc.cmake
+               ${GeoMorph_BINARY_DIR}/update-rc
+               @ONLY)
+               
+configure_file(${GeoMorph_SOURCE_DIR}/v0_30_new_sections.cmake
+               ${GeoMorph_BINARY_DIR}/v0_30_new_sections
+               @ONLY)
+               
+
 
 find_package(X11 REQUIRED)
 find_package(Gettext REQUIRED)

@@ -6,8 +6,8 @@
 # otherwise Geomorph will try to execute the parts
 # automatically if the directory or the RC file are not found
 
-VERSION=0.60.1
-DATADIR=/usr/local/share/geomorph/$VERSION
+VERSION=@GEOMORPH_VERSION@
+DATADIR=@DATADIR@
 
 if [ -d $HOME/geomorph ]
 then

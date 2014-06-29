@@ -1,6 +1,6 @@
 #! /bin/bash
 
-VERSION=0.60.1
+VERSION=@GEOMORPH_VERSION@
 
 # Update the geomorphrc file from v. 0.2x to v. 0.3x
 
