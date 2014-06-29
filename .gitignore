@@ -68,3 +68,4 @@ src/colmap/.deps/
 src/colmap/colmap
 config.rpath
 m4
+stamp-h1
