@@ -24,23 +24,12 @@
 #include <libintl.h>
 #include <stdlib.h>
 
+#include "config.h"
 #include "../utils/utils.h"
 #include "../utils/filesel.h"
 #include "../utils/config_rc_file.h"
 #include "../utils/config_dialog.h"
 #include "../utils/x_alloc.h"
-
-#ifndef VERSION
-	#define VERSION "0.60.1"
-#endif
-#ifndef VERSION_NAME
-	#define VERSION_NAME "geomorph-0.60.1"
-#endif
-
-// Subdir with scenes and option file, normally in $HOME
-// DEF_DIR_NAME must be without path
-#define DEF_DIR_NAME "geomorph"
-#define OPTION_FILE "geomorphrc"
 
 // Notice about directories
 //
