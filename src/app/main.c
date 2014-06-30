@@ -57,7 +57,7 @@ gchar *get_data_dir() {
 #ifdef GEOMORPHDATADIR
   return GEOMORPHDATADIR;
 #else
-  return "/usr/local/share/geomorph/" ## VERSION;
+  return "/usr/local/share/geomorph/"VERSION;
 #endif
 }
 
