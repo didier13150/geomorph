@@ -1,0 +1,128 @@
+set( GeoMorph_HF_SOURCES
+     camera.c
+     craters.c
+     dialog_utilities.c
+     draw.c
+     draw_crater_dialog.c
+     draw_dialog.c
+     draw_hf.c
+     draw_hf_dialog.c
+     draw_tools_dialog.c
+     erode.c
+     erode_dialog.c
+     fault.c
+     fault_dialog.c
+     fill.c
+     fill_dialog.c
+     geom_transform_dialog.c
+     gl_preview.c
+     hf.c
+     hf_calc.c
+     hf_creation_dialog.c
+     hf_dialog_options.c
+     hf_filters.c
+     hf_filters_dialog.c
+     hf_tools_dialog.c
+     hf_wrapper.c
+     img_process.c
+     img_process_dialog.c
+     line.c
+     line_dialog.c
+     merge.c
+     merge_dialog.c
+     render.c
+     subdiv1.c
+     subdiv1_dialog.c
+     subdiv2.c
+     subdiv2_dialog.c
+     surfadd.c
+     surfadd_dialog.c
+     swirl.c
+     swirl_dialog.c
+     uniform.c
+     uniform_dialog.c
+     view_area.c
+     voronoi.c
+     voronoi_dialog.c
+     waves.c
+     waves_dialog.c
+     wind.c
+     wind_dialog.c
+)
+
+set( GeoMorph_HF_HEADERS
+     camera.h
+     craters.h
+     dialog_utilities.h
+     draw_crater_dialog.h
+     draw_dialog.h
+     draw.h
+     draw_hf_dialog.h
+     draw_hf.h
+     draw_tools_dialog.h
+     erode_dialog.h
+     erode.h
+     fault_dialog.h
+     fault.h
+     fill_dialog.h
+     fill.h
+     geom_transform_dialog.h
+     globals.h
+     gl_preview.h
+     hf_calc.h
+     hf_creation_dialog.h
+     hf_dialog_options.h
+     hf_filters_dialog.h
+     hf_filters.h
+     hf.h
+     hf_tools_dialog.h
+     hf_wrapper.h
+     img_process_dialog.h
+     img_process.h
+     line_dialog.h
+     line.h
+     merge_dialog.h
+     merge.h
+     render.h
+     subdiv1.h
+     subdiv2.h
+     surfadd.h
+     swirl_dialog.h
+     swirl.h
+     uniform.h
+     view_area.h
+     voronoi_dialog.h
+     voronoi.h
+     waves_dialog.h
+     waves.h
+     wind_dialog.h
+     wind.h
+)
+
+set( GeoMorph_HF_MAPS
+     irregular.map
+     peak.map
+     standard.map
+)
+
+include_directories (${GeoMorph_SOURCE_DIR}
+                     ${GeoMorph_BINARY_DIR}
+                     ${GTK2_INCLUDE_DIRS}
+                     ${GTKGLEXT_INCLUDE_DIRS}
+)
+
+add_library (hf STATIC 
+             ${GeoMorph_HF_HEADERS}
+             ${GeoMorph_HF_SOURCES}
+             ${GeoMorph_HF_MAPS}
+)
+
+target_link_libraries( hf
+                       fourier
+                       utils
+                       ${MATH_LIB}
+                       ${GTK2_LIBRARIES}
+                       ${PC_GTKGLEXT_LIBRARIES}
+                       ${PNG_LIBRARIES}
+                       ${OPENGL_LIBRARIES}
+)

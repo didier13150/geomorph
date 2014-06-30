@@ -88,6 +88,7 @@ find_package(PNG REQUIRED)
 #find_package(JPEG REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(Threads REQUIRED)
+find_library(MATH_LIB NAMES m)
 
 include_directories(${CMAKE_BINARY_DIR})
 
