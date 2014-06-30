@@ -1,0 +1,16 @@
+
+#ifndef _CONFIG_H_
+#define _CONFIG_H_
+
+#define GEOMORPH_MAJOR @GEOMORPH_MAJOR@
+#define GEOMORPH_MINOR @GEOMORPH_MINOR@
+#define GEOMORPH_PATCH @GEOMORPH_PATCH@
+#define VERSION "@GEOMORPH_VERSION@"
+#define VERSION_NAME "geomorph-@GEOMORPH_VERSION@"
+
+#define GEOMORPHDATADIR "@DATADIR@"
+#define LOCALEDIR "@DATADIR@/locale"
+#define DEF_DIR_NAME "geomorph"
+#define OPTION_FILE "geomorphrc"
+
+#endif // _CONFIG_H_

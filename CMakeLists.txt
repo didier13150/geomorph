@@ -40,11 +40,25 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
   set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -Wl,-z,relro")
 endif()
 
-IF (NOT DATADIR)
-  SET(DATADIR ${CMAKE_INSTALL_PREFIX}/share/geomorph/${GEOMORPH_VERSION})
-ENDIF(NOT DATADIR)
-message(STATUS "Datadir: ${DATADIR}")
-SET(LOCALE_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/share/locale")
+if (NOT DATADIR)
+  set(DATADIR "${CMAKE_INSTALL_PREFIX}/share/geomorph/${GEOMORPH_VERSION}")
+endif(NOT DATADIR)
+message(STATUS "-- Data dir: ${DATADIR}")
+
+if (NOT LOCALEDIR)
+  set(LOCALEDIR "${CMAKE_INSTALL_PREFIX}/share/locale")
+endif(NOT LOCALEDIR)
+message(STATUS "-- Locale dir: ${LOCALEDIR}")
+
+if (NOT DESKTOPDIR)
+  set(DESKTOPDIR "${CMAKE_INSTALL_PREFIX}/share/geomorph")
+endif(NOT DESKTOPDIR)
+message(STATUS "-- Desktop dir: ${DESKTOPDIR}")
+
+if (NOT ICONSDIR)
+  set(ICONSDIR "${CMAKE_INSTALL_PREFIX}/share/geomorph")
+endif(NOT ICONSDIR)
+message(STATUS "-- Icons dir: ${ICONSDIR}")
 
 configure_file(${GeoMorph_SOURCE_DIR}/config.h.cmake
                ${GeoMorph_BINARY_DIR}/config.h)
@@ -77,6 +91,10 @@ configure_file(${GeoMorph_SOURCE_DIR}/v0_30_new_sections.cmake
                ${GeoMorph_BINARY_DIR}/v0_30_new_sections
                @ONLY)
                
+configure_file(${GeoMorph_SOURCE_DIR}/geomorph.desktop.cmake
+               ${GeoMorph_BINARY_DIR}/geomorph.desktop
+               @ONLY)
+               
 
 
 find_package(X11 REQUIRED)
@@ -104,3 +122,27 @@ add_subdirectory(po)
 if(PRINT_SUMMARY)
   feature_summary(WHAT ALL)
 endif()
+
+set( GeoMorph_DOCS     
+     ${GeoMorph_SOURCE_DIR}/AFAIRE
+     ${GeoMorph_SOURCE_DIR}/FAQ
+     ${GeoMorph_SOURCE_DIR}/FAQ-fr
+     ${GeoMorph_SOURCE_DIR}/LISEZMOI.md
+     ${GeoMorph_SOURCE_DIR}/README.md
+     ${GeoMorph_SOURCE_DIR}/TODO
+     ${GeoMorph_SOURCE_DIR}/geomorphrc_de
+     ${GeoMorph_SOURCE_DIR}/geomorphrc_en
+     ${GeoMorph_SOURCE_DIR}/geomorphrc_fr
+     ${GeoMorph_SOURCE_DIR}/splash.jpg     
+     ${GeoMorph_BINARY_DIR}/install-step1-dir
+     ${GeoMorph_BINARY_DIR}/install-step2-rcfile
+     ${GeoMorph_BINARY_DIR}/install-step3-menu
+     ${GeoMorph_BINARY_DIR}/install-step4-desktop
+     ${GeoMorph_BINARY_DIR}/install-user
+     ${GeoMorph_BINARY_DIR}/update-rc
+     ${GeoMorph_BINARY_DIR}/v0_30_new_sections
+)
+
+install(FILES ${GeoMorph_DOCS} DESTINATION ${DATADIR} )
+install(FILES ${GeoMorph_BINARY_DIR}/geomorph.desktop DESTINATION ${DESKTOPDIR} )
+install(FILES ${GeoMorph_SOURCE_DIR}/GeoMorph.xpm DESTINATION ${ICONSDIR} )
