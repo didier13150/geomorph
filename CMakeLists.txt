@@ -97,7 +97,7 @@ if(NOT (${CMAKE_VERSION} VERSION_LESS 2.8.3))
 endif()
 
 add_subdirectory(src)
-#add_subdirectory(scenes)
+add_subdirectory(scenes)
 add_subdirectory(po)
 
 if(PRINT_SUMMARY)
