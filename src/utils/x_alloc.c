@@ -20,7 +20,7 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <x_alloc.h>
+#include "x_alloc.h"
 
 static gboolean VERBOSE = FALSE;
 static gboolean VERY_VERBOSE = FALSE;
