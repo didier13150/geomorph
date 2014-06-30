@@ -67,7 +67,6 @@ set( GeoMorph_HF_HEADERS
      fill_dialog.h
      fill.h
      geom_transform_dialog.h
-     globals.h
      gl_preview.h
      hf_calc.h
      hf_creation_dialog.h

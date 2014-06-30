@@ -10,7 +10,6 @@ set( GeoMorph_APP_SOURCES
 set( GeoMorph_APP_HEADERS
      app.h
      doc.h
-     globals.h
      main.h
      stack.h
      thisappinit.h

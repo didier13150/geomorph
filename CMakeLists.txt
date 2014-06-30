@@ -60,8 +60,8 @@ if (NOT ICONSDIR)
 endif(NOT ICONSDIR)
 message(STATUS "Icons dir (ICONSDIR): ${ICONSDIR}")
 
-configure_file(${GeoMorph_SOURCE_DIR}/config.h.cmake
-               ${GeoMorph_BINARY_DIR}/config.h)
+configure_file(${GeoMorph_SOURCE_DIR}/globals.h.cmake
+               ${GeoMorph_BINARY_DIR}/globals.h)
 
 configure_file(${GeoMorph_SOURCE_DIR}/install-step1-dir.cmake
                ${GeoMorph_BINARY_DIR}/install-step1-dir
