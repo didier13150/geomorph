@@ -1,0 +1,104 @@
+Geomorph News
+=============
+
+2005-11-10 v. 0.31
+------------------
+* Change OpenGL wrapper library from Gtkglarea to Gtkglext, 
+* to solve a problem related to the 3D preview, not displayed with some setups and Nvidia cards
+* Known bugs corrected in the "fill bucket".
+* Added a direct_rendering option in geomorphrc.
+* Defautl height of the 2nd camera decreased from 0.2 to 0.1 (in geomorphrc).
+
+2005-10-31 v. 0.30
+------------------
+* See http://geomorph.sourceforge.net
+
+2004-10-30 v. 0.22
+------------------
+* Improvements to the fault pen:
+    * It has been modified to draw cracks, with a separation parameter
+    * It now accepts an auto-accept and refresh feature, allowing to draw rapidly superposing faults, cracks or fissures.
+    * It doesn't segfault anymore when the altitude difference is changed before drawing the first control line.
+    * The plane chosen when applying the altitude difference now works as intended
+    * Some unfrequent floating point exceptions have been corrected (but probably not all!)
+* Aliasing was not working in rotation. I forgot to uncomment the interpolate instruction, shame on me. It's now done.
+* An experimental German translation is now available
+* On creation of a new document, the default directory is now the one used for the last document read or saved during the same session. It's more intuitive.
+* A file name with 2 dots is now accepted when reading.
+
+
+2004-08-13 v. 0.21
+------------------
+* All messages keys have been translated to full-sentences English to show complete messages on systems where the locales are different than English or French, where the locales are not installed or where the Geomorph catalogs don't install correctly.
+* Gettext and automake functions (aclocal) have been reinitialized. This would increases the chances that the locales work on some distributions.
+* LDADD=-lGLU has been added in src/hf/Makefile.am to allow compiling on SuSE 9.1
+* 3 programs have been modified in src/hf so that they can compile on older versions of gcc (those provided with MDK 8.0 and Slackware 8.1). Older versions where more strict about the ordering of declarations and initializations.
+* Pause have been added in the Povray options.
+* Desktop shortcuts have been adjusted, so that the icon is now taken in /usr/local/share/geomorph instead of /usr/local/share/geomorph/$VERSION; installation scripts modified for this
+* "libgtkgl" is now statically linked in the binary package.
+
+2004-04-01 v. 0.20
+------------------
+* A continuous gaussian pen is now available. It features:
+    * Size and level controls
+    * A preview display
+    * A tip choice
+    * An effect choice (raise, dig, smooth)
+    * Quality vs speed controls
+* A fault pen is now available. It draws a fractal fault from a control line, driven by the mouse.
+* In the waves tool:
+    * aliasing is now controlled
+    * random vertical variation now works
+    * with more than 2 tabs, committing the change doesn't change the order in which each tab is applied
+    * refresh seed now works, as long as the random variation parameter is not null
+    * wave shapes were slightly improved
+* Context changes are now better controlled
+* In the height field pen, there is now a spacing control. This gives more regular strokes.
+* The height field pen "subdivision 2" is now recalculated at each dot, like subdivision 1
+* Rain erosion now works better with non-wrapping images.
+* When using the rotate tool with a non-tiling HF, values for outbound indexes are now set to 0, instead of wrapping (it gives black corners).
+* In drawing mode, mouse positions displayed are now scaled; pixel values are shown
+* The style of some icons have been standardized (e.g. the pen bar)
+* Undo now works, immediately after creation of a second document during the session
+* "desert.pov" now works as in the tutorial - the file distributed was broken
+* It should be possible, now, to install geomorph in another directory than /usr/local/share (thanks Warren), but the user installation must be done manually
+* Default directory is now correctly set after opening an existing document (could also have produced segmentation faults)
+* Segmentation faults corrected:
+    *  when undoing a document to its first state and applying a tool which displays a watch cursor.
+    * when smoothing a HF after undoing the first change in a session
+    * when reading PNG 16 bits RGB files, as produced by Cinepaint / Filmgimp
+    * when using the "craters" tool on the 1st document created
+    * when displaying the warning message after using the "crater" tool with a low slope threshold
+
+
+2003-11-15 v. 0.12
+------------------
+* A few tutorials are now offered.
+* Povray scenes included in the package are updated for the tutorials.
+* A lot of improvements are made to the OpenGL preview. Most of them should help speeding up the Povray scene design:
+    * An angle scale is added (a zoom).
+    * View parameters are now output as the main camera in predefined Povray scenes.
+    * The user can define 5 views (Povray cameras) for each document.
+    * The cameras are stored in the PNG height field file.
+    * The rotation angle values are adjusted, to make them consistent with Povray.
+    * The scale variation steps are made more convenient.
+    * The "translate" internal values are modified from "int" to "float" (a dumb mistake).
+* A "change directory" is added before Povray rendering, so that all files referenced in a scene can be found in the current scene directory
+* A "watch" cursor is now displayed when long processes are run.
+* The minimal width of horizontal scales (height of vertical ones) was increased from 50 to 75 pixels.
+* These segmentation faults are corrected:
+    * When giving a file name on the command line.
+    * When leaving with many documents open (unfrequent).
+
+2003-09-20 v. 0.11
+------------------
+* User install process now works.
+* Geomorph web page has improved a lot.
+* A few bugs have been corrected.
+
+2003-08-26 v. 0.10
+------------------
+* Program made available for somebody needing a code example
+* Install process not working
+
+
