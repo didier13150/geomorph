@@ -20,25 +20,26 @@ cmake_minimum_required(VERSION 2.6.4)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
+#option( WITH_GNU "Description" ON )
+
 include(CheckCCompilerFlag)
-#add_gcc_compiler_flags("-Wall -Wextra -Wundef -Wpointer-arith")
-#add_gcc_compiler_flags("-fno-common -fstack-protector --param=ssp-buffer-size=4")
-#add_gcc_compiler_flags("-Wall -Wextra -Wundef -Wpointer-arith -Wno-long-long")
-#add_gcc_compiler_flags("-Wformat=2 -Wmissing-format-attribute")
-#add_gcc_compiler_flags("-fvisibility=hidden")
-#add_gcc_compiler_cflags("-Wchar-subscripts -Wwrite-strings")
-set(CMAKE_C_FLAGS "-Wall -Wformat -Werror=format-security -Werror=implicit-function-declaration")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wundef -Wpointer-arith -Wno-long-long")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wformat=1 -Werror=implicit-function-declaration")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror=format-security -fvisibility=hidden")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wmissing-format-attribute -Wchar-subscripts")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --param=ssp-buffer-size=4")
+#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wextra -Wsign-compare -Wwrite-strings")
+#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fstack-protector -fno-common")
 
 if(CMAKE_COMPILER_IS_GNUCC)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_GNU_SOURCE -Wcast-align")
 endif()
 
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--no-add-needed -Wl,--as-needed -Wl,--no-undefined")
-  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-z,relro")
-  set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -Wl,--no-add-needed -Wl,--as-needed")
-  set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -Wl,-z,relro")
-endif()
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--no-add-needed -Wl,--as-needed -Wl,--no-undefined")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-z,relro")
+set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -Wl,--no-add-needed -Wl,--as-needed")
+set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -Wl,-z,relro")
+
 
 if (NOT DATADIR)
   set(DATADIR "${CMAKE_INSTALL_PREFIX}/share/geomorph/${GEOMORPH_VERSION}")
@@ -105,7 +106,7 @@ find_package(OpenGL REQUIRED)
 find_package(PNG REQUIRED)
 #find_package(JPEG REQUIRED)
 find_package(ZLIB REQUIRED)
-find_package(Threads REQUIRED)
+#find_package(Threads REQUIRED)
 find_library(MATH_LIB NAMES m)
 
 include_directories(${CMAKE_BINARY_DIR})
@@ -125,12 +126,10 @@ if(PRINT_SUMMARY)
 endif()
 
 set( GeoMorph_DOCS     
-     ${GeoMorph_SOURCE_DIR}/AFAIRE
-     ${GeoMorph_SOURCE_DIR}/FAQ
-     ${GeoMorph_SOURCE_DIR}/FAQ-fr
+     ${GeoMorph_SOURCE_DIR}/AFAIRE.md
      ${GeoMorph_SOURCE_DIR}/LISEZMOI.md
      ${GeoMorph_SOURCE_DIR}/README.md
-     ${GeoMorph_SOURCE_DIR}/TODO
+     ${GeoMorph_SOURCE_DIR}/TODO.md
      ${GeoMorph_SOURCE_DIR}/geomorphrc_de
      ${GeoMorph_SOURCE_DIR}/geomorphrc_en
      ${GeoMorph_SOURCE_DIR}/geomorphrc_fr
