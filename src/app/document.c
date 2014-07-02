@@ -402,14 +402,23 @@ gint doc_save_question (doc_wrapper *dw) {
 gint doc_close (GtkWidget *wdg, GdkEvent *event, gpointer callb_data) {
 
 	gint answer;
-	GList *node = 0;
+	GList *node;
 	doc_swap_struct *dsw;
+	
 	dsw = (doc_swap_struct *) callb_data;
-
+	if (dsw) {
+		node = dsw->doc_list;
+		if (!node) {
+			gtk_main_quit();
+			return FALSE;
+		}
+	}
+	else
+		return TRUE;
 	// We check if the window receiving the delete event is the window
 	// of the current document
 	// If not, we make the document related to the window the current one
-	if (wdg)
+	if (wdg) {
 		if (dsw->current_doc && (wdg!=dsw->current_doc->window)) {
 			// Search the related document
 			for (node = dsw->doc_list; node; node=node->next) {
@@ -419,6 +428,7 @@ gint doc_close (GtkWidget *wdg, GdkEvent *event, gpointer callb_data) {
 				}
 			}
 		}
+	}
 	answer = FALSE; // Quit without saving when not modified
 	if (!node) {
 		my_msg("Not able to find the document to close!\nClick on a document window to activate the related document",WARNING);
