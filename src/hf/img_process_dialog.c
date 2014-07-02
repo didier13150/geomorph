@@ -2686,7 +2686,7 @@ void calc_lift_edges (hf_wrapper_struct *hfw) {
 
 	gtk_widget_show(GTK_WIDGET(hfw->hf_options->img->lift_edges_level_dialog));
 	
-// printf("TEMPS DE REL�VEMENT DES BORDS: %d\n",clock() - t1);
+// printf("TEMPS DE RELEVEMENT DES BORDS: %d\n",clock() - t1);
 	begin_pending_record(hfw,"Lift edges", accept_fn, reset_fn);
 
 	unset_watch_cursor(hfw);

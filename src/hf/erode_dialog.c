@@ -425,7 +425,7 @@ void apply_rain_erosion (hf_wrapper_struct *hfw) {
 		hfw->hf_options->img->rain_erosion->drops / 1000,
 		hfw->hf_options->img->rain_erosion->threshold) ;
 */	
-// printf("TEMPS D'�ROSION PAR LA PLUIE: %d\n",clock() - t1);
+// printf("TEMPS D'EROSION PAR LA PLUIE: %d\n",clock() - t1);
 	begin_pending_record(hfw,"Water erosion",accept_fn,reset_fn);
 	gtk_widget_set_sensitive(GTK_WIDGET(hfw->hf_options->img->rain_erosion_dialog->accept),TRUE);
 	(*hfw->if_modified) = TRUE;
@@ -664,7 +664,7 @@ void apply_craters (hf_wrapper_struct *hfw) {
 		my_msg(buf, WARNING);
 	}
 
-// printf("TEMPS DE G�N�RATION DES CRAT�RES: %d\n",clock() - t1);
+// printf("TEMPS DE GENERATION DES CRATERES: %d\n",clock() - t1);
 	begin_pending_record(hfw,"Craters",accept_fn,reset_fn);
 	gtk_widget_set_sensitive(GTK_WIDGET(hfw->hf_options->img->craters_erosion_dialog->accept),TRUE);
 	(*hfw->if_modified) = TRUE;
@@ -930,7 +930,7 @@ void apply_crests (hf_wrapper_struct *hfw) {
 //	hf_relax_hex (hfw->hf_struct, hfw->hf_options->img->crests_steps,  hfw->hf_options->img->crests_threshold ) ;
 //	hf_directed_relax (hfw->hf_struct, hfw->hf_options->img->crests_steps,  hfw->hf_options->img->crests_threshold, EAST ) ;
 	
-// printf("TEMPS DE CONSTRUCTION DES CR�TES: %d\n",clock() - t1);
+// printf("TEMPS DE CONSTRUCTION DES CRETES: %d\n",clock() - t1);
 	begin_pending_record(hfw,"Crests",accept_fn,reset_fn);
 	gtk_widget_set_sensitive(GTK_WIDGET(hfw->hf_options->img->crests_dialog->accept),TRUE);
 	(*hfw->if_modified) = TRUE;
@@ -1009,7 +1009,7 @@ void apply_gravity (hf_wrapper_struct *hfw) {
 	memcpy (hfw->hf_struct->result_buf,hfw->hf_struct->hf_buf,
 		sizeof(hf_type)*hfw->hf_struct->max_x*hfw->hf_struct->max_y);
 		
-// printf("TEMPS D'�ROSION PAR GRAVIT�: %d\n",clock() - t1);
+// printf("TEMPS D'EROSION PAR GRAVITE: %d\n",clock() - t1);
 printf("HFW: %p\n",hfw);
 	set_merge_buffers (
 		hfw->hf_options->img->gravity_dialog->merge->content,
@@ -1098,7 +1098,7 @@ void apply_oriented_gravity (hf_wrapper_struct *hfw) {
 	memcpy (hfw->hf_struct->result_buf,hfw->hf_struct->hf_buf,
 		sizeof(hf_type)*hfw->hf_struct->max_x*hfw->hf_struct->max_y);
 
-// printf("TEMPS D'�ROSION PAR GRAVIT�: %d\n",clock() - t1);
+// printf("TEMPS D'EROSION PAR GRAVITE: %d\n",clock() - t1);
 	begin_pending_record(hfw,"Oriented gravity",accept_fn,reset_fn);
 	gtk_widget_set_sensitive(GTK_WIDGET(hfw->hf_options->img->oriented_gravity_dialog->accept),TRUE);
 	(*hfw->if_modified) = TRUE;
