@@ -20,7 +20,7 @@ cmake_minimum_required(VERSION 2.6.4)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-#option( WITH_GNU "Description" ON )
+#option( WITH_HARDENED_FLAGS "Build project with hardened flags" OFF )
 
 include(CheckCCompilerFlag)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wundef -Wpointer-arith -Wno-long-long")
@@ -28,8 +28,10 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wformat=1 -Werror=implicit-function-declara
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Werror=format-security -fvisibility=hidden")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wmissing-format-attribute -Wchar-subscripts")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --param=ssp-buffer-size=4")
-#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wextra -Wsign-compare -Wwrite-strings")
-#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fstack-protector -fno-common")
+if(WITH_HARDENED_FLAGS)
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wextra -Wsign-compare -Wwrite-strings")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fstack-protector -fno-common")
+endif(WITH_HARDENED_FLAGS)
 
 if(CMAKE_COMPILER_IS_GNUCC)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_GNU_SOURCE -Wcast-align")
@@ -104,10 +106,10 @@ find_package(GTK2 2.6 REQUIRED gtk)
 find_package(GTKGLext REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(PNG REQUIRED)
-#find_package(JPEG REQUIRED)
 find_package(ZLIB REQUIRED)
-#find_package(Threads REQUIRED)
 find_library(MATH_LIB NAMES m)
+find_package(JPEG QUIET)
+find_package(Threads QUIET)
 
 include_directories(${CMAKE_BINARY_DIR})
 
